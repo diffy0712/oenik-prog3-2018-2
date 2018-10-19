@@ -1,23 +1,26 @@
 ﻿// <summary>
-// Program
+// GTD(getting things done) Application
 // </summary>
 // <copyright file="Program.cs" company="OENIK_PROG3_2018_2_EP7D0O">
 // Copyright © OENIK_PROG3_2018_2_EP7D0O All rights reserved.
 // </copyright>
 
-namespace GTDApp
+namespace OENIK_PROG3_2018_2_EP7D0O
 {
+    using System;
+
     /// <summary>
-    ///     My Main program
+    ///     Entry Point
     /// </summary>
     public class Program
     {
         /// <summary>
-        ///     My Main program
+        ///     Main Program entry point
         /// </summary>
-        /// <param name="args">Arguments array of strings</param>
-        public static void Main(string[] args)
+        public static void Main()
         {
+            Console.WriteLine("ok");
+            Console.ReadKey();
         }
     }
 }
