@@ -12,7 +12,7 @@ namespace OENIK_PROG3_2018_2_EP7D0O
     /// <summary>
     ///     Entry Point
     /// </summary>
-    public class Program
+    public static class Program
     {
         /// <summary>
         ///     Main Program entry point

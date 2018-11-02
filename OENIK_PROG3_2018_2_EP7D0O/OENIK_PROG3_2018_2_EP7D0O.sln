@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2046
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GTDApp.Program", "GTDApp\GTDApp.Program.csproj", "{F8A85677-CC20-4543-85AD-7A0213A89CAC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GtdApp.Program", "GTDApp\GtdApp.Program.csproj", "{F8A85677-CC20-4543-85AD-7A0213A89CAC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F0A7E69B-BF8D-45F0-81D1-D1F96A62EAD8}"
 	ProjectSection(SolutionItems) = preProject
@@ -11,15 +11,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		stylecop.json = stylecop.json
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GTDApp.Login", "GTDApp.Login\GTDApp.Login.csproj", "{02EEA9AD-813F-4AF8-93B4-C61CA417E8DF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GtdApp.Logic", "GTDApp.Login\GtdApp.Logic.csproj", "{02EEA9AD-813F-4AF8-93B4-C61CA417E8DF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GTDApp.Logic.Tests", "GTDApp.Logic.Tests\GTDApp.Logic.Tests.csproj", "{CB4C5559-E206-4858-960F-292AF1BE1881}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GtdApp.Logic.Tests", "GTDApp.Logic.Tests\GtdApp.Logic.Tests.csproj", "{CB4C5559-E206-4858-960F-292AF1BE1881}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GTDApp.Repository", "GTDApp.Repository\GTDApp.Repository.csproj", "{7482D9E8-9013-4804-B967-1EBDDA255450}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GtdApp.Repository", "GTDApp.Repository\GtdApp.Repository.csproj", "{7482D9E8-9013-4804-B967-1EBDDA255450}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GTDApp.Repository.Tests", "GTDApp.Repository.Tests\GTDApp.Repository.Tests.csproj", "{BCBC2E85-08CC-4D5F-87A3-A13A2EF1C081}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GtdApp.Repository.Tests", "GTDApp.Repository.Tests\GtdApp.Repository.Tests.csproj", "{BCBC2E85-08CC-4D5F-87A3-A13A2EF1C081}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GTDApp.Data", "GTDApp.Data\GTDApp.Data.csproj", "{EDCB7DCA-E17F-4829-8884-8C5D11A2E364}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GtdApp.Data", "GTDApp.Data\GtdApp.Data.csproj", "{EDCB7DCA-E17F-4829-8884-8C5D11A2E364}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
