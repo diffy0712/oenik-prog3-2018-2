@@ -21,7 +21,7 @@ namespace GTDApp.Console.Views
         /// </summary>
         /// <param name="top">Top level element</param>
         /// <returns>MenuBar</returns>
-        public MenuBar Render(Toplevel top, Router router)
+        public MenuBar Render(Toplevel top)
         {
             DashboardController dashboardController = new DashboardController();
             ReviewController reviewController = new ReviewController();
@@ -46,7 +46,7 @@ namespace GTDApp.Console.Views
                 for (int k = 1; k < menu[i].Length; k++)
                 {
                     string routeName = menu[i][k].ToString();
-                    menuItemChildren[k - 1] = new MenuItem(routeName, string.Empty, () => { router.Call(top, routeName); });
+                    menuItemChildren[k - 1] = new MenuItem(routeName, string.Empty, () => { Router.Call(routeName); });
                 }
 
                 MenuBarItem menuBarItem = new MenuBarItem(menu[i][0], menuItemChildren);

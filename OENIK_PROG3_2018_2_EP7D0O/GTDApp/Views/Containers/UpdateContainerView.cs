@@ -17,14 +17,13 @@ namespace GTDApp.Console.Views.Containers
         /// <summary>
         ///     Editor
         /// </summary>
-        /// <param name="top">Top level</param>
-        public Window Render()
+        public void Render()
         {
-            //var tframe = top.Frame;
-            //var ntop = new Toplevel(tframe);
-            //MainMenuBar mainMenuBar = new MainMenuBar();
+            MainMenuBar mainMenuBar = new MainMenuBar();
+            var tframe = Application.Top.Frame;
+            var ntop = new Toplevel(tframe);
 
-            //ntop.Add(mainMenuBar.Render(ntop));
+            ntop.Add(mainMenuBar.Render(ntop));
 
             var win = new Window("Update Container")
             {
@@ -34,11 +33,9 @@ namespace GTDApp.Console.Views.Containers
                 Height = Dim.Fill()
             };
 
-            return win;
+            ntop.Add(win);
 
-            //ntop.Add(win);
-
-            //Application.Run(ntop);
+            Application.Run(ntop);
         }
     }
 }

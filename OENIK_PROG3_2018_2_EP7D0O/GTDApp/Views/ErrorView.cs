@@ -19,9 +19,14 @@ namespace GTDApp.Console.Views
         /// <summary>
         ///     render the view
         /// </summary>
-        /// <returns>Window</returns>
-        public Window Render()
+        public void Render()
         {
+            MainMenuBar mainMenuBar = new MainMenuBar();
+            var tframe = Application.Top.Frame;
+            var ntop = new Toplevel(tframe);
+
+            ntop.Add(mainMenuBar.Render(ntop));
+
             ColorScheme colorScheme = new ColorScheme();
             var win = new Window("Error Container")
             {
@@ -37,7 +42,9 @@ namespace GTDApp.Console.Views
                 message
             );
 
-            return win;
+            ntop.Add(win);
+
+            Application.Run(ntop);
         }
     }
 }

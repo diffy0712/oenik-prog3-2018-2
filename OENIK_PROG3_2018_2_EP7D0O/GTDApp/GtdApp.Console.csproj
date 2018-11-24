@@ -54,8 +54,11 @@
     <CodeAnalysisRuleSet />
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Colorful.Console, Version=1.2.9.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Colorful.Console.1.2.9\lib\net461\Colorful.Console.dll</HintPath>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Extensions.Configuration, Version=1.0.2.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Extensions.Configuration.1.0.2\lib\netstandard1.1\Microsoft.Extensions.Configuration.dll</HintPath>
@@ -86,6 +89,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime" />
@@ -131,8 +135,10 @@
     <Compile Include="Views\DashboardView.cs" />
     <Compile Include="Views\ErrorView.cs" />
     <Compile Include="Views\Helpers\Box10Helper.cs" />
+    <Compile Include="Views\Helpers\CommonHelper.cs" />
     <Compile Include="Views\Helpers\FillerHelper.cs" />
     <Compile Include="Views\Helpers\QuitHelper.cs" />
+    <Compile Include="Views\Helpers\TableHelper.cs" />
     <Compile Include="Views\IView.cs" />
     <Compile Include="Views\MenuBars\MainMenuBar.cs" />
     <Compile Include="Views\ReviewView.cs" />
@@ -163,6 +169,16 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GTDApp.Data\GtdApp.Data.csproj">
+      <Project>{EDCB7DCA-E17F-4829-8884-8C5D11A2E364}</Project>
+      <Name>GtdApp.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GTDApp.Repository\GtdApp.Repository.csproj">
+      <Project>{7482D9E8-9013-4804-B967-1EBDDA255450}</Project>
+      <Name>GtdApp.Repository</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

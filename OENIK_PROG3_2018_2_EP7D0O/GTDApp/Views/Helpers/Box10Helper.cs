@@ -32,7 +32,7 @@ namespace GTDApp.Console.Views.Helpers
         /// <param name="region">Rect instance</param>
         public override void Redraw(Rect region)
         {
-            Driver.SetAttribute(ColorScheme.Focus);
+            //Driver.SetAttribute(ColorScheme.Focus);
 
             for (int y = 0; y < 10; y++)
             {

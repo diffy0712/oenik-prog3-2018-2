@@ -20,13 +20,11 @@ namespace GTDApp.Console.Controllers
         /// <summary>
         ///     Index containers
         /// </summary>
-        /// <param name="top">Top Level</param>
-        /// <returns>Window</returns>
         [Route("review")]
-        public Window Index()
+        public void Index()
         {
             ReviewView reviewView = new ReviewView();
-            return reviewView.Render();
+            reviewView.Render();
         }
     }
 }

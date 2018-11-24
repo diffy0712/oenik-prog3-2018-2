@@ -7,9 +7,12 @@
 
 namespace GTDApp.Console.Controllers
 {
+    using System.Linq;
     using GTDApp.Console.Attributes;
     using GTDApp.Console.Views;
     using GTDApp.Console.Views.Containers;
+    using GTDApp.Data;
+    using GTDApp.Repository;
     using Terminal.Gui;
 
     /// <summary>
@@ -21,12 +24,16 @@ namespace GTDApp.Console.Controllers
         /// <summary>
         ///     List containers
         /// </summary>
-        /// <param name="top">Top Level</param>
         [Route("list_containers")]
-        public Window List()
+        public void List()
         {
-            ListContainersView listContainersView = new ListContainersView();
-            return listContainersView.Render();
+            GtdEntityDataModel context = new GtdEntityDataModel();
+            ContainerRepository containerRepository = new ContainerRepository(context);
+            Paginator paginator = new Paginator();
+            var containers = containerRepository.GetAll(paginator);
+
+            ListContainersView listContainersView = new ListContainersView(containers);
+            listContainersView.Render();
         }
 
         /// <summary>
@@ -34,10 +41,10 @@ namespace GTDApp.Console.Controllers
         /// </summary>
         /// <param name="top">Top Level</param>
         [Route("create_container")]
-        public Window Create()
+        public void Create()
         {
             CreateContainerView createContainersView = new CreateContainerView();
-            return createContainersView.Render();
+            createContainersView.Render();
         }
 
         /// <summary>
@@ -45,10 +52,10 @@ namespace GTDApp.Console.Controllers
         /// </summary>
         /// <param name="top">Top Level</param>
         [Route("update_container")]
-        public Window Update()
+        public void Update()
         {
             UpdateContainerView updateContainersView = new UpdateContainerView();
-            return updateContainersView.Render();
+            updateContainersView.Render();
         }
 
         /// <summary>

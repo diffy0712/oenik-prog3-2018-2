@@ -17,7 +17,6 @@ namespace GTDApp.Console.Views
         /// <summary>
         ///     Render
         /// </summary>
-        /// <returns>Window</returns>
-        Window Render();
+        void Render();
     }
 }

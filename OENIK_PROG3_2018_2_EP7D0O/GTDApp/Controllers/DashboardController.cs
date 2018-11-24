@@ -20,14 +20,13 @@ namespace GTDApp.Console.Controllers
         /// <summary>
         ///     DashboardController
         /// </summary>
-        /// <returns>Window</returns>
         [Default]
         [Route("dashboard")]
-        public Window Index()
+        public void Index()
         {
             DashboardView view = new DashboardView();
 
-            return view.Render();
+            view.Render();
         }
     }
 }

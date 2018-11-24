@@ -20,45 +20,34 @@ namespace GTDApp.Console
     /// <summary>
     ///     Router
     /// </summary>
-    public class Router
+    public static class Router
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Router"/> class.
         ///     Router
         /// </summary>
-        /// <returns>bool</returns>
-        public Router()
+        public static void Init()
         {
-            this.Controllers = new List<IController>();
-            this.LoadDLL();
+            Controllers = new List<IController>();
+            LoadDLL();
         }
 
         /// <summary>
         ///     Call Controller
         /// </summary>
         /// <param name="top">Toplevel element</param>
-        public void Call(Toplevel top)
+        public static void Call()
         {
-            this.Call(top, null);
+            Call(null);
         }
 
         /// <summary>
         ///     Call Controller
         /// </summary>
-        /// <param name="top">Toplevel element</param>
         /// <param name="controllerName">ControllerName</param>
-        public void Call(Toplevel top, string controllerName = null)
+        public static void Call(string controllerName = null)
         {
-            MainMenuBar mainMenuBar = new MainMenuBar();
-
-            Window win = null;
-
-            var tframe = top.Frame;
-            var ntop = new Toplevel(tframe);
-
-            ntop.Add(mainMenuBar.Render(ntop, this));
-
-            foreach (IController controller in this.Controllers)
+            foreach (IController controller in Controllers)
             {
                 var methods = controller.GetType().GetMethods();
                 foreach (MethodInfo methodInfo in methods)
@@ -68,8 +57,8 @@ namespace GTDApp.Console
                     {
                         if (controllerName is null && customAttribute is DefaultAttribute)
                         {
-                            win = methodInfo.Invoke(controller, null) as Window;
-                            continue;
+                            methodInfo.Invoke(controller, null);
+                            return;
                         }
 
                         if (customAttribute is RouteAttribute)
@@ -78,35 +67,28 @@ namespace GTDApp.Console
 
                             if (routeAttribute.Name == controllerName)
                             {
-                                win = methodInfo.Invoke(controller, null) as Window;
-                                continue;
+                                methodInfo.Invoke(controller, null);
+                                return;
                             }
                         }
                     }
                 }
             }
 
-            if (win == null)
-            {
-                ErrorController controller = new ErrorController();
-                win = controller.Fatal($"No controller ({controllerName}) found!");
-            }
-
-            ntop.Add(win);
-
-            Application.Run(ntop);
+            ErrorController errorController = new ErrorController();
+            errorController.Fatal($"No controller ({controllerName}) found!");
         }
 
         /// <summary>
         ///     Controllers
         /// </summary>
         /// <returns>List</returns>
-        private List<IController> Controllers;
+        private static List<IController> Controllers;
 
         /// <summary>
         ///     Router
         /// </summary>
-        private void LoadDLL()
+        private static void LoadDLL()
         {
             string nspace = "GTDApp.Console.Controllers";
 
@@ -118,7 +100,7 @@ namespace GTDApp.Console
                 if (aktType.GetInterface(nameof(IController)) != null)
                 {
                     object instance = Activator.CreateInstance(aktType);
-                    this.Controllers.Add(instance as IController);
+                    Controllers.Add(instance as IController);
                 }
             }
         }

@@ -20,14 +20,14 @@ namespace GTDApp.Console.Controllers
         /// <summary>
         ///     DashboardController
         /// </summary>
-        /// <returns>Window</returns>
+        /// <param name="message">Message</param>
         [Route("fatal_error")]
-        public Window Fatal(string message)
+        public void Fatal(string message)
         {
             ErrorView view = new ErrorView();
 
             view.Message = message;
-            return view.Render();
+            view.Render();
         }
     }
 }

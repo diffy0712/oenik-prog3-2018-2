@@ -17,8 +17,14 @@ namespace GTDApp.Console.Views
         /// <summary>
         ///     render the view
         /// </summary>
-        public Window Render()
+        public void Render()
         {
+            MainMenuBar mainMenuBar = new MainMenuBar();
+            var tframe = Application.Top.Frame;
+            var ntop = new Toplevel(tframe);
+
+            ntop.Add(mainMenuBar.Render(ntop));
+
             var win = new Window("Review Container")
             {
                 X = 0,
@@ -26,7 +32,10 @@ namespace GTDApp.Console.Views
                 Width = Dim.Fill(),
                 Height = Dim.Fill()
             };
-            return win;
+
+            ntop.Add(win);
+
+            Application.Run(ntop);
         }
     }
 }

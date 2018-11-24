@@ -7,6 +7,9 @@
 
 namespace GTDApp.Console
 {
+    using System;
+    using GTDApp.Data;
+    using GTDApp.Repository;
     using Terminal.Gui;
 
     /// <summary>
@@ -19,9 +22,9 @@ namespace GTDApp.Console
         /// </summary>
         public static void Main()
         {
-            Router router = new Router();
+            Router.Init();
             Application.Init();
-            router.Call(Application.Top);
+            Router.Call();
         }
     }
 }

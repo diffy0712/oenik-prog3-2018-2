@@ -17,9 +17,14 @@ namespace GTDApp.Console.Views
         /// <summary>
         ///     render the view
         /// </summary>
-        /// <returns>Window</returns>
-        public Window Render()
+        public void Render()
         {
+            MainMenuBar mainMenuBar = new MainMenuBar();
+            var tframe = Application.Top.Frame;
+            var ntop = new Toplevel(tframe);
+
+            ntop.Add(mainMenuBar.Render(ntop));
+
             var win = new Window("Dashboard")
             {
                 X = 0,
@@ -34,7 +39,9 @@ namespace GTDApp.Console.Views
                 name
             );
 
-            return win;
+            ntop.Add(win);
+
+            Application.Run(ntop);
         }
     }
 }
