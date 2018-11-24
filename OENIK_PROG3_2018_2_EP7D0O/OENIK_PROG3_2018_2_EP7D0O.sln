@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2046
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GtdApp.Program", "GTDApp\GtdApp.Program.csproj", "{F8A85677-CC20-4543-85AD-7A0213A89CAC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GtdApp.Console", "GTDApp\GtdApp.Console.csproj", "{F8A85677-CC20-4543-85AD-7A0213A89CAC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F0A7E69B-BF8D-45F0-81D1-D1F96A62EAD8}"
 	ProjectSection(SolutionItems) = preProject
@@ -20,6 +20,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GtdApp.Repository.Tests", "GTDApp.Repository.Tests\GtdApp.Repository.Tests.csproj", "{BCBC2E85-08CC-4D5F-87A3-A13A2EF1C081}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GtdApp.Data", "GTDApp.Data\GtdApp.Data.csproj", "{EDCB7DCA-E17F-4829-8884-8C5D11A2E364}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{45492680-F26E-404A-AC00-55278E565E48}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{94467F3C-18B7-4CF7-A76C-3CE20461E52F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{04BD7841-B16C-48F4-AA06-D0ABA96910C7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -54,6 +60,14 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F8A85677-CC20-4543-85AD-7A0213A89CAC} = {94467F3C-18B7-4CF7-A76C-3CE20461E52F}
+		{02EEA9AD-813F-4AF8-93B4-C61CA417E8DF} = {04BD7841-B16C-48F4-AA06-D0ABA96910C7}
+		{CB4C5559-E206-4858-960F-292AF1BE1881} = {04BD7841-B16C-48F4-AA06-D0ABA96910C7}
+		{7482D9E8-9013-4804-B967-1EBDDA255450} = {45492680-F26E-404A-AC00-55278E565E48}
+		{BCBC2E85-08CC-4D5F-87A3-A13A2EF1C081} = {45492680-F26E-404A-AC00-55278E565E48}
+		{EDCB7DCA-E17F-4829-8884-8C5D11A2E364} = {45492680-F26E-404A-AC00-55278E565E48}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2C8AC2B0-2CEF-4ECD-A509-F66885A1EECA}
