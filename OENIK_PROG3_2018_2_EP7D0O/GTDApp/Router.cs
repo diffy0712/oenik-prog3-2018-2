@@ -14,6 +14,7 @@ namespace GTDApp.Console
     using GTDApp.Console.Attributes;
     using GTDApp.Console.Controllers;
     using GTDApp.Console.Views;
+    using GTDApp.Repository;
     using Terminal.Gui;
     using Attribute = System.Attribute;
 
@@ -45,7 +46,7 @@ namespace GTDApp.Console
         ///     Call Controller
         /// </summary>
         /// <param name="controllerName">ControllerName</param>
-        public static void Call(string controllerName = null)
+        public static void Call(string controllerName = null, object[] obj = null)
         {
             foreach (IController controller in Controllers)
             {
@@ -57,7 +58,7 @@ namespace GTDApp.Console
                     {
                         if (controllerName is null && customAttribute is DefaultAttribute)
                         {
-                            methodInfo.Invoke(controller, null);
+                            Invoke(methodInfo, controller, obj);
                             return;
                         }
 
@@ -67,7 +68,7 @@ namespace GTDApp.Console
 
                             if (routeAttribute.Name == controllerName)
                             {
-                                methodInfo.Invoke(controller, null);
+                                Invoke(methodInfo, controller, obj);
                                 return;
                             }
                         }
@@ -77,6 +78,20 @@ namespace GTDApp.Console
 
             ErrorController errorController = new ErrorController();
             errorController.Fatal($"No controller ({controllerName}) found!");
+        }
+
+        public static void Invoke(MethodInfo methodInfo, IController controller, object[] obj)
+        {
+            if (obj is null && methodInfo.GetParameters().Length > 0)
+            {
+                obj = new object[methodInfo.GetParameters().Length];
+                for (int i = 0; i < obj.Length; i++)
+                {
+                    obj[i] = null;
+                }
+            }
+
+            methodInfo.Invoke(controller, obj);
         }
 
         /// <summary>

@@ -8,8 +8,8 @@
 
 namespace GTDApp.Repository
 {
+    using System;
     using System.Linq;
-    using System.Collections;
 
     /// <summary>
     ///     ContainerController
@@ -18,5 +18,36 @@ namespace GTDApp.Repository
     {
         public int CurrentPage = 1;
         public int PerPage = 5;
+        public int Skip { get => (CurrentPage - 1) * PerPage; }
+        public int Maximum = 0;
+        private int maximumPage;
+
+        public int MaximumPage { get => (int)Math.Ceiling((double)Maximum / PerPage); }
+       
+        public void Next()
+        {
+            if( IsNext())
+            {
+                CurrentPage++;
+            }
+        }
+
+        public void Prev()
+        {
+            if (IsPrev())
+            {
+                CurrentPage--;
+            }
+        }
+
+        public bool IsPrev()
+        {
+            return (CurrentPage > 1);
+        }
+
+        public bool IsNext()
+        {
+            return (MaximumPage > CurrentPage);
+        }
     }
 }

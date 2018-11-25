@@ -30,14 +30,9 @@ namespace GTDApp.Repository
             return Context.Set<TEntity>().Find(id);
         }
 
-        public IEnumerable<TEntity> GetAll(Paginator paginator = null)
+        public IEnumerable<TEntity> GetAll()
         {
-            var context = Context.Set<TEntity>();
-            if( paginator != null) {
-                return context.OrderBy("container_id").Skip(paginator.CurrentPage).Take(paginator.PerPage).ToList();
-            }
-
-            return context.ToList();
+            return Context.Set<TEntity>().ToList();
         }
 
         public IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate)

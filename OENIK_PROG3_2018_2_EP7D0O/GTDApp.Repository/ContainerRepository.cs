@@ -18,6 +18,24 @@ namespace GTDApp.Repository
         {
         }
 
+        public IEnumerable<Container> SearchAll(string search, Paginator paginator)
+        {
+            var g = GtdEntityDataModel.Container.OrderBy(x => x.container_id).Where(p => p.name.Contains(search));
+
+            paginator.Maximum = g.Count();
+
+            return g.Skip(paginator.Skip).Take(paginator.PerPage).ToList();
+        }
+
+        public IEnumerable<Container> GetAll(Paginator paginator)
+        {
+            var g = GtdEntityDataModel.Container.OrderBy(x => x.container_id);
+
+            paginator.Maximum = g.Count();
+
+            return g.Skip(paginator.Skip).Take(paginator.PerPage).ToList();
+        }
+
         public IEnumerable<Container> GetTopSellingCourses(int count)
         {
             return GtdEntityDataModel.Container.OrderByDescending(c => c.container_id).Take(count).ToList();

@@ -7,6 +7,7 @@
 
 namespace GTDApp.Console.Views
 {
+    using GTDApp.Console.Controllers;
     using GTDApp.Console.Views.Helpers;
     using GTDApp.Data;
     using GTDApp.Repository;
@@ -21,9 +22,15 @@ namespace GTDApp.Console.Views
     {
         IEnumerable<Container> Containers;
 
-        public ListContainersView(IEnumerable<Container> containers)
+        Paginator Paginator;
+
+        string Search;
+
+        public ListContainersView(IEnumerable<Container> containers, Paginator paginator, string search)
         {
             this.Containers = containers;
+            this.Paginator = paginator;
+            this.Search = search;
         }
 
         /// <summary>
@@ -74,16 +81,61 @@ namespace GTDApp.Console.Views
             };
 
             List<List<View>> rows = this.GetRows();
-            TableHelper tableHelper = new TableHelper(2,1, headers, rows);
+            TableHelper tableHelper = new TableHelper(2,2, headers, rows);
             foreach (View view in tableHelper.Render())
             {
                 win.Add(view);
             }
 
-            Button addNew = new Button(96, 0, "Add new Container");
+            // Add Search
+            Button addNew = new Button(96, 1, "Add new Container");
             Action addNewEvent = new Action(() => { Router.Call("create_container"); });
             addNew.Clicked = addNewEvent;
             win.Add(addNew);
+
+            var search = new Label("search for: ")
+            {
+                X = 2,
+                Y = 1,
+                Width = 10
+            };
+            var searchText = new TextField(string.Empty)
+            {
+                X = Pos.Right(search) + 1,
+                Y = Pos.Top(search),
+                Width = 30
+            };
+            searchText.Text = Search;
+            Button searchButton = new Button("Run Search...")
+            {
+                X = Pos.Right(searchText) + 1,
+                Y = Pos.Top(searchText)
+            };
+
+            Action searchButtonEvent = new Action(() => {
+                object[] searchParameters = new object[2];
+                searchParameters[0] = searchText.Text.ToString();
+                searchParameters[1] = Paginator;
+                Router.Call("list_containers", searchParameters);
+            });
+            searchButton.Clicked = searchButtonEvent;
+
+            win.Add(search, searchText, searchButton);
+
+            // Add paginator
+
+            PaginatorHelper paginatorHelper = new PaginatorHelper(tableHelper.X, tableHelper.CurrentY, this.Paginator);
+
+            Action paginatorAction = new Action(() => {
+                object[] parameters = new object[2];
+                parameters[0] = searchText.Text.ToString();
+                parameters[1] = Paginator;
+                Router.Call("list_containers", parameters);
+            });
+            foreach (View view in paginatorHelper.Render(paginatorAction))
+            {
+                win.Add(view);
+            }
 
             ntop.Add(win);
 

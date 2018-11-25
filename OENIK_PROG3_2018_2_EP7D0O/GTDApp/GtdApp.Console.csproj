@@ -137,6 +137,7 @@
     <Compile Include="Views\Helpers\Box10Helper.cs" />
     <Compile Include="Views\Helpers\CommonHelper.cs" />
     <Compile Include="Views\Helpers\FillerHelper.cs" />
+    <Compile Include="Views\Helpers\PaginatorHelper.cs" />
     <Compile Include="Views\Helpers\QuitHelper.cs" />
     <Compile Include="Views\Helpers\TableHelper.cs" />
     <Compile Include="Views\IView.cs" />

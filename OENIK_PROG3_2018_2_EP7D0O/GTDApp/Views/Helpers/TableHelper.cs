@@ -22,22 +22,22 @@ namespace GTDApp.Console.Views.Helpers
         /// <summary>
         ///     X
         /// </summary>
-        private int X;
+        public int X;
 
         /// <summary>
         ///     X
         /// </summary>
-        private int CurrentX;
+        public int CurrentX;
 
         /// <summary>
         ///     Y
         /// </summary>
-        private int Y = 0;
+        public int Y;
 
         /// <summary>
         ///     X
         /// </summary>
-        private int CurrentY;
+        public int CurrentY;
 
         /// <summary>
         ///     MaximumWidth
@@ -62,7 +62,7 @@ namespace GTDApp.Console.Views.Helpers
         public TableHelper(int x, int y, List<Dictionary<string, string>> headers, List<List<View>> rows)
         {
             this.X = x;
-            this.Y = y;
+            this.Y = y++;
             this.CurrentX = x;
             this.CurrentY = y;
             this.Headers = headers;
@@ -116,7 +116,7 @@ namespace GTDApp.Console.Views.Helpers
             this.MaximumWidth = this.CurrentX;
 
             this.CurrentY++;
-            this.AddDivider();
+            this.CurrentY++;
         }
 
         private void ResetX()
@@ -129,11 +129,6 @@ namespace GTDApp.Console.Views.Helpers
             this.ViewContainer.Add(view);
             this.CurrentX += width;
         }
-
-        private void AddDivider()
-        {
-            ViewContainer.Add(CommonHelper.GetHr(new Rect(this.X, this.CurrentY, this.MaximumWidth, 1)));
-            this.CurrentY++;
-        }
+       
     }
 }

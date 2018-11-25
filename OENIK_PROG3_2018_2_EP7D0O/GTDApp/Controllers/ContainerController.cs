@@ -25,14 +25,21 @@ namespace GTDApp.Console.Controllers
         ///     List containers
         /// </summary>
         [Route("list_containers")]
-        public void List()
+        public void List(string search = null, Paginator paginator = null)
         {
             GtdEntityDataModel context = new GtdEntityDataModel();
             ContainerRepository containerRepository = new ContainerRepository(context);
-            Paginator paginator = new Paginator();
-            var containers = containerRepository.GetAll(paginator);
+            if (paginator is null)
+            {
+                paginator = new Paginator();
+            }
+            if( search is null)
+            {
+                search = "";
+            }
+            var containers = containerRepository.SearchAll(search, paginator);
 
-            ListContainersView listContainersView = new ListContainersView(containers);
+            ListContainersView listContainersView = new ListContainersView(containers, paginator, search);
             listContainersView.Render();
         }
 
