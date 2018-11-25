@@ -129,6 +129,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Router.cs" />
+    <Compile Include="Views\Containers\DeleteContainerView.cs" />
     <Compile Include="Views\Containers\CreateContainerView.cs" />
     <Compile Include="Views\Containers\UpdateContainerView.cs" />
     <Compile Include="Views\Containers\ListContainersView.cs" />
@@ -175,6 +176,10 @@
     <ProjectReference Include="..\GTDApp.Data\GtdApp.Data.csproj">
       <Project>{EDCB7DCA-E17F-4829-8884-8C5D11A2E364}</Project>
       <Name>GtdApp.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GTDApp.Login\GtdApp.Logic.csproj">
+      <Project>{02eea9ad-813f-4af8-93b4-c61ca417e8df}</Project>
+      <Name>GtdApp.Logic</Name>
     </ProjectReference>
     <ProjectReference Include="..\GTDApp.Repository\GtdApp.Repository.csproj">
       <Project>{7482D9E8-9013-4804-B967-1EBDDA255450}</Project>

@@ -52,6 +52,43 @@ namespace GTDApp.Console.Views
                 Height = Dim.Fill()
             };
 
+            // Add Search
+            var search = new Label("search for: ")
+            {
+                X = 2,
+                Y = 1,
+                Width = 10
+            };
+            var searchText = new TextField(string.Empty)
+            {
+                X = Pos.Right(search) + 1,
+                Y = Pos.Top(search),
+                Width = 30
+            };
+            searchText.Text = Search;
+            Button searchButton = new Button("Run Search...")
+            {
+                X = Pos.Right(searchText) + 1,
+                Y = Pos.Top(searchText)
+            };
+
+            Action searchButtonEvent = new Action(() => {
+                object[] searchParameters = new object[2];
+                searchParameters[0] = searchText.Text.ToString();
+                searchParameters[1] = Paginator;
+                Router.Call("list_containers", searchParameters);
+            });
+            searchButton.Clicked = searchButtonEvent;
+
+            win.Add(search, searchText, searchButton);
+
+            Button addNew = new Button(96, 1, "Add new Container");
+            Action addNewEvent = new Action(() => { Router.Call("create_container"); });
+            addNew.Clicked = addNewEvent;
+            win.Add(addNew);
+
+
+
             Dictionary<string, string> idDictionary = new Dictionary<string, string>();
             idDictionary.Add("name", "ID");
             idDictionary.Add("width", "3");
@@ -87,44 +124,9 @@ namespace GTDApp.Console.Views
                 win.Add(view);
             }
 
-            // Add Search
-            Button addNew = new Button(96, 1, "Add new Container");
-            Action addNewEvent = new Action(() => { Router.Call("create_container"); });
-            addNew.Clicked = addNewEvent;
-            win.Add(addNew);
-
-            var search = new Label("search for: ")
-            {
-                X = 2,
-                Y = 1,
-                Width = 10
-            };
-            var searchText = new TextField(string.Empty)
-            {
-                X = Pos.Right(search) + 1,
-                Y = Pos.Top(search),
-                Width = 30
-            };
-            searchText.Text = Search;
-            Button searchButton = new Button("Run Search...")
-            {
-                X = Pos.Right(searchText) + 1,
-                Y = Pos.Top(searchText)
-            };
-
-            Action searchButtonEvent = new Action(() => {
-                object[] searchParameters = new object[2];
-                searchParameters[0] = searchText.Text.ToString();
-                searchParameters[1] = Paginator;
-                Router.Call("list_containers", searchParameters);
-            });
-            searchButton.Clicked = searchButtonEvent;
-
-            win.Add(search, searchText, searchButton);
-
             // Add paginator
 
-            PaginatorHelper paginatorHelper = new PaginatorHelper(tableHelper.X, tableHelper.CurrentY, this.Paginator);
+            PaginatorHelper paginatorHelper = new PaginatorHelper(tableHelper.X, tableHelper.CurrentY, Paginator);
 
             Action paginatorAction = new Action(() => {
                 object[] parameters = new object[2];
@@ -149,11 +151,16 @@ namespace GTDApp.Console.Views
             foreach (Container item in this.Containers)
             {
                 Button editButton = new Button("Edit");
-                Action editButtonEvent = new Action(() => { });
+                Action editButtonEvent = new Action(() => {});
                 editButton.Clicked = editButtonEvent;
 
                 Button deleteButton = new Button("Delete");
-                Action deleteButtonEvent = new Action(() => { });
+                Action deleteButtonEvent = new Action(() => {
+                    Container container = item;
+                    object[] parameters = new object[1];
+                    parameters[0] = container;
+                    Router.Call("delete_container", parameters);
+                });
                 deleteButton.Clicked = deleteButtonEvent;
 
                 rows.Add(new List<View>() { new Label($"#{item.container_id}"), new Label(item.name), new Label(item.type), editButton, deleteButton });

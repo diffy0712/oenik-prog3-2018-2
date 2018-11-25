@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -62,6 +63,16 @@
   <ItemGroup>
     <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.2\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
     <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.2\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GTDApp.Data\GtdApp.Data.csproj">
+      <Project>{EDCB7DCA-E17F-4829-8884-8C5D11A2E364}</Project>
+      <Name>GtdApp.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GTDApp.Repository\GtdApp.Repository.csproj">
+      <Project>{7482D9E8-9013-4804-B967-1EBDDA255450}</Project>
+      <Name>GtdApp.Repository</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

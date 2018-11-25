@@ -19,7 +19,19 @@ namespace GTDApp.Repository
         public int CurrentPage = 1;
         public int PerPage = 5;
         public int Skip { get => (CurrentPage - 1) * PerPage; }
-        public int Maximum = 0;
+        private int maximum;
+        public int Maximum {
+            get { return maximum; }
+            set
+            {
+                this.maximum = value;
+
+                if (CurrentPage > MaximumPage)
+                {
+                    CurrentPage = 1;
+                }
+            }
+        }
         private int maximumPage;
 
         public int MaximumPage { get => (int)Math.Ceiling((double)Maximum / PerPage); }

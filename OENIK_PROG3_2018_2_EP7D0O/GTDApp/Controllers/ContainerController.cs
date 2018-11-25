@@ -7,7 +7,9 @@
 
 namespace GTDApp.Console.Controllers
 {
+    using System;
     using System.Linq;
+    using GTDApp.Logic;
     using GTDApp.Console.Attributes;
     using GTDApp.Console.Views;
     using GTDApp.Console.Views.Containers;
@@ -27,8 +29,6 @@ namespace GTDApp.Console.Controllers
         [Route("list_containers")]
         public void List(string search = null, Paginator paginator = null)
         {
-            GtdEntityDataModel context = new GtdEntityDataModel();
-            ContainerRepository containerRepository = new ContainerRepository(context);
             if (paginator is null)
             {
                 paginator = new Paginator();
@@ -37,7 +37,7 @@ namespace GTDApp.Console.Controllers
             {
                 search = "";
             }
-            var containers = containerRepository.SearchAll(search, paginator);
+            var containers = BusinessLogic.ContainerRepository.SearchAll(search, paginator);
 
             ListContainersView listContainersView = new ListContainersView(containers, paginator, search);
             listContainersView.Render();
@@ -69,8 +69,16 @@ namespace GTDApp.Console.Controllers
         ///     Delete container
         /// </summary>
         [Route("delete_container")]
-        public void Delete()
+        public void Delete(Container container)
         {
+            Action deleteAction = new Action(() =>
+            {
+                BusinessLogic.ContainerRepository.Remove(container);
+                BusinessLogic.Context.SaveChanges();
+            });
+
+            DeleteContainerView deleteContainersView = new DeleteContainerView() { Container = container, DeleteAction = deleteAction };
+            deleteContainersView.Render();
         }
     }
 }
