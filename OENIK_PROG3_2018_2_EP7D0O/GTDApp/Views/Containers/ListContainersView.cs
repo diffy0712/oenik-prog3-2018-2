@@ -8,12 +8,16 @@
 namespace GTDApp.Console.Views
 {
     using GTDApp.Console.Controllers;
-    using GTDApp.Console.Views.Helpers;
+    using GTDApp.ConsoleCore.Views.Helpers;
     using GTDApp.Data;
     using GTDApp.Repository;
     using System;
     using System.Collections.Generic;
+    using GTDApp.Logic;
     using Terminal.Gui;
+    using GTDApp.Console.Menu;
+    using GTDApp.Logic.Interfaces;
+    using GTDApp.ConsoleCore.Views;
 
     /// <summary>
     ///     ListContainersView
@@ -38,11 +42,10 @@ namespace GTDApp.Console.Views
         /// </summary>
         public void Render()
         {
-            MainMenuBar mainMenuBar = new MainMenuBar();
             var tframe = Application.Top.Frame;
             var ntop = new Toplevel(tframe);
 
-            ntop.Add(mainMenuBar.Render(ntop));
+            MenuHelper mainMenuBar = new MenuHelper(ntop, MainMenu.GetMenu());
 
             var win = new Window("List Container")
             {

@@ -8,7 +8,8 @@
 namespace GTDApp.Console.Controllers
 {
     using System;
-    using GTDApp.Console.Attributes;
+    using GTDApp.Logic.Attributes;
+    using GTDApp.Logic.Interfaces;
     using GTDApp.Console.Views;
     using Terminal.Gui;
 

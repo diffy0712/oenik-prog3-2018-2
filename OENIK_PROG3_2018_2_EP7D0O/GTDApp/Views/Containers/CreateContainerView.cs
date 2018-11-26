@@ -8,6 +8,10 @@
 namespace GTDApp.Console.Views.Containers
 {
     using System;
+    using GTDApp.Console.Menu;
+    using GTDApp.ConsoleCore.Views;
+    using GTDApp.Logic;
+    using GTDApp.Logic.Interfaces;
     using Terminal.Gui;
 
     /// <summary>
@@ -20,11 +24,10 @@ namespace GTDApp.Console.Views.Containers
         /// </summary>
         public void Render()
         {
-            MainMenuBar mainMenuBar = new MainMenuBar();
             var tframe = Application.Top.Frame;
             var ntop = new Toplevel(tframe);
 
-            ntop.Add(mainMenuBar.Render(ntop));
+            MenuHelper mainMenuBar = new MenuHelper(ntop, MainMenu.GetMenu());
 
             var win = new Window("Create Container")
             {

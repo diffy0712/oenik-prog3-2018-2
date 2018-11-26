@@ -5,10 +5,11 @@
 // Copyright © OENIK_PROG3_2018_2_EP7D0O All rights reserved.
 // </copyright>
 
-using GTDApp.Console.Attributes;
-
 namespace GTDApp.Console.Controllers
 {
+    using GTDApp.Logic.Attributes;
+    using GTDApp.Logic.Interfaces;
+
     /// <summary>
     ///     JavaWebController
     /// </summary>

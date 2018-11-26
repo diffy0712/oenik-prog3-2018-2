@@ -7,8 +7,9 @@
 
 namespace GTDApp.Console.Controllers
 {
-    using GTDApp.Console.Attributes;
- 
+    using GTDApp.Logic.Attributes;
+    using GTDApp.Logic.Interfaces;
+
     /// <summary>
     ///     ItemController
     /// </summary>

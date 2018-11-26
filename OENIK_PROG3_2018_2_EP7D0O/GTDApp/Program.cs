@@ -7,9 +7,7 @@
 
 namespace GTDApp.Console
 {
-    using System;
-    using GTDApp.Data;
-    using GTDApp.Repository;
+    using GTDApp.Logic;
     using Terminal.Gui;
 
     /// <summary>
@@ -18,11 +16,11 @@ namespace GTDApp.Console
     public static class Program
     {
         /// <summary>
-        ///     Start Program
+        ///     Start the Program
         /// </summary>
         public static void Main()
         {
-            Router.Init();
+            Router.Init("GTDApp.Console.Controllers");
             Application.Init();
             Router.Call();
         }

@@ -10,7 +10,8 @@ namespace GTDApp.Console.Controllers
     using System;
     using System.Linq;
     using GTDApp.Logic;
-    using GTDApp.Console.Attributes;
+    using GTDApp.Logic.Attributes;
+    using GTDApp.Logic.Interfaces;
     using GTDApp.Console.Views;
     using GTDApp.Console.Views.Containers;
     using GTDApp.Data;
@@ -22,10 +23,11 @@ namespace GTDApp.Console.Controllers
     /// </summary>
     public class ContainerController : IController
     {
-
         /// <summary>
         ///     List containers
         /// </summary>
+        /// <param name="search">String to search for</param>
+        /// <param name="paginator">Paginator Object</param>
         [Route("list_containers")]
         public void List(string search = null, Paginator paginator = null)
         {
@@ -33,10 +35,12 @@ namespace GTDApp.Console.Controllers
             {
                 paginator = new Paginator();
             }
-            if( search is null)
+
+            if ( search is null)
             {
-                search = "";
+                search = string.Empty;
             }
+
             var containers = BusinessLogic.ContainerRepository.SearchAll(search, paginator);
 
             ListContainersView listContainersView = new ListContainersView(containers, paginator, search);
@@ -68,14 +72,19 @@ namespace GTDApp.Console.Controllers
         /// <summary>
         ///     Delete container
         /// </summary>
+        /// <param name="container">Container instance</param>
         [Route("delete_container")]
         public void Delete(Container container)
         {
-            Action deleteAction = new Action(() =>
+            Action deleteAction = null;
+
+            if (BusinessLogic.IsContainerRemovable(container))
             {
-                BusinessLogic.ContainerRepository.Remove(container);
-                BusinessLogic.Context.SaveChanges();
-            });
+                deleteAction = new Action(() =>
+                {
+                    BusinessLogic.RemoveContainer(container);
+                });
+            }
 
             DeleteContainerView deleteContainersView = new DeleteContainerView() { Container = container, DeleteAction = deleteAction };
             deleteContainersView.Render();

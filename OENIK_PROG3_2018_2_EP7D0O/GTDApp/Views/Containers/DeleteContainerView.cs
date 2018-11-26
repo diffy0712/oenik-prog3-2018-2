@@ -7,8 +7,10 @@
 
 namespace GTDApp.Console.Views.Containers
 {
-    using GTDApp.Data;
     using System;
+    using GTDApp.Data;
+    using GTDApp.Logic;
+    using GTDApp.Logic.Interfaces;
     using Terminal.Gui;
 
     /// <summary>
@@ -16,8 +18,14 @@ namespace GTDApp.Console.Views.Containers
     /// </summary>
     public class DeleteContainerView : IView
     {
+        /// <summary>
+        ///     Container
+        /// </summary>
         public Container Container;
 
+        /// <summary>
+        ///     CreateContainerView
+        /// </summary>
         public Action DeleteAction;
 
         /// <summary>
@@ -25,10 +33,28 @@ namespace GTDApp.Console.Views.Containers
         /// </summary>
         public void Render()
         {
-            var d = new Dialog(
-            $"Are you sure you want to delete #{Container.container_id} - {Container.name}", 50, 20,
-            new Button("Ok", is_default: true) { Clicked = () => { DeleteAction.Invoke(); Application.RequestStop(); Router.Call("list_containers"); } },
-            new Button("Cancel") { Clicked = () => { Application.RequestStop(); } });
+            Dialog d;
+
+            if (DeleteAction is null)
+            {
+                d = new Dialog(
+                    $"You are unable to delete container #{this.Container.container_id} - {this.Container.name}",
+                    80,
+                    8,
+                    new Button("Cancel") { Clicked = () => { Application.RequestStop(); } }
+                );
+            }
+            else
+            {
+                d = new Dialog(
+                    $"Are you sure you want to delete #{this.Container.container_id} - {this.Container.name}",
+                    80,
+                    8,
+                    new Button("Ok", is_default: true) { Clicked = () => { this.DeleteAction.Invoke(); Application.RequestStop(); Router.Call("list_containers"); } },
+                    new Button("Cancel") { Clicked = () => { Application.RequestStop(); } }
+                );
+            }
+
             Application.Run(d);
         }
     }
