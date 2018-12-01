@@ -8,34 +8,40 @@
 namespace GTDApp.Console.Views.Containers
 {
     using GTDApp.Console.Menu;
-    using GTDApp.ConsoleCore.Views;
-    using GTDApp.Logic.Interfaces;
+    using GTDApp.ConsoleCore.Menu;
+    using GTDApp.ConsoleCore.View;
     using Terminal.Gui;
 
     /// <summary>
     ///     UpdateContainerView
     /// </summary>
-    public class UpdateContainerView : IView
+    public class UpdateContainerView : AbstractView
     {
+
         /// <summary>
-        ///     Editor
+        ///     Content
         /// </summary>
-        public void Render()
+        /// <param name="win">Window instance</param>
+        protected override void Content(Window win)
         {
-            var tframe = Application.Top.Frame;
-            var ntop = new Toplevel(tframe);
-            MenuHelper mainMenuBar = new MenuHelper(ntop, MainMenu.GetMenu());
-            var win = new Window("Update Container")
-            {
-                X = 0,
-                Y = 1,
-                Width = Dim.Fill(),
-                Height = Dim.Fill()
-            };
+        }
 
-            ntop.Add(win);
+        /// <summary>
+        ///     GetMenu
+        /// </summary>
+        /// <returns>IMenu</returns>
+        protected override IMenu GetMenu()
+        {
+            return new MainMenu();
+        }
 
-            Application.Run(ntop);
+        /// <summary>
+        ///     GetTitle
+        /// </summary>
+        /// <returns>string</returns>
+        protected override string GetTitle()
+        {
+            return "Update Container";
         }
     }
 }

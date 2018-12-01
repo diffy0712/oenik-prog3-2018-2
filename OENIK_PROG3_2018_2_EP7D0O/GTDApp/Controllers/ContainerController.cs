@@ -8,15 +8,13 @@
 namespace GTDApp.Console.Controllers
 {
     using System;
-    using System.Linq;
-    using GTDApp.Logic;
-    using GTDApp.Logic.Attributes;
-    using GTDApp.Logic.Interfaces;
     using GTDApp.Console.Views;
     using GTDApp.Console.Views.Containers;
     using GTDApp.Data;
+    using GTDApp.Logic;
+    using GTDApp.Logic.Attributes;
+    using GTDApp.Logic.Interfaces;
     using GTDApp.Repository;
-    using Terminal.Gui;
 
     /// <summary>
     ///     ContainerController
@@ -31,16 +29,8 @@ namespace GTDApp.Console.Controllers
         [Route("list_containers")]
         public void List(string search = null, Paginator paginator = null)
         {
-            if (paginator is null)
-            {
-                paginator = new Paginator();
-            }
-
-            if ( search is null)
-            {
-                search = string.Empty;
-            }
-
+            search = search is null ? String.Empty : search;
+            paginator = paginator is null ? new Paginator() : paginator;
             var containers = BusinessLogic.ContainerRepository.SearchAll(search, paginator);
 
             ListContainersView listContainersView = new ListContainersView(containers, paginator, search);
@@ -50,7 +40,6 @@ namespace GTDApp.Console.Controllers
         /// <summary>
         ///     Create container
         /// </summary>
-        /// <param name="top">Top Level</param>
         [Route("create_container")]
         public void Create()
         {
@@ -61,7 +50,6 @@ namespace GTDApp.Console.Controllers
         /// <summary>
         ///     Update container
         /// </summary>
-        /// <param name="top">Top Level</param>
         [Route("update_container")]
         public void Update()
         {

@@ -8,15 +8,28 @@
 
 namespace GTDApp.Repository
 {
+    using System.Linq;
     using GTDApp.Data;
-    using System.Collections.Generic;
 
     /// <summary>
     ///     IContainerRepository
     /// </summary>
     public interface IContainerRepository : IRepository<Container>
     {
-        IEnumerable<Container> GetTopSellingCourses(int count);
-        IEnumerable<Container> GetCoursesWithAuthors(int pageIndex, int pageSize);
+
+        /// <summary>
+        ///     GetMostRecentContainers
+        /// </summary>
+        /// <param name="count">Number of items</param>
+        /// <returns>IQueryable</returns>
+        IQueryable<Container> GetMostRecentContainers(int count);
+
+        /// <summary>
+        ///     SearchAll
+        /// </summary>
+        /// <param name="search">String</param>
+        /// <param name="paginator">Paginator instance</param>
+        /// <returns>IQueryable</returns>
+        IQueryable<Container> SearchAll(string search, Paginator paginator);
     }
 }

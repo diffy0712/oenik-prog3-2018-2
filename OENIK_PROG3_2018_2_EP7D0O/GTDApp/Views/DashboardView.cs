@@ -8,6 +8,9 @@
 namespace GTDApp.Console.Views
 {
     using GTDApp.Console.Menu;
+    using GTDApp.ConsoleCore;
+    using GTDApp.ConsoleCore.Menu;
+    using GTDApp.ConsoleCore.View;
     using GTDApp.ConsoleCore.Views;
     using GTDApp.Logic.Interfaces;
     using Terminal.Gui;
@@ -15,35 +18,33 @@ namespace GTDApp.Console.Views
     /// <summary>
     ///     DashboardView
     /// </summary>
-    public class DashboardView : IView
+    public class DashboardView : AbstractView
     {
         /// <summary>
-        ///     render the view
+        ///     Content
         /// </summary>
-        public void Render()
+        /// <param name="win">Window instance</param>
+        protected override void Content(Window win)
         {
-            var tframe = Application.Top.Frame;
-            var ntop = new Toplevel(tframe);
+            win.Add(new Label("Number of containers: 5") { X = 2, Y = 1 });
+        }
 
-            MenuHelper mainMenuBar = new MenuHelper(ntop, MainMenu.GetMenu());
+        /// <summary>
+        ///     GetMenu
+        /// </summary>
+        /// <returns>IMenu</returns>
+        protected override IMenu GetMenu()
+        {
+            return new MainMenu();
+        }
 
-            var win = new Window("Dashboard")
-            {
-                X = 0,
-                Y = 1,
-                Width = Dim.Fill(),
-                Height = Dim.Fill()
-            };
-            var name = new Label("Number of containers: 5 ") { X = 2, Y = 1 };
-
-            // Add some content
-            win.Add(
-                name
-            );
-
-            ntop.Add(win);
-
-            Application.Run(ntop);
+        /// <summary>
+        ///     GetTitle
+        /// </summary>
+        /// <returns>string</returns>
+        protected override string GetTitle()
+        {
+            return "Dashboard";
         }
     }
 }

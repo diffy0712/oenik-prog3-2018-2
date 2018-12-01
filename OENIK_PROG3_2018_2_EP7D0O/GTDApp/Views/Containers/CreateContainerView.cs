@@ -9,33 +9,22 @@ namespace GTDApp.Console.Views.Containers
 {
     using System;
     using GTDApp.Console.Menu;
-    using GTDApp.ConsoleCore.Views;
+    using GTDApp.ConsoleCore.Menu;
+    using GTDApp.ConsoleCore.View;
     using GTDApp.Logic;
-    using GTDApp.Logic.Interfaces;
     using Terminal.Gui;
 
     /// <summary>
     ///     CreateContainerView
     /// </summary>
-    public class CreateContainerView : IView
+    public class CreateContainerView : AbstractView
     {
         /// <summary>
-        ///     Editor
+        ///     Content
         /// </summary>
-        public void Render()
+        /// <param name="win">Window instance</param>
+        protected override void Content(Window win)
         {
-            var tframe = Application.Top.Frame;
-            var ntop = new Toplevel(tframe);
-
-            MenuHelper mainMenuBar = new MenuHelper(ntop, MainMenu.GetMenu());
-
-            var win = new Window("Create Container")
-            {
-                X = 0,
-                Y = 1,
-                Width = Dim.Fill(),
-                Height = Dim.Fill()
-            };
             var name = new Label("Name: ") { X = 2, Y = 1 };
             var purpose = new Label("Purpose: ")
             {
@@ -79,15 +68,20 @@ namespace GTDApp.Console.Views.Containers
             };
 
             FrameView typeView = new FrameView(new Rect(2, 9, 110, 9), "Type of Container"){
-                new RadioGroup (1, 0, new [] {
-                    "Incoming Collection Container",
-                    "Project Container",
-                    "Reference Collection Container",
-                    "Incubator Collection Container" ,
-                    "Blocked Collection Container",
-                    "Appointment Collection Container",
-                    "Next Actions Collection Container"
-                }, 0),
+                new RadioGroup (
+                    1,
+                    0,
+                    new [] {
+                        "Incoming Collection Container",
+                        "Project Container",
+                        "Reference Collection Container",
+                        "Incubator Collection Container" ,
+                        "Blocked Collection Container",
+                        "Appointment Collection Container",
+                        "Next Actions Collection Container"
+                    },
+                    0
+                ),
             };
 
             Button createButton = new Button(85, 19, "Create");
@@ -97,7 +91,7 @@ namespace GTDApp.Console.Views.Containers
             Button backToListButton = new Button(96, 19, "Back To List");
             Action backToListButtonEvent = new Action(() => { Router.Call("list_containers"); });
             backToListButton.Clicked = backToListButtonEvent;
-            
+
             // Add some content
             win.Add(
                 name,
@@ -112,9 +106,24 @@ namespace GTDApp.Console.Views.Containers
                 createButton,
                 backToListButton
             );
-            ntop.Add(win);
+        }
 
-            Application.Run(ntop);
+        /// <summary>
+        ///     GetMenu
+        /// </summary>
+        /// <returns>IMenu</returns>
+        protected override IMenu GetMenu()
+        {
+            return new MainMenu();
+        }
+
+        /// <summary>
+        ///     GetTitle
+        /// </summary>
+        /// <returns>string</returns>
+        protected override string GetTitle()
+        {
+            return "Create Container";
         }
     }
 }

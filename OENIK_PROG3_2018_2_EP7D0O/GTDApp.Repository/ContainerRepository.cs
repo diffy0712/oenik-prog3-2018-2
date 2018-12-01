@@ -7,48 +7,67 @@
 
 namespace GTDApp.Repository
 {
-    using GTDApp.Data;
-    using System.Collections.Generic;
     using System.Linq;
+    using GTDApp.Data;
 
+    /// <summary>
+    ///      ContainerRepository
+    /// </summary>
     public class ContainerRepository : Repository<Container>, IContainerRepository
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ContainerRepository"/> class.
+        ///      Repository
+        /// </summary>
+        /// <param name="context">DbContext instance</param>
         public ContainerRepository(GtdEntityDataModel context)
             : base(context)
         {
         }
 
-        public IEnumerable<Container> SearchAll(string search, Paginator paginator)
+        /// <summary>
+        ///     SearchAll
+        /// </summary>
+        /// <param name="search">String</param>
+        /// <param name="paginator">Paginator instance</param>
+        /// <returns>IQueryable</returns>
+        public IQueryable<Container> SearchAll(string search, Paginator paginator)
         {
             var g = GtdEntityDataModel.Container.OrderBy(x => x.container_id).Where(p => p.name.Contains(search));
 
             paginator.Maximum = g.Count();
 
-            return g.Skip(paginator.Skip).Take(paginator.PerPage).ToList();
+            return g.Skip(paginator.Skip).Take(paginator.PerPage);
         }
 
-        public IEnumerable<Container> GetAll(Paginator paginator)
+        /// <summary>
+        ///      GetAll
+        /// </summary>
+        /// <returns>IQueryable</returns>
+        /// <param name="paginator">Paginator instance</param>
+        public IQueryable<Container> GetAll(Paginator paginator)
         {
             var g = GtdEntityDataModel.Container.OrderBy(x => x.container_id);
 
             paginator.Maximum = g.Count();
 
-            return g.Skip(paginator.Skip).Take(paginator.PerPage).ToList();
+            return g.Skip(paginator.Skip).Take(paginator.PerPage);
         }
 
-        public IEnumerable<Container> GetTopSellingCourses(int count)
+        /// <summary>
+        ///      GetMostRecentContainers
+        /// </summary>
+        /// <returns>IQueryable</returns>
+        /// <param name="count">int</param>
+        public IQueryable<Container> GetMostRecentContainers(int count)
         {
-            return GtdEntityDataModel.Container.OrderByDescending(c => c.container_id).Take(count).ToList();
+            return GtdEntityDataModel.Container.OrderByDescending(c => c.container_id).Take(count);
         }
 
-        public IEnumerable<Container> GetCoursesWithAuthors(int pageIndex, int pageSize = 10)
-        {
-            return GtdEntityDataModel.Container
-                .Skip((pageIndex - 1) * pageSize)
-                .Take(pageSize)
-                .ToList();
-        }
-
+        /// <summary>
+        ///      GtdEntityDataModel
+        /// </summary>
+        /// <returns>GtdEntityDataModel</returns>
         public GtdEntityDataModel GtdEntityDataModel
         {
             get { return Context as GtdEntityDataModel; }

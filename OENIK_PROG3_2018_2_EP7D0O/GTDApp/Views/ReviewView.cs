@@ -8,36 +8,39 @@
 namespace GTDApp.Console.Views
 {
     using GTDApp.Console.Menu;
-    using GTDApp.ConsoleCore.Views;
-    using GTDApp.Logic.Interfaces;
+    using GTDApp.ConsoleCore.Menu;
+    using GTDApp.ConsoleCore.View;
     using Terminal.Gui;
 
     /// <summary>
     ///     ReviewView
     /// </summary>
-    public class ReviewView : IView
+    public class ReviewView : AbstractView
     {
         /// <summary>
-        ///     render the view
+        ///     Content
         /// </summary>
-        public void Render()
+        /// <param name="win">Window instance</param>
+        protected override void Content(Window win)
         {
-            var tframe = Application.Top.Frame;
-            var ntop = new Toplevel(tframe);
+        }
 
-            MenuHelper mainMenuBar = new MenuHelper(ntop, MainMenu.GetMenu());
+        /// <summary>
+        ///     GetMenu
+        /// </summary>
+        /// <returns>IMenu</returns>
+        protected override IMenu GetMenu()
+        {
+            return new MainMenu();
+        }
 
-            var win = new Window("Review Container")
-            {
-                X = 0,
-                Y = 1,
-                Width = Dim.Fill(),
-                Height = Dim.Fill()
-            };
-
-            ntop.Add(win);
-
-            Application.Run(ntop);
+        /// <summary>
+        ///     GetTitle
+        /// </summary>
+        /// <returns>string</returns>
+        protected override string GetTitle()
+        {
+            return "Review";
         }
     }
 }

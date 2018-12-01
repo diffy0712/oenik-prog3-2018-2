@@ -12,18 +12,18 @@ namespace GTDApp.Console.Menu
     /// <summary>
     ///     MainMenu
     /// </summary>
-    public static class MainMenu
+    public class MainMenu : IMenu
     {
         /// <summary>
         ///     Menu Instance
         /// </summary>
-        private static Menu Menu;
+        private Menu Menu;
 
         /// <summary>
         ///     GetMenu
         /// </summary>
         /// <returns>Menu</returns>
-        public static Menu GetMenu()
+        public Menu GetMenu()
         {
             Menu = new Menu();
             MenuItem fileMenuItem = new MenuItem() { Name = "_File" };

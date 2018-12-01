@@ -8,25 +8,53 @@
 namespace GTDApp.Repository
 {
     using System;
-    using System.Collections.Generic;
+    using System.Linq;
     using System.Linq.Expressions;
 
     /// <summary>
     ///     IRepository
     /// </summary>
-    public interface IRepository<TEntity> where TEntity : class
+    /// <typeparam name="TEntity">l</typeparam>
+    public interface IRepository<TEntity>
+        where TEntity : class
     {
+        /// <summary>
+        ///     Get
+        /// </summary>
+        /// <param name="id">Integer ID</param>
+        /// <returns>TEntity</returns>
         TEntity Get(int id);
-        IEnumerable<TEntity> GetAll();
-        IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate);
 
-        // This method was not in the videos, but I thought it would be useful to add.
+        /// <summary>
+        ///     GetAll
+        /// </summary>
+        /// <returns>IQueryable</returns>
+        IQueryable<TEntity> GetAll();
+
+        /// <summary>
+        ///     Find
+        /// </summary>
+        /// <param name="predicate">Predicate</param>
+        /// <returns>TEntity</returns>
+        IQueryable<TEntity> Find(Expression<Func<TEntity, bool>> predicate);
+
+        /// <summary>
+        ///     SingleOrDefault
+        /// </summary>
+        /// <param name="predicate">Predicate</param>
+        /// <returns>TEntity</returns>
         TEntity SingleOrDefault(Expression<Func<TEntity, bool>> predicate);
 
+        /// <summary>
+        ///     Get
+        /// </summary>
+        /// <param name="entity">TEntity</param>
         void Add(TEntity entity);
-        void AddRange(IEnumerable<TEntity> entities);
         
+        /// <summary>
+        ///     Remove
+        /// </summary>
+        /// <param name="entity">TEntity</param>
         void Remove(TEntity entity);
-        void RemoveRange(IEnumerable<TEntity> entities);
     }
 }

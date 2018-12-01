@@ -18,19 +18,39 @@ namespace GTDApp.Console.Views
     using GTDApp.Console.Menu;
     using GTDApp.Logic.Interfaces;
     using GTDApp.ConsoleCore.Views;
+    using GTDApp.ConsoleCore.View;
+    using GTDApp.ConsoleCore.Menu;
+    using System.Linq;
 
     /// <summary>
     ///     ListContainersView
     /// </summary>
-    public class ListContainersView : IView
+    public class ListContainersView : AbstractView
     {
-        IEnumerable<Container> Containers;
+        /// <summary>
+        ///     Gets or sets  ListContainersView
+        /// </summary>
+        private IQueryable<Container> Containers;
 
-        Paginator Paginator;
+        /// <summary>
+        ///     Gets or sets Paginator
+        /// </summary>
+        private Paginator Paginator;
 
-        string Search;
+        /// <summary>
+        ///    Gets or sets Search
+        /// </summary>
+        /// <value>String</value>
+        private string Search;
 
-        public ListContainersView(IEnumerable<Container> containers, Paginator paginator, string search)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ListContainersView"/> class.
+        ///     ListContainersView
+        /// </summary>
+        /// <param name="containers">Containers list</param>
+        /// <param name="paginator">Paginator instance</param>
+        /// <param name="search">Search string parameter</param>
+        public ListContainersView(IQueryable<Container> containers, Paginator paginator, string search)
         {
             this.Containers = containers;
             this.Paginator = paginator;
@@ -38,23 +58,11 @@ namespace GTDApp.Console.Views
         }
 
         /// <summary>
-        ///     render the view
+        ///     Content
         /// </summary>
-        public void Render()
+        /// <param name="win">Window instance</param>
+        protected override void Content(Window win)
         {
-            var tframe = Application.Top.Frame;
-            var ntop = new Toplevel(tframe);
-
-            MenuHelper mainMenuBar = new MenuHelper(ntop, MainMenu.GetMenu());
-
-            var win = new Window("List Container")
-            {
-                X = 0,
-                Y = 1,
-                Width = Dim.Fill(),
-                Height = Dim.Fill()
-            };
-
             // Add Search
             var search = new Label("search for: ")
             {
@@ -90,8 +98,6 @@ namespace GTDApp.Console.Views
             addNew.Clicked = addNewEvent;
             win.Add(addNew);
 
-
-
             Dictionary<string, string> idDictionary = new Dictionary<string, string>();
             idDictionary.Add("name", "ID");
             idDictionary.Add("width", "3");
@@ -111,7 +117,7 @@ namespace GTDApp.Console.Views
             Dictionary<string, string> deleteDictionary = new Dictionary<string, string>();
             deleteDictionary.Add("name", string.Empty);
             deleteDictionary.Add("width", "5");
-            List<Dictionary<string,string>> headers = new List<Dictionary<string, string>>
+            List<Dictionary<string, string>> headers = new List<Dictionary<string, string>>
             {
                 idDictionary,
                 nameDictionary,
@@ -121,13 +127,11 @@ namespace GTDApp.Console.Views
             };
 
             List<List<View>> rows = this.GetRows();
-            TableHelper tableHelper = new TableHelper(2,2, headers, rows);
+            TableHelper tableHelper = new TableHelper(2, 2, headers, rows);
             foreach (View view in tableHelper.Render())
             {
                 win.Add(view);
             }
-
-            // Add paginator
 
             PaginatorHelper paginatorHelper = new PaginatorHelper(tableHelper.X, tableHelper.CurrentY, Paginator);
 
@@ -141,12 +145,12 @@ namespace GTDApp.Console.Views
             {
                 win.Add(view);
             }
-
-            ntop.Add(win);
-
-            Application.Run(ntop);
         }
 
+        /// <summary>
+        ///     GetRows
+        /// </summary>
+        /// <returns>List</returns>
         private List<List<View>> GetRows()
         {
             List<List<View>> rows = new List<List<View>>();
@@ -170,7 +174,23 @@ namespace GTDApp.Console.Views
             }
             return rows;
         }
+
+        /// <summary>
+        ///     GetMenu
+        /// </summary>
+        /// <returns>IMenu</returns>
+        protected override IMenu GetMenu()
+        {
+            return new MainMenu();
+        }
+
+        /// <summary>
+        ///     GetTitle
+        /// </summary>
+        /// <returns>string</returns>
+        protected override string GetTitle()
+        {
+            return "List Containers";
+        }
     }
-
-
 }
