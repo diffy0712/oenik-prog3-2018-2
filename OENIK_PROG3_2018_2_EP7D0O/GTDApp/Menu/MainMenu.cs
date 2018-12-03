@@ -35,7 +35,7 @@ namespace GTDApp.Console.Menu
 
             MenuItem crudMenuItem = new MenuItem() { Name = "_CRUD And Java API" };
             crudMenuItem.Items.Add(new MenuItem() { RouteName = "list_containers", Name = "_List Containers" });
-            crudMenuItem.Items.Add(new MenuItem() { RouteName = "java_web", Name = "Java Web" });
+            crudMenuItem.Items.Add(new MenuItem() { RouteName = "java_web", Name = "_Java Web" });
 
             Menu.Items.Add(crudMenuItem);
 

@@ -7,6 +7,8 @@
 
 namespace GTDApp.Console.Controllers
 {
+    using GTDApp.Console.Views;
+    using GTDApp.Logic;
     using GTDApp.Logic.Attributes;
     using GTDApp.Logic.Interfaces;
 
@@ -21,6 +23,12 @@ namespace GTDApp.Console.Controllers
         [Route("java_web")]
         public void Index()
         {
+            JavaWebView view = new JavaWebView();
+
+            string javaWebUrl = "http://localhost:8080/GTDAppWebServer/GTDAppServlet";
+            view.Response = BusinessLogic.JavaWebCall(javaWebUrl);
+
+            view.Render();
         }
     }
 }

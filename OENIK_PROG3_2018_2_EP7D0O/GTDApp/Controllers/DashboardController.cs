@@ -8,10 +8,12 @@
 namespace GTDApp.Console.Controllers
 {
     using System;
+    using System.Linq;
     using GTDApp.Logic.Attributes;
     using GTDApp.Logic.Interfaces;
     using GTDApp.Console.Views;
     using Terminal.Gui;
+    using GTDApp.Logic;
 
     /// <summary>
     ///     DashboardController
@@ -26,6 +28,8 @@ namespace GTDApp.Console.Controllers
         public void Index()
         {
             DashboardView view = new DashboardView();
+
+            view.NumberOfContainers = BusinessLogic.ContainerRepository.GetAll().Count();
 
             view.Render();
         }

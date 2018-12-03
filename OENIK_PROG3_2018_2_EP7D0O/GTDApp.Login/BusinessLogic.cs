@@ -9,6 +9,7 @@ namespace GTDApp.Logic
 {
     using GTDApp.Data;
     using GTDApp.Repository;
+    using System.Net;
 
     /// <summary>
     ///      BusinessLogic
@@ -68,6 +69,19 @@ namespace GTDApp.Logic
             Context.SaveChanges();
 
             return false;
+        }
+
+        /// <summary>
+        ///      JavaWebCall
+        /// </summary>
+        /// <param name="url">String to call</param>
+        /// <returns>string</returns>
+        public static string JavaWebCall(string url)
+        {
+            WebClient webClient = new WebClient();
+            string content = webClient.DownloadString(url);
+
+            return content;
         }
     }
 }

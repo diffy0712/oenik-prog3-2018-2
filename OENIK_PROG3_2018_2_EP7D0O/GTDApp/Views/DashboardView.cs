@@ -12,7 +12,9 @@ namespace GTDApp.Console.Views
     using GTDApp.ConsoleCore.Menu;
     using GTDApp.ConsoleCore.View;
     using GTDApp.ConsoleCore.Views;
+    using GTDApp.Data;
     using GTDApp.Logic.Interfaces;
+    using System.Linq;
     using Terminal.Gui;
 
     /// <summary>
@@ -21,12 +23,19 @@ namespace GTDApp.Console.Views
     public class DashboardView : AbstractView
     {
         /// <summary>
+        ///     Gets or sets  NumberOfContainers
+        /// </summary>
+        private int numberOfContainers;
+
+        public int NumberOfContainers { get => numberOfContainers; set => numberOfContainers = value; }
+
+        /// <summary>
         ///     Content
         /// </summary>
         /// <param name="win">Window instance</param>
         protected override void Content(Window win)
         {
-            win.Add(new Label("Number of containers: 5") { X = 2, Y = 1 });
+            win.Add(new Label($"Number of containers: {NumberOfContainers}") { X = 2, Y = 1 });
         }
 
         /// <summary>

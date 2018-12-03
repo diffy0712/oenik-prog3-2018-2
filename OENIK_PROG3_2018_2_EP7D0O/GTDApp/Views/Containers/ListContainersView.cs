@@ -7,20 +7,20 @@
 
 namespace GTDApp.Console.Views
 {
-    using GTDApp.Console.Controllers;
-    using GTDApp.ConsoleCore.Views.Helpers;
-    using GTDApp.Data;
-    using GTDApp.Repository;
     using System;
     using System.Collections.Generic;
-    using GTDApp.Logic;
-    using Terminal.Gui;
-    using GTDApp.Console.Menu;
-    using GTDApp.Logic.Interfaces;
-    using GTDApp.ConsoleCore.Views;
-    using GTDApp.ConsoleCore.View;
-    using GTDApp.ConsoleCore.Menu;
     using System.Linq;
+    using GTDApp.Console.Controllers;
+    using GTDApp.Console.Menu;
+    using GTDApp.ConsoleCore.Menu;
+    using GTDApp.ConsoleCore.View;
+    using GTDApp.ConsoleCore.Views;
+    using GTDApp.ConsoleCore.Views.Helpers;
+    using GTDApp.Data;
+    using GTDApp.Logic;
+    using GTDApp.Logic.Interfaces;
+    using GTDApp.Repository;
+    using Terminal.Gui;
 
     /// <summary>
     ///     ListContainersView
@@ -148,34 +148,6 @@ namespace GTDApp.Console.Views
         }
 
         /// <summary>
-        ///     GetRows
-        /// </summary>
-        /// <returns>List</returns>
-        private List<List<View>> GetRows()
-        {
-            List<List<View>> rows = new List<List<View>>();
-
-            foreach (Container item in this.Containers)
-            {
-                Button editButton = new Button("Edit");
-                Action editButtonEvent = new Action(() => {});
-                editButton.Clicked = editButtonEvent;
-
-                Button deleteButton = new Button("Delete");
-                Action deleteButtonEvent = new Action(() => {
-                    Container container = item;
-                    object[] parameters = new object[1];
-                    parameters[0] = container;
-                    Router.Call("delete_container", parameters);
-                });
-                deleteButton.Clicked = deleteButtonEvent;
-
-                rows.Add(new List<View>() { new Label($"#{item.container_id}"), new Label(item.name), new Label(item.type), editButton, deleteButton });
-            }
-            return rows;
-        }
-
-        /// <summary>
         ///     GetMenu
         /// </summary>
         /// <returns>IMenu</returns>
@@ -191,6 +163,34 @@ namespace GTDApp.Console.Views
         protected override string GetTitle()
         {
             return "List Containers";
+        }
+
+        /// <summary>
+        ///     GetRows
+        /// </summary>
+        /// <returns>List</returns>
+        private List<List<View>> GetRows()
+        {
+            List<List<View>> rows = new List<List<View>>();
+
+            foreach (var item in this.Containers)
+            {
+                Button editButton = new Button("Edit");
+                Action editButtonEvent = new Action(() => {});
+                editButton.Clicked = editButtonEvent;
+                Button deleteButton = new Button("Delete");
+                Action deleteButtonEvent = new Action(() => {
+                    Container container = item;
+                    object[] parameters = new object[1];
+                    parameters[0] = container;
+                    Router.Call("delete_container", parameters);
+                });
+                deleteButton.Clicked = deleteButtonEvent;
+
+                rows.Add(new List<View>() { new Label($"#{item.container_id}"), new Label(item.name), new Label(item.type), editButton, deleteButton });
+            }
+
+            return rows;
         }
     }
 }
