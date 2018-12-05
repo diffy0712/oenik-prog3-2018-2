@@ -40,31 +40,21 @@ public class GTDAppServlet extends HttpServlet {
     }
     
     /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException 
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
         
-        try{
-            JAXBContext ctx = JAXBContext.newInstance(Item.class, ArrayList.class, String.class);
-            
-            List<Item> items = this.getByContainer();
-            Gson gson = new Gson();
-            String json = gson.toJson(items);
-            
-            response.getWriter().write(json);
-        }catch( JAXBException e ){
-            System.out.println("JAXB exception occured");
-            System.out.println(e.getMessage());
-        }
+        List<Item> items = this.getByContainer();
+        Gson gson = new Gson();
+        String json = gson.toJson(items);
+
+        response.getWriter().write(json);
         
     }
 
