@@ -51,22 +51,32 @@ namespace GTDApp.Logic
                 foreach (MethodInfo methodInfo in methods)
                 {
                     var allCustomAttributes = methodInfo.GetCustomAttributes();
-                    foreach (Attribute customAttribute in allCustomAttributes)
+                    if (allCustomAttributes != null)
                     {
-                        if (controllerName is null && customAttribute is DefaultAttribute)
+                        foreach (Attribute customAttribute in allCustomAttributes)
                         {
-                            Invoke(methodInfo, controller, obj);
-                            return;
-                        }
-
-                        if (customAttribute is RouteAttribute)
-                        {
-                            RouteAttribute routeAttribute = customAttribute as RouteAttribute;
-
-                            if (routeAttribute.Name == controllerName)
+                            try
                             {
-                                Invoke(methodInfo, controller, obj);
-                                return;
+                                if (controllerName is null && customAttribute is DefaultAttribute)
+                                {
+                                    Invoke(methodInfo, controller, obj);
+                                    return;
+                                }
+
+                                if (customAttribute is RouteAttribute)
+                                {
+                                    RouteAttribute routeAttribute = customAttribute as RouteAttribute;
+
+                                    if (routeAttribute.Name == controllerName)
+                                    {
+                                        Invoke(methodInfo, controller, obj);
+                                        return;
+                                    }
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                throw ex;
                             }
                         }
                     }
@@ -94,16 +104,31 @@ namespace GTDApp.Logic
         /// <param name="obj">Parameters to send</param>
         public static void Invoke(MethodInfo methodInfo, IController controller, object[] obj)
         {
-            if (obj is null && methodInfo.GetParameters().Length > 0)
+            try
             {
-                obj = new object[methodInfo.GetParameters().Length];
-                for (int i = 0; i < obj.Length; i++)
+                if (obj is null && methodInfo.GetParameters().Length > 0)
                 {
-                    obj[i] = null;
+                    obj = new object[methodInfo.GetParameters().Length];
+                    for (int i = 0; i < obj.Length; i++)
+                    {
+                        obj[i] = null;
+                    }
                 }
-            }
 
-            methodInfo.Invoke(controller, obj);
+                BusinessLogic.ExceptionHandler.Handle(() => {
+                    try
+                    {
+                        //methodInfo.Invoke(controller, obj);
+                    }
+                    catch (TargetInvocationException ex)
+                    {
+                        throw ex;
+                    }
+                });
+            }catch(Exception ex)
+            {
+                throw ex;
+            }
         }
 
         /// <summary>

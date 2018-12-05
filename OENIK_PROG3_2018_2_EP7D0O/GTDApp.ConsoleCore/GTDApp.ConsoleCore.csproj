@@ -59,6 +59,7 @@
     <Compile Include="View\AbstractView.cs" />
     <Compile Include="View\Helpers\Box10Helper.cs" />
     <Compile Include="View\Helpers\CommonHelper.cs" />
+    <Compile Include="View\Helpers\ExceptionHelper.cs" />
     <Compile Include="View\Helpers\FillerHelper.cs" />
     <Compile Include="View\Helpers\MenuHelper.cs" />
     <Compile Include="View\Helpers\PaginatorHelper.cs" />

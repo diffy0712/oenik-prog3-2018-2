@@ -7,9 +7,11 @@
 
 namespace GTDApp.Console.Views
 {
+    using System;
     using GTDApp.Console.Menu;
     using GTDApp.ConsoleCore.Menu;
     using GTDApp.ConsoleCore.View;
+    using GTDApp.ConsoleCore.Views.Helpers;
     using Terminal.Gui;
 
     /// <summary>
@@ -24,14 +26,32 @@ namespace GTDApp.Console.Views
         public string Message { get; set; }
 
         /// <summary>
+        ///    Gets or sets Exception
+        /// </summary>
+        /// <value>Exception</value>
+        public Exception Exception { get; set; }
+
+        /// <summary>
         ///     Content
         /// </summary>
         /// <param name="win">Window instance</param>
         protected override void Content(Window win)
         {
-            win.Add(
-                new Label(45, 10, this.Message)
-            );
+            if (this.Message != null)
+            {
+                win.Add(
+                    new Label(45, 10, this.Message)
+                );
+            }
+            else if(this.Exception != null)
+            {
+                ExceptionHelper exceptionHelper = new ExceptionHelper(1,2, this.Exception);
+
+                foreach (View view in exceptionHelper.Render())
+                {
+                    win.Add(view);
+                }
+            }
         }
 
         /// <summary>

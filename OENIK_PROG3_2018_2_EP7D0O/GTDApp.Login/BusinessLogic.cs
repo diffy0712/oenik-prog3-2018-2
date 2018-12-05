@@ -7,9 +7,11 @@
 
 namespace GTDApp.Logic
 {
-    using GTDApp.Data;
-    using GTDApp.Repository;
     using System.Net;
+    using GTDApp.Data;
+    using GTDApp.Logic.Exceptions;
+    using GTDApp.Logic.Interfaces;
+    using GTDApp.Repository;
 
     /// <summary>
     ///      BusinessLogic
@@ -27,6 +29,11 @@ namespace GTDApp.Logic
         private static ContainerRepository containerRepository;
 
         /// <summary>
+        ///      exceptionHandler
+        /// </summary>
+        private static IExceptionHandler exceptionHandler;
+
+        /// <summary>
         /// Initializes static members of the <see cref="BusinessLogic"/> class.
         ///      BusinessLogic
         /// </summary>
@@ -34,6 +41,9 @@ namespace GTDApp.Logic
         {
             Context = new GtdEntityDataModel();
             ContainerRepository = new ContainerRepository(Context);
+
+            // Mabye Load default from config?
+            ExceptionHandler = new DetailedExceptionHandler();
         }
 
         /// <summary>
@@ -47,6 +57,12 @@ namespace GTDApp.Logic
         /// </summary>
         /// <value>ContainerRepository</value>
         public static ContainerRepository ContainerRepository { get => containerRepository; set => containerRepository = value; }
+
+        /// <summary>
+        ///      Gets or sets ExceptionHandler
+        /// </summary>
+        /// <value>ExceptionHandler</value>
+        public static IExceptionHandler ExceptionHandler { get => exceptionHandler; set => exceptionHandler = value; }
 
         /// <summary>
         ///      A container is empty if it has no item and no stroage.
@@ -74,14 +90,20 @@ namespace GTDApp.Logic
         /// <summary>
         ///      JavaWebCall
         /// </summary>
-        /// <param name="url">String to call</param>
+        /// <param name="apiUrl">Url of api endpoint, which should return a json string</param>
         /// <returns>string</returns>
-        public static string JavaWebCall(string url)
+        public static string JSONApiCall(string apiUrl)
         {
-            WebClient webClient = new WebClient();
-            string content = webClient.DownloadString(url);
-
-            return content;
+            try
+            {
+                WebClient webClient = new WebClient();
+                string content = webClient.DownloadString(apiUrl);
+                return content;
+            }
+            catch (System.Net.WebException ex)
+            {
+                throw new JavaWebCallFailedException(ex.Message);
+            }
         }
     }
 }

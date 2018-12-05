@@ -8,9 +8,9 @@
 namespace GTDApp.Console.Controllers
 {
     using System;
+    using GTDApp.Console.Views;
     using GTDApp.Logic.Attributes;
     using GTDApp.Logic.Interfaces;
-    using GTDApp.Console.Views;
     using Terminal.Gui;
 
     /// <summary>
@@ -19,7 +19,7 @@ namespace GTDApp.Console.Controllers
     public class ErrorController : IController
     {
         /// <summary>
-        ///     DashboardController
+        ///     Fatal error message controller
         /// </summary>
         /// <param name="message">Message</param>
         [Route("fatal_error")]
@@ -28,6 +28,19 @@ namespace GTDApp.Console.Controllers
             ErrorView view = new ErrorView();
 
             view.Message = message;
+            view.Render();
+        }
+
+        /// <summary>
+        ///     DashboardController
+        /// </summary>
+        /// <param name="exception">Message</param>
+        [Route("exception_error")]
+        public void Exception(Exception exception)
+        {
+            ErrorView view = new ErrorView();
+
+            view.Exception = exception;
             view.Render();
         }
     }

@@ -118,6 +118,7 @@
     <Compile Include="Controllers\ItemController.cs" />
     <Compile Include="Controllers\JavaWebController.cs" />
     <Compile Include="Controllers\ReviewController.cs" />
+    <Compile Include="Controllers\SettingsController.cs" />
     <Compile Include="Menu\MainMenu.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -134,6 +135,7 @@
     <Compile Include="Views\ErrorView.cs" />
     <Compile Include="Views\JavaWebView.cs" />
     <Compile Include="Views\ReviewView.cs" />
+    <Compile Include="Views\SettingsView.cs" />
   </ItemGroup>
   <ItemGroup>
     <AdditionalFiles Include="..\stylecop.json">
