@@ -7,7 +7,6 @@ package servlets;
 
 import com.google.gson.Gson;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -15,12 +14,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
 import model.Item;
 
 /**
- *
  * @author paprika0712
  */
 @WebServlet(name = "GTDAppServlet", urlPatterns = {"/GTDAppServlet"})
@@ -55,7 +51,6 @@ public class GTDAppServlet extends HttpServlet {
         String json = gson.toJson(items);
 
         response.getWriter().write(json);
-        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
