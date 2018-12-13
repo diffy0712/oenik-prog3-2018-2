@@ -9,6 +9,7 @@ namespace GTDApp.ConsoleCore.Views
 {
     using GTDApp.ConsoleCore.Menu;
     using GTDApp.Logic;
+    using GTDApp.Logic.Routing;
     using GUI = Terminal.Gui;
 
     /// <summary>
@@ -16,14 +17,23 @@ namespace GTDApp.ConsoleCore.Views
     /// </summary>
     public class MenuHelper
     {
+
+        /// <summary>
+        ///    Gets or sets Router
+        /// </summary>
+        /// <value>Router</value>
+        public Router Router { get; set; }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="MenuHelper"/> class.
         ///     MenuHelper
         /// </summary>
         /// <param name="top">Top level element</param>
         /// <param name="menu">Menu</param>
-        public MenuHelper(GUI.Toplevel top, Menu menu)
+        /// <param name="router">Router</param>
+        public MenuHelper(GUI.Toplevel top, Menu menu, Router router)
         {
+            this.Router = router;
             GUI.MenuBarItem[] menubarItems = new GUI.MenuBarItem[menu.Items.Count];
 
             for (int i = 0; i < menu.Items.Count; i++)

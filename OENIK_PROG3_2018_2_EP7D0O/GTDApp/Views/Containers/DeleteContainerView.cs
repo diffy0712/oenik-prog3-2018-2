@@ -50,7 +50,7 @@ namespace GTDApp.Console.Views.Containers
                     $"Are you sure you want to delete #{this.Container.container_id} - {this.Container.name}",
                     80,
                     8,
-                    new Button("Ok", is_default: true) { Clicked = () => { this.DeleteAction.Invoke(); Application.RequestStop(); Router.Call("list_containers"); } },
+                    new Button("Ok", is_default: true) { Clicked = () => { this.DeleteAction.Invoke(); } },
                     new Button("Cancel") { Clicked = () => { Application.RequestStop(); } }
                 );
             }

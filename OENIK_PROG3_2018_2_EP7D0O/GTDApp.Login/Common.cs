@@ -9,6 +9,8 @@ namespace GTDApp.Logic
 {
     using System.Collections.Generic;
     using System.Linq;
+    using System.Net;
+    using GTDApp.Logic.Exceptions;
 
     /// <summary>
     ///      Common
@@ -38,6 +40,25 @@ namespace GTDApp.Logic
             }
 
             return new string(chars.ToArray());
+        }
+
+        /// <summary>
+        ///      JavaWebCall
+        /// </summary>
+        /// <param name="apiUrl">Url of api endpoint, which should return a json string</param>
+        /// <returns>string</returns>
+        public static string JSONApiCall(string apiUrl)
+        {
+            try
+            {
+                WebClient webClient = new WebClient();
+                string content = webClient.DownloadString(apiUrl);
+                return content;
+            }
+            catch (System.Net.WebException ex)
+            {
+                throw new JSONApiCallFailedException(ex.Message);
+            }
         }
     }
 }

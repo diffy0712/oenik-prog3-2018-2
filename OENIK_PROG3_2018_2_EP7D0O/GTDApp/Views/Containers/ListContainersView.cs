@@ -19,6 +19,7 @@ namespace GTDApp.Console.Views
     using GTDApp.Data;
     using GTDApp.Logic;
     using GTDApp.Logic.Interfaces;
+    using GTDApp.Logic.Routing;
     using GTDApp.Repository;
     using Terminal.Gui;
 
@@ -30,32 +31,18 @@ namespace GTDApp.Console.Views
         /// <summary>
         ///     Gets or sets  ListContainersView
         /// </summary>
-        private IQueryable<Container> Containers;
+        public IQueryable<Container> Containers { get; set; }
 
         /// <summary>
         ///     Gets or sets Paginator
         /// </summary>
-        private Paginator Paginator;
+        public Paginator Paginator { get; set; }
 
         /// <summary>
         ///    Gets or sets Search
         /// </summary>
         /// <value>String</value>
-        private string Search;
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ListContainersView"/> class.
-        ///     ListContainersView
-        /// </summary>
-        /// <param name="containers">Containers list</param>
-        /// <param name="paginator">Paginator instance</param>
-        /// <param name="search">Search string parameter</param>
-        public ListContainersView(IQueryable<Container> containers, Paginator paginator, string search)
-        {
-            this.Containers = containers;
-            this.Paginator = paginator;
-            this.Search = search;
-        }
+        public string Search { get; set; }
 
         /// <summary>
         ///     Content

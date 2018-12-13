@@ -1,7 +1,7 @@
 ﻿// <summary>
 // GTD(getting things done) Application
 // </summary>
-// <copyright file="JavaWebCallFailedException.cs" company="OENIK_PROG3_2018_2_EP7D0O">
+// <copyright file="JSONApiCallFailedException.cs" company="OENIK_PROG3_2018_2_EP7D0O">
 // Copyright © OENIK_PROG3_2018_2_EP7D0O All rights reserved.
 // </copyright>
 
@@ -14,24 +14,24 @@ namespace GTDApp.Logic.Exceptions
     using System.Threading.Tasks;
 
     /// <summary>
-    ///     JavaWebCallFailedException
+    ///     JSONApiCallFailedException
     /// </summary>
-    public class JavaWebCallFailedException : Exception
+    public class JSONApiCallFailedException : Exception
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="JavaWebCallFailedException"/> class.
-        ///     JavaWebCallFailedException
+        /// Initializes a new instance of the <see cref="JSONApiCallFailedException"/> class.
+        ///     JSONApiCallFailedException
         /// </summary>
-        public JavaWebCallFailedException()
+        public JSONApiCallFailedException()
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="JavaWebCallFailedException"/> class.
-        ///     JavaWebCallFailedException
+        /// Initializes a new instance of the <see cref="JSONApiCallFailedException"/> class.
+        ///     JSONApiCallFailedException
         /// </summary>
         /// <param name="message">Message string</param>
-        public JavaWebCallFailedException(string message)
+        public JSONApiCallFailedException(string message)
             : base(message)
         {
         }

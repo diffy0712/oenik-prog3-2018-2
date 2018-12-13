@@ -12,14 +12,14 @@ namespace GTDApp.Logic.Attributes
     /// <summary>
     ///     RouteAttribute
     /// </summary>
-    public class RouteAttribute : Attribute
+    public class RouteAttribute : AbstractRouteAttribute
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="RouteAttribute"/> class.
         /// RouteAttribute
         /// </summary>
         /// <param name="name">Name of route</param>
-        public RouteAttribute(string name)
+        public RouteAttribute(object name)
         {
             this.Name = name;
         }
@@ -27,7 +27,7 @@ namespace GTDApp.Logic.Attributes
         /// <summary>
         /// Gets or sets <see cref="Name"/>
         /// </summary>
-        /// <value>The name of the router.</value>
-        public string Name { get; set; }
+        /// <value>The unique object of the router.</value>
+        public object Name { get; set; }
     }
 }

@@ -40,8 +40,7 @@ namespace GTDApp.Logic.Exceptions
                 {
                     $"An error occured during the previous operation."
                 };
-
-            Router.Call("fatal_error", parameters);
+            
         }
     }
 }

@@ -55,14 +55,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Attributes\DefaultAttribute.cs" />
+    <Compile Include="Attributes\AbstractRouteAtribute.cs" />
+    <Compile Include="Attributes\DefaultErrorRouteAttribute.cs" />
+    <Compile Include="Attributes\DefaultRouteAttribute.cs" />
     <Compile Include="Attributes\RouteAttribute.cs" />
     <Compile Include="BusinessLogic.cs" />
     <Compile Include="Common.cs" />
     <Compile Include="Exceptions\Handlers\DetailedExceptionHandler.cs" />
     <Compile Include="Exceptions\Handlers\GenericExceptionHandler.cs" />
     <Compile Include="Exceptions\Handlers\NullExceptionHandler.cs" />
-    <Compile Include="Exceptions\JavaWebCallFailedException.cs" />
+    <Compile Include="Exceptions\JSONApiCallFailedException.cs" />
+    <Compile Include="Exceptions\NoRouteFoundException.cs" />
     <Compile Include="Interfaces\IController.cs" />
     <Compile Include="Interfaces\IExceptionHandler.cs" />
     <Compile Include="Interfaces\IView.cs" />
@@ -72,7 +75,9 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="Router.cs" />
+    <Compile Include="Routing\Route.cs" />
+    <Compile Include="Routing\Router.cs" />
+    <Compile Include="Routing\RouterHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -81,6 +86,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="stylecop.json" />
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.2\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />

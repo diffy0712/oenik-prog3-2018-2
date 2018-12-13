@@ -7,6 +7,7 @@
 
 namespace GTDApp.Logic
 {
+    using System.Data.Entity;
     using System.Net;
     using GTDApp.Data;
     using GTDApp.Logic.Exceptions;
@@ -21,48 +22,54 @@ namespace GTDApp.Logic
         /// <summary>
         ///      BusinessLogic
         /// </summary>
-        private static GtdEntityDataModel context;
+        private GtdEntityDataModel context;
 
         /// <summary>
         ///      BusinessLogic
         /// </summary>
-        private static ContainerRepository containerRepository;
+        private IContainerRepository containerRepository;
 
         /// <summary>
         ///      exceptionHandler
         /// </summary>
-        private static IExceptionHandler exceptionHandler;
+        private IExceptionHandler exceptionHandler;
 
         /// <summary>
-        /// Initializes static members of the <see cref="BusinessLogic"/> class.
         ///      BusinessLogic
         /// </summary>
-        static BusinessLogic()
+        public static BusinessLogic Init()
         {
-            Context = new GtdEntityDataModel();
-            ContainerRepository = new ContainerRepository(Context);
+            GtdEntityDataModel Context = new GtdEntityDataModel();
+            IContainerRepository ContainerRepository = new ContainerRepository(Context);
+            IExceptionHandler ExceptionHandler = new DetailedExceptionHandler();
 
-            // Mabye Load default from config?
-            ExceptionHandler = new DetailedExceptionHandler();
+            BusinessLogic businessLogic = new BusinessLogic()
+            {
+                context = Context,
+                containerRepository = ContainerRepository,
+                exceptionHandler = ExceptionHandler
+            };
+
+            return businessLogic;
         }
 
         /// <summary>
         ///      Gets or sets Context
         /// </summary>
         /// <value>GtdEntityDataModel</value>
-        public static GtdEntityDataModel Context { get => context; set => context = value; }
+        public GtdEntityDataModel Context { get => context; set => context = value; }
 
         /// <summary>
         ///      Gets or sets ContainerRepository
         /// </summary>
         /// <value>ContainerRepository</value>
-        public static ContainerRepository ContainerRepository { get => containerRepository; set => containerRepository = value; }
+        public IContainerRepository ContainerRepository { get => containerRepository; set => containerRepository = value; }
 
         /// <summary>
         ///      Gets or sets ExceptionHandler
         /// </summary>
         /// <value>ExceptionHandler</value>
-        public static IExceptionHandler ExceptionHandler { get => exceptionHandler; set => exceptionHandler = value; }
+        public IExceptionHandler ExceptionHandler { get => exceptionHandler; set => exceptionHandler = value; }
 
         /// <summary>
         ///      A container is empty if it has no item and no stroage.
@@ -79,31 +86,12 @@ namespace GTDApp.Logic
         /// </summary>
         /// <param name="container">Container instance</param>
         /// <returns>Boolean</returns>
-        public static bool RemoveContainer(Container container)
+        public bool RemoveContainer(Container container)
         {
             ContainerRepository.Remove(container);
             Context.SaveChanges();
 
             return false;
-        }
-
-        /// <summary>
-        ///      JavaWebCall
-        /// </summary>
-        /// <param name="apiUrl">Url of api endpoint, which should return a json string</param>
-        /// <returns>string</returns>
-        public static string JSONApiCall(string apiUrl)
-        {
-            try
-            {
-                WebClient webClient = new WebClient();
-                string content = webClient.DownloadString(apiUrl);
-                return content;
-            }
-            catch (System.Net.WebException ex)
-            {
-                throw new JavaWebCallFailedException(ex.Message);
-            }
         }
     }
 }

@@ -7,18 +7,26 @@
 
 namespace GTDApp.Console.Controllers
 {
+    using GTDApp.Console.Menu;
+    using GTDApp.ConsoleCore.Controllers;
+    using GTDApp.Logic;
     using GTDApp.Logic.Attributes;
     using GTDApp.Logic.Interfaces;
+    using GTDApp.Logic.Routing;
 
     /// <summary>
     ///     ItemController
     /// </summary>
-    public class ItemController : IController
+    public class ItemController : AbstractController
     {
+        public ItemController(BusinessLogic businessLogic, Router router) : base(businessLogic, router)
+        {
+        }
+
         /// <summary>
         ///     Create item
         /// </summary>
-        [Route("create_item")]
+        [Route(MainMenuEnum.LIST_ITEMS)]
         public void Create()
         {
         }
@@ -26,7 +34,7 @@ namespace GTDApp.Console.Controllers
         /// <summary>
         ///     Update item
         /// </summary>
-        [Route("update_item")]
+        [Route(MainMenuEnum.UPDATE_ITEM)]
         public void Update()
         {
         }
@@ -34,7 +42,7 @@ namespace GTDApp.Console.Controllers
         /// <summary>
         ///     Delete item
         /// </summary>
-        [Route("delete_item")]
+        [Route(MainMenuEnum.DELETE_ITEM)]
         public void Delete()
         {
         }

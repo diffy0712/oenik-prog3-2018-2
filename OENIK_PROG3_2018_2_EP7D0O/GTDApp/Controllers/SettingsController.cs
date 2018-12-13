@@ -7,27 +7,33 @@
 
 namespace GTDApp.Console.Controllers
 {
-    using System;
-    using System.Linq;
+    using GTDApp.Console.Menu;
     using GTDApp.Console.Views;
+    using GTDApp.ConsoleCore.Controllers;
     using GTDApp.Logic;
     using GTDApp.Logic.Attributes;
     using GTDApp.Logic.Interfaces;
-    using Terminal.Gui;
+    using GTDApp.Logic.Routing;
 
     /// <summary>
     ///     SettingsController
     /// </summary>
-    public class SettingsController : IController
+    public class SettingsController : AbstractController
     {
+        public SettingsController(BusinessLogic businessLogic, Router router) : base(businessLogic, router)
+        {
+        }
+
         /// <summary>
-        ///     DashboardController
+        ///     SettingsController
         /// </summary>
-        [Default]
-        [Route("settings")]
+        [Route(MainMenuEnum.SETTINGS)]
         public void Index()
         {
-            SettingsView view = new SettingsView();
+            SettingsView view = new SettingsView()
+            {
+                Router = this.Router
+            };
             view.Render();
         }
     }

@@ -9,28 +9,37 @@ namespace GTDApp.Console.Controllers
 {
     using System;
     using System.Linq;
+    using GTDApp.Console.Menu;
     using GTDApp.Console.Views;
+    using GTDApp.ConsoleCore.Controllers;
     using GTDApp.Logic;
     using GTDApp.Logic.Attributes;
     using GTDApp.Logic.Interfaces;
+    using GTDApp.Logic.Routing;
     using Terminal.Gui;
 
     /// <summary>
     ///     DashboardController
     /// </summary>
-    public class DashboardController : IController
+    public class DashboardController : AbstractController
     {
+        public DashboardController(BusinessLogic businessLogic, Router router) : base(businessLogic, router)
+        {
+        }
+
         /// <summary>
         ///     DashboardController
         /// </summary>
-        [Default]
-        [Route("dashboard")]
+        [DefaultRoute]
+        [Route(MainMenuEnum.DASHBOARD)]
         public void Index()
         {
-            DashboardView view = new DashboardView();
+            DashboardView view = new DashboardView() {
+                Router = this.Router
+            };
 
             view.NumberOfContainers = BusinessLogic.ContainerRepository.GetAll().Count();
-
+            
             view.Render();
         }
     }

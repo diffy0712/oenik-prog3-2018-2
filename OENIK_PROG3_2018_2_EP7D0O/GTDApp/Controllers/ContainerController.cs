@@ -8,52 +8,72 @@
 namespace GTDApp.Console.Controllers
 {
     using System;
+    using GTDApp.Console.Menu;
     using GTDApp.Console.Views;
     using GTDApp.Console.Views.Containers;
+    using GTDApp.ConsoleCore.Controllers;
     using GTDApp.Data;
     using GTDApp.Logic;
     using GTDApp.Logic.Attributes;
     using GTDApp.Logic.Interfaces;
+    using GTDApp.Logic.Routing;
     using GTDApp.Repository;
+    using Terminal.Gui;
 
     /// <summary>
     ///     ContainerController
     /// </summary>
-    public class ContainerController : IController
+    public class ContainerController : AbstractController
     {
+        public ContainerController(BusinessLogic businessLogic, Router router) : base(businessLogic, router)
+        {
+        }
+
         /// <summary>
         ///     List containers
         /// </summary>
         /// <param name="search">String to search for</param>
         /// <param name="paginator">Paginator Object</param>
-        [Route("list_containers")]
+        [Route(MainMenuEnum.LIST_CONTAINERS)]
         public void List(string search = null, Paginator paginator = null)
         {
             search = search is null ? String.Empty : search;
             paginator = paginator is null ? new Paginator() : paginator;
             var containers = BusinessLogic.ContainerRepository.SearchAll(search, paginator);
 
-            ListContainersView listContainersView = new ListContainersView(containers, paginator, search);
+            ListContainersView listContainersView = new ListContainersView()
+            {
+                Containers = containers,
+                Paginator = paginator,
+                Search = search,
+                Router = this.Router
+            };
             listContainersView.Render();
         }
 
         /// <summary>
         ///     Create container
         /// </summary>
-        [Route("create_container")]
+        [Route(MainMenuEnum.CREATE_CONTAINER)]
         public void Create()
         {
-            CreateContainerView createContainersView = new CreateContainerView();
+            CreateContainerView createContainersView = new CreateContainerView()
+            {
+                Router = this.Router
+            };
+
             createContainersView.Render();
         }
 
         /// <summary>
         ///     Update container
         /// </summary>
-        [Route("update_container")]
+        [Route(MainMenuEnum.UPDATE_CONTAINER)]
         public void Update()
         {
-            UpdateContainerView updateContainersView = new UpdateContainerView();
+            UpdateContainerView updateContainersView = new UpdateContainerView() {
+                Router = this.Router
+            };
             updateContainersView.Render();
         }
 
@@ -61,7 +81,7 @@ namespace GTDApp.Console.Controllers
         ///     Delete container
         /// </summary>
         /// <param name="container">Container instance</param>
-        [Route("delete_container")]
+        [Route(MainMenuEnum.DELETE_CONTAINER)]
         public void Delete(Container container)
         {
             Action deleteAction = null;
@@ -71,6 +91,7 @@ namespace GTDApp.Console.Controllers
                 deleteAction = new Action(() =>
                 {
                     BusinessLogic.RemoveContainer(container);
+                    Application.RequestStop(); Router.Call(MainMenuEnum.LIST_CONTAINERS.ToString());
                 });
             }
 
