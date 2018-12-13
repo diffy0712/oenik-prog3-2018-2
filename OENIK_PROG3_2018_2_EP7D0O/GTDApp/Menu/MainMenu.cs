@@ -27,16 +27,16 @@ namespace GTDApp.Console.Menu
         {
             Menu = new Menu();
             MenuItem fileMenuItem = new MenuItem() { Name = "_File" };
-            fileMenuItem.Items.Add(new MenuItem() { RouteName = MainMenuEnum.DASHBOARD.ToString() , Name = "_Dashboard" });
-            fileMenuItem.Items.Add(new MenuItem() { RouteName = MainMenuEnum.SETTINGS.ToString(), Name = "_Settings" });
-            fileMenuItem.Items.Add(new MenuItem() { RouteName = MainMenuEnum.REVIEW.ToString(), Name = "_Review" });
-            fileMenuItem.Items.Add(new MenuItem() { RouteName = MainMenuEnum.QUIT.ToString(), Name = "_Quit" });
+            fileMenuItem.Items.Add(new MenuItem() { RouteName = RoutesEnum.DASHBOARD.ToString(), Name = "_Dashboard" });
+            fileMenuItem.Items.Add(new MenuItem() { RouteName = RoutesEnum.SETTINGS.ToString(), Name = "_Settings" });
+            fileMenuItem.Items.Add(new MenuItem() { RouteName = RoutesEnum.REVIEW.ToString(), Name = "_Review" });
+            fileMenuItem.Items.Add(new MenuItem() { RouteName = RoutesEnum.QUIT.ToString(), Name = "_Quit" });
 
             Menu.Items.Add(fileMenuItem);
 
             MenuItem crudMenuItem = new MenuItem() { Name = "_CRUD And Java API" };
-            crudMenuItem.Items.Add(new MenuItem() { RouteName = MainMenuEnum.LIST_CONTAINERS.ToString(), Name = "_List Containers" });
-            crudMenuItem.Items.Add(new MenuItem() { RouteName = MainMenuEnum.JAVA_WEB.ToString(), Name = "_Java Web" });
+            crudMenuItem.Items.Add(new MenuItem() { RouteName = RoutesEnum.LIST_CONTAINERS.ToString(), Name = "_List Containers" });
+            crudMenuItem.Items.Add(new MenuItem() { RouteName = RoutesEnum.JAVA_WEB.ToString(), Name = "_Java Web" });
 
             Menu.Items.Add(crudMenuItem);
 

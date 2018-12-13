@@ -29,9 +29,11 @@ namespace GTDApp.Console.Controllers
         /// <summary>
         ///     Create item
         /// </summary>
-        [Route(MainMenuEnum.JAVA_WEB)]
+        [Route(RoutesEnum.JAVA_WEB)]
         public void Index()
         {
+
+            throw new Exception("na erre varjál gombot");
             try
             {
                 JavaWebView view = new JavaWebView()

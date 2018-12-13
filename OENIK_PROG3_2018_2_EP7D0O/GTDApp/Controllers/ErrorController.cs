@@ -8,6 +8,7 @@
 namespace GTDApp.Console.Controllers
 {
     using System;
+    using GTDApp.Console.Menu;
     using GTDApp.Console.Views;
     using GTDApp.ConsoleCore.Controllers;
     using GTDApp.Logic;
@@ -45,7 +46,7 @@ namespace GTDApp.Console.Controllers
         ///     DashboardController
         /// </summary>
         /// <param name="exception">Message</param>
-        [Route("exception_error")]
+        [Route(RoutesEnum.EXCEPTION_ERROR)]
         public void Exception(Exception exception)
         {
             ErrorView view = new ErrorView()

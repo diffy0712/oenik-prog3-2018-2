@@ -27,7 +27,7 @@ namespace GTDApp.Console.Controllers
         /// <summary>
         ///     SettingsController
         /// </summary>
-        [Route(MainMenuEnum.SETTINGS)]
+        [Route(RoutesEnum.SETTINGS)]
         public void Index()
         {
             SettingsView view = new SettingsView()

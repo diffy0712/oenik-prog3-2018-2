@@ -36,7 +36,9 @@ namespace GTDApp.Logic.Exceptions
                     ex
                 };
 
-                //Router.Call("exception_error", parameters); 
+                throw ex;
+
+                // Router.Call("exception_error", parameters); 
             }
             finally
             {

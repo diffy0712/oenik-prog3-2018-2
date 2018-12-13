@@ -1,11 +1,11 @@
 ﻿// <summary>
 // GTD(getting things done) Application
 // </summary>
-// <copyright file="MainMenuEnum.cs" company="OENIK_PROG3_2018_2_EP7D0O">
+// <copyright file="RoutesEnum.cs" company="OENIK_PROG3_2018_2_EP7D0O">
 // Copyright © OENIK_PROG3_2018_2_EP7D0O All rights reserved.
 // </copyright>
 
-namespace GTDApp.Console.Menu
+namespace GTDApp.Console
 {
     using System;
     using System.Collections.Generic;
@@ -14,10 +14,9 @@ namespace GTDApp.Console.Menu
     using System.Threading.Tasks;
 
     /// <summary>
-    ///     GetMenu
+    ///     Available routes to call
     /// </summary>
-    /// <returns>Menu</returns>
-    enum MainMenuEnum
+    internal enum RoutesEnum
     {
         DASHBOARD,
         SETTINGS,
@@ -30,6 +29,8 @@ namespace GTDApp.Console.Menu
         LIST_ITEMS,
         UPDATE_ITEM,
         DELETE_ITEM,
-        JAVA_WEB
+        JAVA_WEB,
+        FATAL_ERROR,
+        EXCEPTION_ERROR
     }
 }

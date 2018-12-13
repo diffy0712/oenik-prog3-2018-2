@@ -31,7 +31,7 @@ namespace GTDApp.Console.Controllers
         ///     DashboardController
         /// </summary>
         [DefaultRoute]
-        [Route(MainMenuEnum.DASHBOARD)]
+        [Route(RoutesEnum.DASHBOARD)]
         public void Index()
         {
             DashboardView view = new DashboardView() {
@@ -39,7 +39,6 @@ namespace GTDApp.Console.Controllers
             };
 
             view.NumberOfContainers = BusinessLogic.ContainerRepository.GetAll().Count();
-            
             view.Render();
         }
     }

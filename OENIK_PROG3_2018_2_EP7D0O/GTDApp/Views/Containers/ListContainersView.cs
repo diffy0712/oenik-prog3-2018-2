@@ -74,14 +74,14 @@ namespace GTDApp.Console.Views
                 object[] searchParameters = new object[2];
                 searchParameters[0] = searchText.Text.ToString();
                 searchParameters[1] = Paginator;
-                Router.Call("list_containers", searchParameters);
+                Router.Call(RoutesEnum.LIST_CONTAINERS.ToString(), searchParameters);
             });
             searchButton.Clicked = searchButtonEvent;
 
             win.Add(search, searchText, searchButton);
 
             Button addNew = new Button(96, 1, "Add new Container");
-            Action addNewEvent = new Action(() => { Router.Call("create_container"); });
+            Action addNewEvent = new Action(() => { Router.Call(RoutesEnum.CREATE_CONTAINER.ToString()); });
             addNew.Clicked = addNewEvent;
             win.Add(addNew);
 
@@ -126,7 +126,7 @@ namespace GTDApp.Console.Views
                 object[] parameters = new object[2];
                 parameters[0] = searchText.Text.ToString();
                 parameters[1] = Paginator;
-                Router.Call("list_containers", parameters);
+                Router.Call(RoutesEnum.LIST_CONTAINERS.ToString(), parameters);
             });
             foreach (View view in paginatorHelper.Render(paginatorAction))
             {
@@ -170,7 +170,7 @@ namespace GTDApp.Console.Views
                     Container container = item;
                     object[] parameters = new object[1];
                     parameters[0] = container;
-                    Router.Call("delete_container", parameters);
+                    Router.Call(RoutesEnum.DELETE_CONTAINER.ToString(), parameters);
                 });
                 deleteButton.Clicked = deleteButtonEvent;
 

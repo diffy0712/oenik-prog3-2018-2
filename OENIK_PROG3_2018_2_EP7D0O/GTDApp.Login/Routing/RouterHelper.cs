@@ -34,8 +34,9 @@ namespace GTDApp.Logic.Routing
         /// <param name="parameters">Parameters to pass to the method</param>
         public static void PrepareRouteParametersForInvoke(ref Route route, object[] parameters = null)
         {
-            if (parameters == null)
+            if (parameters != null)
             {
+                route.Parameters = parameters;
                 return;
             }
 
@@ -101,7 +102,7 @@ namespace GTDApp.Logic.Routing
             }
 
             routes = GetRoutesByAttribute(controllers, typeof(DefaultRouteAttribute));
-            if (routes.Count() > 0)
+            if (routes.Count() > 0 && controllerName == null)
             {
                 return routes[0];
             }

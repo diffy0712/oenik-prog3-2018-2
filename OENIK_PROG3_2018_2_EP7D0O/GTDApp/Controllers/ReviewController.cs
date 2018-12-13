@@ -27,7 +27,7 @@ namespace GTDApp.Console.Controllers
         /// <summary>
         ///     Index containers
         /// </summary>
-        [Route(MainMenuEnum.REVIEW)]
+        [Route(RoutesEnum.REVIEW)]
         public void Index()
         {
             ReviewView reviewView = new ReviewView()

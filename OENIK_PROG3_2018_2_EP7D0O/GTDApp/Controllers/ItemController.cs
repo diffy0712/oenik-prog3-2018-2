@@ -26,7 +26,7 @@ namespace GTDApp.Console.Controllers
         /// <summary>
         ///     Create item
         /// </summary>
-        [Route(MainMenuEnum.LIST_ITEMS)]
+        [Route(RoutesEnum.LIST_ITEMS)]
         public void Create()
         {
         }
@@ -34,7 +34,7 @@ namespace GTDApp.Console.Controllers
         /// <summary>
         ///     Update item
         /// </summary>
-        [Route(MainMenuEnum.UPDATE_ITEM)]
+        [Route(RoutesEnum.UPDATE_ITEM)]
         public void Update()
         {
         }
@@ -42,7 +42,7 @@ namespace GTDApp.Console.Controllers
         /// <summary>
         ///     Delete item
         /// </summary>
-        [Route(MainMenuEnum.DELETE_ITEM)]
+        [Route(RoutesEnum.DELETE_ITEM)]
         public void Delete()
         {
         }

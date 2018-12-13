@@ -25,7 +25,8 @@ namespace GTDApp.Console.Controllers
     /// </summary>
     public class ContainerController : AbstractController
     {
-        public ContainerController(BusinessLogic businessLogic, Router router) : base(businessLogic, router)
+        public ContainerController(BusinessLogic businessLogic, Router router)
+            : base(businessLogic, router)
         {
         }
 
@@ -34,7 +35,7 @@ namespace GTDApp.Console.Controllers
         /// </summary>
         /// <param name="search">String to search for</param>
         /// <param name="paginator">Paginator Object</param>
-        [Route(MainMenuEnum.LIST_CONTAINERS)]
+        [Route(RoutesEnum.LIST_CONTAINERS)]
         public void List(string search = null, Paginator paginator = null)
         {
             search = search is null ? String.Empty : search;
@@ -54,7 +55,7 @@ namespace GTDApp.Console.Controllers
         /// <summary>
         ///     Create container
         /// </summary>
-        [Route(MainMenuEnum.CREATE_CONTAINER)]
+        [Route(RoutesEnum.CREATE_CONTAINER)]
         public void Create()
         {
             CreateContainerView createContainersView = new CreateContainerView()
@@ -68,7 +69,7 @@ namespace GTDApp.Console.Controllers
         /// <summary>
         ///     Update container
         /// </summary>
-        [Route(MainMenuEnum.UPDATE_CONTAINER)]
+        [Route(RoutesEnum.UPDATE_CONTAINER)]
         public void Update()
         {
             UpdateContainerView updateContainersView = new UpdateContainerView() {
@@ -81,7 +82,7 @@ namespace GTDApp.Console.Controllers
         ///     Delete container
         /// </summary>
         /// <param name="container">Container instance</param>
-        [Route(MainMenuEnum.DELETE_CONTAINER)]
+        [Route(RoutesEnum.DELETE_CONTAINER)]
         public void Delete(Container container)
         {
             Action deleteAction = null;
@@ -91,7 +92,7 @@ namespace GTDApp.Console.Controllers
                 deleteAction = new Action(() =>
                 {
                     BusinessLogic.RemoveContainer(container);
-                    Application.RequestStop(); Router.Call(MainMenuEnum.LIST_CONTAINERS.ToString());
+                    Application.RequestStop(); Router.Call(RoutesEnum.LIST_CONTAINERS.ToString());
                 });
             }
 
