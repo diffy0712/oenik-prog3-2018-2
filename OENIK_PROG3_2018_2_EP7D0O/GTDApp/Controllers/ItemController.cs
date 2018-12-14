@@ -16,10 +16,19 @@ namespace GTDApp.Console.Controllers
     /// </summary>
     public class ItemController : IController
     {
+
+        /// <summary>
+        ///     List item
+        /// </summary>
+        [Route(RoutesEnum.LIST_ITEMS)]
+        public void List()
+        {
+        }
+
         /// <summary>
         ///     Create item
         /// </summary>
-        [Route(RoutesEnum.LIST_ITEMS)]
+        [Route(RoutesEnum.CREATE_ITEM)]
         public void Create()
         {
         }

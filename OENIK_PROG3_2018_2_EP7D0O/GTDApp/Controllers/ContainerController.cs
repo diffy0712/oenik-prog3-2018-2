@@ -63,9 +63,9 @@ namespace GTDApp.Console.Controllers
         ///     Create action
         /// </summary>
         [Route(RoutesEnum.CREATE_CONTAINER_ACTION)]
-        public void CreateAction(ContainerDTO containerDTO)
+        public void CreateAction(Container container)
         {
-            List<string> validation = ConsoleCore.BusinessLogic.CreateContainer(containerDTO.ConvertToEntity());
+            List<string> validation = ConsoleCore.BusinessLogic.SaveContainer(container);
 
             if (validation == null)
             {
@@ -73,6 +73,7 @@ namespace GTDApp.Console.Controllers
             }
             else
             {
+                ConsoleCore.CallRoute(RoutesEnum.UPDATE_CONTAINER.ToString(), new object[] { container });
                 ValidationErrorMessageModalView validationErrorMessageModalView = new ValidationErrorMessageModalView();
                 validationErrorMessageModalView.Render();
             }
@@ -82,7 +83,7 @@ namespace GTDApp.Console.Controllers
         ///     Update container
         /// </summary>
         [Route(RoutesEnum.UPDATE_CONTAINER)]
-        public void Update(ContainerDTO containerDTO)
+        public void Update(Container container)
         {
             UpdateContainerView updateContainersView = new UpdateContainerView();
             updateContainersView.Render();

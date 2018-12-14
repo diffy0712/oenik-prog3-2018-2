@@ -84,13 +84,16 @@ namespace GTDApp.Logic
         ///      RemoveContainer
         /// </summary>
         /// <param name="container">Container instance</param>
-        public List<string> CreateContainer(Container container)
+        public List<string> SaveContainer(Container container)
         {
             List<string> response = null;
 
             try
             {
-                ContainerRepository.Add(container);
+                if (container.container_id != null)
+                {
+                    ContainerRepository.Add(container);
+                }
                 Context.SaveChanges();
             }
             catch (DbEntityValidationException dbValidationEx)

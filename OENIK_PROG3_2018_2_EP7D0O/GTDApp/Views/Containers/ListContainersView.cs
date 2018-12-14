@@ -179,11 +179,22 @@ namespace GTDApp.Console.Views
             foreach (var item in this.Containers)
             {
                 Button itemsButton = new Button("Items");
-                Action itemsButtonEvent = new Action(() => {});
+                Action itemsButtonEvent = new Action(() => {
+                    object[] parameters = new object[] {
+                        
+                    };
+                    ConsoleCore.CallRoute(RoutesEnum.LIST_ITEMS.ToString(), parameters);
+                });
                 itemsButton.Clicked = itemsButtonEvent;
 
                 Button editButton = new Button("Edit");
-                Action editButtonEvent = new Action(() => {});
+                Action editButtonEvent = new Action(() => {
+                    Container container = item;
+                    object[] parameters = new object[] {
+                        container
+                    };
+                    ConsoleCore.CallRoute(RoutesEnum.UPDATE_CONTAINER.ToString(), parameters);
+                });
                 editButton.Clicked = editButtonEvent;
 
                 Button deleteButton = new Button("Delete");

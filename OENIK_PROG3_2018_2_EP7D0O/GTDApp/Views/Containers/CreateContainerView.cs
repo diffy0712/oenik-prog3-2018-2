@@ -12,6 +12,7 @@ namespace GTDApp.Console.Views.Containers
     using GTDApp.ConsoleCore;
     using GTDApp.ConsoleCore.Menu;
     using GTDApp.ConsoleCore.View;
+    using GTDApp.Data;
     using GTDApp.Logic;
     using GTDApp.Logic.DTO;
     using GTDApp.Logic.Routing;
@@ -93,16 +94,16 @@ namespace GTDApp.Console.Views.Containers
 
             Button createButton = new Button(85, 19, "Create");
             Action createButtonEvent = new Action(() => {
-                ContainerDTO containerDTO = new ContainerDTO()
+                Container container = new Container()
                 {
-                    Name = nameText.Text.ToString(),
-                    Purpose = purposeText.Text.ToString(),
-                    Principles = principlesText.Text.ToString(),
-                    InvisionedOutcome = invisionedOutcomeText.Text.ToString(),
-                    Type = typesArray[typeGroup.Selected].ToString()
+                    name = nameText.Text.ToString(),
+                    purpose = purposeText.Text.ToString(),
+                    principles = principlesText.Text.ToString(),
+                    invisioned_outcome = invisionedOutcomeText.Text.ToString(),
+                    type = typesArray[typeGroup.Selected].ToString()
                 };
                 object[] parameters = new object[] {
-                    containerDTO
+                    container
                 };
                 ConsoleCore.CallRoute(RoutesEnum.CREATE_CONTAINER_ACTION.ToString(),parameters);
             });
