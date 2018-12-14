@@ -131,7 +131,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Views\Containers\DeleteContainerView.cs" />
-    <Compile Include="Views\Containers\CreateContainerView.cs" />
+    <Compile Include="Views\Containers\ManageContainerView.cs" />
     <Compile Include="Views\Containers\UpdateContainerView.cs" />
     <Compile Include="Views\Containers\ListContainersView.cs" />
     <Compile Include="Views\DashboardView.cs" />

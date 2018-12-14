@@ -23,7 +23,7 @@ namespace GTDApp.Console
         QUIT,
         LIST_CONTAINERS,
         CREATE_CONTAINER,
-        CREATE_CONTAINER_ACTION,
+        MANAGE_CONTAINER_ACTION,
         UPDATE_CONTAINER,
         DELETE_CONTAINER,
         LIST_ITEMS,

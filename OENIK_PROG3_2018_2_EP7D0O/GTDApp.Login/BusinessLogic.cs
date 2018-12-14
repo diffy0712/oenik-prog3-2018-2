@@ -90,15 +90,15 @@ namespace GTDApp.Logic
 
             try
             {
-                if (container.container_id != null)
+                if (container.container_id == 0)
                 {
                     ContainerRepository.Add(container);
                 }
+
                 Context.SaveChanges();
             }
             catch (DbEntityValidationException dbValidationEx)
             {
-
                 foreach (DbEntityValidationResult entityErr in
                    dbValidationEx.EntityValidationErrors)
                 {

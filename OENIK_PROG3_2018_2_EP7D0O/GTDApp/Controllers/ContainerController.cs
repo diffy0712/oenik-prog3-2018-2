@@ -54,15 +54,38 @@ namespace GTDApp.Console.Controllers
         [Route(RoutesEnum.CREATE_CONTAINER)]
         public void Create()
         {
-            CreateContainerView createContainersView = new CreateContainerView();
+            ManageContainerView manageContainersView = new ManageContainerView();
 
-            createContainersView.Render();
+            Container container = new Container();
+            container.name = String.Empty;
+            container.purpose = String.Empty;
+            container.principles = String.Empty;
+            container.invisioned_outcome = String.Empty;
+            container.type = String.Empty;
+
+            manageContainersView.Container = container;
+            manageContainersView.Creation = true;
+
+            manageContainersView.Render();
+        }
+
+        /// <summary>
+        ///     Update container
+        /// </summary>
+        [Route(RoutesEnum.UPDATE_CONTAINER)]
+        public void Update(Container container)
+        {
+            ManageContainerView manageContainersView = new ManageContainerView();
+            manageContainersView.Container = container;
+            manageContainersView.Creation = false;
+
+            manageContainersView.Render();
         }
 
         /// <summary>
         ///     Create action
         /// </summary>
-        [Route(RoutesEnum.CREATE_CONTAINER_ACTION)]
+        [Route(RoutesEnum.MANAGE_CONTAINER_ACTION)]
         public void CreateAction(Container container)
         {
             List<string> validation = ConsoleCore.BusinessLogic.SaveContainer(container);
@@ -73,21 +96,12 @@ namespace GTDApp.Console.Controllers
             }
             else
             {
-                ConsoleCore.CallRoute(RoutesEnum.UPDATE_CONTAINER.ToString(), new object[] { container });
+                //ConsoleCore.CallRoute(RoutesEnum.UPDATE_CONTAINER.ToString(), new object[] { container });
                 ValidationErrorMessageModalView validationErrorMessageModalView = new ValidationErrorMessageModalView();
                 validationErrorMessageModalView.Render();
             }
         }
 
-        /// <summary>
-        ///     Update container
-        /// </summary>
-        [Route(RoutesEnum.UPDATE_CONTAINER)]
-        public void Update(Container container)
-        {
-            UpdateContainerView updateContainersView = new UpdateContainerView();
-            updateContainersView.Render();
-        }
 
         /// <summary>
         ///     Delete container
