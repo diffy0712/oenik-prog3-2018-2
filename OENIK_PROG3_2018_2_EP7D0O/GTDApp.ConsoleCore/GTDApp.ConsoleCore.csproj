@@ -52,7 +52,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\AbstractController.cs" />
+    <Compile Include="ConsoleCore.cs" />
+    <Compile Include="Interfaces\IExceptionHandler.cs" />
     <Compile Include="Menu\IMenu.cs" />
     <Compile Include="Menu\Menu.cs" />
     <Compile Include="Menu\MenuItem.cs" />

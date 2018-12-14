@@ -28,7 +28,6 @@ namespace GTDApp.Console.Menu
             Menu = new Menu();
             MenuItem fileMenuItem = new MenuItem() { Name = "_File" };
             fileMenuItem.Items.Add(new MenuItem() { RouteName = RoutesEnum.DASHBOARD.ToString(), Name = "_Dashboard" });
-            fileMenuItem.Items.Add(new MenuItem() { RouteName = RoutesEnum.SETTINGS.ToString(), Name = "_Settings" });
             fileMenuItem.Items.Add(new MenuItem() { RouteName = RoutesEnum.REVIEW.ToString(), Name = "_Review" });
             fileMenuItem.Items.Add(new MenuItem() { RouteName = RoutesEnum.QUIT.ToString(), Name = "_Quit" });
 

@@ -40,12 +40,12 @@ namespace GTDApp.Console.Views
             if (this.Message != null)
             {
                 win.Add(
-                    new Label(45, 10, this.Message)
+                    //new Label(45, 10, this.Message)
                 );
             }
             else if(this.Exception != null)
             {
-                ExceptionHelper exceptionHelper = new ExceptionHelper(1,2, this.Exception);
+                ExceptionHelper exceptionHelper = new ExceptionHelper(2,1, this.Exception);
 
                 foreach (View view in exceptionHelper.Render())
                 {

@@ -9,9 +9,11 @@ namespace GTDApp.Console.Views.Containers
 {
     using System;
     using GTDApp.Console.Menu;
+    using GTDApp.ConsoleCore;
     using GTDApp.ConsoleCore.Menu;
     using GTDApp.ConsoleCore.View;
     using GTDApp.Logic;
+    using GTDApp.Logic.DTO;
     using GTDApp.Logic.Routing;
     using Terminal.Gui;
 
@@ -68,29 +70,46 @@ namespace GTDApp.Console.Views.Containers
                 Width = Dim.Width(nameText)
             };
 
+            string[] typesArray = new[] {
+                "Incoming Collection Container",
+                "Project Container",
+                "Reference Collection Container",
+                "Incubator Collection Container" ,
+                "Blocked Collection Container",
+                "Appointment Collection Container",
+                "Next Actions Collection Container"
+            };
+
+            RadioGroup typeGroup = new RadioGroup(
+                1,
+                0,
+                typesArray,
+                0
+            );
+
             FrameView typeView = new FrameView(new Rect(2, 9, 110, 9), "Type of Container"){
-                new RadioGroup (
-                    1,
-                    0,
-                    new [] {
-                        "Incoming Collection Container",
-                        "Project Container",
-                        "Reference Collection Container",
-                        "Incubator Collection Container" ,
-                        "Blocked Collection Container",
-                        "Appointment Collection Container",
-                        "Next Actions Collection Container"
-                    },
-                    0
-                ),
+                typeGroup
             };
 
             Button createButton = new Button(85, 19, "Create");
-            Action createButtonEvent = new Action(() => { Router.Call("create_container"); });
+            Action createButtonEvent = new Action(() => {
+                ContainerDTO containerDTO = new ContainerDTO()
+                {
+                    Name = nameText.Text.ToString(),
+                    Purpose = purposeText.Text.ToString(),
+                    Principles = principlesText.Text.ToString(),
+                    InvisionedOutcome = invisionedOutcomeText.Text.ToString(),
+                    Type = typesArray[typeGroup.Selected].ToString()
+                };
+                object[] parameters = new object[] {
+                    containerDTO
+                };
+                ConsoleCore.CallRoute(RoutesEnum.CREATE_CONTAINER_ACTION.ToString(),parameters);
+            });
             createButton.Clicked = createButtonEvent;
 
             Button backToListButton = new Button(96, 19, "Back To List");
-            Action backToListButtonEvent = new Action(() => { Router.Call("list_containers"); });
+            Action backToListButtonEvent = new Action(() => { ConsoleCore.CallRoute(RoutesEnum.LIST_CONTAINERS.ToString()); });
             backToListButton.Clicked = backToListButtonEvent;
 
             // Add some content

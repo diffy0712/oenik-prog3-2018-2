@@ -7,9 +7,11 @@
 
 namespace GTDApp.Console
 {
+    using GTDApp.Console.Exceptions;
+    using GTDApp.ConsoleCore;
+    using GTDApp.ConsoleCore.Interfaces;
     using GTDApp.Logic;
     using GTDApp.Logic.Routing;
-    using Terminal.Gui;
 
     /// <summary>
     ///     Entry Point
@@ -21,8 +23,13 @@ namespace GTDApp.Console
         /// </summary>
         public static void Main()
         {
+            BusinessLogic businessLogic = BusinessLogic.Init();
             Router router = Router.Init("GTDApp.Console.Controllers");
-            router.CallDefault();
+            //IExceptionHandler exceptionHandler = new DetailedExceptionHandler();
+            IExceptionHandler exceptionHandler = new NullExceptionHandler();
+
+            ConsoleCore.Init(router, businessLogic, exceptionHandler);
+            ConsoleCore.CallRoute();
         }
     }
 }

@@ -19,11 +19,11 @@ namespace GTDApp.Console
     internal enum RoutesEnum
     {
         DASHBOARD,
-        SETTINGS,
         REVIEW,
         QUIT,
         LIST_CONTAINERS,
         CREATE_CONTAINER,
+        CREATE_CONTAINER_ACTION,
         UPDATE_CONTAINER,
         DELETE_CONTAINER,
         LIST_ITEMS,
@@ -31,6 +31,7 @@ namespace GTDApp.Console
         DELETE_ITEM,
         JAVA_WEB,
         FATAL_ERROR,
-        EXCEPTION_ERROR
+        EXCEPTION_ERROR,
+        DEFAULT_ERROR
     }
 }

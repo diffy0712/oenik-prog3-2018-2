@@ -7,9 +7,6 @@
 
 namespace GTDApp.Console.Controllers
 {
-    using GTDApp.Console.Menu;
-    using GTDApp.ConsoleCore.Controllers;
-    using GTDApp.Logic;
     using GTDApp.Logic.Attributes;
     using GTDApp.Logic.Interfaces;
     using GTDApp.Logic.Routing;
@@ -17,12 +14,8 @@ namespace GTDApp.Console.Controllers
     /// <summary>
     ///     ItemController
     /// </summary>
-    public class ItemController : AbstractController
+    public class ItemController : IController
     {
-        public ItemController(BusinessLogic businessLogic, Router router) : base(businessLogic, router)
-        {
-        }
-
         /// <summary>
         ///     Create item
         /// </summary>

@@ -14,6 +14,7 @@ namespace GTDApp.Console.Views
     using GTDApp.Console.Menu;
     using GTDApp.ConsoleCore.Menu;
     using GTDApp.ConsoleCore.View;
+    using GTDApp.ConsoleCore;
     using GTDApp.ConsoleCore.Views;
     using GTDApp.ConsoleCore.Views.Helpers;
     using GTDApp.Data;
@@ -74,14 +75,14 @@ namespace GTDApp.Console.Views
                 object[] searchParameters = new object[2];
                 searchParameters[0] = searchText.Text.ToString();
                 searchParameters[1] = Paginator;
-                Router.Call(RoutesEnum.LIST_CONTAINERS.ToString(), searchParameters);
+                ConsoleCore.CallRoute(RoutesEnum.LIST_CONTAINERS.ToString(), searchParameters);
             });
             searchButton.Clicked = searchButtonEvent;
 
             win.Add(search, searchText, searchButton);
 
             Button addNew = new Button(96, 1, "Add new Container");
-            Action addNewEvent = new Action(() => { Router.Call(RoutesEnum.CREATE_CONTAINER.ToString()); });
+            Action addNewEvent = new Action(() => { ConsoleCore.CallRoute(RoutesEnum.CREATE_CONTAINER.ToString()); });
             addNew.Clicked = addNewEvent;
             win.Add(addNew);
 
@@ -97,9 +98,21 @@ namespace GTDApp.Console.Views
             typeDictionary.Add("name", "Type");
             typeDictionary.Add("width", "20");
 
+            Dictionary<string, string> itemCountDictionary = new Dictionary<string, string>();
+            itemCountDictionary.Add("name", "Items");
+            itemCountDictionary.Add("width", "3");
+            
+            Dictionary<string, string> storageCountDictionary = new Dictionary<string, string>();
+            storageCountDictionary.Add("name", "Storages");
+            storageCountDictionary.Add("width", "3");
+
             Dictionary<string, string> editDictionary = new Dictionary<string, string>();
             editDictionary.Add("name", string.Empty);
             editDictionary.Add("width", "5");
+
+            Dictionary<string, string> itemsDictionary = new Dictionary<string, string>();
+            itemsDictionary.Add("name", string.Empty);
+            itemsDictionary.Add("width", "5");
 
             Dictionary<string, string> deleteDictionary = new Dictionary<string, string>();
             deleteDictionary.Add("name", string.Empty);
@@ -109,6 +122,9 @@ namespace GTDApp.Console.Views
                 idDictionary,
                 nameDictionary,
                 typeDictionary,
+                itemCountDictionary,
+                storageCountDictionary,
+                itemsDictionary,
                 editDictionary,
                 deleteDictionary,
             };
@@ -126,7 +142,7 @@ namespace GTDApp.Console.Views
                 object[] parameters = new object[2];
                 parameters[0] = searchText.Text.ToString();
                 parameters[1] = Paginator;
-                Router.Call(RoutesEnum.LIST_CONTAINERS.ToString(), parameters);
+                ConsoleCore.CallRoute(RoutesEnum.LIST_CONTAINERS.ToString(), parameters);
             });
             foreach (View view in paginatorHelper.Render(paginatorAction))
             {
@@ -162,19 +178,34 @@ namespace GTDApp.Console.Views
 
             foreach (var item in this.Containers)
             {
+                Button itemsButton = new Button("Items");
+                Action itemsButtonEvent = new Action(() => {});
+                itemsButton.Clicked = itemsButtonEvent;
+
                 Button editButton = new Button("Edit");
                 Action editButtonEvent = new Action(() => {});
                 editButton.Clicked = editButtonEvent;
+
                 Button deleteButton = new Button("Delete");
                 Action deleteButtonEvent = new Action(() => {
                     Container container = item;
                     object[] parameters = new object[1];
                     parameters[0] = container;
-                    Router.Call(RoutesEnum.DELETE_CONTAINER.ToString(), parameters);
+                    ConsoleCore.CallRoute(RoutesEnum.DELETE_CONTAINER.ToString(), parameters);
                 });
                 deleteButton.Clicked = deleteButtonEvent;
 
-                rows.Add(new List<View>() { new Label($"#{item.container_id}"), new Label(item.name), new Label(item.type), editButton, deleteButton });
+                rows.Add(new List<View>()
+                {
+                    new Label($"#{item.container_id}"),
+                    new Label(item.name),
+                    new Label(item.type),
+                    new Label(item.Container_item.Count.ToString()),
+                    new Label(item.Container_storage.Count.ToString()),
+                    itemsButton,
+                    editButton,
+                    deleteButton
+                });
             }
 
             return rows;

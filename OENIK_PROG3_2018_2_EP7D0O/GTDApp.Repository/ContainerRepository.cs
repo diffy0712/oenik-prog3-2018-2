@@ -34,7 +34,9 @@ namespace GTDApp.Repository
         public IQueryable<Container> SearchAll(string search, Paginator paginator)
         {
             var g = GtdEntityDataModel.Container
-                .OrderBy(x => x.container_id)
+                .Include("Container_item")
+                .Include("Container_storage")
+                .OrderByDescending(x => x.Container_item.Count)
                 .Where(p => p.name.Contains(search));
 
             paginator.Maximum = g.Count();

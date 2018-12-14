@@ -8,8 +8,6 @@
 namespace GTDApp.ConsoleCore.Views
 {
     using GTDApp.ConsoleCore.Menu;
-    using GTDApp.Logic;
-    using GTDApp.Logic.Routing;
     using GUI = Terminal.Gui;
 
     /// <summary>
@@ -17,13 +15,6 @@ namespace GTDApp.ConsoleCore.Views
     /// </summary>
     public class MenuHelper
     {
-
-        /// <summary>
-        ///    Gets or sets Router
-        /// </summary>
-        /// <value>Router</value>
-        public Router Router { get; set; }
-
         /// <summary>
         /// Initializes a new instance of the <see cref="MenuHelper"/> class.
         ///     MenuHelper
@@ -31,9 +22,8 @@ namespace GTDApp.ConsoleCore.Views
         /// <param name="top">Top level element</param>
         /// <param name="menu">Menu</param>
         /// <param name="router">Router</param>
-        public MenuHelper(GUI.Toplevel top, Menu menu, Router router)
+        public MenuHelper(GUI.Toplevel top, Menu menu)
         {
-            this.Router = router;
             GUI.MenuBarItem[] menubarItems = new GUI.MenuBarItem[menu.Items.Count];
 
             for (int i = 0; i < menu.Items.Count; i++)
@@ -43,7 +33,7 @@ namespace GTDApp.ConsoleCore.Views
                 for (int k = 0; k < menu.Items[i].Items.Count; k++)
                 {
                     MenuItem menuItem = menu.Items[i].Items[k];
-                    menuItemChildren[k] = new GUI.MenuItem(menuItem.Name, string.Empty, () => { Router.Call(menuItem.RouteName); });
+                    menuItemChildren[k] = new GUI.MenuItem(menuItem.Name, string.Empty, () => { ConsoleCore.CallRoute(menuItem.RouteName); });
                 }
 
                 GUI.MenuBarItem menuBarItem = new GUI.MenuBarItem(menu.Items[i].Name, menuItemChildren);

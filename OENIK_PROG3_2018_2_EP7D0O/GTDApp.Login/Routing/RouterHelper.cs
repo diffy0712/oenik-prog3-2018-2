@@ -107,12 +107,6 @@ namespace GTDApp.Logic.Routing
                 return routes[0];
             }
 
-            routes = GetRoutesByAttribute(controllers, typeof(DefaultErrorRouteAttribute));
-            if (routes.Count() > 0)
-            {
-                return routes[0];
-            }
-
             throw new NoRouteFoundException("Could not find any route to call.");
         }
 

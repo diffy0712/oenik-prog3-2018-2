@@ -14,24 +14,5 @@ namespace GTDApp.Logic.Interfaces
     /// </summary>
     public interface IController
     {
-        /// <summary>
-        ///     Gets or sets BusinessLogic<see cref="BusinessLogic"/>
-        /// </summary>
-        /// <value>BusinessLogic</value>
-        BusinessLogic BusinessLogic
-        {
-            get;
-            set;
-        }
-
-        /// <summary>
-        ///     Gets or sets Router<see cref="Router"/>
-        /// </summary>
-        /// <value>Router</value>
-        Router Router
-        {
-            get;
-            set;
-        }
     }
 }

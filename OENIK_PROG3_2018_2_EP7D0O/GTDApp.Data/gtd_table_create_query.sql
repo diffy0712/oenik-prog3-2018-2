@@ -55,7 +55,6 @@ CREATE TABLE Attachment
 CREATE TABLE Container
 (
     container_id int NOT NULL IDENTITY(1,1) PRIMARY KEY,
-	parent_container_id int FOREIGN KEY REFERENCES Container(container_id),
     name nvarchar(50) NOT NULL,
     purpose nvarchar(500) NOT NULL,
     type nvarchar(50) NOT NULL,

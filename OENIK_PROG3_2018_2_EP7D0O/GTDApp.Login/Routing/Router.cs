@@ -9,11 +9,8 @@ namespace GTDApp.Logic.Routing
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
     using System.Reflection;
-    using GTDApp.Logic.Attributes;
     using GTDApp.Logic.Interfaces;
-    using Attribute = System.Attribute;
 
     /// <summary>
     ///     Router
@@ -27,23 +24,10 @@ namespace GTDApp.Logic.Routing
         /// <returns>Router</returns>
         public static Router Init(string nameSpace)
         {
-            BusinessLogic businessLogic = BusinessLogic.Init();
-            Router router = new Router()
-            {
-                BusinessLogic = businessLogic
-            };
-            router.Controllers = RouterHelper.LoadControllersFromDLLNamespace(nameSpace, new object[2] { businessLogic, router });
+            Router router = new Router();
+            router.Controllers = RouterHelper.LoadControllersFromDLLNamespace(nameSpace, null);
 
             return router;
-        }
-
-        /// <summary>
-        ///     Call Controller
-        /// </summary>
-        /// <param name="parameters">Parameters to pass to the default method</param>
-        public void CallDefault(object[] parameters = null)
-        {
-            Call(null, parameters);
         }
 
         /// <summary>
@@ -62,20 +46,20 @@ namespace GTDApp.Logic.Routing
             //            internal .NET system error(which we cant handle)
             //            we must disable tools->options->debugging->Enable just my code
             // Source: https://stackoverflow.com/questions/2658908/why-is-targetinvocationexception-treated-as-uncaught-by-the-ide?noredirect=1&lq=1
-            this.BusinessLogic.ExceptionHandler.Handle(() => {
-                try
-                {
-                    routeToInvoke.Method.Invoke(routeToInvoke.Controller, routeToInvoke.Parameters);
-                }
-                catch (Exception ex)
-                {
-                    throw ex;
-                }
-             });
+            try
+            {
+                routeToInvoke.Method.Invoke(routeToInvoke.Controller, routeToInvoke.Parameters);
+            }
+            catch (TargetInvocationException ex)
+            {
+                throw ex.InnerException;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         private List<IController> Controllers;
-
-        private BusinessLogic BusinessLogic;
     }
 }

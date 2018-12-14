@@ -38,8 +38,8 @@ namespace GTDApp.Console.Views.Containers
             if (DeleteAction is null)
             {
                 d = new Dialog(
-                    $"You are unable to delete container #{this.Container.container_id} - {this.Container.name}",
-                    80,
+                    $"Unable to delete container #{this.Container.container_id} - {this.Container.name}. Please empty it first.",
+                    100,
                     8,
                     new Button("Cancel") { Clicked = () => { Application.RequestStop(); } }
                 );

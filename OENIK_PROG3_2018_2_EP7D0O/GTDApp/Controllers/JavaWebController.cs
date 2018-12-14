@@ -7,39 +7,27 @@
 
 namespace GTDApp.Console.Controllers
 {
-    using GTDApp.Console.Menu;
     using GTDApp.Console.Views;
-    using GTDApp.ConsoleCore.Controllers;
     using GTDApp.Logic;
     using GTDApp.Logic.Attributes;
     using GTDApp.Logic.Exceptions;
     using GTDApp.Logic.Interfaces;
     using GTDApp.Logic.Routing;
-    using System;
 
     /// <summary>
     ///     JavaWebController
     /// </summary>
-    public class JavaWebController : AbstractController
+    public class JavaWebController : IController
     {
-        public JavaWebController(BusinessLogic businessLogic, Router router) : base(businessLogic, router)
-        {
-        }
-
         /// <summary>
         ///     Create item
         /// </summary>
         [Route(RoutesEnum.JAVA_WEB)]
         public void Index()
         {
-
-            throw new Exception("na erre varjál gombot");
             try
             {
-                JavaWebView view = new JavaWebView()
-                {
-                    Router = this.Router
-                };
+                JavaWebView view = new JavaWebView();
 
                 string javaWebUrl = "http://localhost:8080/GTDAppWebServer/GTDAppServlet";
                 view.Response = Common.JSONApiCall(javaWebUrl);

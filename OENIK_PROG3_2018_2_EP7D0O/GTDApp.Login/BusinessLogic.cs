@@ -7,7 +7,9 @@
 
 namespace GTDApp.Logic
 {
+    using System.Collections.Generic;
     using System.Data.Entity;
+    using System.Data.Entity.Validation;
     using System.Net;
     using GTDApp.Data;
     using GTDApp.Logic.Exceptions;
@@ -30,24 +32,17 @@ namespace GTDApp.Logic
         private IContainerRepository containerRepository;
 
         /// <summary>
-        ///      exceptionHandler
-        /// </summary>
-        private IExceptionHandler exceptionHandler;
-
-        /// <summary>
         ///      BusinessLogic
         /// </summary>
         public static BusinessLogic Init()
         {
             GtdEntityDataModel Context = new GtdEntityDataModel();
             IContainerRepository ContainerRepository = new ContainerRepository(Context);
-            IExceptionHandler ExceptionHandler = new DetailedExceptionHandler();
 
             BusinessLogic businessLogic = new BusinessLogic()
             {
                 context = Context,
-                containerRepository = ContainerRepository,
-                exceptionHandler = ExceptionHandler
+                containerRepository = ContainerRepository
             };
 
             return businessLogic;
@@ -64,13 +59,7 @@ namespace GTDApp.Logic
         /// </summary>
         /// <value>ContainerRepository</value>
         public IContainerRepository ContainerRepository { get => containerRepository; set => containerRepository = value; }
-
-        /// <summary>
-        ///      Gets or sets ExceptionHandler
-        /// </summary>
-        /// <value>ExceptionHandler</value>
-        public IExceptionHandler ExceptionHandler { get => exceptionHandler; set => exceptionHandler = value; }
-
+        
         /// <summary>
         ///      A container is empty if it has no item and no stroage.
         /// </summary>
@@ -85,13 +74,40 @@ namespace GTDApp.Logic
         ///      RemoveContainer
         /// </summary>
         /// <param name="container">Container instance</param>
-        /// <returns>Boolean</returns>
-        public bool RemoveContainer(Container container)
+        public void RemoveContainer(Container container)
         {
             ContainerRepository.Remove(container);
             Context.SaveChanges();
+        }
 
-            return false;
+        /// <summary>
+        ///      RemoveContainer
+        /// </summary>
+        /// <param name="container">Container instance</param>
+        public List<string> CreateContainer(Container container)
+        {
+            List<string> response = null;
+
+            try
+            {
+                ContainerRepository.Add(container);
+                Context.SaveChanges();
+            }
+            catch (DbEntityValidationException dbValidationEx)
+            {
+
+                foreach (DbEntityValidationResult entityErr in
+                   dbValidationEx.EntityValidationErrors)
+                {
+                    response = new List<string>();
+                    foreach (DbValidationError error in entityErr.ValidationErrors)
+                    {
+                        response.Add(error.ErrorMessage);
+                    }
+                }
+            }
+
+            return response;
         }
     }
 }

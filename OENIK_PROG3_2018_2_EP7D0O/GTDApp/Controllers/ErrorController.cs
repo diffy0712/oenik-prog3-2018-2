@@ -8,35 +8,24 @@
 namespace GTDApp.Console.Controllers
 {
     using System;
-    using GTDApp.Console.Menu;
     using GTDApp.Console.Views;
-    using GTDApp.ConsoleCore.Controllers;
-    using GTDApp.Logic;
     using GTDApp.Logic.Attributes;
     using GTDApp.Logic.Interfaces;
     using GTDApp.Logic.Routing;
-    using Terminal.Gui;
 
     /// <summary>
     ///     ErrorController
     /// </summary>
-    public class ErrorController : AbstractController
+    public class ErrorController : IController
     {
-        public ErrorController(BusinessLogic businessLogic, Router router) : base(businessLogic, router)
-        {
-        }
-
         /// <summary>
         ///     Fatal error message controller
         /// </summary>
         /// <param name="message">Message</param>
-        [DefaultErrorRoute]
-        public void Fatal(string message)
+        [Route(RoutesEnum.DEFAULT_ERROR)]
+        public void Default(string message)
         {
-            ErrorView view = new ErrorView()
-            {
-                Router = this.Router
-            };
+            ErrorView view = new ErrorView();
 
             view.Message = message;
             view.Render();
@@ -49,10 +38,7 @@ namespace GTDApp.Console.Controllers
         [Route(RoutesEnum.EXCEPTION_ERROR)]
         public void Exception(Exception exception)
         {
-            ErrorView view = new ErrorView()
-            {
-                Router = this.Router
-            };
+            ErrorView view = new ErrorView();
 
             view.Exception = exception;
             view.Render();

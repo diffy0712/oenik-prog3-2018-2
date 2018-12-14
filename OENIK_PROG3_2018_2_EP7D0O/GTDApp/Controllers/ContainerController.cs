@@ -8,13 +8,15 @@
 namespace GTDApp.Console.Controllers
 {
     using System;
-    using GTDApp.Console.Menu;
+    using System.Collections.Generic;
     using GTDApp.Console.Views;
     using GTDApp.Console.Views.Containers;
-    using GTDApp.ConsoleCore.Controllers;
+    using GTDApp.Console.Views.Modals;
+    using GTDApp.ConsoleCore;
     using GTDApp.Data;
     using GTDApp.Logic;
     using GTDApp.Logic.Attributes;
+    using GTDApp.Logic.DTO;
     using GTDApp.Logic.Interfaces;
     using GTDApp.Logic.Routing;
     using GTDApp.Repository;
@@ -23,13 +25,8 @@ namespace GTDApp.Console.Controllers
     /// <summary>
     ///     ContainerController
     /// </summary>
-    public class ContainerController : AbstractController
+    public class ContainerController : IController
     {
-        public ContainerController(BusinessLogic businessLogic, Router router)
-            : base(businessLogic, router)
-        {
-        }
-
         /// <summary>
         ///     List containers
         /// </summary>
@@ -40,14 +37,13 @@ namespace GTDApp.Console.Controllers
         {
             search = search is null ? String.Empty : search;
             paginator = paginator is null ? new Paginator() : paginator;
-            var containers = BusinessLogic.ContainerRepository.SearchAll(search, paginator);
+            var containers = ConsoleCore.BusinessLogic.ContainerRepository.SearchAll(search, paginator);
 
             ListContainersView listContainersView = new ListContainersView()
             {
                 Containers = containers,
                 Paginator = paginator,
-                Search = search,
-                Router = this.Router
+                Search = search
             };
             listContainersView.Render();
         }
@@ -58,23 +54,37 @@ namespace GTDApp.Console.Controllers
         [Route(RoutesEnum.CREATE_CONTAINER)]
         public void Create()
         {
-            CreateContainerView createContainersView = new CreateContainerView()
-            {
-                Router = this.Router
-            };
+            CreateContainerView createContainersView = new CreateContainerView();
 
             createContainersView.Render();
+        }
+
+        /// <summary>
+        ///     Create action
+        /// </summary>
+        [Route(RoutesEnum.CREATE_CONTAINER_ACTION)]
+        public void CreateAction(ContainerDTO containerDTO)
+        {
+            List<string> validation = ConsoleCore.BusinessLogic.CreateContainer(containerDTO.ConvertToEntity());
+
+            if (validation == null)
+            {
+                ConsoleCore.CallRoute(RoutesEnum.LIST_CONTAINERS.ToString(), new object[]{ null, null});
+            }
+            else
+            {
+                ValidationErrorMessageModalView validationErrorMessageModalView = new ValidationErrorMessageModalView();
+                validationErrorMessageModalView.Render();
+            }
         }
 
         /// <summary>
         ///     Update container
         /// </summary>
         [Route(RoutesEnum.UPDATE_CONTAINER)]
-        public void Update()
+        public void Update(ContainerDTO containerDTO)
         {
-            UpdateContainerView updateContainersView = new UpdateContainerView() {
-                Router = this.Router
-            };
+            UpdateContainerView updateContainersView = new UpdateContainerView();
             updateContainersView.Render();
         }
 
@@ -91,8 +101,9 @@ namespace GTDApp.Console.Controllers
             {
                 deleteAction = new Action(() =>
                 {
-                    BusinessLogic.RemoveContainer(container);
-                    Application.RequestStop(); Router.Call(RoutesEnum.LIST_CONTAINERS.ToString());
+                    ConsoleCore.BusinessLogic.RemoveContainer(container);
+                    Application.RequestStop();
+                    ConsoleCore.CallRoute(RoutesEnum.LIST_CONTAINERS.ToString());
                 });
             }
 
