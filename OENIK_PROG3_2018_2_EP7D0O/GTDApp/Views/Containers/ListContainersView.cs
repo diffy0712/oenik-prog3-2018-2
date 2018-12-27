@@ -10,17 +10,12 @@ namespace GTDApp.Console.Views
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using GTDApp.Console.Controllers;
     using GTDApp.Console.Menu;
+    using GTDApp.ConsoleCore;
     using GTDApp.ConsoleCore.Menu;
     using GTDApp.ConsoleCore.View;
-    using GTDApp.ConsoleCore;
-    using GTDApp.ConsoleCore.Views;
     using GTDApp.ConsoleCore.Views.Helpers;
     using GTDApp.Data;
-    using GTDApp.Logic;
-    using GTDApp.Logic.Interfaces;
-    using GTDApp.Logic.Routing;
     using GTDApp.Repository;
     using Terminal.Gui;
 
@@ -86,55 +81,23 @@ namespace GTDApp.Console.Views
             addNew.Clicked = addNewEvent;
             win.Add(addNew);
 
-            Dictionary<string, string> idDictionary = new Dictionary<string, string>();
-            idDictionary.Add("name", "ID");
-            idDictionary.Add("width", "3");
-
-            Dictionary<string, string> nameDictionary = new Dictionary<string, string>();
-            nameDictionary.Add("name", "Name");
-            nameDictionary.Add("width", "30");
-
-            Dictionary<string, string> typeDictionary = new Dictionary<string, string>();
-            typeDictionary.Add("name", "Type");
-            typeDictionary.Add("width", "20");
-
-            Dictionary<string, string> itemCountDictionary = new Dictionary<string, string>();
-            itemCountDictionary.Add("name", "Items");
-            itemCountDictionary.Add("width", "3");
-            
-            Dictionary<string, string> storageCountDictionary = new Dictionary<string, string>();
-            storageCountDictionary.Add("name", "Storages");
-            storageCountDictionary.Add("width", "3");
-
-            Dictionary<string, string> editDictionary = new Dictionary<string, string>();
-            editDictionary.Add("name", string.Empty);
-            editDictionary.Add("width", "5");
-
-            Dictionary<string, string> itemsDictionary = new Dictionary<string, string>();
-            itemsDictionary.Add("name", string.Empty);
-            itemsDictionary.Add("width", "5");
-
-            Dictionary<string, string> deleteDictionary = new Dictionary<string, string>();
-            deleteDictionary.Add("name", string.Empty);
-            deleteDictionary.Add("width", "5");
-            List<Dictionary<string, string>> headers = new List<Dictionary<string, string>>
-            {
-                idDictionary,
-                nameDictionary,
-                typeDictionary,
-                itemCountDictionary,
-                storageCountDictionary,
-                itemsDictionary,
-                editDictionary,
-                deleteDictionary,
-            };
-
             List<List<View>> rows = this.GetRows();
-            TableHelper tableHelper = new TableHelper(2, 2, headers, rows);
-            foreach (View view in tableHelper.Render())
-            {
-                win.Add(view);
-            }
+            TableHelper tableHelper = new TableHelper(2, 2);
+
+            // Add Headers
+            tableHelper.AddHeader("ID",3);
+            tableHelper.AddHeader("Name", 30);
+            tableHelper.AddHeader("Type", 20);
+            tableHelper.AddHeader("Items", 3);
+            tableHelper.AddHeader("Storages", 3);
+            tableHelper.AddHeader(string.Empty, 5);
+            tableHelper.AddHeader(string.Empty, 5);
+            tableHelper.AddHeader(string.Empty, 5);
+
+            tableHelper.AddRows(this.GetRows());
+
+            // Add Rows
+            tableHelper.Render(win);
 
             PaginatorHelper paginatorHelper = new PaginatorHelper(tableHelper.X, tableHelper.CurrentY, Paginator);
 
@@ -179,10 +142,14 @@ namespace GTDApp.Console.Views
             foreach (var item in this.Containers)
             {
                 Button itemsButton = new Button("Items");
-                Action itemsButtonEvent = new Action(() => {
+                Action itemsButtonEvent = new Action(() =>
+                {
+                    Container container = item;
                     object[] parameters = new object[] {
-                        
-                    };
+                    container,
+                    null,
+                    null
+                };
                     ConsoleCore.CallRoute(RoutesEnum.LIST_ITEMS.ToString(), parameters);
                 });
                 itemsButton.Clicked = itemsButtonEvent;

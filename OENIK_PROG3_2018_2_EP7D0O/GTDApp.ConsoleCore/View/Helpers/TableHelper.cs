@@ -59,28 +59,48 @@ namespace GTDApp.ConsoleCore.Views.Helpers
         /// </summary>
         /// <param name="x">X</param>
         /// <param name="y">Y</param>
-        public TableHelper(int x, int y, List<Dictionary<string, string>> headers, List<List<View>> rows)
+        public TableHelper(int x, int y)
         {
             this.X = x;
             this.Y = y++;
             this.CurrentX = x;
             this.CurrentY = y;
-            this.Headers = headers;
-            this.Rows = rows;
+            this.Headers = new List<Dictionary<string, string>>();
+            this.Rows = new List<List<View>>();
 
             this.ViewContainer = new List<View>();
         }
 
+        public void AddHeader(string title, int width)
+        {
+            Dictionary<string, string> dictionary = new Dictionary<string, string>();
+            dictionary.Add("name", title);
+            dictionary.Add("width", width.ToString());
+
+            this.Headers.Add(dictionary);
+        }
+        
+        public void AddRows(List<List<View>> rows)
+        {
+            foreach(List<View> row in rows)
+            {
+                this.Rows.Add(row);
+            }
+        }
+
         /// <summary>
-        ///     addHeader
+        ///     Render the table
         /// </summary>
         /// <returns>List</returns>
-        public List<View> Render()
+        public void Render(Window win)
         {
             this.AddHeader();
             this.AddRows();
-
-            return ViewContainer;
+            
+            foreach (View view in ViewContainer)
+            {
+                win.Add(view);
+            }
         }
 
         /// <summary>
