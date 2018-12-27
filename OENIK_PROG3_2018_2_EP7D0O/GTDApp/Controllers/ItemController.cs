@@ -7,22 +7,37 @@
 
 namespace GTDApp.Console.Controllers
 {
+    using System;
+    using GTDApp.Console.Views.Items;
+    using GTDApp.ConsoleCore;
+    using GTDApp.Data;
     using GTDApp.Logic.Attributes;
     using GTDApp.Logic.Interfaces;
     using GTDApp.Logic.Routing;
+    using GTDApp.Repository;
 
     /// <summary>
     ///     ItemController
     /// </summary>
     public class ItemController : IController
     {
-
         /// <summary>
         ///     List item
         /// </summary>
         [Route(RoutesEnum.LIST_ITEMS)]
-        public void List()
+        public void List(Container container, string search = null, Paginator paginator = null)
         {
+            search = search is null ? String.Empty : search;
+            paginator = paginator is null ? new Paginator() : paginator;
+            var items = ConsoleCore.BusinessLogic.ItemRepository.SearchAllByContainer(container, search, paginator);
+
+            ListItemsView listContainersView = new ListItemsView()
+            {
+                Items = items,
+                Paginator = paginator,
+                Search = search
+            };
+            listContainersView.Render();
         }
 
         /// <summary>

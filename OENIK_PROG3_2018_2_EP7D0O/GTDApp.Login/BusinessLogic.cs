@@ -32,17 +32,24 @@ namespace GTDApp.Logic
         private IContainerRepository containerRepository;
 
         /// <summary>
+        ///      itemRepository
+        /// </summary>
+        private IItemRepository itemRepository;
+
+        /// <summary>
         ///      BusinessLogic
         /// </summary>
         public static BusinessLogic Init()
         {
             GtdEntityDataModel Context = new GtdEntityDataModel();
             IContainerRepository ContainerRepository = new ContainerRepository(Context);
+            IItemRepository ItemRepository = new ItemRepository(Context);
 
             BusinessLogic businessLogic = new BusinessLogic()
             {
                 context = Context,
-                containerRepository = ContainerRepository
+                containerRepository = ContainerRepository,
+                itemRepository = ItemRepository
             };
 
             return businessLogic;
@@ -59,6 +66,12 @@ namespace GTDApp.Logic
         /// </summary>
         /// <value>ContainerRepository</value>
         public IContainerRepository ContainerRepository { get => containerRepository; set => containerRepository = value; }
+
+        /// <summary>
+        ///      Gets or sets ContainerRepository
+        /// </summary>
+        /// <value>ContainerRepository</value>
+        public IItemRepository ItemRepository { get => itemRepository; set => itemRepository = value; }
         
         /// <summary>
         ///      A container is empty if it has no item and no stroage.
