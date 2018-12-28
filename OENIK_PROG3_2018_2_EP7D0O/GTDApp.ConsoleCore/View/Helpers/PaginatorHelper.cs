@@ -74,6 +74,19 @@ namespace GTDApp.ConsoleCore.Views.Helpers
         public List<View> Render(Action paginatorAction)
         {
             this.currentY++;
+
+            if( this.paginator.Maximum == 0)
+            {
+                this.viewContainer.Add(
+                new Label($"No entry found!")
+                {
+                    X = this.currentX,
+                    Y = this.currentY
+                });
+
+                return this.viewContainer;
+            }
+
             this.viewContainer.Add(
                 new Label($"Currently displaying page {this.paginator.CurrentPage} out of {this.paginator.MaximumPage}  ")
                 {
