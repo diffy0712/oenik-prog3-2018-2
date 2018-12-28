@@ -86,7 +86,8 @@ namespace GTDApp.Console.Views.Items
         private void AddTableElements(Window win, TableHelper tableHelper)
         {
             tableHelper.AddHeader("ID", 3);
-            tableHelper.AddHeader("Title", 82);
+            tableHelper.AddHeader("Title", 68);
+            tableHelper.AddHeader("Notifications", 10);
             tableHelper.AddHeader(string.Empty, 4);
             tableHelper.AddHeader(string.Empty, 4);
 
@@ -197,6 +198,7 @@ namespace GTDApp.Console.Views.Items
                 {
                     new Label($"#{item.item_id}"),
                     new Label(item.title),
+                    new Label(item.Item_notification.Count().ToString()),
                     editButton,
                     deleteButton
                 });

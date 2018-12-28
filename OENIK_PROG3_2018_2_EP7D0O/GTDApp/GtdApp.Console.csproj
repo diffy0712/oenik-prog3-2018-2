@@ -143,7 +143,6 @@
     <Compile Include="Views\Notifications\DeleteNotificationView.cs" />
     <Compile Include="Views\Notifications\ListNotificationsView.cs" />
     <Compile Include="Views\Notifications\ManageNotificationView.cs" />
-    <Compile Include="Views\ReviewView.cs" />
   </ItemGroup>
   <ItemGroup>
     <AdditionalFiles Include="..\stylecop.json">

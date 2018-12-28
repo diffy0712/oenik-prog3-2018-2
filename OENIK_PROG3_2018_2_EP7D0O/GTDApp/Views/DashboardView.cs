@@ -7,15 +7,12 @@
 
 namespace GTDApp.Console.Views
 {
+    using System;
+    using System.Linq;
     using GTDApp.Console.Menu;
     using GTDApp.ConsoleCore;
     using GTDApp.ConsoleCore.Menu;
     using GTDApp.ConsoleCore.View;
-    using GTDApp.ConsoleCore.Views;
-    using GTDApp.Data;
-    using GTDApp.Logic.Interfaces;
-    using System;
-    using System.Linq;
     using Terminal.Gui;
 
     /// <summary>
@@ -25,6 +22,7 @@ namespace GTDApp.Console.Views
     {
         public int NumberOfContainers { get; set; }
         public int NumberOfItems { get; set; }
+        public int NumberOfNotifications { get; set; }
 
         /// <summary>
         ///     Content
@@ -34,15 +32,21 @@ namespace GTDApp.Console.Views
         {
             win.Add(new Label($"Number of containers: {NumberOfContainers}") { X = 2, Y = 1 });
             Button addNewContainer = new Button(30, 1, "Add new Container");
-            Action addNewContainerEvent = new Action(() => { ConsoleCore.CallRoute(RoutesEnum.CREATE_CONTAINER.ToString()); });
-            addNewContainer.Clicked = addNewContainerEvent;
-            Button listContainers = new Button(52, 1, "List Containers");
-            Action listContainersEvent = new Action(() => { ConsoleCore.CallRoute(RoutesEnum.LIST_CONTAINERS.ToString()); });
-            listContainers.Clicked = listContainersEvent;
+            addNewContainer.Clicked = new Action(() => { ConsoleCore.CallRoute(RoutesEnum.CREATE_CONTAINER.ToString()); }); ;
+            Button listContainers = new Button(55, 1, "List Containers");
+            listContainers.Clicked = new Action(() => { ConsoleCore.CallRoute(RoutesEnum.LIST_CONTAINERS.ToString()); }); ;
             win.Add(addNewContainer);
             win.Add(listContainers);
 
-            win.Add(new Label($"Number of items: {NumberOfItems}") { X = 2, Y = 3 });
+            win.Add(new Label($"Number of notifications: {NumberOfNotifications}") { X = 2, Y = 3 });
+            Button addNewNotification = new Button(30, 3, "Add new Notification");
+            addNewContainer.Clicked = new Action(() => { ConsoleCore.CallRoute(RoutesEnum.CREATE_NOTIFICATION.ToString()); }); ;
+            Button listNotifications = new Button(55, 3, "List Notifications");
+            listNotifications.Clicked = new Action(() => { ConsoleCore.CallRoute(RoutesEnum.LIST_NOTIFICATIONS.ToString()); });
+            win.Add(addNewNotification);
+            win.Add(listNotifications);
+
+            win.Add(new Label($"Number of items: {NumberOfItems}") { X = 2, Y = 5 });
         }
 
         /// <summary>

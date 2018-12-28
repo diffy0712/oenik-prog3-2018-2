@@ -30,6 +30,7 @@ namespace GTDApp.Console.Controllers
 
             view.NumberOfContainers = ConsoleCore.BusinessLogic.ContainerRepository.GetAll().Count();
             view.NumberOfItems = ConsoleCore.BusinessLogic.ItemRepository.GetAll().Count();
+            view.NumberOfNotifications = ConsoleCore.BusinessLogic.NotificationRepository.GetAll().Count();
             view.Render();
         }
     }
