@@ -136,6 +136,7 @@
     <Compile Include="Views\Containers\ListContainersView.cs" />
     <Compile Include="Views\DashboardView.cs" />
     <Compile Include="Views\ErrorView.cs" />
+    <Compile Include="Views\Items\DeleteItemView.cs" />
     <Compile Include="Views\Items\ListItemsView.cs" />
     <Compile Include="Views\JavaWebView.cs" />
     <Compile Include="Views\Modals\ValidationErrorMessageModalView.cs" />

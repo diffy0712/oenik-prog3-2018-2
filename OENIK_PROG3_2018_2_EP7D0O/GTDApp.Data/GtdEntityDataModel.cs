@@ -14,20 +14,14 @@ namespace GTDApp.Data
 
         public virtual DbSet<Container> Container { get; set; }
         public virtual DbSet<Item> Item { get; set; }
-        public virtual DbSet<Notification> Notification { get; set; }
-        public virtual DbSet<Container_item> Container_item { get; set; }
         public virtual DbSet<Item_notification> Item_notification { get; set; }
+        public virtual DbSet<Notification> Notification { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Container>()
-                .HasMany(e => e.Container_item)
+                .HasMany(e => e.Item)
                 .WithRequired(e => e.Container)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Item>()
-                .HasMany(e => e.Container_item)
-                .WithRequired(e => e.Item)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Item>()

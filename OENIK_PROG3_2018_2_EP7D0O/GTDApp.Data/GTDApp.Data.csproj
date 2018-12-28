@@ -73,7 +73,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Container.cs" />
-    <Compile Include="Container_item.cs" />
     <Compile Include="GtdEntityDataModel.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="Item_notification.cs" />

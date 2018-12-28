@@ -80,7 +80,17 @@ namespace GTDApp.Logic
         /// <returns>Boolean</returns>
         public static bool IsContainerRemovable(Container container)
         {
-            return container.Container_item.Count == 0;
+            return container.Item.Count == 0;
+        }
+
+        /// <summary>
+        ///      A container is empty if it has no item and no stroage.
+        /// </summary>
+        /// <param name="item">Container instance</param>
+        /// <returns>Boolean</returns>
+        public static bool IsItemRemovable(Item item)
+        {
+            return item.Item_notification.Count == 0;
         }
 
         /// <summary>
@@ -90,6 +100,16 @@ namespace GTDApp.Logic
         public void RemoveContainer(Container container)
         {
             ContainerRepository.Remove(container);
+            Context.SaveChanges();
+        }
+
+        /// <summary>
+        ///      RemoveItem
+        /// </summary>
+        /// <param name="item">Item instance</param>
+        public void RemoveItem(Item item)
+        {
+            ItemRepository.Remove(item);
             Context.SaveChanges();
         }
 

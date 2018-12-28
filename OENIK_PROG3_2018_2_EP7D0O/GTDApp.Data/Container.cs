@@ -12,7 +12,7 @@ namespace GTDApp.Data
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Container()
         {
-            Container_item = new HashSet<Container_item>();
+            Item = new HashSet<Item>();
         }
 
         [Key]
@@ -45,6 +45,6 @@ namespace GTDApp.Data
         public DateTime updated_at { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Container_item> Container_item { get; set; }
+        public virtual ICollection<Item> Item { get; set; }
     }
 }

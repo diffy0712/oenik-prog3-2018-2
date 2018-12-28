@@ -52,9 +52,8 @@ namespace GTDApp.Repository
         /// <returns>IQueryable</returns>
         public IQueryable<Item> SearchAllByContainer(Container container, string search, Paginator paginator)
         {
-            var g = from container_item in GtdEntityDataModel.Container_item
-                    join item in GtdEntityDataModel.Item on container_item.item_id equals item.item_id
-                    where container_item.container_id == container.container_id
+            var g = from item in GtdEntityDataModel.Item
+                    where item.container_id == container.container_id
                     where item.title.Contains(search)
                     orderby item.item_id
                     select item;

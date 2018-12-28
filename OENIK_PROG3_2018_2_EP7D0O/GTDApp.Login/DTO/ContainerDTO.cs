@@ -48,7 +48,6 @@ namespace GTDApp.Logic.DTO
         public Container ConvertToEntity()
         {
             Container container = new Container();
-            
             return UpdateEntity(container);
         }
 
