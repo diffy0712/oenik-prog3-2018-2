@@ -125,9 +125,10 @@ namespace GTDApp.Console.Views.Items
             };
 
             Action searchButtonEvent = new Action(() => {
-                object[] searchParameters = new object[2];
-                searchParameters[0] = this.SearchText.Text.ToString();
-                searchParameters[1] = Paginator;
+                object[] searchParameters = new object[3];
+                searchParameters[0] = this.Container;
+                searchParameters[1] = this.SearchText.Text.ToString();
+                searchParameters[2] = Paginator;
                 ConsoleCore.CallRoute(RoutesEnum.LIST_ITEMS.ToString(), searchParameters);
             });
             searchButton.Clicked = searchButtonEvent;

@@ -71,12 +71,12 @@ namespace GTDApp.Console.Views
         {
             // Add Headers
             tableHelper.AddHeader("ID", 3);
-            tableHelper.AddHeader("Name", 30);
+            tableHelper.AddHeader("Name", 41);
             tableHelper.AddHeader("Type", 20);
             tableHelper.AddHeader("Items", 3);
-            tableHelper.AddHeader(string.Empty, 5);
-            tableHelper.AddHeader(string.Empty, 5);
-            tableHelper.AddHeader(string.Empty, 5);
+            tableHelper.AddHeader(string.Empty, 4);
+            tableHelper.AddHeader(string.Empty, 4);
+            tableHelper.AddHeader(string.Empty, 4);
 
             tableHelper.AddRows(this.GetRows());
 
