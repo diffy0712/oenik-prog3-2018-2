@@ -180,7 +180,7 @@ namespace GTDApp.Console.Views.Items
                     object[] parameters = new object[] {
                         itemInstance
                     };
-                    ConsoleCore.CallRoute(RoutesEnum.DELETE_CONTAINER.ToString(), parameters);
+                    ConsoleCore.CallRoute(RoutesEnum.DELETE_ITEM.ToString(), parameters);
                 });
                 deleteButton.Clicked = deleteButtonEvent;
 

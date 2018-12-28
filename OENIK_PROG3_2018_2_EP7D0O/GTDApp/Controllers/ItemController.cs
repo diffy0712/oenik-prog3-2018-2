@@ -8,13 +8,16 @@
 namespace GTDApp.Console.Controllers
 {
     using System;
+    using GTDApp.Console.Views.Containers;
     using GTDApp.Console.Views.Items;
     using GTDApp.ConsoleCore;
     using GTDApp.Data;
+    using GTDApp.Logic;
     using GTDApp.Logic.Attributes;
     using GTDApp.Logic.Interfaces;
     using GTDApp.Logic.Routing;
     using GTDApp.Repository;
+    using Terminal.Gui;
 
     /// <summary>
     ///     ItemController
@@ -61,8 +64,29 @@ namespace GTDApp.Console.Controllers
         ///     Delete item
         /// </summary>
         [Route(RoutesEnum.DELETE_ITEM)]
-        public void Delete()
+        public void Delete(Item item)
         {
+            Action deleteAction = null;
+
+            Container container = item.Container;
+            
+            if (BusinessLogic.IsItemRemovable(item))
+            {
+                deleteAction = new Action(() =>
+                {
+                    ConsoleCore.BusinessLogic.RemoveItem(item);
+                    Application.RequestStop();
+                    object[] parameters = new object[] {
+                        container,
+                        null,
+                        null
+                    };
+                    ConsoleCore.CallRoute(RoutesEnum.LIST_ITEMS.ToString(),parameters);
+                });
+            }
+
+            DeleteItemView deleteContainersView = new DeleteItemView() { Item = item, DeleteAction = deleteAction };
+            deleteContainersView.Render();
         }
     }
 }

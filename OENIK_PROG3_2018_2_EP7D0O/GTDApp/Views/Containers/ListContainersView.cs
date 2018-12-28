@@ -196,7 +196,7 @@ namespace GTDApp.Console.Views
                     new Label($"#{item.container_id}"),
                     new Label(item.name),
                     new Label(item.type),
-                    new Label(item.Container_item.Count.ToString()),
+                    new Label(item.Item.Count.ToString()),
                     itemsButton,
                     editButton,
                     deleteButton
