@@ -15,6 +15,7 @@ namespace GTDApp.Logic
     using GTDApp.Logic.Exceptions;
     using GTDApp.Logic.Interfaces;
     using GTDApp.Repository;
+    using GTDApp.Repository.Interfaces;
 
     /// <summary>
     ///      BusinessLogic
@@ -37,6 +38,11 @@ namespace GTDApp.Logic
         private IItemRepository itemRepository;
 
         /// <summary>
+        ///      INotificationRepository
+        /// </summary>
+        private INotificationRepository notificationRepository;
+
+        /// <summary>
         ///      BusinessLogic
         /// </summary>
         public static BusinessLogic Init()
@@ -44,12 +50,14 @@ namespace GTDApp.Logic
             GtdEntityDataModel Context = new GtdEntityDataModel();
             IContainerRepository ContainerRepository = new ContainerRepository(Context);
             IItemRepository ItemRepository = new ItemRepository(Context);
+            INotificationRepository notificationRepository = new NotificationRepository(Context);
 
             BusinessLogic businessLogic = new BusinessLogic()
             {
                 context = Context,
                 containerRepository = ContainerRepository,
-                itemRepository = ItemRepository
+                itemRepository = ItemRepository,
+                notificationRepository = notificationRepository
             };
 
             return businessLogic;
@@ -72,9 +80,15 @@ namespace GTDApp.Logic
         /// </summary>
         /// <value>ContainerRepository</value>
         public IItemRepository ItemRepository { get => itemRepository; set => itemRepository = value; }
+
+        /// <summary>
+        ///      Gets or sets NotificationRepository
+        /// </summary>
+        /// <value>ContainerRepository</value>
+        public INotificationRepository NotificationRepository { get => notificationRepository; set => notificationRepository = value; }
         
         /// <summary>
-        ///      A container is empty if it has no item and no stroage.
+        ///      A container is empty if it has no item.
         /// </summary>
         /// <param name="container">Container instance</param>
         /// <returns>Boolean</returns>
@@ -84,13 +98,23 @@ namespace GTDApp.Logic
         }
 
         /// <summary>
-        ///      A container is empty if it has no item and no stroage.
+        ///        An item is empty if it has no notification
         /// </summary>
         /// <param name="item">Container instance</param>
         /// <returns>Boolean</returns>
         public static bool IsItemRemovable(Item item)
         {
             return item.Item_notification.Count == 0;
+        }
+
+        /// <summary>
+        ///      A notification is empty if it has no item.
+        /// </summary>
+        /// <param name="item">Container instance</param>
+        /// <returns>Boolean</returns>
+        public static bool IsNotificationRemovable(Notification notification)
+        {
+            return notification.Item_notification.Count == 0;
         }
 
         /// <summary>
@@ -110,6 +134,16 @@ namespace GTDApp.Logic
         public void RemoveItem(Item item)
         {
             ItemRepository.Remove(item);
+            Context.SaveChanges();
+        }
+
+        /// <summary>
+        ///      Remove Notification
+        /// </summary>
+        /// <param name="notification">Notification instance</param>
+        public void RemoveNotification(Notification notification)
+        {
+            NotificationRepository.Remove(notification);
             Context.SaveChanges();
         }
 
@@ -159,6 +193,39 @@ namespace GTDApp.Logic
                 if (item.item_id == 0)
                 {
                     ItemRepository.Add(item);
+                }
+
+                Context.SaveChanges();
+            }
+            catch (DbEntityValidationException dbValidationEx)
+            {
+                foreach (DbEntityValidationResult entityErr in
+                   dbValidationEx.EntityValidationErrors)
+                {
+                    response = new List<string>();
+                    foreach (DbValidationError error in entityErr.ValidationErrors)
+                    {
+                        response.Add(error.ErrorMessage);
+                    }
+                }
+            }
+
+            return response;
+        }
+
+        /// <summary>
+        ///      Remove Notification
+        /// </summary>
+        /// <param name="notification">Notification instance</param>
+        public List<string> SaveNotification(Notification notification)
+        {
+            List<string> response = null;
+
+            try
+            {
+                if (notification.notification_id == 0)
+                {
+                    NotificationRepository.Add(notification);
                 }
 
                 Context.SaveChanges();

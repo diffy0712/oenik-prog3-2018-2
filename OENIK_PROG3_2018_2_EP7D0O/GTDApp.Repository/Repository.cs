@@ -7,6 +7,7 @@
 
 namespace GTDApp.Repository
 {
+    using GTDApp.Repository.Interfaces;
     using System;
     using System.Data.Entity;
     using System.Linq;

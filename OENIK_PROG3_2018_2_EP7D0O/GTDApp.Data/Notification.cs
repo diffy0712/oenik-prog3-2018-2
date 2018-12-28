@@ -26,9 +26,11 @@ namespace GTDApp.Data
         [StringLength(50)]
         public string type { get; set; }
 
+        public int amount { get; set; }
+
         [Required]
         [StringLength(100)]
-        public string interval { get; set; }
+        public string unit { get; set; }
 
         [Column(TypeName = "date")]
         public DateTime created_at { get; set; }

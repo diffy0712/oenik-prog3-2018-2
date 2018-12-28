@@ -28,13 +28,13 @@ namespace GTDApp.Console.Menu
             Menu = new Menu();
             MenuItem fileMenuItem = new MenuItem() { Name = "_File" };
             fileMenuItem.Items.Add(new MenuItem() { RouteName = RoutesEnum.DASHBOARD.ToString(), Name = "_Dashboard" });
-            fileMenuItem.Items.Add(new MenuItem() { RouteName = RoutesEnum.REVIEW.ToString(), Name = "_Review" });
+            fileMenuItem.Items.Add(new MenuItem() { RouteName = RoutesEnum.JAVA_WEB.ToString(), Name = "_Java Web" });
 
             Menu.Items.Add(fileMenuItem);
 
-            MenuItem crudMenuItem = new MenuItem() { Name = "_CRUD And Java API" };
+            MenuItem crudMenuItem = new MenuItem() { Name = "_GTD" };
             crudMenuItem.Items.Add(new MenuItem() { RouteName = RoutesEnum.LIST_CONTAINERS.ToString(), Name = "_List Containers" });
-            crudMenuItem.Items.Add(new MenuItem() { RouteName = RoutesEnum.JAVA_WEB.ToString(), Name = "_Java Web" });
+            crudMenuItem.Items.Add(new MenuItem() { RouteName = RoutesEnum.LIST_NOTIFICATIONS.ToString(), Name = "_List Notofications" });
 
             Menu.Items.Add(crudMenuItem);
 

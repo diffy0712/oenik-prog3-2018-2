@@ -9,6 +9,7 @@ namespace GTDApp.Repository
 {
     using System.Linq;
     using GTDApp.Data;
+    using GTDApp.Repository.Interfaces;
 
     /// <summary>
     ///      ContainerRepository

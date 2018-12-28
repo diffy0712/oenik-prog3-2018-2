@@ -6,7 +6,7 @@
 // </copyright>
 
 
-namespace GTDApp.Repository
+namespace GTDApp.Repository.Interfaces
 {
     using System.Linq;
     using GTDApp.Data;

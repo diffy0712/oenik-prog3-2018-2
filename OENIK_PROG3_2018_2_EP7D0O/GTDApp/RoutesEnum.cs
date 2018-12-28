@@ -18,20 +18,29 @@ namespace GTDApp.Console
     /// </summary>
     internal enum RoutesEnum
     {
+        // Dashboard
         DASHBOARD,
-        REVIEW,
-        QUIT,
+        // Containers
         LIST_CONTAINERS,
         CREATE_CONTAINER,
         MANAGE_CONTAINER_ACTION,
         UPDATE_CONTAINER,
         DELETE_CONTAINER,
+        // Items
         LIST_ITEMS,
         CREATE_ITEM,
         MANAGE_ITEM_ACTION,
         UPDATE_ITEM,
         DELETE_ITEM,
+        // Notifications
+        LIST_NOTIFICATIONS,
+        CREATE_NOTIFICATION,
+        MANAGE_NOTIFICATION_ACTION,
+        UPDATE_NOTIFICATION,
+        DELETE_NOTIFICATION,
+        // Java API Call
         JAVA_WEB,
+        // Errors
         FATAL_ERROR,
         EXCEPTION_ERROR,
         DEFAULT_ERROR
