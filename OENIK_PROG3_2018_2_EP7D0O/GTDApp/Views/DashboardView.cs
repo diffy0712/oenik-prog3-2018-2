@@ -14,6 +14,7 @@ namespace GTDApp.Console.Views
     using GTDApp.ConsoleCore.Views;
     using GTDApp.Data;
     using GTDApp.Logic.Interfaces;
+    using System;
     using System.Linq;
     using Terminal.Gui;
 
@@ -22,12 +23,8 @@ namespace GTDApp.Console.Views
     /// </summary>
     public class DashboardView : AbstractView
     {
-        /// <summary>
-        ///     Gets or sets  NumberOfContainers
-        /// </summary>
-        private int numberOfContainers;
-
-        public int NumberOfContainers { get => numberOfContainers; set => numberOfContainers = value; }
+        public int NumberOfContainers { get; set; }
+        public int NumberOfItems { get; set; }
 
         /// <summary>
         ///     Content
@@ -36,6 +33,16 @@ namespace GTDApp.Console.Views
         protected override void Content(Window win)
         {
             win.Add(new Label($"Number of containers: {NumberOfContainers}") { X = 2, Y = 1 });
+            Button addNewContainer = new Button(30, 1, "Add new Container");
+            Action addNewContainerEvent = new Action(() => { ConsoleCore.CallRoute(RoutesEnum.CREATE_CONTAINER.ToString()); });
+            addNewContainer.Clicked = addNewContainerEvent;
+            Button listContainers = new Button(52, 1, "List Containers");
+            Action listContainersEvent = new Action(() => { ConsoleCore.CallRoute(RoutesEnum.LIST_CONTAINERS.ToString()); });
+            listContainers.Clicked = listContainersEvent;
+            win.Add(addNewContainer);
+            win.Add(listContainers);
+
+            win.Add(new Label($"Number of items: {NumberOfItems}") { X = 2, Y = 3 });
         }
 
         /// <summary>

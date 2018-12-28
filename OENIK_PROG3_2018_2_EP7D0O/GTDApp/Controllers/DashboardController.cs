@@ -29,6 +29,7 @@ namespace GTDApp.Console.Controllers
             DashboardView view = new DashboardView();
 
             view.NumberOfContainers = ConsoleCore.BusinessLogic.ContainerRepository.GetAll().Count();
+            view.NumberOfItems = ConsoleCore.BusinessLogic.ItemRepository.GetAll().Count();
             view.Render();
         }
     }
