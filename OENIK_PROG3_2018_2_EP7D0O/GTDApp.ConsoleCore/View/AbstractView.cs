@@ -3,19 +3,17 @@
     using GTDApp.ConsoleCore.Menu;
     using GTDApp.ConsoleCore.Views;
     using GTDApp.Logic.Interfaces;
-    using GTDApp.Logic.Routing;
     using Terminal.Gui;
 
     public abstract class AbstractView : IView
-    {      
+    {
         public void Render()
         {
             Application.Init();
 
-            var tframe = Application.Top.Frame;
-            var ntop = new Toplevel(tframe);
-
-            MenuHelper mainMenuBar = new MenuHelper(ntop, this.GetMenu().GetMenu());
+            Toplevel top = new Toplevel(Application.Top.Frame);
+            
+            MenuHelper mainMenuBar = new MenuHelper(top, this.GetMenu().GetMenu());
 
             var win = new Window(this.GetTitle())
             {
@@ -27,13 +25,14 @@
 
             this.Content(win);
 
-            ntop.Add(win);
+            top.Add(win);
 
-            Application.Run(ntop);
+            Application.Run(top);
         }
 
         protected abstract void Content(Window win);
         protected abstract IMenu GetMenu();
         protected abstract string GetTitle();
     }
+
 }

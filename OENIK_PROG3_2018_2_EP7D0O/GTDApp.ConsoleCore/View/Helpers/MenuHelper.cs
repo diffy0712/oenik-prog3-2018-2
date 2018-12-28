@@ -8,6 +8,7 @@
 namespace GTDApp.ConsoleCore.Views
 {
     using GTDApp.ConsoleCore.Menu;
+    using GTDApp.ConsoleCore.View;
     using GUI = Terminal.Gui;
 
     /// <summary>
@@ -33,7 +34,13 @@ namespace GTDApp.ConsoleCore.Views
                 for (int k = 0; k < menu.Items[i].Items.Count; k++)
                 {
                     MenuItem menuItem = menu.Items[i].Items[k];
-                    menuItemChildren[k] = new GUI.MenuItem(menuItem.Name, string.Empty, () => { ConsoleCore.CallRoute(menuItem.RouteName); });
+                    menuItemChildren[k] = new GUI.MenuItem(
+                        menuItem.Name, 
+                        string.Empty, 
+                        () => {
+                            ConsoleCore.CallRoute(menuItem.RouteName);
+                        }
+                    );
                 }
 
                 GUI.MenuBarItem menuBarItem = new GUI.MenuBarItem(menu.Items[i].Name, menuItemChildren);

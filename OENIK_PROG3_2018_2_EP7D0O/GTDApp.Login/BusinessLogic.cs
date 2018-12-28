@@ -145,5 +145,38 @@ namespace GTDApp.Logic
 
             return response;
         }
+
+        /// <summary>
+        ///      RemoveContainer
+        /// </summary>
+        /// <param name="item">Item instance</param>
+        public List<string> SaveItem(Item item)
+        {
+            List<string> response = null;
+
+            try
+            {
+                if (item.item_id == 0)
+                {
+                    ItemRepository.Add(item);
+                }
+
+                Context.SaveChanges();
+            }
+            catch (DbEntityValidationException dbValidationEx)
+            {
+                foreach (DbEntityValidationResult entityErr in
+                   dbValidationEx.EntityValidationErrors)
+                {
+                    response = new List<string>();
+                    foreach (DbValidationError error in entityErr.ValidationErrors)
+                    {
+                        response.Add(error.ErrorMessage);
+                    }
+                }
+            }
+
+            return response;
+        }
     }
 }

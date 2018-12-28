@@ -86,7 +86,7 @@ namespace GTDApp.Console.Controllers
         ///     Create action
         /// </summary>
         [Route(RoutesEnum.MANAGE_CONTAINER_ACTION)]
-        public void CreateAction(Container container)
+        public void ManageAction(Container container)
         {
             List<string> validation = ConsoleCore.BusinessLogic.SaveContainer(container);
 
@@ -96,7 +96,6 @@ namespace GTDApp.Console.Controllers
             }
             else
             {
-                //ConsoleCore.CallRoute(RoutesEnum.UPDATE_CONTAINER.ToString(), new object[] { container });
                 ValidationErrorMessageModalView validationErrorMessageModalView = new ValidationErrorMessageModalView();
                 validationErrorMessageModalView.Render();
             }

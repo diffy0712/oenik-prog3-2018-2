@@ -63,12 +63,20 @@ namespace GTDApp.Console.Views.Items
 
         private void AddButtons(Window win)
         {
-            Button addNew = new Button(83, 1, "Add new Item");
-            Action addNewEvent = new Action(() => { ConsoleCore.CallRoute(RoutesEnum.CREATE_ITEM.ToString()); });
+            Button addNew = new Button(72, 1, "Add new Item");
+            Action addNewEvent = new Action(
+                () => {
+                    object[] parameters = new object[]
+                    {
+                        Container
+                    };
+                    ConsoleCore.CallRoute(RoutesEnum.CREATE_ITEM.ToString(), parameters);
+                }
+            );
             addNew.Clicked = addNewEvent;
             win.Add(addNew);
 
-            Button backToListButton = new Button(100, 1, "Back To List");
+            Button backToListButton = new Button(90, 1, "Back To Container List");
             Action backToListButtonEvent = new Action(() => { ConsoleCore.CallRoute(RoutesEnum.LIST_CONTAINERS.ToString()); });
             backToListButton.Clicked = backToListButtonEvent;
 
@@ -168,6 +176,7 @@ namespace GTDApp.Console.Views.Items
                 Action editButtonEvent = new Action(() => {
                     Item itemInstance = item;
                     object[] parameters = new object[] {
+                        Container,
                         itemInstance
                     };
                     ConsoleCore.CallRoute(RoutesEnum.UPDATE_ITEM.ToString(), parameters);

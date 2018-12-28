@@ -8,8 +8,11 @@
 namespace GTDApp.Console.Controllers
 {
     using System;
+    using System.Collections.Generic;
     using GTDApp.Console.Views.Containers;
+    using GTDApp.Console.Views.Containers.Items;
     using GTDApp.Console.Views.Items;
+    using GTDApp.Console.Views.Modals;
     using GTDApp.ConsoleCore;
     using GTDApp.Data;
     using GTDApp.Logic;
@@ -48,16 +51,54 @@ namespace GTDApp.Console.Controllers
         ///     Create item
         /// </summary>
         [Route(RoutesEnum.CREATE_ITEM)]
-        public void Create()
+        public void Create(Container container)
         {
+            ManageItemView manageView = new ManageItemView();
+
+            Item item = new Item();
+            item.title = String.Empty;
+            item.Container = container;
+            item.description = String.Empty;
+
+            manageView.Container = container;
+            manageView.Item = item;
+            manageView.Creation = true;
+
+            manageView.Render();
         }
 
         /// <summary>
         ///     Update item
         /// </summary>
         [Route(RoutesEnum.UPDATE_ITEM)]
-        public void Update()
+        public void Update(Container container, Item item)
         {
+            ManageItemView manageView = new ManageItemView();
+            manageView.Container = container;
+            manageView.Item = item;
+            manageView.Creation = false;
+
+            manageView.Render();
+        }
+
+        /// <summary>
+        ///     Create action
+        /// </summary>
+        [Route(RoutesEnum.MANAGE_ITEM_ACTION)]
+        public void ManageAction(Container container, Item item)
+        {
+            item.Container = container;
+            List<string> validation = ConsoleCore.BusinessLogic.SaveItem(item);
+
+            if (validation == null)
+            {
+                ConsoleCore.CallRoute(RoutesEnum.LIST_ITEMS.ToString(), new object[] { container, null, null });
+            }
+            else
+            {
+                ValidationErrorMessageModalView validationErrorMessageModalView = new ValidationErrorMessageModalView();
+                validationErrorMessageModalView.Render();
+            }
         }
 
         /// <summary>
@@ -69,7 +110,6 @@ namespace GTDApp.Console.Controllers
             Action deleteAction = null;
 
             Container container = item.Container;
-            
             if (BusinessLogic.IsItemRemovable(item))
             {
                 deleteAction = new Action(() =>

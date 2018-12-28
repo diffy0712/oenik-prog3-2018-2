@@ -28,6 +28,7 @@ namespace GTDApp.Console
         DELETE_CONTAINER,
         LIST_ITEMS,
         CREATE_ITEM,
+        MANAGE_ITEM_ACTION,
         UPDATE_ITEM,
         DELETE_ITEM,
         JAVA_WEB,
