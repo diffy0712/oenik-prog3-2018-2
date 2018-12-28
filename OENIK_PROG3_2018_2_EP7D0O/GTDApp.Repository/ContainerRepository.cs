@@ -35,7 +35,6 @@ namespace GTDApp.Repository
         {
             var g = GtdEntityDataModel.Container
                 .Include("Container_item")
-                .Include("Container_storage")
                 .OrderByDescending(x => x.Container_item.Count)
                 .Where(p => p.name.Contains(search));
 

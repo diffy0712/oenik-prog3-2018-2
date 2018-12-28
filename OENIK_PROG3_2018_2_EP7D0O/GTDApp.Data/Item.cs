@@ -14,7 +14,6 @@ namespace GTDApp.Data
         {
             Container_item = new HashSet<Container_item>();
             Item_notification = new HashSet<Item_notification>();
-            Item_storage = new HashSet<Item_storage>();
         }
 
         [Key]
@@ -44,8 +43,5 @@ namespace GTDApp.Data
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Item_notification> Item_notification { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Item_storage> Item_storage { get; set; }
     }
 }

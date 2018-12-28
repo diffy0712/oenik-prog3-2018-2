@@ -72,18 +72,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Attachment.cs" />
     <Compile Include="Container.cs" />
     <Compile Include="Container_item.cs" />
-    <Compile Include="Container_storage.cs" />
     <Compile Include="GtdEntityDataModel.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="Item_notification.cs" />
-    <Compile Include="Item_storage.cs" />
     <Compile Include="Notification.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Storage.cs" />
-    <Compile Include="Storage_attachment.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

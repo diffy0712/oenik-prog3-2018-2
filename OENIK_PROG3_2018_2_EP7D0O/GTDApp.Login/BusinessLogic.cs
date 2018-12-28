@@ -80,7 +80,7 @@ namespace GTDApp.Logic
         /// <returns>Boolean</returns>
         public static bool IsContainerRemovable(Container container)
         {
-            return container.Container_item.Count == 0 && container.Container_storage.Count == 0;
+            return container.Container_item.Count == 0;
         }
 
         /// <summary>

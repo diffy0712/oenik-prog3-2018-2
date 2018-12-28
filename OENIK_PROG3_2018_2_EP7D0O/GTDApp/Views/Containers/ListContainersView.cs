@@ -40,56 +40,40 @@ namespace GTDApp.Console.Views
         /// <value>String</value>
         public string Search { get; set; }
 
+        public TextField SearchText { get; set; }
+
         /// <summary>
         ///     Content
         /// </summary>
         /// <param name="win">Window instance</param>
         protected override void Content(Window win)
         {
-            // Add Search
-            var search = new Label("search for: ")
-            {
-                X = 2,
-                Y = 1,
-                Width = 10
-            };
-            var searchText = new TextField(string.Empty)
-            {
-                X = Pos.Right(search) + 1,
-                Y = Pos.Top(search),
-                Width = 30
-            };
-            searchText.Text = Search;
-            Button searchButton = new Button("Run Search...")
-            {
-                X = Pos.Right(searchText) + 1,
-                Y = Pos.Top(searchText)
-            };
+            this.AddSearchElements(win);
 
-            Action searchButtonEvent = new Action(() => {
-                object[] searchParameters = new object[2];
-                searchParameters[0] = searchText.Text.ToString();
-                searchParameters[1] = Paginator;
-                ConsoleCore.CallRoute(RoutesEnum.LIST_CONTAINERS.ToString(), searchParameters);
-            });
-            searchButton.Clicked = searchButtonEvent;
+            this.AddButtons(win);
 
-            win.Add(search, searchText, searchButton);
+            TableHelper tableHelper = new TableHelper(2, 2);
 
+            this.AddTableElements(win, tableHelper);
+
+            this.AddPaginatorElements(win, new PaginatorHelper(tableHelper.X, tableHelper.CurrentY, Paginator));
+        }
+
+        private void AddButtons(Window win)
+        {
             Button addNew = new Button(96, 1, "Add new Container");
             Action addNewEvent = new Action(() => { ConsoleCore.CallRoute(RoutesEnum.CREATE_CONTAINER.ToString()); });
             addNew.Clicked = addNewEvent;
             win.Add(addNew);
+        }
 
-            List<List<View>> rows = this.GetRows();
-            TableHelper tableHelper = new TableHelper(2, 2);
-
+        private void AddTableElements(Window win, TableHelper tableHelper)
+        {
             // Add Headers
-            tableHelper.AddHeader("ID",3);
+            tableHelper.AddHeader("ID", 3);
             tableHelper.AddHeader("Name", 30);
             tableHelper.AddHeader("Type", 20);
             tableHelper.AddHeader("Items", 3);
-            tableHelper.AddHeader("Storages", 3);
             tableHelper.AddHeader(string.Empty, 5);
             tableHelper.AddHeader(string.Empty, 5);
             tableHelper.AddHeader(string.Empty, 5);
@@ -98,12 +82,13 @@ namespace GTDApp.Console.Views
 
             // Add Rows
             tableHelper.Render(win);
+        }
 
-            PaginatorHelper paginatorHelper = new PaginatorHelper(tableHelper.X, tableHelper.CurrentY, Paginator);
-
+        private void AddPaginatorElements(Window win, PaginatorHelper paginatorHelper)
+        {
             Action paginatorAction = new Action(() => {
                 object[] parameters = new object[2];
-                parameters[0] = searchText.Text.ToString();
+                parameters[0] = this.SearchText.Text.ToString();
                 parameters[1] = Paginator;
                 ConsoleCore.CallRoute(RoutesEnum.LIST_CONTAINERS.ToString(), parameters);
             });
@@ -111,6 +96,39 @@ namespace GTDApp.Console.Views
             {
                 win.Add(view);
             }
+        }
+
+        private void AddSearchElements(Window win)
+        {
+            // Add Search
+            var search = new Label("search for: ")
+            {
+                X = 2,
+                Y = 1,
+                Width = 10
+            };
+            this.SearchText = new TextField(string.Empty)
+            {
+                X = Pos.Right(search) + 1,
+                Y = Pos.Top(search),
+                Width = 30
+            };
+            this.SearchText.Text = Search;
+            Button searchButton = new Button("Run Search...")
+            {
+                X = Pos.Right(this.SearchText) + 1,
+                Y = Pos.Top(this.SearchText)
+            };
+
+            Action searchButtonEvent = new Action(() => {
+                object[] searchParameters = new object[2];
+                searchParameters[0] = this.SearchText.Text.ToString();
+                searchParameters[1] = Paginator;
+                ConsoleCore.CallRoute(RoutesEnum.LIST_CONTAINERS.ToString(), searchParameters);
+            });
+            searchButton.Clicked = searchButtonEvent;
+
+            win.Add(search, this.SearchText, searchButton);
         }
 
         /// <summary>
@@ -179,7 +197,6 @@ namespace GTDApp.Console.Views
                     new Label(item.name),
                     new Label(item.type),
                     new Label(item.Container_item.Count.ToString()),
-                    new Label(item.Container_storage.Count.ToString()),
                     itemsButton,
                     editButton,
                     deleteButton

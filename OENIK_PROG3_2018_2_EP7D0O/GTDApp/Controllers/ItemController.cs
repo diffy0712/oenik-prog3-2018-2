@@ -31,13 +31,14 @@ namespace GTDApp.Console.Controllers
             paginator = paginator is null ? new Paginator() : paginator;
             var items = ConsoleCore.BusinessLogic.ItemRepository.SearchAllByContainer(container, search, paginator);
 
-            ListItemsView listContainersView = new ListItemsView()
+            ListItemsView listItemsView = new ListItemsView()
             {
                 Items = items,
                 Paginator = paginator,
-                Search = search
+                Search = search,
+                Container = container
             };
-            listContainersView.Render();
+            listItemsView.Render();
         }
 
         /// <summary>

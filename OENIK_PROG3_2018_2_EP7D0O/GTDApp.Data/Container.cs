@@ -12,7 +12,6 @@ namespace GTDApp.Data
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Container()
         {
-            Container_storage = new HashSet<Container_storage>();
             Container_item = new HashSet<Container_item>();
         }
 
@@ -44,9 +43,6 @@ namespace GTDApp.Data
 
         [Column(TypeName = "date")]
         public DateTime updated_at { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Container_storage> Container_storage { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Container_item> Container_item { get; set; }

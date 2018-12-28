@@ -35,7 +35,6 @@ namespace GTDApp.Repository
         {
             var g = GtdEntityDataModel.Item
                 .Include("Item_notifications")
-                .Include("Item_storage")
                 .OrderByDescending(x => x.Item_notification.Count)
                 .Where(p => p.title.Contains(search));
 
@@ -53,9 +52,9 @@ namespace GTDApp.Repository
         /// <returns>IQueryable</returns>
         public IQueryable<Item> SearchAllByContainer(Container container, string search, Paginator paginator)
         {
-            var g = from item in GtdEntityDataModel.Item
-                    join container_items in GtdEntityDataModel.Container_item on item.item_id equals container_items.container_id
-                    where item.Container_item.Any(p => p.container_id == container.container_id)
+            var g = from container_item in GtdEntityDataModel.Container_item
+                    join item in GtdEntityDataModel.Item on container_item.item_id equals item.item_id
+                    where container_item.container_id == container.container_id
                     orderby item.item_id
                     select item;
 

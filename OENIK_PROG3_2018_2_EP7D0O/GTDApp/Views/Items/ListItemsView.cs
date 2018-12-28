@@ -40,43 +40,30 @@ namespace GTDApp.Console.Views.Items
         /// <value>String</value>
         public string Search { get; set; }
 
+        public TextField SearchText { get; set; }
+         
+        public Container Container { get; set; }
+
         /// <summary>
         ///     Content
         /// </summary>
         /// <param name="win">Window instance</param>
         protected override void Content(Window win)
         {
-            // Add Search
-            var search = new Label("search for: ")
-            {
-                X = 2,
-                Y = 1,
-                Width = 10
-            };
-            var searchText = new TextField(string.Empty)
-            {
-                X = Pos.Right(search) + 1,
-                Y = Pos.Top(search),
-                Width = 30
-            };
-            searchText.Text = Search;
-            Button searchButton = new Button("Run Search...")
-            {
-                X = Pos.Right(searchText) + 1,
-                Y = Pos.Top(searchText)
-            };
+            this.AddSearchElements(win);
 
-            Action searchButtonEvent = new Action(() => {
-                object[] searchParameters = new object[2];
-                searchParameters[0] = searchText.Text.ToString();
-                searchParameters[1] = Paginator;
-                ConsoleCore.CallRoute(RoutesEnum.LIST_ITEMS.ToString(), searchParameters);
-            });
-            searchButton.Clicked = searchButtonEvent;
+            this.AddButtons(win);
 
-            win.Add(search, searchText, searchButton);
+            TableHelper tableHelper = new TableHelper(2, 2);
 
-            Button addNew = new Button(86, 1, "Add new Item");
+            this.AddTableElements(win, tableHelper);
+
+            this.AddPaginatorElements(win, new PaginatorHelper(tableHelper.X, tableHelper.CurrentY, Paginator));
+        }
+
+        private void AddButtons(Window win)
+        {
+            Button addNew = new Button(83, 1, "Add new Item");
             Action addNewEvent = new Action(() => { ConsoleCore.CallRoute(RoutesEnum.CREATE_ITEM.ToString()); });
             addNew.Clicked = addNewEvent;
             win.Add(addNew);
@@ -86,26 +73,26 @@ namespace GTDApp.Console.Views.Items
             backToListButton.Clicked = backToListButtonEvent;
 
             win.Add(backToListButton);
+        }
 
-            TableHelper tableHelper = new TableHelper(2, 2);
-
-            tableHelper.AddHeader("ID",3);
-            tableHelper.AddHeader("Title", 30);
-            tableHelper.AddHeader("Notifications", 3);
-            tableHelper.AddHeader(string.Empty, 5);
-            tableHelper.AddHeader(string.Empty, 5);
-            tableHelper.AddHeader(string.Empty, 5);
+        private void AddTableElements(Window win, TableHelper tableHelper)
+        {
+            tableHelper.AddHeader("ID", 3);
+            tableHelper.AddHeader("Title", 82);
+            tableHelper.AddHeader(string.Empty, 4);
+            tableHelper.AddHeader(string.Empty, 4);
 
             tableHelper.AddRows(this.GetRows());
 
             tableHelper.Render(win);
+        }
 
-            PaginatorHelper paginatorHelper = new PaginatorHelper(tableHelper.X, tableHelper.CurrentY, Paginator);
-
+        private void AddPaginatorElements(Window win, PaginatorHelper paginatorHelper)
+        {
             Action paginatorAction = new Action(() => {
-                object[] parameters = new object[2];
-                parameters[0] = Items.First().Container_item.First();
-                parameters[1] = searchText.Text.ToString();
+                object[] parameters = new object[3];
+                parameters[0] = this.Container;
+                parameters[1] = this.SearchText.Text.ToString();
                 parameters[2] = Paginator;
                 ConsoleCore.CallRoute(RoutesEnum.LIST_ITEMS.ToString(), parameters);
             });
@@ -113,6 +100,39 @@ namespace GTDApp.Console.Views.Items
             {
                 win.Add(view);
             }
+        }
+
+        private void AddSearchElements(Window win)
+        {
+            // Add Search
+            var search = new Label("search for: ")
+            {
+                X = 2,
+                Y = 1,
+                Width = 10
+            };
+            this.SearchText = new TextField(string.Empty)
+            {
+                X = Pos.Right(search) + 1,
+                Y = Pos.Top(search),
+                Width = 30
+            };
+            this.SearchText.Text = Search;
+            Button searchButton = new Button("Run Search...")
+            {
+                X = Pos.Right(this.SearchText) + 1,
+                Y = Pos.Top(this.SearchText)
+            };
+
+            Action searchButtonEvent = new Action(() => {
+                object[] searchParameters = new object[2];
+                searchParameters[0] = this.SearchText.Text.ToString();
+                searchParameters[1] = Paginator;
+                ConsoleCore.CallRoute(RoutesEnum.LIST_ITEMS.ToString(), searchParameters);
+            });
+            searchButton.Clicked = searchButtonEvent;
+
+            win.Add(search, this.SearchText, searchButton);
         }
 
         /// <summary>
@@ -143,15 +163,6 @@ namespace GTDApp.Console.Views.Items
 
             foreach (var item in this.Items)
             {
-                Button notificationsButton = new Button("Notifications");
-                Action notificationsButtonEvent = new Action(() => {
-                    object[] parameters = new object[] {
-
-                    };
-                    // ConsoleCore.CallRoute(RoutesEnum.LIST_ITEMS.ToString(), parameters);
-                });
-                notificationsButton.Clicked = notificationsButtonEvent;
-
                 Button editButton = new Button("Edit");
                 Action editButtonEvent = new Action(() => {
                     Item itemInstance = item;
@@ -176,9 +187,6 @@ namespace GTDApp.Console.Views.Items
                 {
                     new Label($"#{item.item_id}"),
                     new Label(item.title),
-                    new Label(item.Item_notification.Count.ToString()),
-                    new Label(item.Item_storage.Count.ToString()),
-                    notificationsButton,
                     editButton,
                     deleteButton
                 });
