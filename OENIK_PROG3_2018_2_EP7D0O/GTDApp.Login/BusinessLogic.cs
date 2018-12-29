@@ -1,22 +1,17 @@
 ﻿// <summary>
 // GTD(getting things done) Application
 // </summary>
-// <copyright file="BusinessLogic.cs" company="OENIK_PROG3_2018_2_EP7D0O">
-// Copyright © OENIK_PROG3_2018_2_EP7D0O All rights reserved.
+// <copyright file="BusinessLogic.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
 namespace GTDApp.Logic
 {
     using System.Collections.Generic;
-    using System.Data.Entity;
     using System.Data.Entity.Validation;
-    using System.Net;
     using GTDApp.Data;
-    using GTDApp.Logic.Exceptions;
-    using GTDApp.Logic.Interfaces;
     using GTDApp.Repository;
     using GTDApp.Repository.Interfaces;
-    using Newtonsoft.Json.Linq;
 
     /// <summary>
     ///      BusinessLogic
@@ -24,29 +19,34 @@ namespace GTDApp.Logic
     public class BusinessLogic
     {
         /// <summary>
-        ///      BusinessLogic
+        ///      Gets or sets BusinessLogic
         /// </summary>
-        private GtdEntityDataModel context;
+        /// <value>GtdEntityDataModel</value>
+        public GtdEntityDataModel Context { get; set; }
 
         /// <summary>
-        ///      BusinessLogic
+        ///      Gets or sets ContainerRepository
         /// </summary>
-        private IContainerRepository containerRepository;
+        /// <value>IContainerRepository</value>
+        public IContainerRepository ContainerRepository { get; set; }
 
         /// <summary>
-        ///      itemRepository
+        ///      Gets or sets ItemRepository
         /// </summary>
-        private IItemRepository itemRepository;
+        /// <value>IItemRepository</value>
+        public IItemRepository ItemRepository { get; set; }
 
         /// <summary>
-        ///      INotificationRepository
+        ///      Gets or sets NotificationRepository
         /// </summary>
-        private INotificationRepository notificationRepository;
+        /// <value>INotificationRepository</value>
+        public INotificationRepository NotificationRepository { get; set; }
 
         /// <summary>
-        ///      INotificationRepository
+        ///      Gets or sets Item_NotificationRepository
         /// </summary>
-        private IItem_NotificationRepository item_NotificationRepository;
+        /// <value>IItem_NotificationRepository</value>
+        public IItem_NotificationRepository Item_NotificationRepository { get; set; }
 
         /// <summary>
         ///      BusinessLogic
@@ -61,46 +61,16 @@ namespace GTDApp.Logic
 
             BusinessLogic businessLogic = new BusinessLogic()
             {
-                context = Context,
-                containerRepository = ContainerRepository,
-                itemRepository = ItemRepository,
-                notificationRepository = notificationRepository,
-                item_NotificationRepository = Item_NotificationRepository
+                Context = Context,
+                ContainerRepository = ContainerRepository,
+                ItemRepository = ItemRepository,
+                NotificationRepository = notificationRepository,
+                Item_NotificationRepository = Item_NotificationRepository
             };
 
             return businessLogic;
         }
 
-        /// <summary>
-        ///      Gets or sets Context
-        /// </summary>
-        /// <value>GtdEntityDataModel</value>
-        public GtdEntityDataModel Context { get => context; set => context = value; }
-
-        /// <summary>
-        ///      Gets or sets ContainerRepository
-        /// </summary>
-        /// <value>ContainerRepository</value>
-        public IContainerRepository ContainerRepository { get => containerRepository; set => containerRepository = value; }
-
-        /// <summary>
-        ///      Gets or sets ContainerRepository
-        /// </summary>
-        /// <value>ContainerRepository</value>
-        public IItemRepository ItemRepository { get => itemRepository; set => itemRepository = value; }
-
-        /// <summary>
-        ///      Gets or sets NotificationRepository
-        /// </summary>
-        /// <value>ContainerRepository</value>
-        public INotificationRepository NotificationRepository { get => notificationRepository; set => notificationRepository = value; }
-
-        /// <summary>
-        ///      Gets or sets IItem_NotificationRepository
-        /// </summary>
-        /// <value>item_NotificationRepository</value>
-        public IItem_NotificationRepository Item_NotificationRepository { get => item_NotificationRepository; set => item_NotificationRepository = value; }
-        
         /// <summary>
         ///      A container is empty if it has no item.
         /// </summary>
@@ -124,7 +94,7 @@ namespace GTDApp.Logic
         /// <summary>
         ///      A notification is empty if it has no item.
         /// </summary>
-        /// <param name="item">Container instance</param>
+        /// <param name="notification">Notification instance</param>
         /// <returns>Boolean</returns>
         public static bool IsNotificationRemovable(Notification notification)
         {
@@ -165,6 +135,7 @@ namespace GTDApp.Logic
         ///      RemoveContainer
         /// </summary>
         /// <param name="container">Container instance</param>
+        /// <returns>List of strings</returns>
         public List<string> SaveContainer(Container container)
         {
             List<string> response = null;
@@ -198,6 +169,7 @@ namespace GTDApp.Logic
         ///      RemoveContainer
         /// </summary>
         /// <param name="item">Item instance</param>
+        /// <returns>List of strings</returns>
         public List<string> SaveItem(Item item)
         {
             List<string> response = null;
@@ -231,6 +203,7 @@ namespace GTDApp.Logic
         ///      Remove Notification
         /// </summary>
         /// <param name="notification">Notification instance</param>
+        /// <returns>List of strings</returns>
         public List<string> SaveNotification(Notification notification)
         {
             List<string> response = null;
@@ -260,23 +233,45 @@ namespace GTDApp.Logic
             return response;
         }
 
+        /// <summary>
+        ///      Remove Notification
+        /// </summary>
+        /// <param name="json">JSON as string</param>
+        /// <returns>List of strings</returns>
         public List<Item> GenerateItemsFromJSON(string json)
         {
             List<Item> items = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Item>>(json);
             return items;
         }
 
+        /// <summary>
+        ///      Item Has Notification
+        /// </summary>
+        /// <param name="item">Item instance</param>
+        /// <param name="notification">Notification instance</param>
+        /// <returns>List of strings</returns>
         public bool ItemHasNotification(Item item, Notification notification)
         {
-            return ( GetItemNotificationConnection(item, notification) != null ) ? true : false;
+            return GetItemNotificationConnection(item, notification) != null ? true : false;
         }
 
+        /// <summary>
+        ///      Remove Item Notification
+        /// </summary>
+        /// <param name="item">Item instance</param>
+        /// <param name="notification">Notification instance</param>
         public void RemoveItemNotification(Item item, Notification notification)
         {
             Item_notification item_Notification = GetItemNotificationConnection(item, notification);
-            item_NotificationRepository.Remove(item_Notification);
+            Item_NotificationRepository.Remove(item_Notification);
         }
 
+        /// <summary>
+        ///      GetItemNotificationConnection
+        /// </summary>
+        /// <param name="item">Item instance</param>
+        /// <param name="notification">Notification instance</param>
+        /// <returns>Item_notification</returns>
         public Item_notification GetItemNotificationConnection(Item item, Notification notification)
         {
             foreach (Item_notification item_Notification in item.Item_notification)

@@ -1,17 +1,18 @@
 ﻿// <summary>
 // GTD(getting things done) Application
 // </summary>
-// <copyright file="IRepository.cs" company="OENIK_PROG3_2018_2_EP7D0O">
-// Copyright © OENIK_PROG3_2018_2_EP7D0O All rights reserved.
+// <copyright file="Repository.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
 namespace GTDApp.Repository
 {
-    using GTDApp.Repository.Interfaces;
     using System;
     using System.Data.Entity;
     using System.Linq;
     using System.Linq.Expressions;
+    using GTDApp.Data;
+    using GTDApp.Repository.Interfaces;
 
     /// <summary>
     ///      Repository
@@ -23,16 +24,25 @@ namespace GTDApp.Repository
         /// <summary>
         ///      Gets or sets Context
         /// </summary>
-        protected readonly DbContext Context;
+        private readonly DbContext _context;
+
+        /// <summary>
+        ///      Gets GtdEntityDataModel
+        /// </summary>
+        /// <value>GtdEntityDataModel instance</value>
+        public GtdEntityDataModel GtdEntityDataModel
+        {
+            get { return this._context as GtdEntityDataModel; }
+        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Repository{TEntity}"/> class.
         ///      Repository
         /// </summary>
         /// <param name="context">DbContext instance</param>
-        public Repository(DbContext context)
+        public Repository(GtdEntityDataModel context)
         {
-            Context = context;
+            this._context = context;
         }
 
         /// <summary>
@@ -42,7 +52,7 @@ namespace GTDApp.Repository
         /// <returns>TEntity</returns>
         public TEntity Get(int id)
         {
-            return Context.Set<TEntity>().Find(id);
+            return this._context.Set<TEntity>().Find(id);
         }
 
         /// <summary>
@@ -51,7 +61,7 @@ namespace GTDApp.Repository
         /// <returns>IQueryable</returns>
         public IQueryable<TEntity> GetAll()
         {
-            return Context.Set<TEntity>();
+            return this._context.Set<TEntity>();
         }
 
         /// <summary>
@@ -61,7 +71,7 @@ namespace GTDApp.Repository
         /// <returns>IQueryable</returns>
         public IQueryable<TEntity> Find(Expression<Func<TEntity, bool>> predicate)
         {
-            return Context.Set<TEntity>().Where(predicate);
+            return this._context.Set<TEntity>().Where(predicate);
         }
 
         /// <summary>
@@ -71,7 +81,7 @@ namespace GTDApp.Repository
         /// <returns>Some Entity</returns>
         public TEntity SingleOrDefault(Expression<Func<TEntity, bool>> predicate)
         {
-            return Context.Set<TEntity>().SingleOrDefault(predicate);
+            return this._context.Set<TEntity>().SingleOrDefault(predicate);
         }
 
         /// <summary>
@@ -80,7 +90,7 @@ namespace GTDApp.Repository
         /// <param name="entity">Some Entity</param>
         public void Add(TEntity entity)
         {
-            Context.Set<TEntity>().Add(entity);
+            this._context.Set<TEntity>().Add(entity);
         }
 
         /// <summary>
@@ -89,7 +99,7 @@ namespace GTDApp.Repository
         /// <param name="entity">Some Entity</param>
         public void Remove(TEntity entity)
         {
-            Context.Set<TEntity>().Remove(entity);
+            this._context.Set<TEntity>().Remove(entity);
         }
     }
 }

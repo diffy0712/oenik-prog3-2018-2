@@ -1,8 +1,8 @@
 ﻿// <summary>
 // GTD(getting things done) Application
 // </summary>
-// <copyright file="RouterHelper.cs" company="OENIK_PROG3_2018_2_EP7D0O">
-// Copyright © OENIK_PROG3_2018_2_EP7D0O All rights reserved.
+// <copyright file="RouterHelper.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
 namespace GTDApp.Logic.Routing
@@ -56,6 +56,7 @@ namespace GTDApp.Logic.Routing
         ///                   Could I lazy load them or apply proxy maybe?
         /// </summary>
         /// <param name="nameSpace">Namespace to get the IControllers from</param>
+        /// <param name="instanceParameters">instanceParameters</param>
         /// <returns>List of controller class instances</returns>
         public static List<IController> LoadControllersFromDLLNamespace(string nameSpace, object[] instanceParameters = null)
         {
@@ -78,7 +79,7 @@ namespace GTDApp.Logic.Routing
         }
 
         /// <summary>
-        ///     LoadDLL -- 
+        ///     LoadDLL
         ///     HelpMe/Fixme: Loading all instances into a list and than calling from it as needed
         ///                   might be too much if we have big or much controllers.
         ///                   Could I lazy load them or apply proxy maybe?
@@ -110,6 +111,12 @@ namespace GTDApp.Logic.Routing
             throw new NoRouteFoundException("Could not find any route to call.");
         }
 
+        /// <summary>
+        ///     GetRoutesByAttribute
+        /// </summary>
+        /// <param name="controllers">List of controllers</param>
+        /// <param name="type">Type</param>
+        /// <returns>List of route class instances</returns>
         private static List<Route> GetRoutesByAttribute(List<IController> controllers, Type type)
         {
             List<Route> routes = new List<Route>();

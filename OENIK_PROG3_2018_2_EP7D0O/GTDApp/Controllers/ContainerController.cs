@@ -16,7 +16,6 @@ namespace GTDApp.Console.Controllers
     using GTDApp.Data;
     using GTDApp.Logic;
     using GTDApp.Logic.Attributes;
-    using GTDApp.Logic.DTO;
     using GTDApp.Logic.Interfaces;
     using GTDApp.Logic.Routing;
     using GTDApp.Repository;

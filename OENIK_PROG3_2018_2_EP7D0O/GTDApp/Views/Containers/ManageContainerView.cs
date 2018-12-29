@@ -1,22 +1,18 @@
 ﻿// <summary>
 // GTD(getting things done) Application
 // </summary>
-// <copyright file="CreateContainerView.cs" company="OENIK_PROG3_2018_2_EP7D0O">
+// <copyright file="ManageContainerView.cs" company="OENIK_PROG3_2018_2_EP7D0O">
 // Copyright © OENIK_PROG3_2018_2_EP7D0O All rights reserved.
 // </copyright>
 
 namespace GTDApp.Console.Views.Containers
 {
     using System;
-    using System.Linq;
     using GTDApp.Console.Menu;
     using GTDApp.ConsoleCore;
     using GTDApp.ConsoleCore.Menu;
     using GTDApp.ConsoleCore.View;
     using GTDApp.Data;
-    using GTDApp.Logic;
-    using GTDApp.Logic.DTO;
-    using GTDApp.Logic.Routing;
     using Terminal.Gui;
 
     /// <summary>

@@ -1,8 +1,8 @@
 ﻿// <summary>
 // GTD(getting things done) Application
 // </summary>
-// <copyright file="IRepository.cs" company="OENIK_PROG3_2018_2_EP7D0O">
-// Copyright © OENIK_PROG3_2018_2_EP7D0O All rights reserved.
+// <copyright file="ItemRepository.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
 namespace GTDApp.Repository
@@ -34,7 +34,7 @@ namespace GTDApp.Repository
         /// <returns>IQueryable</returns>
         public IQueryable<Item> SearchAll(string search, Paginator paginator)
         {
-            var g = GtdEntityDataModel.Item
+            var g = this.GtdEntityDataModel.Item
                 .Include("Item_notifications")
                 .OrderByDescending(x => x.Item_notification.Count)
                 .Where(p => p.title.Contains(search));
@@ -53,7 +53,7 @@ namespace GTDApp.Repository
         /// <returns>IQueryable</returns>
         public IQueryable<Item> SearchAllByContainer(Container container, string search, Paginator paginator)
         {
-            var g = from item in GtdEntityDataModel.Item
+            var g = from item in this.GtdEntityDataModel.Item
                     where item.container_id == container.container_id
                     where item.title.Contains(search)
                     orderby item.item_id
@@ -71,7 +71,7 @@ namespace GTDApp.Repository
         /// <param name="paginator">Paginator instance</param>
         public IQueryable<Item> GetAll(Paginator paginator)
         {
-            var g = GtdEntityDataModel.Item.OrderBy(x => x.item_id);
+            var g = this.GtdEntityDataModel.Item.OrderBy(x => x.item_id);
 
             paginator.Maximum = g.Count();
 
@@ -85,16 +85,7 @@ namespace GTDApp.Repository
         /// <param name="count">int</param>
         public IQueryable<Item> GetMostRecentItems(int count)
         {
-            return GtdEntityDataModel.Item.OrderByDescending(c => c.item_id).Take(count);
-        }
-
-        /// <summary>
-        ///      GtdEntityDataModel
-        /// </summary>
-        /// <returns>GtdEntityDataModel</returns>
-        public GtdEntityDataModel GtdEntityDataModel
-        {
-            get { return Context as GtdEntityDataModel; }
+            return this.GtdEntityDataModel.Item.OrderByDescending(c => c.item_id).Take(count);
         }
     }
 }

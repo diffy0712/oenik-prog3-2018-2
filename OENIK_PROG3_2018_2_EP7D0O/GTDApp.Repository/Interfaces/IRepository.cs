@@ -1,8 +1,8 @@
-// <summary>
+ï»¿// <summary>
 // GTD(getting things done) Application
 // </summary>
-// <copyright file="IRepository.cs" company="OENIK_PROG3_2018_2_EP7D0O">
-// Copyright © OENIK_PROG3_2018_2_EP7D0O All rights reserved.
+// <copyright file="IRepository.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
 namespace GTDApp.Repository.Interfaces
@@ -50,7 +50,7 @@ namespace GTDApp.Repository.Interfaces
         /// </summary>
         /// <param name="entity">TEntity</param>
         void Add(TEntity entity);
-        
+
         /// <summary>
         ///     Remove
         /// </summary>

@@ -1,8 +1,8 @@
 ﻿// <summary>
 // GTD(getting things done) Application
 // </summary>
-// <copyright file="Route.cs" company="OENIK_PROG3_2018_2_EP7D0O">
-// Copyright © OENIK_PROG3_2018_2_EP7D0O All rights reserved.
+// <copyright file="Route.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
 namespace GTDApp.Logic.Routing
@@ -16,23 +16,27 @@ namespace GTDApp.Logic.Routing
     public class Route
     {
         /// <summary>
-        ///         Controller class
+        ///     Gets or sets Controller
         /// </summary>
+        /// <value>IController</value>
         public IController Controller { get; set; }
 
         /// <summary>
-        ///         Name of the route
+        ///     Gets or sets Name
         /// </summary>
+        /// <value>string</value>
         public string Name { get; set; }
 
         /// <summary>
-        ///         Method to call from class
+        ///     Gets or sets Method
         /// </summary>
+        /// <value>MethodInfo</value>
         public MethodInfo Method { get; set; }
 
         /// <summary>
-        ///         Parameters to pass to the method invoke
+        ///     Gets or sets Parameters
         /// </summary>
+        /// <value>object[]</value>
         public object[] Parameters { get; set; }
     }
 }

@@ -1,10 +1,9 @@
-// <summary>
+ï»¿// <summary>
 // GTD(getting things done) Application
 // </summary>
-// <copyright file="IContainerRepository.cs" company="OENIK_PROG3_2018_2_EP7D0O">
-// Copyright © OENIK_PROG3_2018_2_EP7D0O All rights reserved.
+// <copyright file="IContainerRepository.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
-
 
 namespace GTDApp.Repository.Interfaces
 {
@@ -36,8 +35,9 @@ namespace GTDApp.Repository.Interfaces
         /// <summary>
         ///     GetAggregatesByContainerType
         /// </summary>
+        /// <param name="search">String</param>
         /// <param name="paginator">Paginator instance</param>
         /// <returns>IQueryable</returns>
-        IQueryable<AggregatesByContainerTypeDto> GetAggregatesByContainerType(Paginator paginator);
+        IQueryable<AggregatesByContainerTypeDto> GetAggregatesByContainerType(string search, Paginator paginator);
     }
 }

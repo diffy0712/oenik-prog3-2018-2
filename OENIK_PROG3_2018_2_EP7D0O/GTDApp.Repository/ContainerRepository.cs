@@ -1,8 +1,8 @@
 ﻿// <summary>
 // GTD(getting things done) Application
 // </summary>
-// <copyright file="IRepository.cs" company="OENIK_PROG3_2018_2_EP7D0O">
-// Copyright © OENIK_PROG3_2018_2_EP7D0O All rights reserved.
+// <copyright file="ContainerRepository.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
 namespace GTDApp.Repository
@@ -35,7 +35,7 @@ namespace GTDApp.Repository
         /// <returns>IQueryable</returns>
         public IQueryable<Container> SearchAll(string search, Paginator paginator)
         {
-            var g = GtdEntityDataModel.Container
+            var g = this.GtdEntityDataModel.Container
                 .Include("Item")
                 .OrderByDescending(x => x.Item.Count)
                 .Where(p => p.name.Contains(search));
@@ -51,9 +51,9 @@ namespace GTDApp.Repository
         /// <param name="search">String</param>
         /// <param name="paginator">Paginator instance</param>
         /// <returns>IQueryable</returns>
-        public IQueryable<AggregatesByContainerTypeDto> GetAggregatesByContainerType(Paginator paginator)
+        public IQueryable<AggregatesByContainerTypeDto> GetAggregatesByContainerType(string search, Paginator paginator)
         {
-            var g = from container in GtdEntityDataModel.Container
+            var g = from container in this.GtdEntityDataModel.Container
                     group container by container.type into c
                     orderby c.Key
                     select new AggregatesByContainerTypeDto()
@@ -74,7 +74,7 @@ namespace GTDApp.Repository
         /// <param name="paginator">Paginator instance</param>
         public IQueryable<Container> GetAll(Paginator paginator)
         {
-            var g = GtdEntityDataModel.Container.OrderBy(x => x.container_id);
+            var g = this.GtdEntityDataModel.Container.OrderBy(x => x.container_id);
 
             paginator.Maximum = g.Count();
 
@@ -88,16 +88,7 @@ namespace GTDApp.Repository
         /// <param name="count">int</param>
         public IQueryable<Container> GetMostRecentContainers(int count)
         {
-            return GtdEntityDataModel.Container.OrderByDescending(c => c.container_id).Take(count);
-        }
-
-        /// <summary>
-        ///      GtdEntityDataModel
-        /// </summary>
-        /// <returns>GtdEntityDataModel</returns>
-        public GtdEntityDataModel GtdEntityDataModel
-        {
-            get { return Context as GtdEntityDataModel; }
+            return this.GtdEntityDataModel.Container.OrderByDescending(c => c.container_id).Take(count);
         }
     }
 }

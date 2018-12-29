@@ -1,8 +1,8 @@
 ﻿// <summary>
 // GTD(getting things done) Application
 // </summary>
-// <copyright file="Router.cs" company="OENIK_PROG3_2018_2_EP7D0O">
-// Copyright © OENIK_PROG3_2018_2_EP7D0O All rights reserved.
+// <copyright file="Router.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
 namespace GTDApp.Logic.Routing
@@ -60,6 +60,10 @@ namespace GTDApp.Logic.Routing
             }
         }
 
+        /// <summary>
+        ///     Gets or sets Controllers
+        /// </summary>
+        /// <value>List of IController</value>
         private List<IController> Controllers;
     }
 }

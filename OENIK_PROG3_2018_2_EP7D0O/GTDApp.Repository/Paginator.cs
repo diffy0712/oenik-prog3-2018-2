@@ -1,65 +1,126 @@
 ﻿// <summary>
 // GTD(getting things done) Application
 // </summary>
-// <copyright file="ContainerController.cs" company="OENIK_PROG3_2018_2_EP7D0O">
-// Copyright © OENIK_PROG3_2018_2_EP7D0O All rights reserved.
+// <copyright file="Paginator.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
-
 
 namespace GTDApp.Repository
 {
     using System;
-    using System.Linq;
 
     /// <summary>
     ///     ContainerController
     /// </summary>
     public class Paginator
     {
-        public int CurrentPage = 1;
-        public int PerPage = 5;
-        public int Skip { get => (CurrentPage - 1) * PerPage; }
-        private int maximum;
+        /// <summary>
+        ///     Gets or sets CurrentPage
+        /// </summary>
+        /// <value>int</value>
+        private int _currentPage = 1;
+
+        /// <summary>
+        ///     Gets or sets _perPage
+        /// </summary>
+        /// <value>int</value>
+        private int _perPage = 5;
+
+        /// <summary>
+        ///     Gets or sets _maximum
+        /// </summary>
+        /// <value>int</value>
+        private int _maximum;
+
+        /// <summary>
+        ///     Gets Skip
+        /// </summary>
+        /// <value>int</value>
+        public int Skip
+        {
+            get => (this._currentPage - 1) * this._perPage;
+        }
+
+        /// <summary>
+        ///     Gets or sets Maximum
+        /// </summary>
+        /// <value>int</value>
         public int Maximum {
-            get { return maximum; }
+            get
+            {
+                return this._maximum;
+            }
+
             set
             {
-                this.maximum = value;
+                this._maximum = value;
 
-                if (CurrentPage > MaximumPage)
+                if (this._currentPage > this.MaximumPage)
                 {
-                    CurrentPage = 1;
+                    this._currentPage = 1;
                 }
             }
         }
-        private int maximumPage;
 
-        public int MaximumPage { get => (int)Math.Ceiling((double)Maximum / PerPage); }
-       
+        /// <summary>
+        ///     Gets or sets PerPage
+        /// </summary>
+        /// <value>int</value>
+        public int PerPage { get { return this._perPage; } set { this._perPage = value; } }
+
+        /// <summary>
+        ///     Gets or sets CurrentPage
+        /// </summary>
+        /// <value>int</value>
+        public int CurrentPage { get { return this._currentPage; } set { this._currentPage = value; } }
+
+        /// <summary>
+        ///     Gets MaximumPage
+        /// </summary>
+        /// <value>int</value>
+        public int MaximumPage
+        {
+            get => (int)Math.Ceiling((double)this.Maximum / this._perPage);
+        }
+
+        /// <summary>
+        ///     Increments current page by one
+        /// </summary>
         public void Next()
         {
-            if( IsNext())
+            if (this.IsNext())
             {
-                CurrentPage++;
+                this._currentPage++;
             }
         }
 
+        /// <summary>
+        ///     Decremenets current page by one
+        /// </summary>
         public void Prev()
         {
-            if (IsPrev())
+            if (this.IsPrev())
             {
-                CurrentPage--;
+                this._currentPage--;
             }
         }
 
+        /// <summary>
+        ///     Checks whather there is a previous page or not.
+        /// </summary>
+        /// <returns>bool</returns>
         public bool IsPrev()
         {
-            return (CurrentPage > 1);
+            return this._currentPage > 1;
         }
 
+        /// <summary>
+        ///     Checks whather there is a next page or not.
+        /// </summary>
+        /// <returns>bool</returns>
         public bool IsNext()
         {
-            return (MaximumPage > CurrentPage);
+            return this.MaximumPage > this._currentPage;
         }
     }
 }

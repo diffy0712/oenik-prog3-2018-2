@@ -1,10 +1,9 @@
-// <summary>
+ï»¿// <summary>
 // GTD(getting things done) Application
 // </summary>
-// <copyright file="IItemRepository.cs" company="OENIK_PROG3_2018_2_EP7D0O">
-// Copyright © OENIK_PROG3_2018_2_EP7D0O All rights reserved.
+// <copyright file="IItemRepository.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
-
 
 namespace GTDApp.Repository.Interfaces
 {
@@ -33,12 +32,12 @@ namespace GTDApp.Repository.Interfaces
         IQueryable<Item> SearchAll(string search, Paginator paginator);
 
         /// <summary>
-        ///     SearchAllByContainerId
+        ///     SearchAllByContainer
         /// </summary>
-        /// <param name="Container_item">Container_item</param>
+        /// <param name="container">Container</param>
         /// <param name="search">String</param>
         /// <param name="paginator">Paginator instance</param>
-        /// <returns>IQueryable</returns>
+        /// <returns>IQueryable Item</returns>
         IQueryable<Item> SearchAllByContainer(Container container, string search, Paginator paginator);
     }
 }

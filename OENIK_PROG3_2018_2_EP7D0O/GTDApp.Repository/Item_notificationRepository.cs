@@ -1,12 +1,14 @@
 ﻿// <summary>
 // GTD(getting things done) Application
 // </summary>
-// <copyright file="IRepository.cs" company="OENIK_PROG3_2018_2_EP7D0O">
-// Copyright © OENIK_PROG3_2018_2_EP7D0O All rights reserved.
+// <copyright file="Item_notificationRepository.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
 namespace GTDApp.Repository
 {
+    using System;
+    using System.Data.Entity;
     using System.Linq;
     using GTDApp.Data;
     using GTDApp.Data.Dto;
@@ -28,15 +30,6 @@ namespace GTDApp.Repository
         }
 
         /// <summary>
-        ///      GtdEntityDataModel
-        /// </summary>
-        /// <returns>GtdEntityDataModel</returns>
-        public GtdEntityDataModel GtdEntityDataModel
-        {
-            get { return Context as GtdEntityDataModel; }
-        }
-
-        /// <summary>
         ///     SearchAll
         /// </summary>
         /// <param name="search">String</param>
@@ -44,7 +37,7 @@ namespace GTDApp.Repository
         /// <returns>IQueryable</returns>
         public IQueryable<Notification> SearchAll(string search, Paginator paginator)
         {
-            var g = from notification in GtdEntityDataModel.Notification
+            var g = from notification in this.GtdEntityDataModel.Notification
                     where notification.name.Contains(search)
                     orderby notification.name
                     select notification;
@@ -55,15 +48,17 @@ namespace GTDApp.Repository
         }
 
         /// <summary>
-        ///     Returns the upcoming notifications. Grouped by the following 7 days!
+        ///     Returns the upcoming notifications
         /// </summary>
+        /// <param name="search">String</param>
         /// <param name="paginator">Paginator instance</param>
         /// <returns>IQueryable</returns>
         public IQueryable<UpcomingNotificationsDto> GetUpcomingNotifications(string search, Paginator paginator)
         {
             var g = (
-                from item in GtdEntityDataModel.Item
+                from item in this.GtdEntityDataModel.Item
                 where item.from_date != null
+                where item.from_date > DbFunctions.AddDays(item.from_date, -1)
                 group item by item.from_date into d
                 select new UpcomingNotificationsDto()
                 {

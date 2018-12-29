@@ -52,15 +52,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\IContainerRepository.cs" />
+    <Compile Include="Interfaces\IItemRepository.cs" />
     <Compile Include="Interfaces\IItem_NotificationRepository.cs" />
     <Compile Include="Interfaces\INotificationRepository.cs" />
+    <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Item_notificationRepository.cs" />
     <Compile Include="NotificationRepository.cs" />
-    <Compile Include="Interfaces\IItemRepository.cs" />
     <Compile Include="ItemRepository.cs" />
     <Compile Include="ContainerRepository.cs" />
-    <Compile Include="Interfaces\IContainerRepository.cs" />
-    <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Paginator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository.cs" />

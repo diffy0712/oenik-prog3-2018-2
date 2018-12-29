@@ -7,9 +7,6 @@
 
 namespace GTDApp.Data.Dto
 {
-    using System.Linq;
-    using GTDApp.Data;
-
     /// <summary>
     ///      ContainerRepository
     /// </summary>
