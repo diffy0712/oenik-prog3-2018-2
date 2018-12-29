@@ -9,6 +9,7 @@ namespace GTDApp.Repository
 {
     using System.Linq;
     using GTDApp.Data;
+    using GTDApp.Data.Dto;
     using GTDApp.Repository.Interfaces;
 
     /// <summary>
@@ -40,6 +41,28 @@ namespace GTDApp.Repository
                 .Where(p => p.name.Contains(search));
 
             paginator.Maximum = g.Count();
+
+            return g.Skip(paginator.Skip).Take(paginator.PerPage);
+        }
+
+        /// <summary>
+        ///     SearchAll
+        /// </summary>
+        /// <param name="search">String</param>
+        /// <param name="paginator">Paginator instance</param>
+        /// <returns>IQueryable</returns>
+        public IQueryable<AggregatesByContainerTypeDto> GetAggregatesByContainerType(Paginator paginator)
+        {
+            var g = from container in GtdEntityDataModel.Container
+                    group container by container.type into c
+                    orderby c.Key
+                    select new AggregatesByContainerTypeDto()
+                    {
+                        container_type = c.Key,
+                        container_count = c.Count(),
+                        item_count = c.Sum(x => x.Item.Count()),
+                        notification_count = c.Sum(x => (int?)x.Item.Sum(t => (int?)t.Item_notification.Count() ?? 0) ?? 0)
+                    };
 
             return g.Skip(paginator.Skip).Take(paginator.PerPage);
         }

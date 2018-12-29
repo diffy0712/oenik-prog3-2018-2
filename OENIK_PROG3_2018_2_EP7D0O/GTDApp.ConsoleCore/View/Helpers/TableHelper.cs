@@ -104,6 +104,21 @@ namespace GTDApp.ConsoleCore.Views.Helpers
         }
 
         /// <summary>
+        ///     Render the table
+        /// </summary>
+        /// <returns>List</returns>
+        public void Render(View view)
+        {
+            this.AddHeader();
+            this.AddRows();
+            
+            foreach (View _view in ViewContainer)
+            {
+                view.Add(_view);
+            }
+        }
+
+        /// <summary>
         ///     AddRows
         /// </summary>
         private void AddRows()

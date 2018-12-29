@@ -13,6 +13,7 @@ namespace GTDApp.Console.Controllers
     using GTDApp.Logic.Attributes;
     using GTDApp.Logic.Interfaces;
     using GTDApp.Logic.Routing;
+    using GTDApp.Repository;
 
     /// <summary>
     ///     DashboardController
@@ -31,6 +32,7 @@ namespace GTDApp.Console.Controllers
             view.NumberOfContainers = ConsoleCore.BusinessLogic.ContainerRepository.GetAll().Count();
             view.NumberOfItems = ConsoleCore.BusinessLogic.ItemRepository.GetAll().Count();
             view.NumberOfNotifications = ConsoleCore.BusinessLogic.NotificationRepository.GetAll().Count();
+            view.AggregatesByContainerType = ConsoleCore.BusinessLogic.ContainerRepository.GetAggregatesByContainerType(new Paginator());
             view.Render();
         }
     }
