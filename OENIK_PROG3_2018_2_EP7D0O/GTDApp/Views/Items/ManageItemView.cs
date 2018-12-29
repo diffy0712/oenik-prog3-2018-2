@@ -8,6 +8,8 @@
 namespace GTDApp.Console.Views.Containers.Items
 {
     using System;
+    using System.Collections.Generic;
+    using System.Linq;
     using GTDApp.Console.Menu;
     using GTDApp.Console.Views.Modals;
     using GTDApp.ConsoleCore;
@@ -25,6 +27,7 @@ namespace GTDApp.Console.Views.Containers.Items
         public bool Creation = true;
         public Item Item;
         public Container Container;
+        public IQueryable Notifications;
 
         /// <summary>
         ///     Content
@@ -66,13 +69,29 @@ namespace GTDApp.Console.Views.Containers.Items
             DateTime toDateTime= (Item.from_date.HasValue) ? Item.to_date.Value : DateTime.Now.AddDays(1).AddHours(2);
             DateInputHelper toDateInputHelper = new DateInputHelper(34,5, toDateTime);
             toDateInputHelper.Render(win, "To Date");
+            
+            FrameView typeView = new FrameView(new Rect(65, 5, 48, 15), "Notifications to enable");
+
+            int prevY = 0;
+            Dictionary<Notification, CheckBox> notificationCheckboxes = new Dictionary<Notification, CheckBox>();
+            foreach(Notification notification in Notifications)
+            {
+                CheckBox checkBox = new CheckBox(1, prevY++, notification.name, ConsoleCore.BusinessLogic.ItemHasNotification(Item, notification));
+                notificationCheckboxes.Add(notification, checkBox);
+                typeView.Add(
+                    checkBox
+                );
+            }
+
+            win.Add(typeView);
+
 
             Button manageButton = new Button(85, 24, "Save");
             Action manageButtonEvent = new Action(() =>
             {
                 DateTime? fromDate = fromDateInputHelper.GetOutput();
                 DateTime? toDate = toDateInputHelper.GetOutput();
-                if (fromDate is null || toDate is null )
+                if (fromDate is null || toDate is null)
                 {
                     ValidationErrorMessageModalView validationErrorMessageModalView = new ValidationErrorMessageModalView();
                     validationErrorMessageModalView.Render();
@@ -83,10 +102,23 @@ namespace GTDApp.Console.Views.Containers.Items
                 Item.description = descriptionText.Text.ToString();
                 Item.from_date = fromDate;
                 Item.to_date = toDate;
-                object[] parameters = new object[] {
-                    Container,
-                    Item
+
+                foreach (KeyValuePair<Notification, CheckBox> entry in notificationCheckboxes)
+                {
+                    if (entry.Value.Checked && !ConsoleCore.BusinessLogic.ItemHasNotification(Item, entry.Key))
+                    {
+                        Item.Item_notification.Add(new Item_notification() { Item = Item, Notification = entry.Key });
+                    }
+                    else if (entry.Value.Checked != true && ConsoleCore.BusinessLogic.ItemHasNotification(Item, entry.Key))
+                    {
+                        ConsoleCore.BusinessLogic.RemoveItemNotification(Item, entry.Key);
+                    }
                 };
+
+                object[] parameters = new object[] {
+                        Container,
+                        Item
+                    };
                 ConsoleCore.CallRoute(RoutesEnum.MANAGE_ITEM_ACTION.ToString(), parameters);
             });
             manageButton.Clicked = manageButtonEvent;

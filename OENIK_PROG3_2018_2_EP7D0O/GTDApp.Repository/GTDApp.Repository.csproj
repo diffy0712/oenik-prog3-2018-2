@@ -52,7 +52,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\IItem_NotificationRepository.cs" />
     <Compile Include="Interfaces\INotificationRepository.cs" />
+    <Compile Include="Item_notificationRepository.cs" />
     <Compile Include="NotificationRepository.cs" />
     <Compile Include="Interfaces\IItemRepository.cs" />
     <Compile Include="ItemRepository.cs" />

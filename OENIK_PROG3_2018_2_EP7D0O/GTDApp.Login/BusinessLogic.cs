@@ -43,6 +43,11 @@ namespace GTDApp.Logic
         private INotificationRepository notificationRepository;
 
         /// <summary>
+        ///      INotificationRepository
+        /// </summary>
+        private IItem_NotificationRepository item_NotificationRepository;
+
+        /// <summary>
         ///      BusinessLogic
         /// </summary>
         public static BusinessLogic Init()
@@ -51,13 +56,15 @@ namespace GTDApp.Logic
             IContainerRepository ContainerRepository = new ContainerRepository(Context);
             IItemRepository ItemRepository = new ItemRepository(Context);
             INotificationRepository notificationRepository = new NotificationRepository(Context);
+            IItem_NotificationRepository Item_NotificationRepository = new Item_notificationRepository(Context);
 
             BusinessLogic businessLogic = new BusinessLogic()
             {
                 context = Context,
                 containerRepository = ContainerRepository,
                 itemRepository = ItemRepository,
-                notificationRepository = notificationRepository
+                notificationRepository = notificationRepository,
+                item_NotificationRepository = Item_NotificationRepository
             };
 
             return businessLogic;
@@ -244,6 +251,30 @@ namespace GTDApp.Logic
             }
 
             return response;
+        }
+
+        public bool ItemHasNotification(Item item, Notification notification)
+        {
+            return ( GetItemNotificationConnection(item, notification) != null ) ? true : false;
+        }
+
+        public void RemoveItemNotification(Item item, Notification notification)
+        {
+            Item_notification item_Notification = GetItemNotificationConnection(item, notification);
+            item_NotificationRepository.Remove(item_Notification);
+        }
+
+        public Item_notification GetItemNotificationConnection(Item item, Notification notification)
+        {
+            foreach (Item_notification item_Notification in item.Item_notification)
+            {
+                if (item_Notification.Notification == notification)
+                {
+                    return item_Notification;
+                }
+            }
+
+            return null;
         }
     }
 }

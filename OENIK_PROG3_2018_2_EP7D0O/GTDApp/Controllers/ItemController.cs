@@ -60,6 +60,7 @@ namespace GTDApp.Console.Controllers
             item.Container = container;
             item.description = String.Empty;
 
+            manageView.Notifications = ConsoleCore.BusinessLogic.NotificationRepository.GetAll();
             manageView.Container = container;
             manageView.Item = item;
             manageView.Creation = true;
@@ -74,6 +75,7 @@ namespace GTDApp.Console.Controllers
         public void Update(Container container, Item item)
         {
             ManageItemView manageView = new ManageItemView();
+            manageView.Notifications = ConsoleCore.BusinessLogic.NotificationRepository.GetAll();
             manageView.Container = container;
             manageView.Item = item;
             manageView.Creation = false;
