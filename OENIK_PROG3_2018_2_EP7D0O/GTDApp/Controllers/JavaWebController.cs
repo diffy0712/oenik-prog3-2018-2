@@ -8,6 +8,7 @@
 namespace GTDApp.Console.Controllers
 {
     using GTDApp.Console.Views;
+    using GTDApp.ConsoleCore;
     using GTDApp.Logic;
     using GTDApp.Logic.Attributes;
     using GTDApp.Logic.Exceptions;
@@ -30,7 +31,7 @@ namespace GTDApp.Console.Controllers
                 JavaWebView view = new JavaWebView();
 
                 string javaWebUrl = "http://localhost:8080/GTDAppWebServer/GTDAppServlet";
-                view.Response = Common.JSONApiCall(javaWebUrl);
+                view.Response = ConsoleCore.BusinessLogic.GenerateItemsFromJSON(Common.JSONApiCall(javaWebUrl));
 
                 view.Render();
             }

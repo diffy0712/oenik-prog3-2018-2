@@ -27,10 +27,24 @@ public class GTDAppServlet extends HttpServlet {
         List<Item> items = new ArrayList();
         
         Item item1 = new Item();
-        item1.setDescription("Some description");
-        item1.setTitle("Some item");
-        
+        item1.setDescription("Go to the shop and buy some stuff");
+        item1.setTitle("Shopping");
         items.add(item1);
+        
+        Item item2 = new Item();
+        item2.setDescription("Print the book you always wanted");
+        item2.setTitle("Go to printer");
+        items.add(item2);
+        
+        Item item3 = new Item();
+        item3.setDescription("Watch all episodes of scrubs");
+        item3.setTitle("ScrubberWeekend");
+        items.add(item3);
+        
+        Item item4 = new Item();
+        item4.setDescription("Seriously!");
+        item4.setTitle("Do nothing");
+        items.add(item4);
         
         return items;
     }

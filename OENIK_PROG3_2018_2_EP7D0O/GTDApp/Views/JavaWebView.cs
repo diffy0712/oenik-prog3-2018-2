@@ -7,12 +7,14 @@
 
 namespace GTDApp.Console.Views
 {
+    using System.Collections.Generic;
     using System.Linq;
     using GTDApp.Console.Menu;
     using GTDApp.ConsoleCore;
     using GTDApp.ConsoleCore.Menu;
     using GTDApp.ConsoleCore.View;
     using GTDApp.ConsoleCore.Views;
+    using GTDApp.ConsoleCore.Views.Helpers;
     using GTDApp.Data;
     using GTDApp.Logic.Interfaces;
     using Terminal.Gui;
@@ -22,9 +24,7 @@ namespace GTDApp.Console.Views
     /// </summary>
     public class JavaWebView : AbstractView
     {
-        private string response;
-
-        public string Response { get => response; set => response = value; }
+        public List<Item> Response { get; set; }
 
         /// <summary>
         ///     Content
@@ -32,7 +32,24 @@ namespace GTDApp.Console.Views
         /// <param name="win">Window instance</param>
         protected override void Content(Window win)
         {
-            win.Add(new Label($"This is called JAVA response {response}") { X = 2, Y = 1 });
+            TableHelper tableHelper = new TableHelper(1, 0);
+
+            List<List<View>> rows = new List<List<View>>();
+
+            foreach (Item item in this.Response)
+            {
+                rows.Add(new List<View>()
+                {
+                    new Label($"{item.title}"),
+                    new Label($"{item.description}")
+                });
+            }
+
+            tableHelper.AddHeader("Title", 20);
+            tableHelper.AddHeader("Description", 30);
+
+            tableHelper.AddRows(rows);
+            tableHelper.Render(win);
         }
 
         /// <summary>
@@ -50,7 +67,7 @@ namespace GTDApp.Console.Views
         /// <returns>string</returns>
         protected override string GetTitle()
         {
-            return "Java Web";
+            return "Java endpoint call response items!";
         }
     }
 }

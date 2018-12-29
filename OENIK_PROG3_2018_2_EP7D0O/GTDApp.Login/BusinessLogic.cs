@@ -16,6 +16,7 @@ namespace GTDApp.Logic
     using GTDApp.Logic.Interfaces;
     using GTDApp.Repository;
     using GTDApp.Repository.Interfaces;
+    using Newtonsoft.Json.Linq;
 
     /// <summary>
     ///      BusinessLogic
@@ -257,6 +258,12 @@ namespace GTDApp.Logic
             }
 
             return response;
+        }
+
+        public List<Item> GenerateItemsFromJSON(string json)
+        {
+            List<Item> items = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Item>>(json);
+            return items;
         }
 
         public bool ItemHasNotification(Item item, Notification notification)
