@@ -93,6 +93,12 @@ namespace GTDApp.Logic
         /// </summary>
         /// <value>ContainerRepository</value>
         public INotificationRepository NotificationRepository { get => notificationRepository; set => notificationRepository = value; }
+
+        /// <summary>
+        ///      Gets or sets IItem_NotificationRepository
+        /// </summary>
+        /// <value>item_NotificationRepository</value>
+        public IItem_NotificationRepository Item_NotificationRepository { get => item_NotificationRepository; set => item_NotificationRepository = value; }
         
         /// <summary>
         ///      A container is empty if it has no item.

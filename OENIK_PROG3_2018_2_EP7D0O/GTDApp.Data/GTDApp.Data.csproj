@@ -73,6 +73,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Container.cs" />
+    <Compile Include="Dto\UpcomingNotificationsDto.cs" />
     <Compile Include="Dto\AggregatesByContainerTypeDto.cs" />
     <Compile Include="GtdEntityDataModel.cs" />
     <Compile Include="Item.cs" />

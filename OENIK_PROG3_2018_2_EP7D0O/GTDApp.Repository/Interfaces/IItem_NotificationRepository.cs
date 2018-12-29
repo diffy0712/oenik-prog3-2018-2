@@ -10,11 +10,13 @@ namespace GTDApp.Repository.Interfaces
 {
     using System.Linq;
     using GTDApp.Data;
+    using GTDApp.Data.Dto;
 
     /// <summary>
     ///     IContainerRepository
     /// </summary>
     public interface IItem_NotificationRepository : IRepository<Item_notification>
     {
+        IQueryable<UpcomingNotificationsDto> GetUpcomingNotifications(string search, Paginator paginator);
     }
 }

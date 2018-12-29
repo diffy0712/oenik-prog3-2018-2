@@ -9,6 +9,7 @@ namespace GTDApp.Repository
 {
     using System.Linq;
     using GTDApp.Data;
+    using GTDApp.Data.Dto;
     using GTDApp.Repository.Interfaces;
 
     /// <summary>
@@ -33,6 +34,46 @@ namespace GTDApp.Repository
         public GtdEntityDataModel GtdEntityDataModel
         {
             get { return Context as GtdEntityDataModel; }
+        }
+
+        /// <summary>
+        ///     SearchAll
+        /// </summary>
+        /// <param name="search">String</param>
+        /// <param name="paginator">Paginator instance</param>
+        /// <returns>IQueryable</returns>
+        public IQueryable<Notification> SearchAll(string search, Paginator paginator)
+        {
+            var g = from notification in GtdEntityDataModel.Notification
+                    where notification.name.Contains(search)
+                    orderby notification.name
+                    select notification;
+
+            paginator.Maximum = g.Count();
+
+            return g.Skip(paginator.Skip).Take(paginator.PerPage);
+        }
+
+        /// <summary>
+        ///     Returns the upcoming notifications. Grouped by the following 7 days!
+        /// </summary>
+        /// <param name="paginator">Paginator instance</param>
+        /// <returns>IQueryable</returns>
+        public IQueryable<UpcomingNotificationsDto> GetUpcomingNotifications(string search, Paginator paginator)
+        {
+            var g = (
+                from item in GtdEntityDataModel.Item
+                where item.from_date != null
+                group item by item.from_date into d
+                select new UpcomingNotificationsDto()
+                {
+                    day = d.Key,
+                    item_count = d.Count(),
+                    notification_count = d.Sum(x => x.Item_notification.Count()),
+                }
+                ).OrderBy(d => d.day);
+
+            return g;
         }
     }
 }

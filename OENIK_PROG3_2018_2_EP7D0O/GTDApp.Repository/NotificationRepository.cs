@@ -45,6 +45,19 @@ namespace GTDApp.Repository
         }
 
         /// <summary>
+        ///     GetUpcomingNotifications
+        /// </summary>
+        /// <param name="paginator">Paginator instance</param>
+        /// <returns>IQueryable</returns>
+        public IQueryable<Notification> GetUpcomingNotifications(string search, Paginator paginator)
+        {
+            var g = from notification in this.SearchAll(search, paginator)
+                    select notification;
+
+            return g;
+        }
+
+        /// <summary>
         ///      GetAll
         /// </summary>
         /// <returns>IQueryable</returns>

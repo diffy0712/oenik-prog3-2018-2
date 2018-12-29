@@ -27,6 +27,7 @@ namespace GTDApp.Console.Views
         public int NumberOfItems { get; set; }
         public int NumberOfNotifications { get; set; }
         public IQueryable<object> AggregatesByContainerType { get; set; }
+        public IQueryable<object> UpcomingNotifications { get; set; }
 
         /// <summary>
         ///     Content
@@ -38,12 +39,39 @@ namespace GTDApp.Console.Views
             this.NotificationLine(win);
             this.ItemLine(win);
             this.AggregatesByContainerTypeBlock(win);
+            this.UpcomingNotificationsBlock(win);
+        }
+
+        private void UpcomingNotificationsBlock(Window win)
+        {
+            FrameView typeView = new FrameView(new Rect(59, 7, 58, 19), "Upcoming Notifications!");
+            TableHelper tableHelper = new TableHelper(1, 0);
+            
+            List<List<View>> rows = new List<List<View>>();
+
+            foreach (UpcomingNotificationsDto item in this.UpcomingNotifications)
+            {
+                rows.Add(new List<View>()
+                {
+                    new Label($"{DateTime.Parse(item.day.ToString()).ToString("dd MMM yyyy")}"),
+                    new Label($"{item.item_count}"),
+                    new Label($"{item.notification_count}"),
+                });
+            }
+
+            tableHelper.AddHeader("Day", 10);
+            tableHelper.AddHeader("Items", 10);
+            tableHelper.AddHeader("Notifications", 10);
+
+            tableHelper.AddRows(rows);
+            tableHelper.Render(typeView);
+            win.Add(typeView);
         }
 
         private void AggregatesByContainerTypeBlock(Window win)
         {
-            FrameView typeView = new FrameView(new Rect(1, 7, 55, 19), "Aggregates by container types!");
-            TableHelper tableHelper = new TableHelper(1, 1);
+            FrameView typeView = new FrameView(new Rect(1, 7, 57, 19), "Aggregates by container types!");
+            TableHelper tableHelper = new TableHelper(1, 0);
             
 
             List<List<View>> rows = new List<List<View>>();
