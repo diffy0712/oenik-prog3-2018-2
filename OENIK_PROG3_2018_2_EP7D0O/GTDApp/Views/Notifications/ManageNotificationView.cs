@@ -49,7 +49,6 @@ namespace GTDApp.Console.Views.Notifications
                 Y = Pos.Top(amount),
                 Width = Dim.Width(nameText),
             };
-            
             string[] unitsArray = new[] {
                 "min",
                 "day",

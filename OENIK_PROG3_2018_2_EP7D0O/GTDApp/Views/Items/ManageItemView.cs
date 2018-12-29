@@ -9,9 +9,11 @@ namespace GTDApp.Console.Views.Containers.Items
 {
     using System;
     using GTDApp.Console.Menu;
+    using GTDApp.Console.Views.Modals;
     using GTDApp.ConsoleCore;
     using GTDApp.ConsoleCore.Menu;
     using GTDApp.ConsoleCore.View;
+    using GTDApp.ConsoleCore.Views.Helpers;
     using GTDApp.Data;
     using Terminal.Gui;
 
@@ -49,11 +51,38 @@ namespace GTDApp.Console.Views.Containers.Items
                 Y = Pos.Top(description),
                 Width = Dim.Width(titleText),
             };
-            Button manageButton = new Button(85, 19, "Save");
+
+            win.Add(
+                title,
+                titleText,
+                description,
+                descriptionText
+            );
+
+            DateTime fromDateTime= (Item.from_date.HasValue) ? Item.from_date.Value : DateTime.Now.AddDays(1);
+            DateInputHelper fromDateInputHelper = new DateInputHelper(2,5, fromDateTime);
+            fromDateInputHelper.Render(win, "From Date");
+
+            DateTime toDateTime= (Item.from_date.HasValue) ? Item.to_date.Value : DateTime.Now.AddDays(1).AddHours(2);
+            DateInputHelper toDateInputHelper = new DateInputHelper(34,5, toDateTime);
+            toDateInputHelper.Render(win, "To Date");
+
+            Button manageButton = new Button(85, 24, "Save");
             Action manageButtonEvent = new Action(() =>
             {
+                DateTime? fromDate = fromDateInputHelper.GetOutput();
+                DateTime? toDate = toDateInputHelper.GetOutput();
+                if (fromDate is null || toDate is null )
+                {
+                    ValidationErrorMessageModalView validationErrorMessageModalView = new ValidationErrorMessageModalView();
+                    validationErrorMessageModalView.Render();
+                    return;
+                }
+
                 Item.title = titleText.Text.ToString();
                 Item.description = descriptionText.Text.ToString();
+                Item.from_date = fromDate;
+                Item.to_date = toDate;
                 object[] parameters = new object[] {
                     Container,
                     Item
@@ -62,7 +91,7 @@ namespace GTDApp.Console.Views.Containers.Items
             });
             manageButton.Clicked = manageButtonEvent;
             
-            Button backToListButton = new Button(96, 19, "Back To List");
+            Button backToListButton = new Button(96, 24, "Back To List");
             Action backToListButtonEvent = new Action(
                 () => {
                     object[] parameters = new object[]
@@ -75,13 +104,8 @@ namespace GTDApp.Console.Views.Containers.Items
                 }
             );
             backToListButton.Clicked = backToListButtonEvent;
-
-            // Add some content
+            
             win.Add(
-                title,
-                titleText,
-                description,
-                descriptionText,
                 manageButton,
                 backToListButton
             );

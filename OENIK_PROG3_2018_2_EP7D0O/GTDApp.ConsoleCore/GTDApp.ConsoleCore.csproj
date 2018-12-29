@@ -64,6 +64,7 @@
     <Compile Include="View\Helpers\ExceptionHelper.cs" />
     <Compile Include="View\Helpers\FillerHelper.cs" />
     <Compile Include="View\Helpers\MenuHelper.cs" />
+    <Compile Include="View\Helpers\DateInputHelper.cs" />
     <Compile Include="View\Helpers\PaginatorHelper.cs" />
     <Compile Include="View\Helpers\QuitHelper.cs" />
     <Compile Include="View\Helpers\TableHelper.cs" />
