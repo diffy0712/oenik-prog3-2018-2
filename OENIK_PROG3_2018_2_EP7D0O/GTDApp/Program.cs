@@ -26,8 +26,8 @@ namespace GTDApp.Console
             BusinessLogic businessLogic = BusinessLogic.Init();
             Router router = Router.Init("GTDApp.Console.Controllers");
             IExceptionHandler exceptionHandler = new DetailedExceptionHandler();
-            //IExceptionHandler exceptionHandler = new NullExceptionHandler();
 
+            // IExceptionHandler exceptionHandler = new NullExceptionHandler();
             ConsoleCore.Init(router, businessLogic, exceptionHandler);
             ConsoleCore.CallRoute();
         }

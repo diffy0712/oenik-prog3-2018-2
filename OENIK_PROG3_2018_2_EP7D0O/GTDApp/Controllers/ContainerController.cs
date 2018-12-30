@@ -9,7 +9,6 @@ namespace GTDApp.Console.Controllers
 {
     using System;
     using System.Collections.Generic;
-    using GTDApp.Console.Views;
     using GTDApp.Console.Views.Containers;
     using GTDApp.Console.Views.Modals;
     using GTDApp.ConsoleCore;
@@ -34,7 +33,7 @@ namespace GTDApp.Console.Controllers
         [Route(RoutesEnum.LIST_CONTAINERS)]
         public void List(string search = null, Paginator paginator = null)
         {
-            search = search is null ? String.Empty : search;
+            search = search is null ? string.Empty : search;
             paginator = paginator is null ? new Paginator() : paginator;
             var containers = ConsoleCore.BusinessLogic.ContainerRepository.SearchAll(search, paginator);
 
@@ -56,11 +55,11 @@ namespace GTDApp.Console.Controllers
             ManageContainerView manageContainersView = new ManageContainerView();
 
             Container container = new Container();
-            container.name = String.Empty;
-            container.purpose = String.Empty;
-            container.principles = String.Empty;
-            container.invisioned_outcome = String.Empty;
-            container.type = String.Empty;
+            container.name = string.Empty;
+            container.purpose = string.Empty;
+            container.principles = string.Empty;
+            container.invisioned_outcome = string.Empty;
+            container.type = string.Empty;
 
             manageContainersView.Container = container;
             manageContainersView.Creation = true;
@@ -71,6 +70,7 @@ namespace GTDApp.Console.Controllers
         /// <summary>
         ///     Update container
         /// </summary>
+        /// <param name="container">Container instance</param>
         [Route(RoutesEnum.UPDATE_CONTAINER)]
         public void Update(Container container)
         {
@@ -84,6 +84,7 @@ namespace GTDApp.Console.Controllers
         /// <summary>
         ///     Create action
         /// </summary>
+        /// <param name="container">Container instance</param>
         [Route(RoutesEnum.MANAGE_CONTAINER_ACTION)]
         public void ManageAction(Container container)
         {
@@ -91,7 +92,7 @@ namespace GTDApp.Console.Controllers
 
             if (validation == null)
             {
-                ConsoleCore.CallRoute(RoutesEnum.LIST_CONTAINERS.ToString(), new object[]{ null, null});
+                ConsoleCore.CallRoute(RoutesEnum.LIST_CONTAINERS.ToString(), new object[] { null, null });
             }
             else
             {
@@ -99,7 +100,6 @@ namespace GTDApp.Console.Controllers
                 validationErrorMessageModalView.Render();
             }
         }
-
 
         /// <summary>
         ///     Delete container

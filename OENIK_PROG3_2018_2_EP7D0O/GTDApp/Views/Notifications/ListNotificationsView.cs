@@ -25,13 +25,15 @@ namespace GTDApp.Console.Views.Notifications
     public class ListNotificationsView : AbstractView
     {
         /// <summary>
-        ///     Gets or sets  ListContainersView
+        ///     Gets or sets Notifications
         /// </summary>
+        /// <value>IQueryable of Notification</value>
         public IQueryable<Notification> Notifications { get; set; }
 
         /// <summary>
         ///     Gets or sets Paginator
         /// </summary>
+        /// <value>Paginator</value>
         public Paginator Paginator { get; set; }
 
         /// <summary>
@@ -40,6 +42,10 @@ namespace GTDApp.Console.Views.Notifications
         /// <value>String</value>
         public string Search { get; set; }
 
+        /// <summary>
+        ///     Gets or sets SearchText
+        /// </summary>
+        /// <value>TextField</value>
         public TextField SearchText { get; set; }
 
         /// <summary>
@@ -56,10 +62,14 @@ namespace GTDApp.Console.Views.Notifications
 
             this.AddTableElements(win, tableHelper);
 
-            this.AddPaginatorElements(win, new PaginatorHelper(tableHelper.X, tableHelper.CurrentY, Paginator));
+            this.AddPaginatorElements(win, new PaginatorHelper(tableHelper.X, tableHelper.CurrentY, this.Paginator));
         }
 
-        private void AddButtons(Window win)
+        /// <summary>
+        ///     AddButtons
+        /// </summary>
+        /// <param name="win">Window</param>
+        protected void AddButtons(Window win)
         {
             Button addNew = new Button(93, 1, "Add new Notification");
             Action addNewEvent = new Action(() => { ConsoleCore.CallRoute(RoutesEnum.CREATE_NOTIFICATION.ToString()); });
@@ -67,7 +77,12 @@ namespace GTDApp.Console.Views.Notifications
             win.Add(addNew);
         }
 
-        private void AddTableElements(Window win, TableHelper tableHelper)
+        /// <summary>
+        ///     AddPaginatorElements
+        /// </summary>
+        /// <param name="win">Window</param>
+        /// <param name="tableHelper">TableHelper</param>
+        protected void AddTableElements(Window win, TableHelper tableHelper)
         {
             // Add Headers
             tableHelper.AddHeader("ID", 4);
@@ -84,12 +99,18 @@ namespace GTDApp.Console.Views.Notifications
             tableHelper.Render(win);
         }
 
-        private void AddPaginatorElements(Window win, PaginatorHelper paginatorHelper)
+        /// <summary>
+        ///     AddPaginatorElements
+        /// </summary>
+        /// <param name="win">Window</param>
+        /// <param name="paginatorHelper">PaginatorHelper</param>
+        protected void AddPaginatorElements(Window win, PaginatorHelper paginatorHelper)
         {
-            Action paginatorAction = new Action(() => {
+            Action paginatorAction = new Action(() =>
+            {
                 object[] parameters = new object[2];
                 parameters[0] = this.SearchText.Text.ToString();
-                parameters[1] = Paginator;
+                parameters[1] = this.Paginator;
                 ConsoleCore.CallRoute(RoutesEnum.LIST_NOTIFICATIONS.ToString(), parameters);
             });
             foreach (View view in paginatorHelper.Render(paginatorAction))
@@ -98,7 +119,11 @@ namespace GTDApp.Console.Views.Notifications
             }
         }
 
-        private void AddSearchElements(Window win)
+        /// <summary>
+        ///     AddSearchElements
+        /// </summary>
+        /// <param name="win">Window</param>
+        protected void AddSearchElements(Window win)
         {
             // Add Search
             var search = new Label("search for: ")
@@ -113,17 +138,18 @@ namespace GTDApp.Console.Views.Notifications
                 Y = Pos.Top(search),
                 Width = 30
             };
-            this.SearchText.Text = Search;
+            this.SearchText.Text = this.Search;
             Button searchButton = new Button("Run Search...")
             {
                 X = Pos.Right(this.SearchText) + 1,
                 Y = Pos.Top(this.SearchText)
             };
 
-            Action searchButtonEvent = new Action(() => {
+            Action searchButtonEvent = new Action(() =>
+            {
                 object[] searchParameters = new object[2];
                 searchParameters[0] = this.SearchText.Text.ToString();
-                searchParameters[1] = Paginator;
+                searchParameters[1] = this.Paginator;
                 ConsoleCore.CallRoute(RoutesEnum.LIST_NOTIFICATIONS.ToString(), searchParameters);
             });
             searchButton.Clicked = searchButtonEvent;
@@ -159,19 +185,21 @@ namespace GTDApp.Console.Views.Notifications
 
             foreach (var notification in this.Notifications)
             {
-
                 Button editButton = new Button("Edit");
-                Action editButtonEvent = new Action(() => {
-                    object[] parameters = new object[]
+                Action editButtonEvent = new Action(
+                    () =>
                     {
-                    notification
-                    };
-                    ConsoleCore.CallRoute(RoutesEnum.UPDATE_NOTIFICATION.ToString(), parameters);
-                });
+                        object[] parameters = new object[]
+                        {
+                        notification
+                        };
+                        ConsoleCore.CallRoute(RoutesEnum.UPDATE_NOTIFICATION.ToString(), parameters);
+                    });
                 editButton.Clicked = editButtonEvent;
 
                 Button deleteButton = new Button("Delete");
-                Action deleteButtonEvent = new Action(() => {
+                Action deleteButtonEvent = new Action(() =>
+                {
                     object[] parameters = new object[]
                     {
                         notification

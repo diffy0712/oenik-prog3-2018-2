@@ -18,6 +18,12 @@ namespace GTDApp.Logic.Routing
     public class Router
     {
         /// <summary>
+        ///     Gets or sets Controllers
+        /// </summary>
+        /// <value>List of IController</value>
+        private List<IController> Controllers;
+
+        /// <summary>
         ///     Fetch the controllers from the specified namespace
         /// </summary>
         /// <param name="nameSpace">Namespace to search IControllers in and calls the default controller method.</param>
@@ -37,7 +43,7 @@ namespace GTDApp.Logic.Routing
         /// <param name="parameters">Parameters to send</param>
         public void Call(string controllerName = null, object[] parameters = null)
         {
-            Route routeToInvoke = RouterHelper.GetRouteToInvoke(Controllers, controllerName);
+            Route routeToInvoke = RouterHelper.GetRouteToInvoke(this.Controllers, controllerName);
 
             RouterHelper.PrepareRouteParametersForInvoke(ref routeToInvoke, parameters);
 
@@ -59,11 +65,5 @@ namespace GTDApp.Logic.Routing
                 throw ex;
             }
         }
-
-        /// <summary>
-        ///     Gets or sets Controllers
-        /// </summary>
-        /// <value>List of IController</value>
-        private List<IController> Controllers;
     }
 }

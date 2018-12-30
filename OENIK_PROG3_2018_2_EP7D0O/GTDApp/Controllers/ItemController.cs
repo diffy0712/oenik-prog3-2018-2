@@ -30,10 +30,13 @@ namespace GTDApp.Console.Controllers
         /// <summary>
         ///     List item
         /// </summary>
+        /// <param name="container">Container instance</param>
+        /// <param name="search">Search string</param>
+        /// <param name="paginator">Paginator instance</param>
         [Route(RoutesEnum.LIST_ITEMS)]
         public void List(Container container, string search = null, Paginator paginator = null)
         {
-            search = search is null ? String.Empty : search;
+            search = search is null ? string.Empty : search;
             paginator = paginator is null ? new Paginator() : paginator;
             var items = ConsoleCore.BusinessLogic.ItemRepository.SearchAllByContainer(container, search, paginator);
 
@@ -50,15 +53,16 @@ namespace GTDApp.Console.Controllers
         /// <summary>
         ///     Create item
         /// </summary>
+        /// <param name="container">Container instance</param>
         [Route(RoutesEnum.CREATE_ITEM)]
         public void Create(Container container)
         {
             ManageItemView manageView = new ManageItemView();
 
             Item item = new Item();
-            item.title = String.Empty;
+            item.title = string.Empty;
             item.Container = container;
-            item.description = String.Empty;
+            item.description = string.Empty;
 
             manageView.Notifications = ConsoleCore.BusinessLogic.NotificationRepository.GetAll();
             manageView.Container = container;
@@ -71,6 +75,8 @@ namespace GTDApp.Console.Controllers
         /// <summary>
         ///     Update item
         /// </summary>
+        /// <param name="container">Container instance</param>
+        /// <param name="item">Item instance</param>
         [Route(RoutesEnum.UPDATE_ITEM)]
         public void Update(Container container, Item item)
         {
@@ -86,6 +92,8 @@ namespace GTDApp.Console.Controllers
         /// <summary>
         ///     Create action
         /// </summary>
+        /// <param name="container">Container instance</param>
+        /// <param name="item">Item instance</param>
         [Route(RoutesEnum.MANAGE_ITEM_ACTION)]
         public void ManageAction(Container container, Item item)
         {
@@ -106,6 +114,7 @@ namespace GTDApp.Console.Controllers
         /// <summary>
         ///     Delete item
         /// </summary>
+        /// <param name="item">Item instance</param>
         [Route(RoutesEnum.DELETE_ITEM)]
         public void Delete(Item item)
         {
@@ -118,12 +127,13 @@ namespace GTDApp.Console.Controllers
                 {
                     ConsoleCore.BusinessLogic.RemoveItem(item);
                     Application.RequestStop();
-                    object[] parameters = new object[] {
+                    object[] parameters = new object[]
+                    {
                         container,
                         null,
                         null
                     };
-                    ConsoleCore.CallRoute(RoutesEnum.LIST_ITEMS.ToString(),parameters);
+                    ConsoleCore.CallRoute(RoutesEnum.LIST_ITEMS.ToString(), parameters);
                 });
             }
 

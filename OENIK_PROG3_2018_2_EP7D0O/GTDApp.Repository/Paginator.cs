@@ -45,7 +45,8 @@ namespace GTDApp.Repository
         ///     Gets or sets Maximum
         /// </summary>
         /// <value>int</value>
-        public int Maximum {
+        public int Maximum
+        {
             get
             {
                 return this._maximum;
@@ -66,13 +67,35 @@ namespace GTDApp.Repository
         ///     Gets or sets PerPage
         /// </summary>
         /// <value>int</value>
-        public int PerPage { get { return this._perPage; } set { this._perPage = value; } }
+        public int PerPage
+        {
+            get
+            {
+                return this._perPage;
+            }
+
+            set
+            {
+                this._perPage = value;
+            }
+        }
 
         /// <summary>
         ///     Gets or sets CurrentPage
         /// </summary>
         /// <value>int</value>
-        public int CurrentPage { get { return this._currentPage; } set { this._currentPage = value; } }
+        public int CurrentPage
+        {
+            get
+            {
+                return this._currentPage;
+            }
+
+            set
+            {
+                this._currentPage = value;
+            }
+        }
 
         /// <summary>
         ///     Gets MaximumPage

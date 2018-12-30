@@ -136,7 +136,8 @@ namespace GTDApp.Logic.Routing
                                 Route route = new Route();
                                 route.Method = methodInfo;
                                 route.Controller = controller;
-                                if (customAttribute.GetType() == typeof(RouteAttribute)) {
+                                if (customAttribute.GetType() == typeof(RouteAttribute))
+                                {
                                     RouteAttribute routeAttribute = customAttribute as RouteAttribute;
                                     route.Name = routeAttribute.Name.ToString();
                                 }
@@ -151,5 +152,4 @@ namespace GTDApp.Logic.Routing
             return routes;
         }
     }
-
 }

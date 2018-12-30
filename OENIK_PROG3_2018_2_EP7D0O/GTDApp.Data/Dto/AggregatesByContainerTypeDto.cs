@@ -1,8 +1,8 @@
 ﻿// <summary>
 // GTD(getting things done) Application
 // </summary>
-// <copyright file="IRepository.cs" company="OENIK_PROG3_2018_2_EP7D0O">
-// Copyright © OENIK_PROG3_2018_2_EP7D0O All rights reserved.
+// <copyright file="AggregatesByContainerTypeDto.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
 namespace GTDApp.Data.Dto
@@ -12,9 +12,29 @@ namespace GTDApp.Data.Dto
     /// </summary>
     public class AggregatesByContainerTypeDto
     {
-        public string container_type { get; set; }
-        public int container_count { get; set; }
-        public int item_count { get; set; }
-        public int notification_count { get; set; }
+        /// <summary>
+        ///      Gets or sets container_type
+        /// </summary>
+        /// <value>string</value>
+        public string Container_type { get; set; }
+
+        /// <summary>
+        ///      Gets or sets container_count
+        /// </summary>
+        /// <value>int</value>
+        public int Container_count { get; set; }
+
+        /// <summary>
+        ///      Gets or sets item_count
+        /// </summary>
+        /// <value>int</value>
+        public int Item_count { get; set; }
+
+
+        /// <summary>
+        ///      Gets or sets notification_count
+        /// </summary>
+        /// <value>int</value>
+        public int Notification_count { get; set; }
     }
 }

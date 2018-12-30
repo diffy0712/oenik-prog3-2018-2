@@ -9,7 +9,6 @@ namespace GTDApp.Console.Views.Items
 {
     using System;
     using GTDApp.Data;
-    using GTDApp.Logic;
     using GTDApp.Logic.Interfaces;
     using Terminal.Gui;
 
@@ -19,14 +18,16 @@ namespace GTDApp.Console.Views.Items
     public class DeleteItemView : IView
     {
         /// <summary>
-        ///     Item
+        ///     Gets or sets Item
         /// </summary>
-        public Item Item;
+        /// <value>Item</value>
+        public Item Item { get; set; }
 
         /// <summary>
-        ///     DeleteAction
+        ///     Gets or sets DeleteAction
         /// </summary>
-        public Action DeleteAction;
+        /// <value>Action</value>
+        public Action DeleteAction { get; set; }
 
         /// <summary>
         ///     Editor
@@ -35,14 +36,13 @@ namespace GTDApp.Console.Views.Items
         {
             Dialog d;
 
-            if (DeleteAction is null)
+            if (this.DeleteAction is null)
             {
                 d = new Dialog(
                     $"Unable to delete item #{this.Item.item_id} - {this.Item.title}",
                     100,
                     8,
-                    new Button("Cancel") { Clicked = () => { Application.RequestStop(); } }
-                );
+                    new Button("Cancel") { Clicked = () => { Application.RequestStop(); } });
             }
             else
             {
@@ -51,8 +51,7 @@ namespace GTDApp.Console.Views.Items
                     80,
                     8,
                     new Button("Ok", is_default: true) { Clicked = () => { this.DeleteAction.Invoke(); } },
-                    new Button("Cancel") { Clicked = () => { Application.RequestStop(); } }
-                );
+                    new Button("Cancel") { Clicked = () => { Application.RequestStop(); } });
             }
 
             Application.Run(d);

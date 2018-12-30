@@ -51,21 +51,22 @@ namespace GTDApp.Logic
         /// <summary>
         ///      BusinessLogic
         /// </summary>
+        /// <returns>new BusinessLogic instance</returns>
         public static BusinessLogic Init()
         {
-            GtdEntityDataModel Context = new GtdEntityDataModel();
-            IContainerRepository ContainerRepository = new ContainerRepository(Context);
-            IItemRepository ItemRepository = new ItemRepository(Context);
-            INotificationRepository notificationRepository = new NotificationRepository(Context);
-            IItem_NotificationRepository Item_NotificationRepository = new Item_notificationRepository(Context);
+            GtdEntityDataModel context = new GtdEntityDataModel();
+            IContainerRepository containerRepository = new ContainerRepository(context);
+            IItemRepository itemRepository = new ItemRepository(context);
+            INotificationRepository notificationRepository = new NotificationRepository(context);
+            IItem_NotificationRepository item_NotificationRepository = new Item_notificationRepository(context);
 
             BusinessLogic businessLogic = new BusinessLogic()
             {
-                Context = Context,
-                ContainerRepository = ContainerRepository,
-                ItemRepository = ItemRepository,
+                Context = context,
+                ContainerRepository = containerRepository,
+                ItemRepository = itemRepository,
                 NotificationRepository = notificationRepository,
-                Item_NotificationRepository = Item_NotificationRepository
+                Item_NotificationRepository = item_NotificationRepository
             };
 
             return businessLogic;
@@ -107,8 +108,8 @@ namespace GTDApp.Logic
         /// <param name="container">Container instance</param>
         public void RemoveContainer(Container container)
         {
-            ContainerRepository.Remove(container);
-            Context.SaveChanges();
+            this.ContainerRepository.Remove(container);
+            this.Context.SaveChanges();
         }
 
         /// <summary>
@@ -117,8 +118,8 @@ namespace GTDApp.Logic
         /// <param name="item">Item instance</param>
         public void RemoveItem(Item item)
         {
-            ItemRepository.Remove(item);
-            Context.SaveChanges();
+            this.ItemRepository.Remove(item);
+            this.Context.SaveChanges();
         }
 
         /// <summary>
@@ -127,8 +128,8 @@ namespace GTDApp.Logic
         /// <param name="notification">Notification instance</param>
         public void RemoveNotification(Notification notification)
         {
-            NotificationRepository.Remove(notification);
-            Context.SaveChanges();
+            this.NotificationRepository.Remove(notification);
+            this.Context.SaveChanges();
         }
 
         /// <summary>
@@ -144,10 +145,10 @@ namespace GTDApp.Logic
             {
                 if (container.container_id == 0)
                 {
-                    ContainerRepository.Add(container);
+                    this.ContainerRepository.Add(container);
                 }
 
-                Context.SaveChanges();
+                this.Context.SaveChanges();
             }
             catch (DbEntityValidationException dbValidationEx)
             {
@@ -178,10 +179,10 @@ namespace GTDApp.Logic
             {
                 if (item.item_id == 0)
                 {
-                    ItemRepository.Add(item);
+                    this.ItemRepository.Add(item);
                 }
 
-                Context.SaveChanges();
+                this.Context.SaveChanges();
             }
             catch (DbEntityValidationException dbValidationEx)
             {
@@ -212,10 +213,10 @@ namespace GTDApp.Logic
             {
                 if (notification.notification_id == 0)
                 {
-                    NotificationRepository.Add(notification);
+                    this.NotificationRepository.Add(notification);
                 }
 
-                Context.SaveChanges();
+                this.Context.SaveChanges();
             }
             catch (DbEntityValidationException dbValidationEx)
             {
@@ -252,7 +253,7 @@ namespace GTDApp.Logic
         /// <returns>List of strings</returns>
         public bool ItemHasNotification(Item item, Notification notification)
         {
-            return GetItemNotificationConnection(item, notification) != null ? true : false;
+            return this.GetItemNotificationConnection(item, notification) != null ? true : false;
         }
 
         /// <summary>
@@ -262,8 +263,8 @@ namespace GTDApp.Logic
         /// <param name="notification">Notification instance</param>
         public void RemoveItemNotification(Item item, Notification notification)
         {
-            Item_notification item_Notification = GetItemNotificationConnection(item, notification);
-            Item_NotificationRepository.Remove(item_Notification);
+            Item_notification item_Notification = this.GetItemNotificationConnection(item, notification);
+            this.Item_NotificationRepository.Remove(item_Notification);
         }
 
         /// <summary>

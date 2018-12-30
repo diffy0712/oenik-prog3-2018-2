@@ -10,7 +10,6 @@ namespace GTDApp.Console.Exceptions
     using System;
     using GTDApp.ConsoleCore;
     using GTDApp.ConsoleCore.Interfaces;
-    using GTDApp.Logic.Routing;
 
     /// <summary>
     ///     GenericExceptionHandler
@@ -27,7 +26,7 @@ namespace GTDApp.Console.Exceptions
             {
                 callback();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 object[] parameters = new object[]
                 {

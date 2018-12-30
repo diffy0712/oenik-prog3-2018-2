@@ -7,9 +7,6 @@
 
 namespace GTDApp.Console.Views.Modals
 {
-    using System;
-    using GTDApp.Data;
-    using GTDApp.Logic;
     using GTDApp.Logic.Interfaces;
     using Terminal.Gui;
 
@@ -28,8 +25,7 @@ namespace GTDApp.Console.Views.Modals
                 $"Validation Error. Please fill the inputs correctly",
                 100,
                 8,
-                new Button("OK") { Clicked = () => { Application.RequestStop(); } }
-            );
+                new Button("OK") { Clicked = () => { Application.RequestStop(); } });
 
             Application.Run(d);
         }

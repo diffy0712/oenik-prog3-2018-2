@@ -16,7 +16,6 @@ namespace GTDApp.Repository.Interfaces
     /// </summary>
     public interface IContainerRepository : IRepository<Container>
     {
-
         /// <summary>
         ///     GetMostRecentContainers
         /// </summary>

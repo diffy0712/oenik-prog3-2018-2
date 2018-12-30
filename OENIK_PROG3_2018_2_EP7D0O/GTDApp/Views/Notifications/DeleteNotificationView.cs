@@ -9,7 +9,6 @@ namespace GTDApp.Console.Views.Notifications
 {
     using System;
     using GTDApp.Data;
-    using GTDApp.Logic;
     using GTDApp.Logic.Interfaces;
     using Terminal.Gui;
 
@@ -19,14 +18,16 @@ namespace GTDApp.Console.Views.Notifications
     public class DeleteNotificationView : IView
     {
         /// <summary>
-        ///     Notification
+        ///     Gets or sets Notification
         /// </summary>
-        public Notification Notification;
+        /// <value>Notification</value>
+        public Notification Notification { get; set; }
 
         /// <summary>
-        ///     DeleteAction
+        ///     Gets or sets DeleteAction
         /// </summary>
-        public Action DeleteAction;
+        /// <value>Action</value>
+        public Action DeleteAction { get; set; }
 
         /// <summary>
         ///     Editor
@@ -35,14 +36,13 @@ namespace GTDApp.Console.Views.Notifications
         {
             Dialog d;
 
-            if (DeleteAction is null)
+            if (this.DeleteAction is null)
             {
                 d = new Dialog(
                     $"Unable to delete notification #{this.Notification.notification_id} - {this.Notification.name}. Maybe an item uses it!",
                     100,
                     8,
-                    new Button("Cancel") { Clicked = () => { Application.RequestStop(); } }
-                );
+                    new Button("Cancel") { Clicked = () => { Application.RequestStop(); } });
             }
             else
             {
@@ -51,8 +51,7 @@ namespace GTDApp.Console.Views.Notifications
                     80,
                     8,
                     new Button("Ok", is_default: true) { Clicked = () => { this.DeleteAction.Invoke(); } },
-                    new Button("Cancel") { Clicked = () => { Application.RequestStop(); } }
-                );
+                    new Button("Cancel") { Clicked = () => { Application.RequestStop(); } });
             }
 
             Application.Run(d);

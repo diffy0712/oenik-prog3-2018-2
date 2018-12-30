@@ -20,8 +20,34 @@ namespace GTDApp.Console.Views.Containers
     /// </summary>
     public class ManageContainerView : AbstractView
     {
-        public bool Creation = true;
-        public Container Container;
+        /// <summary>
+        ///     Gets or sets _creation
+        /// </summary>
+        /// <value>IQueryable of Notification</value>
+        private bool _creation = true;
+
+        /// <summary>
+        ///     Gets or sets a value indicating whether we are currently creating a new entity
+        /// </summary>
+        /// <value>IQueryable of Notification</value>
+        public bool Creation
+        {
+            get
+            {
+                return this._creation;
+            }
+
+            set
+            {
+                this._creation = value;
+            }
+        }
+
+        /// <summary>
+        ///    Gets or sets Container
+        /// </summary>
+        /// <value>Container</value>
+        public Container Container { get; set; }
 
         /// <summary>
         ///     Content
@@ -36,13 +62,13 @@ namespace GTDApp.Console.Views.Containers
                 Y = Pos.Bottom(name) + 1,
                 Width = 25
             };
-            var nameText = new TextField(Container.name)
+            var nameText = new TextField(this.Container.name)
             {
                 X = Pos.Right(purpose),
                 Y = Pos.Top(name),
                 Width = 85
             };
-            var purposeText = new TextField(Container.purpose)
+            var purposeText = new TextField(this.Container.purpose)
             {
                 X = Pos.Left(nameText),
                 Y = Pos.Top(purpose),
@@ -53,7 +79,7 @@ namespace GTDApp.Console.Views.Containers
                 X = Pos.Left(purpose),
                 Y = Pos.Bottom(purpose) + 1
             };
-            var principlesText = new TextField(Container.principles)
+            var principlesText = new TextField(this.Container.principles)
             {
                 X = Pos.Left(purposeText),
                 Y = Pos.Top(principles),
@@ -64,14 +90,15 @@ namespace GTDApp.Console.Views.Containers
                 X = Pos.Left(principles),
                 Y = Pos.Bottom(principles) + 1
             };
-            var invisionedOutcomeText = new TextField(Container.invisioned_outcome)
+            var invisionedOutcomeText = new TextField(this.Container.invisioned_outcome)
             {
                 X = Pos.Left(principlesText),
                 Y = Pos.Top(invisionedOutcome),
                 Width = Dim.Width(nameText)
             };
 
-            string[] typesArray = new[] {
+            string[] typesArray = new[]
+            {
                 "project",
                 "incubator",
                 "blocked",
@@ -81,10 +108,11 @@ namespace GTDApp.Console.Views.Containers
 
             int typeSelected = 0;
 
-            if (!Creation) {
+            if (!this.Creation)
+            {
                 for (int i = 0; i < typesArray.Length; i++)
                 {
-                    if( typesArray[i] == Container.type)
+                    if (typesArray[i] == this.Container.type)
                     {
                         typeSelected = i;
                     }
@@ -95,22 +123,23 @@ namespace GTDApp.Console.Views.Containers
                 1,
                 0,
                 typesArray,
-                typeSelected
-            );
+                typeSelected);
 
-            FrameView typeView = new FrameView(new Rect(2, 9, 110, 9), "Type of Container"){
+            FrameView typeView = new FrameView(new Rect(2, 9, 110, 9), "Type of Container")
+            {
                 typeGroup
             };
             Button manageButton = new Button(85, 19, "Save");
             Action manageButtonEvent = new Action(() =>
             {
-                Container.name = nameText.Text.ToString();
-                Container.purpose = purposeText.Text.ToString();
-                Container.principles = principlesText.Text.ToString();
-                Container.invisioned_outcome = invisionedOutcomeText.Text.ToString();
-                Container.type = typesArray[typeGroup.Selected].ToString();
-                object[] parameters = new object[] {
-                    Container
+                this.Container.name = nameText.Text.ToString();
+                this.Container.purpose = purposeText.Text.ToString();
+                this.Container.principles = principlesText.Text.ToString();
+                this.Container.invisioned_outcome = invisionedOutcomeText.Text.ToString();
+                this.Container.type = typesArray[typeGroup.Selected].ToString();
+                object[] parameters = new object[]
+                {
+                    this.Container
                 };
                 ConsoleCore.CallRoute(RoutesEnum.MANAGE_CONTAINER_ACTION.ToString(), parameters);
             });
@@ -132,8 +161,7 @@ namespace GTDApp.Console.Views.Containers
                 invisionedOutcomeText,
                 typeView,
                 manageButton,
-                backToListButton
-            );
+                backToListButton);
         }
 
         /// <summary>
@@ -151,7 +179,7 @@ namespace GTDApp.Console.Views.Containers
         /// <returns>string</returns>
         protected override string GetTitle()
         {
-            return (Creation) ? "Create Container" : "Edit Container";
+            return this.Creation ? "Create Container" : "Edit Container";
         }
     }
 }

@@ -68,7 +68,8 @@ namespace GTDApp.ConsoleCore.Views.Helpers
 
                 DateTime dateTime = new DateTime(year, month, day, hour, minute, 0);
                 return dateTime;
-            }catch(Exception ex)
+            }
+            catch (Exception)
             {
                 return null;
             }

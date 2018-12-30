@@ -27,15 +27,6 @@ namespace GTDApp.Repository
         private readonly DbContext _context;
 
         /// <summary>
-        ///      Gets GtdEntityDataModel
-        /// </summary>
-        /// <value>GtdEntityDataModel instance</value>
-        public GtdEntityDataModel GtdEntityDataModel
-        {
-            get { return this._context as GtdEntityDataModel; }
-        }
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="Repository{TEntity}"/> class.
         ///      Repository
         /// </summary>
@@ -43,6 +34,15 @@ namespace GTDApp.Repository
         public Repository(GtdEntityDataModel context)
         {
             this._context = context;
+        }
+
+        /// <summary>
+        ///      Gets GtdEntityDataModel
+        /// </summary>
+        /// <value>GtdEntityDataModel instance</value>
+        public GtdEntityDataModel GtdEntityDataModel
+        {
+            get { return this._context as GtdEntityDataModel; }
         }
 
         /// <summary>

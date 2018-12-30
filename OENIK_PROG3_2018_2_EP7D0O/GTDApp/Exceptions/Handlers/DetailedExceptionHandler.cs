@@ -10,7 +10,6 @@ namespace GTDApp.Console.Exceptions
     using System;
     using GTDApp.ConsoleCore;
     using GTDApp.ConsoleCore.Interfaces;
-    using GTDApp.Logic.Routing;
 
     /// <summary>
     ///     DetailedExceptionHandler

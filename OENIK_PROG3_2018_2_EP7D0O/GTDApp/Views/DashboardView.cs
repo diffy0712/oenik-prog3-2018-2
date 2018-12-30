@@ -23,10 +23,34 @@ namespace GTDApp.Console.Views
     /// </summary>
     public class DashboardView : AbstractView
     {
+        /// <summary>
+        ///     Gets or sets NumberOfContainers
+        /// </summary>
+        /// <value>int</value>
         public int NumberOfContainers { get; set; }
+
+        /// <summary>
+        ///     Gets or sets NumberOfItems
+        /// </summary>
+        /// <value>int</value>
         public int NumberOfItems { get; set; }
+
+        /// <summary>
+        ///     Gets or sets NumberOfNotifications
+        /// </summary>
+        /// <value>int</value>
         public int NumberOfNotifications { get; set; }
+
+        /// <summary>
+        ///     Gets or sets AggregatesByContainerType
+        /// </summary>
+        /// <value>IQueryable</value>
         public IQueryable<object> AggregatesByContainerType { get; set; }
+
+        /// <summary>
+        ///     Gets or sets UpcomingNotifications
+        /// </summary>
+        /// <value>IQueryable</value>
         public IQueryable<object> UpcomingNotifications { get; set; }
 
         /// <summary>
@@ -42,11 +66,14 @@ namespace GTDApp.Console.Views
             this.UpcomingNotificationsBlock(win);
         }
 
-        private void UpcomingNotificationsBlock(Window win)
+        /// <summary>
+        ///     Upcoming Notifications Block render
+        /// </summary>
+        /// <param name="win">Window instance</param>
+        protected void UpcomingNotificationsBlock(Window win)
         {
             FrameView typeView = new FrameView(new Rect(59, 7, 58, 19), "Upcoming Notifications!");
             TableHelper tableHelper = new TableHelper(1, 0);
-            
             List<List<View>> rows = new List<List<View>>();
 
             foreach (UpcomingNotificationsDto item in this.UpcomingNotifications)
@@ -68,11 +95,14 @@ namespace GTDApp.Console.Views
             win.Add(typeView);
         }
 
-        private void AggregatesByContainerTypeBlock(Window win)
+        /// <summary>
+        ///     Aggregates By Container Type Block render
+        /// </summary>
+        /// <param name="win">Window instance</param>
+        protected void AggregatesByContainerTypeBlock(Window win)
         {
             FrameView typeView = new FrameView(new Rect(1, 7, 57, 19), "Aggregates by container types!");
             TableHelper tableHelper = new TableHelper(1, 0);
-            
 
             List<List<View>> rows = new List<List<View>>();
 
@@ -97,27 +127,39 @@ namespace GTDApp.Console.Views
             win.Add(typeView);
         }
 
-        private void ItemLine(Window win)
+        /// <summary>
+        ///     ItemLine
+        /// </summary>
+        /// <param name="win">Window instance</param>
+        protected void ItemLine(Window win)
         {
-            win.Add(new Label($"Number of items: {NumberOfItems}") { X = 2, Y = 5 });
+            win.Add(new Label($"Number of items: {this.NumberOfItems}") { X = 2, Y = 5 });
         }
 
-        private void ContainerLine(Window win)
+        /// <summary>
+        ///     ContainerLine
+        /// </summary>
+        /// <param name="win">Window instance</param>
+        protected void ContainerLine(Window win)
         {
-            win.Add(new Label($"Number of containers: {NumberOfContainers}") { X = 2, Y = 1 });
+            win.Add(new Label($"Number of containers: {this.NumberOfContainers}") { X = 2, Y = 1 });
             Button addNewContainer = new Button(30, 1, "Add new Container");
-            addNewContainer.Clicked = new Action(() => { ConsoleCore.CallRoute(RoutesEnum.CREATE_CONTAINER.ToString()); }); ;
+            addNewContainer.Clicked = new Action(() => { ConsoleCore.CallRoute(RoutesEnum.CREATE_CONTAINER.ToString()); });
             Button listContainers = new Button(55, 1, "List Containers");
-            listContainers.Clicked = new Action(() => { ConsoleCore.CallRoute(RoutesEnum.LIST_CONTAINERS.ToString()); }); ;
+            listContainers.Clicked = new Action(() => { ConsoleCore.CallRoute(RoutesEnum.LIST_CONTAINERS.ToString()); });
             win.Add(addNewContainer);
             win.Add(listContainers);
         }
 
-        private void NotificationLine(Window win)
+        /// <summary>
+        ///     NotificationLine
+        /// </summary>
+        /// <param name="win">Window instance</param>
+        protected void NotificationLine(Window win)
         {
-            win.Add(new Label($"Number of notifications: {NumberOfNotifications}") { X = 2, Y = 3 });
+            win.Add(new Label($"Number of notifications: {this.NumberOfNotifications}") { X = 2, Y = 3 });
             Button addNewNotification = new Button(30, 3, "Add new Notification");
-            addNewNotification.Clicked = new Action(() => { ConsoleCore.CallRoute(RoutesEnum.CREATE_NOTIFICATION.ToString()); }); ;
+            addNewNotification.Clicked = new Action(() => { ConsoleCore.CallRoute(RoutesEnum.CREATE_NOTIFICATION.ToString()); });
             Button listNotifications = new Button(55, 3, "List Notifications");
             listNotifications.Clicked = new Action(() => { ConsoleCore.CallRoute(RoutesEnum.LIST_NOTIFICATIONS.ToString()); });
             win.Add(addNewNotification);

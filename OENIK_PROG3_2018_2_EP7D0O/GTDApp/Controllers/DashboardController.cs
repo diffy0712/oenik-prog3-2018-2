@@ -32,8 +32,8 @@ namespace GTDApp.Console.Controllers
             view.NumberOfContainers = ConsoleCore.BusinessLogic.ContainerRepository.GetAll().Count();
             view.NumberOfItems = ConsoleCore.BusinessLogic.ItemRepository.GetAll().Count();
             view.NumberOfNotifications = ConsoleCore.BusinessLogic.NotificationRepository.GetAll().Count();
-            view.AggregatesByContainerType = ConsoleCore.BusinessLogic.ContainerRepository.GetAggregatesByContainerType("",new Paginator());
-            view.UpcomingNotifications = ConsoleCore.BusinessLogic.Item_NotificationRepository.GetUpcomingNotifications("",new Paginator());
+            view.AggregatesByContainerType = ConsoleCore.BusinessLogic.ContainerRepository.GetAggregatesByContainerType(string.Empty, new Paginator());
+            view.UpcomingNotifications = ConsoleCore.BusinessLogic.Item_NotificationRepository.GetUpcomingNotifications(string.Empty, new Paginator());
             view.Render();
         }
     }

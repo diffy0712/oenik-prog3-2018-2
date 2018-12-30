@@ -8,7 +8,6 @@
 namespace GTDApp.Console.Views.Notifications
 {
     using System;
-    using System.Linq;
     using GTDApp.Console.Menu;
     using GTDApp.ConsoleCore;
     using GTDApp.ConsoleCore.Menu;
@@ -21,8 +20,34 @@ namespace GTDApp.Console.Views.Notifications
     /// </summary>
     public class ManageNotificationView : AbstractView
     {
-        public bool Creation = true;
-        public Notification Notification;
+        /// <summary>
+        ///     Gets or sets _creation
+        /// </summary>
+        /// <value>IQueryable of Notification</value>
+        private bool _creation = true;
+
+        /// <summary>
+        ///     Gets or sets a value indicating whether we are currently creating a new entity
+        /// </summary>
+        /// <value>IQueryable of Notification</value>
+        public bool Creation
+        {
+            get
+            {
+                return this._creation;
+            }
+
+            set
+            {
+                this._creation = value;
+            }
+        }
+
+        /// <summary>
+        ///     Gets or sets Notifications
+        /// </summary>
+        /// <value>IQueryable of Notification</value>
+        public Notification Notification { get; set; }
 
         /// <summary>
         ///     Content
@@ -37,30 +62,31 @@ namespace GTDApp.Console.Views.Notifications
                 Y = Pos.Bottom(name) + 1,
                 Width = 25
             };
-            var nameText = new TextField(Notification.name)
+            var nameText = new TextField(this.Notification.name)
             {
                 X = Pos.Right(amount),
                 Y = Pos.Top(name),
                 Width = 85
             };
-            var amountText = new TextField(Notification.amount.ToString())
+            var amountText = new TextField(this.Notification.amount.ToString())
             {
                 X = Pos.Left(nameText),
                 Y = Pos.Top(amount),
                 Width = Dim.Width(nameText),
             };
-            string[] unitsArray = new[] {
+            string[] unitsArray = new[]
+            {
                 "min",
                 "day",
             };
 
             int unitSelected = 0;
 
-            if (!Creation)
+            if (!this.Creation)
             {
                 for (int i = 0; i < unitsArray.Length; i++)
                 {
-                    if (unitsArray[i] == Notification.unit)
+                    if (unitsArray[i] == this.Notification.unit)
                     {
                         unitSelected = i;
                     }
@@ -71,25 +97,26 @@ namespace GTDApp.Console.Views.Notifications
                 1,
                 0,
                 unitsArray,
-                unitSelected
-            );
+                unitSelected);
 
-            FrameView unitView = new FrameView(new Rect(2, 5, 110, 5), "Unit to notify."){
+            FrameView unitView = new FrameView(new Rect(2, 5, 110, 5), "Unit to notify.")
+            {
                 unitGroup
             };
 
-
-            string[] typesArray = new[] {
+            string[] typesArray = new[]
+            {
                 "email",
                 "sms"
             };
 
             int typeSelected = 0;
 
-            if (!Creation) {
+            if (!this.Creation)
+            {
                 for (int i = 0; i < typesArray.Length; i++)
                 {
-                    if( typesArray[i] == Notification.type)
+                    if (typesArray[i] == this.Notification.type)
                     {
                         typeSelected = i;
                     }
@@ -100,23 +127,23 @@ namespace GTDApp.Console.Views.Notifications
                 1,
                 0,
                 typesArray,
-                typeSelected
-            );
+                typeSelected);
 
-            FrameView typeView = new FrameView(new Rect(2, 11, 110, 5), "Type of Notification"){
+            FrameView typeView = new FrameView(new Rect(2, 11, 110, 5), "Type of Notification")
+            {
                 typeGroup
             };
-
 
             Button manageButton = new Button(85, 19, "Save");
             Action manageButtonEvent = new Action(() =>
             {
-                Notification.name = nameText.Text.ToString();
-                Notification.amount = int.Parse(amountText.Text.ToString());
-                Notification.type = typesArray[typeGroup.Selected].ToString();
-                Notification.unit = unitsArray[unitGroup.Selected].ToString();
-                object[] parameters = new object[] {
-                    Notification
+                this.Notification.name = nameText.Text.ToString();
+                this.Notification.amount = int.Parse(amountText.Text.ToString());
+                this.Notification.type = typesArray[typeGroup.Selected].ToString();
+                this.Notification.unit = unitsArray[unitGroup.Selected].ToString();
+                object[] parameters = new object[]
+                {
+                    this.Notification
                 };
                 ConsoleCore.CallRoute(RoutesEnum.MANAGE_NOTIFICATION_ACTION.ToString(), parameters);
             });
@@ -135,8 +162,7 @@ namespace GTDApp.Console.Views.Notifications
                 unitView,
                 typeView,
                 manageButton,
-                backToListButton
-            );
+                backToListButton);
         }
 
         /// <summary>
@@ -154,7 +180,7 @@ namespace GTDApp.Console.Views.Notifications
         /// <returns>string</returns>
         protected override string GetTitle()
         {
-            return (Creation) ? "Create Notification" : "Edit Notification";
+            return this.Creation ? "Create Notification" : "Edit Notification";
         }
     }
 }

@@ -15,9 +15,10 @@ namespace GTDApp.Console.Menu
     public class MainMenu : IMenu
     {
         /// <summary>
-        ///     Menu Instance
+        ///    Menu
         /// </summary>
-        private Menu Menu;
+        /// <value>Menu instnace</value>
+        private Menu _menu;
 
         /// <summary>
         ///     GetMenu
@@ -25,20 +26,20 @@ namespace GTDApp.Console.Menu
         /// <returns>Menu</returns>
         public Menu GetMenu()
         {
-            Menu = new Menu();
+            this._menu = new Menu();
             MenuItem fileMenuItem = new MenuItem() { Name = "_File" };
             fileMenuItem.Items.Add(new MenuItem() { RouteName = RoutesEnum.DASHBOARD.ToString(), Name = "_Dashboard" });
             fileMenuItem.Items.Add(new MenuItem() { RouteName = RoutesEnum.JAVA_WEB.ToString(), Name = "_Java Web" });
 
-            Menu.Items.Add(fileMenuItem);
+            this._menu.Items.Add(fileMenuItem);
 
             MenuItem crudMenuItem = new MenuItem() { Name = "_GTD" };
             crudMenuItem.Items.Add(new MenuItem() { RouteName = RoutesEnum.LIST_CONTAINERS.ToString(), Name = "_List Containers" });
             crudMenuItem.Items.Add(new MenuItem() { RouteName = RoutesEnum.LIST_NOTIFICATIONS.ToString(), Name = "_List Notofications" });
 
-            Menu.Items.Add(crudMenuItem);
+            this._menu.Items.Add(crudMenuItem);
 
-            return Menu;
+            return this._menu;
         }
     }
 }

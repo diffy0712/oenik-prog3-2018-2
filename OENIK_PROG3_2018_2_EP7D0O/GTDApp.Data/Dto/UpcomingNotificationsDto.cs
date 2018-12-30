@@ -1,23 +1,35 @@
 ﻿// <summary>
 // GTD(getting things done) Application
 // </summary>
-// <copyright file="UpcomingNotificationsDto.cs" company="OENIK_PROG3_2018_2_EP7D0O">
-// Copyright © OENIK_PROG3_2018_2_EP7D0O All rights reserved.
+// <copyright file="UpcomingNotificationsDto.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
 namespace GTDApp.Data.Dto
 {
-    using System.Linq;
     using System;
-    using GTDApp.Data;
 
     /// <summary>
     ///      ContainerRepository
     /// </summary>
     public class UpcomingNotificationsDto
     {
-        public DateTime? day { get; set; }
-        public int item_count { get; set; }
-        public int notification_count { get; set; }
+        /// <summary>
+        ///      Gets or sets Container_type
+        /// </summary>
+        /// <value>string</value>
+        public DateTime? Day { get; set; }
+
+        /// <summary>
+        ///      Gets or sets Item_count
+        /// </summary>
+        /// <value>int</value>
+        public int Item_count { get; set; }
+
+        /// <summary>
+        ///      Gets or sets Notification_count
+        /// </summary>
+        /// <value>int</value>
+        public int Notification_count { get; set; }
     }
 }

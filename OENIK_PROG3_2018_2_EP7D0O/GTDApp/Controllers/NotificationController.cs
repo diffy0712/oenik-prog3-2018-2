@@ -35,7 +35,7 @@ namespace GTDApp.Console.Controllers
         [Route(RoutesEnum.LIST_NOTIFICATIONS)]
         public void List(string search = null, Paginator paginator = null)
         {
-            search = search is null ? String.Empty : search;
+            search = search is null ? string.Empty : search;
             paginator = paginator is null ? new Paginator() : paginator;
             var notifications = ConsoleCore.BusinessLogic.NotificationRepository.SearchAll(search, paginator);
 
@@ -57,10 +57,10 @@ namespace GTDApp.Console.Controllers
             ManageNotificationView manageView = new ManageNotificationView();
 
             Notification notification = new Notification();
-            notification.name = String.Empty;
+            notification.name = string.Empty;
             notification.amount = 0;
-            notification.unit = String.Empty;
-            notification.type = String.Empty;
+            notification.unit = string.Empty;
+            notification.type = string.Empty;
 
             manageView.Notification = notification;
             manageView.Creation = true;
@@ -69,8 +69,9 @@ namespace GTDApp.Console.Controllers
         }
 
         /// <summary>
-        ///     Update container
+        ///     Update notification
         /// </summary>
+        /// <param name="notification">Notification instance</param>
         [Route(RoutesEnum.UPDATE_NOTIFICATION)]
         public void Update(Notification notification)
         {
@@ -84,6 +85,7 @@ namespace GTDApp.Console.Controllers
         /// <summary>
         ///     Create action
         /// </summary>
+        /// <param name="notification">Notification instance</param>
         [Route(RoutesEnum.MANAGE_NOTIFICATION_ACTION)]
         public void ManageAction(Notification notification)
         {
@@ -91,7 +93,7 @@ namespace GTDApp.Console.Controllers
 
             if (validation == null)
             {
-                ConsoleCore.CallRoute(RoutesEnum.LIST_NOTIFICATIONS.ToString(), new object[]{ null, null});
+                ConsoleCore.CallRoute(RoutesEnum.LIST_NOTIFICATIONS.ToString(), new object[] { null, null });
             }
             else
             {
@@ -99,7 +101,6 @@ namespace GTDApp.Console.Controllers
                 validationErrorMessageModalView.Render();
             }
         }
-
 
         /// <summary>
         ///     Delete notification

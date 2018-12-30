@@ -15,7 +15,6 @@ namespace GTDApp.Repository.Interfaces
     /// </summary>
     public interface IItemRepository : IRepository<Item>
     {
-
         /// <summary>
         ///     GetMostRecentItems
         /// </summary>

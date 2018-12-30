@@ -1,22 +1,18 @@
 ﻿// <summary>
 // GTD(getting things done) Application
 // </summary>
-// <copyright file="DashboardView.cs" company="OENIK_PROG3_2018_2_EP7D0O">
+// <copyright file="JavaWebView.cs" company="OENIK_PROG3_2018_2_EP7D0O">
 // Copyright © OENIK_PROG3_2018_2_EP7D0O All rights reserved.
 // </copyright>
 
 namespace GTDApp.Console.Views
 {
     using System.Collections.Generic;
-    using System.Linq;
     using GTDApp.Console.Menu;
-    using GTDApp.ConsoleCore;
     using GTDApp.ConsoleCore.Menu;
     using GTDApp.ConsoleCore.View;
-    using GTDApp.ConsoleCore.Views;
     using GTDApp.ConsoleCore.Views.Helpers;
     using GTDApp.Data;
-    using GTDApp.Logic.Interfaces;
     using Terminal.Gui;
 
     /// <summary>
@@ -24,6 +20,10 @@ namespace GTDApp.Console.Views
     /// </summary>
     public class JavaWebView : AbstractView
     {
+        /// <summary>
+        ///     Gets or sets Response
+        /// </summary>
+        /// <value>List of items</value>
         public List<Item> Response { get; set; }
 
         /// <summary>

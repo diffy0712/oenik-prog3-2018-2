@@ -1,7 +1,7 @@
 ﻿// <summary>
 // GTD(getting things done) Application
 // </summary>
-// <copyright file="CreateContainerView.cs" company="OENIK_PROG3_2018_2_EP7D0O">
+// <copyright file="DeleteContainerView.cs" company="OENIK_PROG3_2018_2_EP7D0O">
 // Copyright © OENIK_PROG3_2018_2_EP7D0O All rights reserved.
 // </copyright>
 
@@ -9,7 +9,6 @@ namespace GTDApp.Console.Views.Containers
 {
     using System;
     using GTDApp.Data;
-    using GTDApp.Logic;
     using GTDApp.Logic.Interfaces;
     using Terminal.Gui;
 
@@ -19,14 +18,16 @@ namespace GTDApp.Console.Views.Containers
     public class DeleteContainerView : IView
     {
         /// <summary>
-        ///     Container
+        ///    Gets or sets Container
         /// </summary>
-        public Container Container;
+        /// <value>Container</value>
+        public Container Container { get; set; }
 
         /// <summary>
-        ///     CreateContainerView
+        ///    Gets or sets DeleteAction
         /// </summary>
-        public Action DeleteAction;
+        /// <value>Action</value>
+        public Action DeleteAction { get; set; }
 
         /// <summary>
         ///     Editor
@@ -35,14 +36,13 @@ namespace GTDApp.Console.Views.Containers
         {
             Dialog d;
 
-            if (DeleteAction is null)
+            if (this.DeleteAction is null)
             {
                 d = new Dialog(
                     $"Unable to delete container #{this.Container.container_id} - {this.Container.name}. Please empty it first.",
                     100,
                     8,
-                    new Button("Cancel") { Clicked = () => { Application.RequestStop(); } }
-                );
+                    new Button("Cancel") { Clicked = () => { Application.RequestStop(); } });
             }
             else
             {
@@ -51,8 +51,7 @@ namespace GTDApp.Console.Views.Containers
                     80,
                     8,
                     new Button("Ok", is_default: true) { Clicked = () => { this.DeleteAction.Invoke(); } },
-                    new Button("Cancel") { Clicked = () => { Application.RequestStop(); } }
-                );
+                    new Button("Cancel") { Clicked = () => { Application.RequestStop(); } });
             }
 
             Application.Run(d);

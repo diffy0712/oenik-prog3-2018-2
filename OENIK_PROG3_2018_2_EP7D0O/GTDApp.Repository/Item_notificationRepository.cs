@@ -65,8 +65,7 @@ namespace GTDApp.Repository
                     day = d.Key,
                     item_count = d.Count(),
                     notification_count = d.Sum(x => x.Item_notification.Count()),
-                }
-                ).OrderBy(d => d.day);
+                }).OrderBy(d => d.day);
 
             return g;
         }

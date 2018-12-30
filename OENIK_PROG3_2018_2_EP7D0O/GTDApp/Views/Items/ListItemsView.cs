@@ -25,13 +25,15 @@ namespace GTDApp.Console.Views.Items
     public class ListItemsView : AbstractView
     {
         /// <summary>
-        ///     Gets or sets  Items
+        ///     Gets or sets Items
         /// </summary>
+        /// <value>IQueryable of items</value>
         public IQueryable<Item> Items { get; set; }
 
         /// <summary>
         ///     Gets or sets Paginator
         /// </summary>
+        /// <value>Paginator</value>
         public Paginator Paginator { get; set; }
 
         /// <summary>
@@ -40,8 +42,16 @@ namespace GTDApp.Console.Views.Items
         /// <value>String</value>
         public string Search { get; set; }
 
+        /// <summary>
+        ///    Gets or sets SearchText
+        /// </summary>
+        /// <value>TextField</value>
         public TextField SearchText { get; set; }
-         
+
+        /// <summary>
+        ///    Gets or sets Container
+        /// </summary>
+        /// <value>Container</value>
         public Container Container { get; set; }
 
         /// <summary>
@@ -58,21 +68,25 @@ namespace GTDApp.Console.Views.Items
 
             this.AddTableElements(win, tableHelper);
 
-            this.AddPaginatorElements(win, new PaginatorHelper(tableHelper.X, tableHelper.CurrentY, Paginator));
+            this.AddPaginatorElements(win, new PaginatorHelper(tableHelper.X, tableHelper.CurrentY, this.Paginator));
         }
 
-        private void AddButtons(Window win)
+        /// <summary>
+        ///     AddButtons
+        /// </summary>
+        /// <param name="win">Window instance</param>
+        protected void AddButtons(Window win)
         {
             Button addNew = new Button(72, 1, "Add new Item");
             Action addNewEvent = new Action(
-                () => {
+                () =>
+                {
                     object[] parameters = new object[]
                     {
-                        Container
+                        this.Container
                     };
                     ConsoleCore.CallRoute(RoutesEnum.CREATE_ITEM.ToString(), parameters);
-                }
-            );
+                });
             addNew.Clicked = addNewEvent;
             win.Add(addNew);
 
@@ -83,7 +97,12 @@ namespace GTDApp.Console.Views.Items
             win.Add(backToListButton);
         }
 
-        private void AddTableElements(Window win, TableHelper tableHelper)
+        /// <summary>
+        ///     AddTableElements
+        /// </summary>
+        /// <param name="win">Window instance</param>
+        /// <param name="tableHelper">Table Helper</param>
+        protected void AddTableElements(Window win, TableHelper tableHelper)
         {
             tableHelper.AddHeader("ID", 3);
             tableHelper.AddHeader("Title", 68);
@@ -96,13 +115,19 @@ namespace GTDApp.Console.Views.Items
             tableHelper.Render(win);
         }
 
-        private void AddPaginatorElements(Window win, PaginatorHelper paginatorHelper)
+        /// <summary>
+        ///     AddPaginatorElements
+        /// </summary>
+        /// <param name="win">Window instance</param>
+        /// <param name="paginatorHelper">Paginator Helper</param>
+        protected void AddPaginatorElements(Window win, PaginatorHelper paginatorHelper)
         {
-            Action paginatorAction = new Action(() => {
+            Action paginatorAction = new Action(() =>
+            {
                 object[] parameters = new object[3];
                 parameters[0] = this.Container;
                 parameters[1] = this.SearchText.Text.ToString();
-                parameters[2] = Paginator;
+                parameters[2] = this.Paginator;
                 ConsoleCore.CallRoute(RoutesEnum.LIST_ITEMS.ToString(), parameters);
             });
             foreach (View view in paginatorHelper.Render(paginatorAction))
@@ -111,7 +136,11 @@ namespace GTDApp.Console.Views.Items
             }
         }
 
-        private void AddSearchElements(Window win)
+        /// <summary>
+        ///     AddSearchElements
+        /// </summary>
+        /// <param name="win">Window instance</param>
+        protected void AddSearchElements(Window win)
         {
             // Add Search
             var search = new Label("search for: ")
@@ -126,18 +155,19 @@ namespace GTDApp.Console.Views.Items
                 Y = Pos.Top(search),
                 Width = 30
             };
-            this.SearchText.Text = Search;
+            this.SearchText.Text = this.Search;
             Button searchButton = new Button("Run Search...")
             {
                 X = Pos.Right(this.SearchText) + 1,
                 Y = Pos.Top(this.SearchText)
             };
 
-            Action searchButtonEvent = new Action(() => {
+            Action searchButtonEvent = new Action(() =>
+            {
                 object[] searchParameters = new object[3];
                 searchParameters[0] = this.Container;
                 searchParameters[1] = this.SearchText.Text.ToString();
-                searchParameters[2] = Paginator;
+                searchParameters[2] = this.Paginator;
                 ConsoleCore.CallRoute(RoutesEnum.LIST_ITEMS.ToString(), searchParameters);
             });
             searchButton.Clicked = searchButtonEvent;
@@ -174,10 +204,12 @@ namespace GTDApp.Console.Views.Items
             foreach (var item in this.Items)
             {
                 Button editButton = new Button("Edit");
-                Action editButtonEvent = new Action(() => {
+                Action editButtonEvent = new Action(() =>
+                {
                     Item itemInstance = item;
-                    object[] parameters = new object[] {
-                        Container,
+                    object[] parameters = new object[]
+                    {
+                        this.Container,
                         itemInstance
                     };
                     ConsoleCore.CallRoute(RoutesEnum.UPDATE_ITEM.ToString(), parameters);
@@ -185,9 +217,11 @@ namespace GTDApp.Console.Views.Items
                 editButton.Clicked = editButtonEvent;
 
                 Button deleteButton = new Button("Delete");
-                Action deleteButtonEvent = new Action(() => {
+                Action deleteButtonEvent = new Action(() =>
+                {
                     Item itemInstance = item;
-                    object[] parameters = new object[] {
+                    object[] parameters = new object[]
+                    {
                         itemInstance
                     };
                     ConsoleCore.CallRoute(RoutesEnum.DELETE_ITEM.ToString(), parameters);
