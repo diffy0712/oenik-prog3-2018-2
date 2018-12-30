@@ -5,15 +5,15 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-namespace GTDApp.Logic.Routing
+namespace GtdApp.Logic.Routing
 {
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Reflection;
-    using GTDApp.Logic.Attributes;
-    using GTDApp.Logic.Exceptions;
-    using GTDApp.Logic.Interfaces;
+    using GtdApp.Logic.Attributes;
+    using GtdApp.Logic.Exceptions;
+    using GtdApp.Logic.Interfaces;
     using Attribute = System.Attribute;
 
     /// <summary>

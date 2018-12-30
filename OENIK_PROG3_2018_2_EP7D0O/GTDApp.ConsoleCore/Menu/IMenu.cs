@@ -5,7 +5,7 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-namespace GTDApp.ConsoleCore.Menu
+namespace GtdApp.ConsoleCore.Menu
 {
     /// <summary>
     ///     IMenu

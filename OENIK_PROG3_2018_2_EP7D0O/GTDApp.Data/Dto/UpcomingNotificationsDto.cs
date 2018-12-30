@@ -5,7 +5,7 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-namespace GTDApp.Data.Dto
+namespace GtdApp.Data.Dto
 {
     using System;
 

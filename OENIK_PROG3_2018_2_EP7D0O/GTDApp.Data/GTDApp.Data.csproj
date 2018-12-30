@@ -7,8 +7,8 @@
     <ProjectGuid>{EDCB7DCA-E17F-4829-8884-8C5D11A2E364}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GTDApp.Data</RootNamespace>
-    <AssemblyName>GTDApp.Data</AssemblyName>
+    <RootNamespace>GtdApp.Data</RootNamespace>
+    <AssemblyName>GtdApp.Data</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>

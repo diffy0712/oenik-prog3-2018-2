@@ -5,13 +5,13 @@
 // Copyright © OENIK_PROG3_2018_2_EP7D0O All rights reserved.
 // </copyright>
 
-namespace GTDApp.Console.Controllers
+namespace GtdApp.Console.Controllers
 {
     using System;
-    using GTDApp.Console.Views;
-    using GTDApp.Logic.Attributes;
-    using GTDApp.Logic.Interfaces;
-    using GTDApp.Logic.Routing;
+    using GtdApp.Console.Views;
+    using GtdApp.Logic.Attributes;
+    using GtdApp.Logic.Interfaces;
+    using GtdApp.Logic.Routing;
 
     /// <summary>
     ///     ErrorController

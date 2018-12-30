@@ -5,14 +5,14 @@
 // Copyright © OENIK_PROG3_2018_2_EP7D0O All rights reserved.
 // </copyright>
 
-namespace GTDApp.Console.Views.Notifications
+namespace GtdApp.Console.Views.Notifications
 {
     using System;
-    using GTDApp.Console.Menu;
-    using GTDApp.ConsoleCore;
-    using GTDApp.ConsoleCore.Menu;
-    using GTDApp.ConsoleCore.View;
-    using GTDApp.Data;
+    using GtdApp.Console.Menu;
+    using GtdApp.ConsoleCore;
+    using GtdApp.ConsoleCore.Menu;
+    using GtdApp.ConsoleCore.View;
+    using GtdApp.Data;
     using Terminal.Gui;
 
     /// <summary>
@@ -24,7 +24,7 @@ namespace GTDApp.Console.Views.Notifications
         ///     Gets or sets _creation
         /// </summary>
         /// <value>IQueryable of Notification</value>
-        private bool _creation = true;
+        private bool creation = true;
 
         /// <summary>
         ///     Gets or sets a value indicating whether we are currently creating a new entity
@@ -34,12 +34,12 @@ namespace GTDApp.Console.Views.Notifications
         {
             get
             {
-                return this._creation;
+                return this.creation;
             }
 
             set
             {
-                this._creation = value;
+                this.creation = value;
             }
         }
 

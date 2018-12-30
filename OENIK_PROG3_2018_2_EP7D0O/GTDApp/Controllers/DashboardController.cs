@@ -5,15 +5,15 @@
 // Copyright © OENIK_PROG3_2018_2_EP7D0O All rights reserved.
 // </copyright>
 
-namespace GTDApp.Console.Controllers
+namespace GtdApp.Console.Controllers
 {
     using System.Linq;
-    using GTDApp.Console.Views;
-    using GTDApp.ConsoleCore;
-    using GTDApp.Logic.Attributes;
-    using GTDApp.Logic.Interfaces;
-    using GTDApp.Logic.Routing;
-    using GTDApp.Repository;
+    using GtdApp.Console.Views;
+    using GtdApp.ConsoleCore;
+    using GtdApp.Logic.Attributes;
+    using GtdApp.Logic.Interfaces;
+    using GtdApp.Logic.Routing;
+    using GtdApp.Repository;
 
     /// <summary>
     ///     DashboardController
@@ -28,7 +28,6 @@ namespace GTDApp.Console.Controllers
         public void Index()
         {
             DashboardView view = new DashboardView();
-
             view.NumberOfContainers = ConsoleCore.BusinessLogic.ContainerRepository.GetAll().Count();
             view.NumberOfItems = ConsoleCore.BusinessLogic.ItemRepository.GetAll().Count();
             view.NumberOfNotifications = ConsoleCore.BusinessLogic.NotificationRepository.GetAll().Count();

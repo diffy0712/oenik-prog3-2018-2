@@ -1,4 +1,4 @@
-namespace GTDApp.Data
+namespace GtdApp.Data
 {
     using System;
     using System.Data.Entity;

@@ -5,12 +5,12 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-namespace GTDApp.Logic.Routing
+namespace GtdApp.Logic.Routing
 {
     using System;
     using System.Collections.Generic;
     using System.Reflection;
-    using GTDApp.Logic.Interfaces;
+    using GtdApp.Logic.Interfaces;
 
     /// <summary>
     ///     Router
@@ -21,7 +21,7 @@ namespace GTDApp.Logic.Routing
         ///     Gets or sets Controllers
         /// </summary>
         /// <value>List of IController</value>
-        private List<IController> Controllers;
+        private List<IController> controllers;
 
         /// <summary>
         ///     Fetch the controllers from the specified namespace
@@ -31,8 +31,7 @@ namespace GTDApp.Logic.Routing
         public static Router Init(string nameSpace)
         {
             Router router = new Router();
-            router.Controllers = RouterHelper.LoadControllersFromDLLNamespace(nameSpace, null);
-
+            router.controllers = RouterHelper.LoadControllersFromDLLNamespace(nameSpace, null);
             return router;
         }
 
@@ -43,8 +42,7 @@ namespace GTDApp.Logic.Routing
         /// <param name="parameters">Parameters to send</param>
         public void Call(string controllerName = null, object[] parameters = null)
         {
-            Route routeToInvoke = RouterHelper.GetRouteToInvoke(this.Controllers, controllerName);
-
+            Route routeToInvoke = RouterHelper.GetRouteToInvoke(this.controllers, controllerName);
             RouterHelper.PrepareRouteParametersForInvoke(ref routeToInvoke, parameters);
 
             // IMPORTANT: In order to VS handle the exceptions

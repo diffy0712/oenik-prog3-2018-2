@@ -5,21 +5,21 @@
 // Copyright © OENIK_PROG3_2018_2_EP7D0O All rights reserved.
 // </copyright>
 
-namespace GTDApp.Console.Controllers
+namespace GtdApp.Console.Controllers
 {
     using System;
     using System.Collections.Generic;
-    using GTDApp.Console.Views.Containers;
-    using GTDApp.Console.Views.Containers.Items;
-    using GTDApp.Console.Views.Items;
-    using GTDApp.Console.Views.Modals;
-    using GTDApp.ConsoleCore;
-    using GTDApp.Data;
-    using GTDApp.Logic;
-    using GTDApp.Logic.Attributes;
-    using GTDApp.Logic.Interfaces;
-    using GTDApp.Logic.Routing;
-    using GTDApp.Repository;
+    using GtdApp.Console.Views.Containers;
+    using GtdApp.Console.Views.Containers.Items;
+    using GtdApp.Console.Views.Items;
+    using GtdApp.Console.Views.Modals;
+    using GtdApp.ConsoleCore;
+    using GtdApp.Data;
+    using GtdApp.Logic;
+    using GtdApp.Logic.Attributes;
+    using GtdApp.Logic.Interfaces;
+    using GtdApp.Logic.Routing;
+    using GtdApp.Repository;
     using Terminal.Gui;
 
     /// <summary>

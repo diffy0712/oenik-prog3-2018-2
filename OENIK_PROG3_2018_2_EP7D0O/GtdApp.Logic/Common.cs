@@ -5,12 +5,12 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-namespace GTDApp.Logic
+namespace GtdApp.Logic
 {
     using System.Collections.Generic;
     using System.Linq;
     using System.Net;
-    using GTDApp.Logic.Exceptions;
+    using GtdApp.Logic.Exceptions;
 
     /// <summary>
     ///      Common

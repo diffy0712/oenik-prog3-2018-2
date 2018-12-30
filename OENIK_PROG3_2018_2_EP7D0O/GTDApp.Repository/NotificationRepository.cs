@@ -5,11 +5,11 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-namespace GTDApp.Repository
+namespace GtdApp.Repository
 {
     using System.Linq;
-    using GTDApp.Data;
-    using GTDApp.Repository.Interfaces;
+    using GtdApp.Data;
+    using GtdApp.Repository.Interfaces;
 
     /// <summary>
     ///      ContainerRepository

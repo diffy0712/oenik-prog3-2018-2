@@ -5,9 +5,9 @@
 // Copyright © OENIK_PROG3_2018_2_EP7D0O All rights reserved.
 // </copyright>
 
-namespace GTDApp.Console.Views.Modals
+namespace GtdApp.Console.Views.Modals
 {
-    using GTDApp.Logic.Interfaces;
+    using GtdApp.Logic.Interfaces;
     using Terminal.Gui;
 
     /// <summary>

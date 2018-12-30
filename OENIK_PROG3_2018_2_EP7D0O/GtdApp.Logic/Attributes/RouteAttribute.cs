@@ -5,7 +5,7 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-namespace GTDApp.Logic.Attributes
+namespace GtdApp.Logic.Attributes
 {
     using System;
 

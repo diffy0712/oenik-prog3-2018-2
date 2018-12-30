@@ -5,12 +5,12 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-namespace GTDApp.ConsoleCore
+namespace GtdApp.ConsoleCore
 {
     using System;
-    using GTDApp.ConsoleCore.Interfaces;
-    using GTDApp.Logic;
-    using GTDApp.Logic.Routing;
+    using GtdApp.ConsoleCore.Interfaces;
+    using GtdApp.Logic;
+    using GtdApp.Logic.Routing;
 
     /// <summary>
     ///     ConsoleCore

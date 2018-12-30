@@ -5,11 +5,11 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-namespace GTDApp.ConsoleCore.View
+namespace GtdApp.ConsoleCore.View
 {
-    using GTDApp.ConsoleCore.Menu;
-    using GTDApp.ConsoleCore.Views;
-    using GTDApp.Logic.Interfaces;
+    using GtdApp.ConsoleCore.Menu;
+    using GtdApp.ConsoleCore.Views;
+    using GtdApp.Logic.Interfaces;
     using Terminal.Gui;
 
     /// <summary>

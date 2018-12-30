@@ -5,10 +5,10 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-namespace GTDApp.Repository.Interfaces
+namespace GtdApp.Repository.Interfaces
 {
     using System.Linq;
-    using GTDApp.Data;
+    using GtdApp.Data;
 
     /// <summary>
     ///     IContainerRepository

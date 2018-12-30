@@ -5,11 +5,13 @@
 // Copyright © OENIK_PROG3_2018_2_EP7D0O All rights reserved.
 // </copyright>
 
-namespace GTDApp.Console.Exceptions
+namespace GtdApp.Console.Exceptions
 {
     using System;
-    using GTDApp.ConsoleCore;
-    using GTDApp.ConsoleCore.Interfaces;
+    using System.Reflection;
+    using GtdApp.ConsoleCore;
+    using GtdApp.ConsoleCore.Interfaces;
+    using GtdApp.Logic.Exceptions;
 
     /// <summary>
     ///     DetailedExceptionHandler
@@ -26,13 +28,21 @@ namespace GTDApp.Console.Exceptions
             {
                 callback();
             }
-            catch (Exception ex)
+            catch (NoRouteFoundException)
+            {
+                throw;
+            }
+            catch (TargetInvocationException ex)
             {
                 object[] parameters = new object[]
                 {
                     ex
                 };
                 ConsoleCore.CallRoute(RoutesEnum.EXCEPTION_ERROR.ToString(), parameters);
+            }
+            catch
+            {
+                throw;
             }
         }
     }

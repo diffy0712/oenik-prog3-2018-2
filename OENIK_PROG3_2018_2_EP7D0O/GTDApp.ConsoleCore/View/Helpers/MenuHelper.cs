@@ -5,9 +5,9 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-namespace GTDApp.ConsoleCore.Views
+namespace GtdApp.ConsoleCore.Views
 {
-    using GTDApp.ConsoleCore.Menu;
+    using GtdApp.ConsoleCore.Menu;
     using GUI = Terminal.Gui;
 
     /// <summary>

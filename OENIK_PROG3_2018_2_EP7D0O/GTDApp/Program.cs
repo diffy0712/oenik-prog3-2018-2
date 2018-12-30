@@ -5,13 +5,14 @@
 // Copyright © OENIK_PROG3_2018_2_EP7D0O All rights reserved.
 // </copyright>
 
-namespace GTDApp.Console
+namespace GtdApp.Console
 {
-    using GTDApp.Console.Exceptions;
-    using GTDApp.ConsoleCore;
-    using GTDApp.ConsoleCore.Interfaces;
-    using GTDApp.Logic;
-    using GTDApp.Logic.Routing;
+    using System;
+    using GtdApp.Console.Exceptions;
+    using GtdApp.ConsoleCore;
+    using GtdApp.ConsoleCore.Interfaces;
+    using GtdApp.Logic;
+    using GtdApp.Logic.Routing;
 
     /// <summary>
     ///     Entry Point
@@ -24,7 +25,7 @@ namespace GTDApp.Console
         public static void Main()
         {
             BusinessLogic businessLogic = BusinessLogic.Init();
-            Router router = Router.Init("GTDApp.Console.Controllers");
+            Router router = Router.Init("GtdApp.Console.Controllers");
             IExceptionHandler exceptionHandler = new DetailedExceptionHandler();
 
             // IExceptionHandler exceptionHandler = new NullExceptionHandler();

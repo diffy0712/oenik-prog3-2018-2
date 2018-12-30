@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2046
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GtdApp.Console", "GTDApp\GtdApp.Console.csproj", "{F8A85677-CC20-4543-85AD-7A0213A89CAC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GtdApp.Console", "GtdApp\GtdApp.Console.csproj", "{F8A85677-CC20-4543-85AD-7A0213A89CAC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F0A7E69B-BF8D-45F0-81D1-D1F96A62EAD8}"
 	ProjectSection(SolutionItems) = preProject
@@ -11,7 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		stylecop.json = stylecop.json
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GtdApp.Logic", "GTDApp.Login\GtdApp.Logic.csproj", "{02EEA9AD-813F-4AF8-93B4-C61CA417E8DF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GtdApp.Logic", "GtdApp.Logic\GtdApp.Logic.csproj", "{02EEA9AD-813F-4AF8-93B4-C61CA417E8DF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GtdApp.Logic.Tests", "GTDApp.Logic.Tests\GtdApp.Logic.Tests.csproj", "{CB4C5559-E206-4858-960F-292AF1BE1881}"
 EndProject
@@ -22,10 +22,13 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{45492680-F26E-404A-AC00-55278E565E48}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{94467F3C-18B7-4CF7-A76C-3CE20461E52F}"
+	ProjectSection(SolutionItems) = preProject
+		stylecop.json = stylecop.json
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{04BD7841-B16C-48F4-AA06-D0ABA96910C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GTDApp.ConsoleCore", "GTDApp.ConsoleCore\GTDApp.ConsoleCore.csproj", "{E21BF1E5-69D0-4A53-AF75-1DF64704C172}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GtdApp.ConsoleCore", "GtdApp.ConsoleCore\GtdApp.ConsoleCore.csproj", "{E21BF1E5-69D0-4A53-AF75-1DF64704C172}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

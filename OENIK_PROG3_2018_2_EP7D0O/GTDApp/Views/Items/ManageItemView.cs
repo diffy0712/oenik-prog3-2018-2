@@ -5,18 +5,18 @@
 // Copyright © OENIK_PROG3_2018_2_EP7D0O All rights reserved.
 // </copyright>
 
-namespace GTDApp.Console.Views.Containers.Items
+namespace GtdApp.Console.Views.Containers.Items
 {
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using GTDApp.Console.Menu;
-    using GTDApp.Console.Views.Modals;
-    using GTDApp.ConsoleCore;
-    using GTDApp.ConsoleCore.Menu;
-    using GTDApp.ConsoleCore.View;
-    using GTDApp.ConsoleCore.Views.Helpers;
-    using GTDApp.Data;
+    using GtdApp.Console.Menu;
+    using GtdApp.Console.Views.Modals;
+    using GtdApp.ConsoleCore;
+    using GtdApp.ConsoleCore.Menu;
+    using GtdApp.ConsoleCore.View;
+    using GtdApp.ConsoleCore.Views.Helpers;
+    using GtdApp.Data;
     using Terminal.Gui;
 
     /// <summary>
@@ -28,7 +28,7 @@ namespace GTDApp.Console.Views.Containers.Items
         ///     Gets or sets _creation
         /// </summary>
         /// <value>IQueryable of Notification</value>
-        private bool _creation = true;
+        private bool creation = true;
 
         /// <summary>
         ///     Gets or sets a value indicating whether we are currently creating a new entity
@@ -38,12 +38,12 @@ namespace GTDApp.Console.Views.Containers.Items
         {
             get
             {
-                return this._creation;
+                return this.creation;
             }
 
             set
             {
-                this._creation = value;
+                this.creation = value;
             }
         }
 

@@ -5,7 +5,7 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-namespace GTDApp.Logic.Exceptions
+namespace GtdApp.Logic.Exceptions
 {
     using System;
 

@@ -5,10 +5,10 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-namespace GTDApp.Logic.Routing
+namespace GtdApp.Logic.Routing
 {
     using System.Reflection;
-    using GTDApp.Logic.Interfaces;
+    using GtdApp.Logic.Interfaces;
 
     /// <summary>
     ///         Route

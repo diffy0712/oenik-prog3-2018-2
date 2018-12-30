@@ -7,8 +7,8 @@
     <ProjectGuid>{E21BF1E5-69D0-4A53-AF75-1DF64704C172}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GTDApp.ConsoleCore</RootNamespace>
-    <AssemblyName>GTDApp.ConsoleCore</AssemblyName>
+    <RootNamespace>GtdApp.ConsoleCore</RootNamespace>
+    <AssemblyName>GtdApp.ConsoleCore</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -21,7 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\GTDApp.ConsoleCore.xml</DocumentationFile>
+    <DocumentationFile>bin\Debug\GtdApp.ConsoleCore.xml</DocumentationFile>
     <CodeAnalysisRuleSet>..\oenik.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -72,11 +72,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GTDApp.Login\GtdApp.Logic.csproj">
+    <ProjectReference Include="..\GtdApp.Logic\GtdApp.Logic.csproj">
       <Project>{02eea9ad-813f-4af8-93b4-c61ca417e8df}</Project>
       <Name>GtdApp.Logic</Name>
     </ProjectReference>
-    <ProjectReference Include="..\GTDApp.Repository\GtdApp.Repository.csproj">
+    <ProjectReference Include="..\GtdApp.Repository\GtdApp.Repository.csproj">
       <Project>{7482d9e8-9013-4804-b967-1ebdda255450}</Project>
       <Name>GtdApp.Repository</Name>
     </ProjectReference>

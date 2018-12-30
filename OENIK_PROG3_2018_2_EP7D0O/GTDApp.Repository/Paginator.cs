@@ -5,7 +5,7 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-namespace GTDApp.Repository
+namespace GtdApp.Repository
 {
     using System;
 
@@ -18,19 +18,19 @@ namespace GTDApp.Repository
         ///     Gets or sets CurrentPage
         /// </summary>
         /// <value>int</value>
-        private int _currentPage = 1;
+        private int currentPage = 1;
 
         /// <summary>
         ///     Gets or sets _perPage
         /// </summary>
         /// <value>int</value>
-        private int _perPage = 5;
+        private int perPage = 5;
 
         /// <summary>
         ///     Gets or sets _maximum
         /// </summary>
         /// <value>int</value>
-        private int _maximum;
+        private int maximum;
 
         /// <summary>
         ///     Gets Skip
@@ -38,7 +38,7 @@ namespace GTDApp.Repository
         /// <value>int</value>
         public int Skip
         {
-            get => (this._currentPage - 1) * this._perPage;
+            get => (this.currentPage - 1) * this.perPage;
         }
 
         /// <summary>
@@ -49,16 +49,16 @@ namespace GTDApp.Repository
         {
             get
             {
-                return this._maximum;
+                return this.maximum;
             }
 
             set
             {
-                this._maximum = value;
+                this.maximum = value;
 
-                if (this._currentPage > this.MaximumPage)
+                if (this.currentPage > this.MaximumPage)
                 {
-                    this._currentPage = 1;
+                    this.currentPage = 1;
                 }
             }
         }
@@ -71,12 +71,12 @@ namespace GTDApp.Repository
         {
             get
             {
-                return this._perPage;
+                return this.perPage;
             }
 
             set
             {
-                this._perPage = value;
+                this.perPage = value;
             }
         }
 
@@ -88,12 +88,12 @@ namespace GTDApp.Repository
         {
             get
             {
-                return this._currentPage;
+                return this.currentPage;
             }
 
             set
             {
-                this._currentPage = value;
+                this.currentPage = value;
             }
         }
 
@@ -103,7 +103,7 @@ namespace GTDApp.Repository
         /// <value>int</value>
         public int MaximumPage
         {
-            get => (int)Math.Ceiling((double)this.Maximum / this._perPage);
+            get => (int)Math.Ceiling((double)this.Maximum / this.perPage);
         }
 
         /// <summary>
@@ -113,7 +113,7 @@ namespace GTDApp.Repository
         {
             if (this.IsNext())
             {
-                this._currentPage++;
+                this.currentPage++;
             }
         }
 
@@ -124,7 +124,7 @@ namespace GTDApp.Repository
         {
             if (this.IsPrev())
             {
-                this._currentPage--;
+                this.currentPage--;
             }
         }
 
@@ -134,7 +134,7 @@ namespace GTDApp.Repository
         /// <returns>bool</returns>
         public bool IsPrev()
         {
-            return this._currentPage > 1;
+            return this.currentPage > 1;
         }
 
         /// <summary>
@@ -143,7 +143,7 @@ namespace GTDApp.Repository
         /// <returns>bool</returns>
         public bool IsNext()
         {
-            return this.MaximumPage > this._currentPage;
+            return this.MaximumPage > this.currentPage;
         }
     }
 }

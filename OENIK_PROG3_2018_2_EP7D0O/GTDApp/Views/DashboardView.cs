@@ -5,17 +5,17 @@
 // Copyright © OENIK_PROG3_2018_2_EP7D0O All rights reserved.
 // </copyright>
 
-namespace GTDApp.Console.Views
+namespace GtdApp.Console.Views
 {
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using GTDApp.Console.Menu;
-    using GTDApp.ConsoleCore;
-    using GTDApp.ConsoleCore.Menu;
-    using GTDApp.ConsoleCore.View;
-    using GTDApp.ConsoleCore.Views.Helpers;
-    using GTDApp.Data.Dto;
+    using GtdApp.Console.Menu;
+    using GtdApp.ConsoleCore;
+    using GtdApp.ConsoleCore.Menu;
+    using GtdApp.ConsoleCore.View;
+    using GtdApp.ConsoleCore.Views.Helpers;
+    using GtdApp.Data.Dto;
     using Terminal.Gui;
 
     /// <summary>

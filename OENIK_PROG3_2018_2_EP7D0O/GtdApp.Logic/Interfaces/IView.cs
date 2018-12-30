@@ -5,7 +5,7 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-namespace GTDApp.Logic.Interfaces
+namespace GtdApp.Logic.Interfaces
 {
     /// <summary>
     ///     IView

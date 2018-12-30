@@ -5,13 +5,13 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-namespace GTDApp.Logic
+namespace GtdApp.Logic
 {
     using System.Collections.Generic;
     using System.Data.Entity.Validation;
-    using GTDApp.Data;
-    using GTDApp.Repository;
-    using GTDApp.Repository.Interfaces;
+    using GtdApp.Data;
+    using GtdApp.Repository;
+    using GtdApp.Repository.Interfaces;
 
     /// <summary>
     ///      BusinessLogic

@@ -5,11 +5,11 @@
 // Copyright © OENIK_PROG3_2018_2_EP7D0O All rights reserved.
 // </copyright>
 
-namespace GTDApp.Console.Views.Notifications
+namespace GtdApp.Console.Views.Notifications
 {
     using System;
-    using GTDApp.Data;
-    using GTDApp.Logic.Interfaces;
+    using GtdApp.Data;
+    using GtdApp.Logic.Interfaces;
     using Terminal.Gui;
 
     /// <summary>

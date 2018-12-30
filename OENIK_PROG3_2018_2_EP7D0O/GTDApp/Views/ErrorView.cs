@@ -5,13 +5,13 @@
 // Copyright © OENIK_PROG3_2018_2_EP7D0O All rights reserved.
 // </copyright>
 
-namespace GTDApp.Console.Views
+namespace GtdApp.Console.Views
 {
     using System;
-    using GTDApp.Console.Menu;
-    using GTDApp.ConsoleCore.Menu;
-    using GTDApp.ConsoleCore.View;
-    using GTDApp.ConsoleCore.Views.Helpers;
+    using GtdApp.Console.Menu;
+    using GtdApp.ConsoleCore.Menu;
+    using GtdApp.ConsoleCore.View;
+    using GtdApp.ConsoleCore.Views.Helpers;
     using Terminal.Gui;
 
     /// <summary>

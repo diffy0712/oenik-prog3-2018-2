@@ -5,15 +5,15 @@
 // Copyright © OENIK_PROG3_2018_2_EP7D0O All rights reserved.
 // </copyright>
 
-namespace GTDApp.Console.Controllers
+namespace GtdApp.Console.Controllers
 {
-    using GTDApp.Console.Views;
-    using GTDApp.ConsoleCore;
-    using GTDApp.Logic;
-    using GTDApp.Logic.Attributes;
-    using GTDApp.Logic.Exceptions;
-    using GTDApp.Logic.Interfaces;
-    using GTDApp.Logic.Routing;
+    using GtdApp.Console.Views;
+    using GtdApp.ConsoleCore;
+    using GtdApp.Logic;
+    using GtdApp.Logic.Attributes;
+    using GtdApp.Logic.Exceptions;
+    using GtdApp.Logic.Interfaces;
+    using GtdApp.Logic.Routing;
 
     /// <summary>
     ///     JavaWebController
@@ -26,19 +26,12 @@ namespace GTDApp.Console.Controllers
         [Route(RoutesEnum.JAVA_WEB)]
         public void Index()
         {
-            try
-            {
-                JavaWebView view = new JavaWebView();
+            JavaWebView view = new JavaWebView();
 
-                string javaWebUrl = "http://localhost:8080/GTDAppWebServer/GTDAppServlet";
-                view.Response = ConsoleCore.BusinessLogic.GenerateItemsFromJSON(Common.JSONApiCall(javaWebUrl));
+            string javaWebUrl = "http://localhost:8080/GTDAppWebServer/GTDAppServlet";
+            view.Response = ConsoleCore.BusinessLogic.GenerateItemsFromJSON(Common.JSONApiCall(javaWebUrl));
 
-                view.Render();
-            }
-            catch (JSONApiCallFailedException ex)
-            {
-                throw ex;
-            }
+            view.Render();
         }
     }
 }

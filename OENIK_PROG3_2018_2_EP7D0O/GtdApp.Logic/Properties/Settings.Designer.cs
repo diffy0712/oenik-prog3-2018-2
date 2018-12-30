@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GTDApp.Login.Properties {
+namespace GtdApp.Logic.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

@@ -7,8 +7,8 @@
     <ProjectGuid>{02EEA9AD-813F-4AF8-93B4-C61CA417E8DF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GTDApp.Login</RootNamespace>
-    <AssemblyName>GTDApp.Login</AssemblyName>
+    <RootNamespace>GtdApp.Logic</RootNamespace>
+    <AssemblyName>GtdApp.Logic</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -24,7 +24,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>..\oenik.ruleset</CodeAnalysisRuleSet>
-    <DocumentationFile>bin\Debug\GTDApp.Login.xml</DocumentationFile>
+    <DocumentationFile>bin\Debug\GtdApp.Logic.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -87,11 +87,11 @@
     <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.2\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GTDApp.Data\GtdApp.Data.csproj">
+    <ProjectReference Include="..\GtdApp.Data\GtdApp.Data.csproj">
       <Project>{EDCB7DCA-E17F-4829-8884-8C5D11A2E364}</Project>
       <Name>GtdApp.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\GTDApp.Repository\GtdApp.Repository.csproj">
+    <ProjectReference Include="..\GtdApp.Repository\GtdApp.Repository.csproj">
       <Project>{7482D9E8-9013-4804-B967-1EBDDA255450}</Project>
       <Name>GtdApp.Repository</Name>
     </ProjectReference>

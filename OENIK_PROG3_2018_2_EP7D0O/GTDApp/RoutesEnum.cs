@@ -5,7 +5,7 @@
 // Copyright © OENIK_PROG3_2018_2_EP7D0O All rights reserved.
 // </copyright>
 
-namespace GTDApp.Console
+namespace GtdApp.Console
 {
     /// <summary>
     ///     Available routes to call

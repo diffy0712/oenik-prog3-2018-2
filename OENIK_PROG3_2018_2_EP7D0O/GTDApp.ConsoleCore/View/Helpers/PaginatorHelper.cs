@@ -5,11 +5,11 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-namespace GTDApp.ConsoleCore.Views.Helpers
+namespace GtdApp.ConsoleCore.Views.Helpers
 {
     using System;
     using System.Collections.Generic;
-    using GTDApp.Repository;
+    using GtdApp.Repository;
     using Terminal.Gui;
 
     /// <summary>

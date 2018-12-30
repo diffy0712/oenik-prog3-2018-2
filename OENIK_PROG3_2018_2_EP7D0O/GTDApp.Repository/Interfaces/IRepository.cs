@@ -5,7 +5,7 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-namespace GTDApp.Repository.Interfaces
+namespace GtdApp.Repository.Interfaces
 {
     using System;
     using System.Linq;
