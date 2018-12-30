@@ -1,15 +1,14 @@
 ﻿// <summary>
 // GTD(getting things done) Application
 // </summary>
-// <copyright file="CommonHelper.cs" company="OENIK_PROG3_2018_2_EP7D0O">
-// Copyright © OENIK_PROG3_2018_2_EP7D0O All rights reserved.
+// <copyright file="TableHelper.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
 namespace GTDApp.ConsoleCore.Views.Helpers
 {
-    using System;
-    using System.Linq;
     using System.Collections.Generic;
+    using System.Linq;
     using Terminal.Gui;
 
     /// <summary>
@@ -17,50 +16,16 @@ namespace GTDApp.ConsoleCore.Views.Helpers
     /// </summary>
     public class TableHelper
     {
-        int PADDING = 5;
-
-        /// <summary>
-        ///     X
-        /// </summary>
-        public int X;
-
-        /// <summary>
-        ///     X
-        /// </summary>
-        public int CurrentX;
-
-        /// <summary>
-        ///     Y
-        /// </summary>
-        public int Y;
-
-        /// <summary>
-        ///     X
-        /// </summary>
-        public int CurrentY;
-
-        /// <summary>
-        ///     MaximumWidth
-        /// </summary>
-        private int MaximumWidth;
-
-        /// <summary>
-        ///     ViewContainer
-        /// </summary>
-        private List<View> ViewContainer;
-
-        private List<Dictionary<string, string>> Headers;
-
-        private List<List<View>> Rows;
-
         /// <summary>
         /// Initializes a new instance of the <see cref="TableHelper"/> class.
         ///     TableHelper
         /// </summary>
         /// <param name="x">X</param>
         /// <param name="y">Y</param>
-        public TableHelper(int x, int y)
+        /// <param name="padding">Padding</param>
+        public TableHelper(int x, int y, int padding = 5)
         {
+            this.Padding = padding;
             this.X = x;
             this.Y = y++;
             this.CurrentX = x;
@@ -71,6 +36,65 @@ namespace GTDApp.ConsoleCore.Views.Helpers
             this.ViewContainer = new List<View>();
         }
 
+        /// <summary>
+        ///     Gets or sets X
+        /// </summary>
+        /// <value>int</value>
+        public int X { get; set; }
+
+        /// <summary>
+        ///     Gets or sets CurrentX
+        /// </summary>
+        /// <value>int</value>
+        public int CurrentX { get; set; }
+
+        /// <summary>
+        ///     Gets or sets CurrentX
+        /// </summary>
+        /// <value>int</value>
+        public int Y { get; set; }
+
+        /// <summary>
+        ///     Gets or sets CurrentY
+        /// </summary>
+        /// <value>int</value>
+        public int CurrentY { get; set; }
+
+        /// <summary>
+        ///     Gets or sets Padding
+        /// </summary>
+        /// <value>int</value>
+        private int Padding { get; set; }
+
+        /// <summary>
+        ///     Gets or sets MaximumWidth
+        /// </summary>
+        /// <value>int</value>
+        private int MaximumWidth { get; set; }
+
+        /// <summary>
+        ///     Gets or sets ViewContainer
+        /// </summary>
+        /// <value>List of View</value>
+        private List<View> ViewContainer { get; set; }
+
+        /// <summary>
+        ///     Gets or sets headers
+        /// </summary>
+        /// <value>List of header key and value pairs</value>
+        private List<Dictionary<string, string>> Headers { get; set; }
+
+        /// <summary>
+        ///     Gets or sets rows
+        /// </summary>
+        /// <value>List of List of View</value>
+        private List<List<View>> Rows { get; set; }
+
+        /// <summary>
+        ///     AddHeader
+        /// </summary>
+        /// <param name="title">Title</param>
+        /// <param name="width">Width</param>
         public void AddHeader(string title, int width)
         {
             Dictionary<string, string> dictionary = new Dictionary<string, string>();
@@ -79,10 +103,14 @@ namespace GTDApp.ConsoleCore.Views.Helpers
 
             this.Headers.Add(dictionary);
         }
-        
+
+        /// <summary>
+        ///     AddRows
+        /// </summary>
+        /// <param name="rows">List of list of rows</param>
         public void AddRows(List<List<View>> rows)
         {
-            foreach(List<View> row in rows)
+            foreach (List<View> row in rows)
             {
                 this.Rows.Add(row);
             }
@@ -91,13 +119,12 @@ namespace GTDApp.ConsoleCore.Views.Helpers
         /// <summary>
         ///     Render the table
         /// </summary>
-        /// <returns>List</returns>
+        /// <param name="win">Window</param>
         public void Render(Window win)
         {
             this.AddHeader();
             this.AddRows();
-            
-            foreach (View view in ViewContainer)
+            foreach (View view in this.ViewContainer)
             {
                 win.Add(view);
             }
@@ -106,15 +133,14 @@ namespace GTDApp.ConsoleCore.Views.Helpers
         /// <summary>
         ///     Render the table
         /// </summary>
-        /// <returns>List</returns>
+        /// <param name="view">View</param>
         public void Render(View view)
         {
             this.AddHeader();
             this.AddRows();
-            
-            foreach (View _view in ViewContainer)
+            foreach (View view_2 in this.ViewContainer)
             {
-                view.Add(_view);
+                view.Add(view_2);
             }
         }
 
@@ -123,17 +149,18 @@ namespace GTDApp.ConsoleCore.Views.Helpers
         /// </summary>
         private void AddRows()
         {
-            foreach(List<View> view in this.Rows)
+            foreach (List<View> view in this.Rows)
             {
                 this.ResetX();
-                foreach (Dictionary<string, string> header in Headers)
+                foreach (Dictionary<string, string> header in this.Headers)
                 {
                     View cellView = view.First();
                     cellView.X = this.CurrentX;
                     cellView.Y = this.CurrentY;
-                    this.AddCell(cellView, int.Parse(header["width"]) + PADDING);
+                    this.AddCell(cellView, int.Parse(header["width"]) + this.Padding);
                     view.RemoveAt(0);
                 }
+
                 this.CurrentY++;
             }
         }
@@ -143,9 +170,9 @@ namespace GTDApp.ConsoleCore.Views.Helpers
         /// </summary>
         private void AddHeader()
         {
-            foreach (Dictionary<string, string> header in Headers)
+            foreach (Dictionary<string, string> header in this.Headers)
             {
-                this.AddCell(new Label(header["name"]) { X = this.CurrentX, Y = this.CurrentY }, int.Parse(header["width"]) + PADDING);
+                this.AddCell(new Label(header["name"]) { X = this.CurrentX, Y = this.CurrentY }, int.Parse(header["width"]) + this.Padding);
             }
 
             this.MaximumWidth = this.CurrentX;
@@ -154,16 +181,23 @@ namespace GTDApp.ConsoleCore.Views.Helpers
             this.CurrentY++;
         }
 
+        /// <summary>
+        ///     ResetX
+        /// </summary>
         private void ResetX()
         {
             this.CurrentX = this.X;
         }
 
+        /// <summary>
+        ///     AddCell
+        /// </summary>
+        /// <param name="view">View</param>
+        /// <param name="width">Width</param>
         private void AddCell(View view, int width)
         {
             this.ViewContainer.Add(view);
             this.CurrentX += width;
         }
-       
     }
 }

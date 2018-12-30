@@ -1,14 +1,13 @@
 ﻿// <summary>
 // GTD(getting things done) Application
 // </summary>
-// <copyright file="MainMenuBar.cs" company="OENIK_PROG3_2018_2_EP7D0O">
-// Copyright © OENIK_PROG3_2018_2_EP7D0O All rights reserved.
+// <copyright file="MenuHelper.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
 namespace GTDApp.ConsoleCore.Views
 {
     using GTDApp.ConsoleCore.Menu;
-    using GTDApp.ConsoleCore.View;
     using GUI = Terminal.Gui;
 
     /// <summary>
@@ -22,7 +21,6 @@ namespace GTDApp.ConsoleCore.Views
         /// </summary>
         /// <param name="top">Top level element</param>
         /// <param name="menu">Menu</param>
-        /// <param name="router">Router</param>
         public MenuHelper(GUI.Toplevel top, Menu menu)
         {
             GUI.MenuBarItem[] menubarItems = new GUI.MenuBarItem[menu.Items.Count];
@@ -35,12 +33,12 @@ namespace GTDApp.ConsoleCore.Views
                 {
                     MenuItem menuItem = menu.Items[i].Items[k];
                     menuItemChildren[k] = new GUI.MenuItem(
-                        menuItem.Name, 
-                        string.Empty, 
-                        () => {
+                        menuItem.Name,
+                        string.Empty,
+                        () =>
+                        {
                             ConsoleCore.CallRoute(menuItem.RouteName);
-                        }
-                    );
+                        });
                 }
 
                 GUI.MenuBarItem menuBarItem = new GUI.MenuBarItem(menu.Items[i].Name, menuItemChildren);

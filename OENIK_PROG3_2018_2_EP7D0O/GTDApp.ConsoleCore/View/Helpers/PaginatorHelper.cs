@@ -1,8 +1,8 @@
 ﻿// <summary>
 // GTD(getting things done) Application
 // </summary>
-// <copyright file="PaginatorHelper.cs" company="OENIK_PROG3_2018_2_EP7D0O">
-// Copyright © OENIK_PROG3_2018_2_EP7D0O All rights reserved.
+// <copyright file="PaginatorHelper.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
 namespace GTDApp.ConsoleCore.Views.Helpers
@@ -18,36 +18,6 @@ namespace GTDApp.ConsoleCore.Views.Helpers
     public class PaginatorHelper
     {
         /// <summary>
-        ///     Paginator
-        /// </summary>
-        Paginator paginator;
-
-        /// <summary>
-        ///     x
-        /// </summary>
-        private readonly int x;
-
-        /// <summary>
-        ///     currentX
-        /// </summary>
-        private int currentX;
-
-        /// <summary>
-        ///     y
-        /// </summary>
-        private readonly int y;
-
-        /// <summary>
-        ///     X
-        /// </summary>
-        private int currentY;
-
-        /// <summary>
-        ///     ViewContainer
-        /// </summary>
-        private List<View> viewContainer;
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="PaginatorHelper"/> class.
         ///     PaginatorHelper
         /// </summary>
@@ -56,15 +26,51 @@ namespace GTDApp.ConsoleCore.Views.Helpers
         /// <param name="paginator">Paginator instance</param>
         public PaginatorHelper(int x, int y, Paginator paginator)
         {
-            this.x = x;
-            this.y = y;
-            this.currentX = x;
-            this.currentY = y;
+            this.X = x;
+            this.Y = y;
+            this.CurrentX = x;
+            this.CurrentY = y;
 
-            this.paginator = paginator;
+            this.Paginator = paginator;
 
-            this.viewContainer = new List<View>();
+            this.ViewContainer = new List<View>();
         }
+
+        /// <summary>
+        ///     Gets or sets y
+        /// </summary>
+        /// <value>int</value>
+        private Paginator Paginator { get; set; }
+
+        /// <summary>
+        ///     Gets or sets y
+        /// </summary>
+        /// <value>int</value>
+        private int X { get; set; }
+
+        /// <summary>
+        ///     Gets or sets CurrentX
+        /// </summary>
+        /// <value>int</value>
+        private int CurrentX { get; set; }
+
+        /// <summary>
+        ///     Gets or sets y
+        /// </summary>
+        /// <value>int</value>
+        private int Y { get; set; }
+
+        /// <summary>
+        ///     Gets or sets y
+        /// </summary>
+        /// <value>int</value>
+        private int CurrentY { get; set; }
+
+        /// <summary>
+        ///     Gets or sets y
+        /// </summary>
+        /// <value>List of View</value>
+        private List<View> ViewContainer { get; set; }
 
         /// <summary>
         ///     Render
@@ -73,53 +79,53 @@ namespace GTDApp.ConsoleCore.Views.Helpers
         /// <param name="paginatorAction">Paginator action to call on events</param>
         public List<View> Render(Action paginatorAction)
         {
-            this.currentY++;
+            this.CurrentY++;
 
-            if( this.paginator.Maximum == 0)
+            if (this.Paginator.Maximum == 0)
             {
-                this.viewContainer.Add(
+                this.ViewContainer.Add(
                 new Label($"No entry found!")
                 {
-                    X = this.currentX,
-                    Y = this.currentY
+                    X = this.CurrentX,
+                    Y = this.CurrentY
                 });
 
-                return this.viewContainer;
+                return this.ViewContainer;
             }
 
-            this.viewContainer.Add(
-                new Label($"Currently displaying page {this.paginator.CurrentPage} out of {this.paginator.MaximumPage}  ")
+            this.ViewContainer.Add(
+                new Label($"Currently displaying page {this.Paginator.CurrentPage} out of {this.Paginator.MaximumPage}  ")
                 {
-                    X = this.currentX, Y = this.currentY
+                    X = this.CurrentX, Y = this.CurrentY
                 });
-            this.currentY++;
+            this.CurrentY++;
 
-            if (this.paginator.IsPrev())
+            if (this.Paginator.IsPrev())
             {
-                Button prevButton = new Button(this.currentX, this.currentY, "Prev");
+                Button prevButton = new Button(this.CurrentX, this.CurrentY, "Prev");
                 Action prevButtonEvent = new Action(() =>
                 {
-                    this.paginator.Prev();
+                    this.Paginator.Prev();
                     paginatorAction.Invoke();
                 });
                 prevButton.Clicked = prevButtonEvent;
-                this.viewContainer.Add(prevButton);
-                this.currentX += 10;
+                this.ViewContainer.Add(prevButton);
+                this.CurrentX += 10;
             }
 
-            if (this.paginator.IsNext())
+            if (this.Paginator.IsNext())
             {
-                Button nextButton = new Button(this.currentX, this.currentY, "Next");
+                Button nextButton = new Button(this.CurrentX, this.CurrentY, "Next");
                 Action nextButtonEvent = new Action(() =>
                 {
-                    this.paginator.Next();
+                    this.Paginator.Next();
                     paginatorAction.Invoke();
                 });
                 nextButton.Clicked = nextButtonEvent;
-                this.viewContainer.Add(nextButton);
+                this.ViewContainer.Add(nextButton);
             }
 
-            return this.viewContainer;
+            return this.ViewContainer;
         }
     }
 }

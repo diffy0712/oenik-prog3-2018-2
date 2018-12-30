@@ -21,6 +21,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\GTDApp.ConsoleCore.xml</DocumentationFile>
+    <CodeAnalysisRuleSet>..\oenik.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -59,14 +61,10 @@
     <Compile Include="Menu\MenuItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View\AbstractView.cs" />
-    <Compile Include="View\Helpers\Box10Helper.cs" />
-    <Compile Include="View\Helpers\CommonHelper.cs" />
     <Compile Include="View\Helpers\ExceptionHelper.cs" />
-    <Compile Include="View\Helpers\FillerHelper.cs" />
     <Compile Include="View\Helpers\MenuHelper.cs" />
     <Compile Include="View\Helpers\DateInputHelper.cs" />
     <Compile Include="View\Helpers\PaginatorHelper.cs" />
-    <Compile Include="View\Helpers\QuitHelper.cs" />
     <Compile Include="View\Helpers\TableHelper.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -82,6 +80,10 @@
       <Project>{7482d9e8-9013-4804-b967-1ebdda255450}</Project>
       <Name>GtdApp.Repository</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.2\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.2\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
