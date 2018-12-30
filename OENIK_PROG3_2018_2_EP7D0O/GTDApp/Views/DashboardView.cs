@@ -80,9 +80,9 @@ namespace GTDApp.Console.Views
             {
                 rows.Add(new List<View>()
                 {
-                    new Label($"{DateTime.Parse(item.day.ToString()).ToString("dd MMM yyyy")}"),
-                    new Label($"{item.item_count}"),
-                    new Label($"{item.notification_count}"),
+                    new Label($"{DateTime.Parse(item.Day.ToString()).ToString("dd MMM yyyy")}"),
+                    new Label($"{item.Item_count}"),
+                    new Label($"{item.Notification_count}"),
                 });
             }
 
@@ -110,10 +110,10 @@ namespace GTDApp.Console.Views
             {
                 rows.Add(new List<View>()
                 {
-                    new Label($"{item.container_type}"),
-                    new Label($"{item.container_count}"),
-                    new Label($"{item.item_count}"),
-                    new Label($"{item.notification_count}")
+                    new Label($"{item.Container_type}"),
+                    new Label($"{item.Container_count}"),
+                    new Label($"{item.Item_count}"),
+                    new Label($"{item.Notification_count}")
                 });
             }
 

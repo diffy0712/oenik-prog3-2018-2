@@ -62,10 +62,10 @@ namespace GTDApp.Repository
                 group item by item.from_date into d
                 select new UpcomingNotificationsDto()
                 {
-                    day = d.Key,
-                    item_count = d.Count(),
-                    notification_count = d.Sum(x => x.Item_notification.Count()),
-                }).OrderBy(d => d.day);
+                    Day = d.Key,
+                    Item_count = d.Count(),
+                    Notification_count = d.Sum(x => x.Item_notification.Count()),
+                }).OrderBy(d => d.Day);
 
             return g;
         }

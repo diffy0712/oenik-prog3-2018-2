@@ -58,10 +58,10 @@ namespace GTDApp.Repository
                     orderby c.Key
                     select new AggregatesByContainerTypeDto()
                     {
-                        container_type = c.Key,
-                        container_count = c.Count(),
-                        item_count = c.Sum(x => x.Item.Count()),
-                        notification_count = c.Sum(x => (int?)x.Item.Sum(t => (int?)t.Item_notification.Count() ?? 0) ?? 0)
+                        Container_type = c.Key,
+                        Container_count = c.Count(),
+                        Item_count = c.Sum(x => x.Item.Count()),
+                        Notification_count = c.Sum(x => (int?)x.Item.Sum(t => (int?)t.Item_notification.Count() ?? 0) ?? 0)
                     };
 
             return g.Skip(paginator.Skip).Take(paginator.PerPage);
