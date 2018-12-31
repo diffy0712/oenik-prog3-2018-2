@@ -1,0 +1,111 @@
+\hypertarget{class_gtd_app_1_1_logic_1_1_routing_1_1_router_helper}{}\section{Gtd\+App.\+Logic.\+Routing.\+Router\+Helper Class Reference}
+\label{class_gtd_app_1_1_logic_1_1_routing_1_1_router_helper}\index{Gtd\+App.\+Logic.\+Routing.\+Router\+Helper@{Gtd\+App.\+Logic.\+Routing.\+Router\+Helper}}
+
+
+\mbox{\hyperlink{class_gtd_app_1_1_logic_1_1_routing_1_1_router_helper}{Router\+Helper}}  
+
+
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_gtd_app_1_1_logic_1_1_routing_1_1_router_helper_a30034fc82c4843ddba655438c2f6b031}{Prepare\+Route\+Parameters\+For\+Invoke}} (ref \mbox{\hyperlink{class_gtd_app_1_1_logic_1_1_routing_1_1_route}{Route}} route, object\mbox{[}$\,$\mbox{]} parameters=null)
+\begin{DoxyCompactList}\small\item\em We push null to every parameter the method expects. Fixme\+: This should not be here I assume I made some mistake , because it throws exceptions for not having parameters. so debug it and if needed fix. \end{DoxyCompactList}\item 
+static List$<$ \mbox{\hyperlink{interface_gtd_app_1_1_logic_1_1_interfaces_1_1_i_controller}{I\+Controller}} $>$ \mbox{\hyperlink{class_gtd_app_1_1_logic_1_1_routing_1_1_router_helper_aa2d42769c4ecafc695851531d12e72d7}{Load\+Controllers\+From\+D\+L\+L\+Namespace}} (string name\+Space, object\mbox{[}$\,$\mbox{]} instance\+Parameters=null)
+\begin{DoxyCompactList}\small\item\em Load\+Controllers\+From\+Namespace\+D\+LL Help\+Me/\+Fixme\+: Loading all instances into a list and than calling from it as needed might be too much if we have big or much controllers. Could I lazy load them or apply proxy maybe? \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{class_gtd_app_1_1_logic_1_1_routing_1_1_route}{Route}} \mbox{\hyperlink{class_gtd_app_1_1_logic_1_1_routing_1_1_router_helper_ade163328e0a503113580b0d107a10fb4}{Get\+Route\+To\+Invoke}} (List$<$ \mbox{\hyperlink{interface_gtd_app_1_1_logic_1_1_interfaces_1_1_i_controller}{I\+Controller}} $>$ controllers, string controller\+Name)
+\begin{DoxyCompactList}\small\item\em Load\+D\+LL Help\+Me/\+Fixme\+: Loading all instances into a list and than calling from it as needed might be too much if we have big or much controllers. Could I lazy load them or apply proxy maybe? \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static List$<$ \mbox{\hyperlink{class_gtd_app_1_1_logic_1_1_routing_1_1_route}{Route}} $>$ \mbox{\hyperlink{class_gtd_app_1_1_logic_1_1_routing_1_1_router_helper_a12bb73714351ed5bdcbc21e440aafec1}{Get\+Routes\+By\+Attribute}} (List$<$ \mbox{\hyperlink{interface_gtd_app_1_1_logic_1_1_interfaces_1_1_i_controller}{I\+Controller}} $>$ controllers, Type type)
+\begin{DoxyCompactList}\small\item\em Get\+Routes\+By\+Attribute \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\mbox{\hyperlink{class_gtd_app_1_1_logic_1_1_routing_1_1_router_helper}{Router\+Helper}} 
+
+$<$todo$>$ Caching? $<$/todo$>$ 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_gtd_app_1_1_logic_1_1_routing_1_1_router_helper_a12bb73714351ed5bdcbc21e440aafec1}\label{class_gtd_app_1_1_logic_1_1_routing_1_1_router_helper_a12bb73714351ed5bdcbc21e440aafec1}} 
+\index{Gtd\+App\+::\+Logic\+::\+Routing\+::\+Router\+Helper@{Gtd\+App\+::\+Logic\+::\+Routing\+::\+Router\+Helper}!Get\+Routes\+By\+Attribute@{Get\+Routes\+By\+Attribute}}
+\index{Get\+Routes\+By\+Attribute@{Get\+Routes\+By\+Attribute}!Gtd\+App\+::\+Logic\+::\+Routing\+::\+Router\+Helper@{Gtd\+App\+::\+Logic\+::\+Routing\+::\+Router\+Helper}}
+\subsubsection{\texorpdfstring{Get\+Routes\+By\+Attribute()}{GetRoutesByAttribute()}}
+{\footnotesize\ttfamily static List$<$\mbox{\hyperlink{class_gtd_app_1_1_logic_1_1_routing_1_1_route}{Route}}$>$ Gtd\+App.\+Logic.\+Routing.\+Router\+Helper.\+Get\+Routes\+By\+Attribute (\begin{DoxyParamCaption}\item[{List$<$ \mbox{\hyperlink{interface_gtd_app_1_1_logic_1_1_interfaces_1_1_i_controller}{I\+Controller}} $>$}]{controllers,  }\item[{Type}]{type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Get\+Routes\+By\+Attribute 
+
+
+\begin{DoxyParams}{Parameters}
+{\em controllers} & List of controllers\\
+\hline
+{\em type} & Type\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+List of route class instances
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_gtd_app_1_1_logic_1_1_routing_1_1_router_helper_ade163328e0a503113580b0d107a10fb4}\label{class_gtd_app_1_1_logic_1_1_routing_1_1_router_helper_ade163328e0a503113580b0d107a10fb4}} 
+\index{Gtd\+App\+::\+Logic\+::\+Routing\+::\+Router\+Helper@{Gtd\+App\+::\+Logic\+::\+Routing\+::\+Router\+Helper}!Get\+Route\+To\+Invoke@{Get\+Route\+To\+Invoke}}
+\index{Get\+Route\+To\+Invoke@{Get\+Route\+To\+Invoke}!Gtd\+App\+::\+Logic\+::\+Routing\+::\+Router\+Helper@{Gtd\+App\+::\+Logic\+::\+Routing\+::\+Router\+Helper}}
+\subsubsection{\texorpdfstring{Get\+Route\+To\+Invoke()}{GetRouteToInvoke()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_gtd_app_1_1_logic_1_1_routing_1_1_route}{Route}} Gtd\+App.\+Logic.\+Routing.\+Router\+Helper.\+Get\+Route\+To\+Invoke (\begin{DoxyParamCaption}\item[{List$<$ \mbox{\hyperlink{interface_gtd_app_1_1_logic_1_1_interfaces_1_1_i_controller}{I\+Controller}} $>$}]{controllers,  }\item[{string}]{controller\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Load\+D\+LL Help\+Me/\+Fixme\+: Loading all instances into a list and than calling from it as needed might be too much if we have big or much controllers. Could I lazy load them or apply proxy maybe? 
+
+
+\begin{DoxyParams}{Parameters}
+{\em controllers} & List of controllers\\
+\hline
+{\em controller\+Name} & Controller name to invoke\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+List of controller class instances
+\end{DoxyReturn}
+$<$thinkme$>$ If we would pass multiple routes we might be able to call multiple ones. Would that even be ever helpful? $<$/thinkme$>$ \mbox{\Hypertarget{class_gtd_app_1_1_logic_1_1_routing_1_1_router_helper_aa2d42769c4ecafc695851531d12e72d7}\label{class_gtd_app_1_1_logic_1_1_routing_1_1_router_helper_aa2d42769c4ecafc695851531d12e72d7}} 
+\index{Gtd\+App\+::\+Logic\+::\+Routing\+::\+Router\+Helper@{Gtd\+App\+::\+Logic\+::\+Routing\+::\+Router\+Helper}!Load\+Controllers\+From\+D\+L\+L\+Namespace@{Load\+Controllers\+From\+D\+L\+L\+Namespace}}
+\index{Load\+Controllers\+From\+D\+L\+L\+Namespace@{Load\+Controllers\+From\+D\+L\+L\+Namespace}!Gtd\+App\+::\+Logic\+::\+Routing\+::\+Router\+Helper@{Gtd\+App\+::\+Logic\+::\+Routing\+::\+Router\+Helper}}
+\subsubsection{\texorpdfstring{Load\+Controllers\+From\+D\+L\+L\+Namespace()}{LoadControllersFromDLLNamespace()}}
+{\footnotesize\ttfamily static List$<$\mbox{\hyperlink{interface_gtd_app_1_1_logic_1_1_interfaces_1_1_i_controller}{I\+Controller}}$>$ Gtd\+App.\+Logic.\+Routing.\+Router\+Helper.\+Load\+Controllers\+From\+D\+L\+L\+Namespace (\begin{DoxyParamCaption}\item[{string}]{name\+Space,  }\item[{object \mbox{[}$\,$\mbox{]}}]{instance\+Parameters = {\ttfamily null} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Load\+Controllers\+From\+Namespace\+D\+LL Help\+Me/\+Fixme\+: Loading all instances into a list and than calling from it as needed might be too much if we have big or much controllers. Could I lazy load them or apply proxy maybe? 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name\+Space} & Namespace to get the I\+Controllers from\\
+\hline
+{\em instance\+Parameters} & instance\+Parameters\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+List of controller class instances
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_gtd_app_1_1_logic_1_1_routing_1_1_router_helper_a30034fc82c4843ddba655438c2f6b031}\label{class_gtd_app_1_1_logic_1_1_routing_1_1_router_helper_a30034fc82c4843ddba655438c2f6b031}} 
+\index{Gtd\+App\+::\+Logic\+::\+Routing\+::\+Router\+Helper@{Gtd\+App\+::\+Logic\+::\+Routing\+::\+Router\+Helper}!Prepare\+Route\+Parameters\+For\+Invoke@{Prepare\+Route\+Parameters\+For\+Invoke}}
+\index{Prepare\+Route\+Parameters\+For\+Invoke@{Prepare\+Route\+Parameters\+For\+Invoke}!Gtd\+App\+::\+Logic\+::\+Routing\+::\+Router\+Helper@{Gtd\+App\+::\+Logic\+::\+Routing\+::\+Router\+Helper}}
+\subsubsection{\texorpdfstring{Prepare\+Route\+Parameters\+For\+Invoke()}{PrepareRouteParametersForInvoke()}}
+{\footnotesize\ttfamily static void Gtd\+App.\+Logic.\+Routing.\+Router\+Helper.\+Prepare\+Route\+Parameters\+For\+Invoke (\begin{DoxyParamCaption}\item[{ref \mbox{\hyperlink{class_gtd_app_1_1_logic_1_1_routing_1_1_route}{Route}}}]{route,  }\item[{object \mbox{[}$\,$\mbox{]}}]{parameters = {\ttfamily null} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+We push null to every parameter the method expects. Fixme\+: This should not be here I assume I made some mistake , because it throws exceptions for not having parameters. so debug it and if needed fix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em route} & \mbox{\hyperlink{class_gtd_app_1_1_logic_1_1_routing_1_1_route}{Route}} instance to use\\
+\hline
+{\em parameters} & Parameters to pass to the method\\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Projects/\+O\+E/oenik\+\_\+prog3\+\_\+2018\+\_\+2\+\_\+ep7d0o/\+O\+E\+N\+I\+K\+\_\+\+P\+R\+O\+G3\+\_\+2018\+\_\+2\+\_\+\+E\+P7\+D0\+O/\+Gtd\+App.\+Logic/\+Routing/Router\+Helper.\+cs\end{DoxyCompactItemize}

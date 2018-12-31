@@ -1,0 +1,227 @@
+\hypertarget{class_gtd_app_1_1_repository_1_1_repository}{}\section{Gtd\+App.\+Repository.\+Repository$<$ T\+Entity $>$ Class Template Reference}
+\label{class_gtd_app_1_1_repository_1_1_repository}\index{Gtd\+App.\+Repository.\+Repository$<$ T\+Entity $>$@{Gtd\+App.\+Repository.\+Repository$<$ T\+Entity $>$}}
+
+
+\mbox{\hyperlink{class_gtd_app_1_1_repository_1_1_repository}{Repository}}  
+
+
+Inheritance diagram for Gtd\+App.\+Repository.\+Repository$<$ T\+Entity $>$\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_gtd_app_1_1_repository_1_1_repository}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_gtd_app_1_1_repository_1_1_repository_a7f85fc7e6c3c85b561ac9d31859c9ed5}{Repository}} (\mbox{\hyperlink{class_gtd_app_1_1_data_1_1_gtd_entity_data_model}{Gtd\+Entity\+Data\+Model}} \mbox{\hyperlink{class_gtd_app_1_1_repository_1_1_repository_a693057a1b8acd4c3778c183440feed41}{context}})
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the \mbox{\hyperlink{class_gtd_app_1_1_repository_1_1_repository_a7f85fc7e6c3c85b561ac9d31859c9ed5}{Repository$<$\+T\+Entity$>$}} class. \mbox{\hyperlink{class_gtd_app_1_1_repository_1_1_repository}{Repository}} \end{DoxyCompactList}\item 
+T\+Entity \mbox{\hyperlink{class_gtd_app_1_1_repository_1_1_repository_a95123d874c390a6707a12d17fd9b274b}{Get}} (int id)
+\begin{DoxyCompactList}\small\item\em Get an entity by id \end{DoxyCompactList}\item 
+I\+Queryable$<$ T\+Entity $>$ \mbox{\hyperlink{class_gtd_app_1_1_repository_1_1_repository_a63de411b4f50ec975c4a9db03ec36143}{Get\+All}} ()
+\begin{DoxyCompactList}\small\item\em Get\+All \end{DoxyCompactList}\item 
+I\+Queryable$<$ T\+Entity $>$ \mbox{\hyperlink{class_gtd_app_1_1_repository_1_1_repository_a4116e83efd4b289ba315be6e68e81eb4}{Find}} (Expression$<$ Func$<$ T\+Entity, bool $>$$>$ predicate)
+\begin{DoxyCompactList}\small\item\em Find \end{DoxyCompactList}\item 
+T\+Entity \mbox{\hyperlink{class_gtd_app_1_1_repository_1_1_repository_a5e3d1bdfdf567227d337af334954cf45}{Single\+Or\+Default}} (Expression$<$ Func$<$ T\+Entity, bool $>$$>$ predicate)
+\begin{DoxyCompactList}\small\item\em Single\+Or\+Default \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_gtd_app_1_1_repository_1_1_repository_ad39a0d4a4e385b554881f0195d8b9c3e}{Add}} (T\+Entity entity)
+\begin{DoxyCompactList}\small\item\em Add \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_gtd_app_1_1_repository_1_1_repository_a8a1208608bc26394b65892edc3a79fa4}{Remove}} (T\+Entity entity)
+\begin{DoxyCompactList}\small\item\em Remove \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_gtd_app_1_1_data_1_1_gtd_entity_data_model}{Gtd\+Entity\+Data\+Model}} \mbox{\hyperlink{class_gtd_app_1_1_repository_1_1_repository_a26a12cb4c9e45c29c377f4ea76a78b68}{Gtd\+Entity\+Data\+Model}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Gets Gtd\+Entity\+Data\+Model \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+readonly Db\+Context \mbox{\hyperlink{class_gtd_app_1_1_repository_1_1_repository_a693057a1b8acd4c3778c183440feed41}{context}}
+\begin{DoxyCompactList}\small\item\em Gets or sets Context \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\mbox{\hyperlink{class_gtd_app_1_1_repository_1_1_repository}{Repository}} 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T\+Entity} & Some entity to make repository for\\
+\hline
+\end{DoxyTemplParams}
+\begin{Desc}
+\item[Type Constraints]\begin{description}
+\item[{\em T\+Entity} : {\em class}]\end{description}
+\end{Desc}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_gtd_app_1_1_repository_1_1_repository_a7f85fc7e6c3c85b561ac9d31859c9ed5}\label{class_gtd_app_1_1_repository_1_1_repository_a7f85fc7e6c3c85b561ac9d31859c9ed5}} 
+\index{Gtd\+App\+::\+Repository\+::\+Repository@{Gtd\+App\+::\+Repository\+::\+Repository}!Repository@{Repository}}
+\index{Repository@{Repository}!Gtd\+App\+::\+Repository\+::\+Repository@{Gtd\+App\+::\+Repository\+::\+Repository}}
+\subsubsection{\texorpdfstring{Repository()}{Repository()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_gtd_app_1_1_repository_1_1_repository}{Gtd\+App.\+Repository.\+Repository}}$<$ T\+Entity $>$.\mbox{\hyperlink{class_gtd_app_1_1_repository_1_1_repository}{Repository}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_gtd_app_1_1_data_1_1_gtd_entity_data_model}{Gtd\+Entity\+Data\+Model}}}]{context }\end{DoxyParamCaption})}
+
+
+
+Initializes a new instance of the \mbox{\hyperlink{class_gtd_app_1_1_repository_1_1_repository_a7f85fc7e6c3c85b561ac9d31859c9ed5}{Repository$<$\+T\+Entity$>$}} class. \mbox{\hyperlink{class_gtd_app_1_1_repository_1_1_repository}{Repository}} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em context} & Db\+Context instance\\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_gtd_app_1_1_repository_1_1_repository_ad39a0d4a4e385b554881f0195d8b9c3e}\label{class_gtd_app_1_1_repository_1_1_repository_ad39a0d4a4e385b554881f0195d8b9c3e}} 
+\index{Gtd\+App\+::\+Repository\+::\+Repository@{Gtd\+App\+::\+Repository\+::\+Repository}!Add@{Add}}
+\index{Add@{Add}!Gtd\+App\+::\+Repository\+::\+Repository@{Gtd\+App\+::\+Repository\+::\+Repository}}
+\subsubsection{\texorpdfstring{Add()}{Add()}}
+{\footnotesize\ttfamily void \mbox{\hyperlink{class_gtd_app_1_1_repository_1_1_repository}{Gtd\+App.\+Repository.\+Repository}}$<$ T\+Entity $>$.Add (\begin{DoxyParamCaption}\item[{T\+Entity}]{entity }\end{DoxyParamCaption})}
+
+
+
+Add 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & Some Entity\\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{interface_gtd_app_1_1_repository_1_1_interfaces_1_1_i_repository_aa9b2613543ca7471d34aa20f57706604}{Gtd\+App.\+Repository.\+Interfaces.\+I\+Repository$<$ T\+Entity $>$}}.
+
+\mbox{\Hypertarget{class_gtd_app_1_1_repository_1_1_repository_a4116e83efd4b289ba315be6e68e81eb4}\label{class_gtd_app_1_1_repository_1_1_repository_a4116e83efd4b289ba315be6e68e81eb4}} 
+\index{Gtd\+App\+::\+Repository\+::\+Repository@{Gtd\+App\+::\+Repository\+::\+Repository}!Find@{Find}}
+\index{Find@{Find}!Gtd\+App\+::\+Repository\+::\+Repository@{Gtd\+App\+::\+Repository\+::\+Repository}}
+\subsubsection{\texorpdfstring{Find()}{Find()}}
+{\footnotesize\ttfamily I\+Queryable$<$T\+Entity$>$ \mbox{\hyperlink{class_gtd_app_1_1_repository_1_1_repository}{Gtd\+App.\+Repository.\+Repository}}$<$ T\+Entity $>$.Find (\begin{DoxyParamCaption}\item[{Expression$<$ Func$<$ T\+Entity, bool $>$$>$}]{predicate }\end{DoxyParamCaption})}
+
+
+
+Find 
+
+
+\begin{DoxyParams}{Parameters}
+{\em predicate} & Predicate callback\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+I\+Queryable
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{interface_gtd_app_1_1_repository_1_1_interfaces_1_1_i_repository_a2b79b76e74629fd46fdce7e4caf1760d}{Gtd\+App.\+Repository.\+Interfaces.\+I\+Repository$<$ T\+Entity $>$}}.
+
+\mbox{\Hypertarget{class_gtd_app_1_1_repository_1_1_repository_a95123d874c390a6707a12d17fd9b274b}\label{class_gtd_app_1_1_repository_1_1_repository_a95123d874c390a6707a12d17fd9b274b}} 
+\index{Gtd\+App\+::\+Repository\+::\+Repository@{Gtd\+App\+::\+Repository\+::\+Repository}!Get@{Get}}
+\index{Get@{Get}!Gtd\+App\+::\+Repository\+::\+Repository@{Gtd\+App\+::\+Repository\+::\+Repository}}
+\subsubsection{\texorpdfstring{Get()}{Get()}}
+{\footnotesize\ttfamily T\+Entity \mbox{\hyperlink{class_gtd_app_1_1_repository_1_1_repository}{Gtd\+App.\+Repository.\+Repository}}$<$ T\+Entity $>$.Get (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
+
+
+
+Get an entity by id 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & Id\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+T\+Entity
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{interface_gtd_app_1_1_repository_1_1_interfaces_1_1_i_repository_a9f0a2115050565ee4984d43e9163f525}{Gtd\+App.\+Repository.\+Interfaces.\+I\+Repository$<$ T\+Entity $>$}}.
+
+\mbox{\Hypertarget{class_gtd_app_1_1_repository_1_1_repository_a63de411b4f50ec975c4a9db03ec36143}\label{class_gtd_app_1_1_repository_1_1_repository_a63de411b4f50ec975c4a9db03ec36143}} 
+\index{Gtd\+App\+::\+Repository\+::\+Repository@{Gtd\+App\+::\+Repository\+::\+Repository}!Get\+All@{Get\+All}}
+\index{Get\+All@{Get\+All}!Gtd\+App\+::\+Repository\+::\+Repository@{Gtd\+App\+::\+Repository\+::\+Repository}}
+\subsubsection{\texorpdfstring{Get\+All()}{GetAll()}}
+{\footnotesize\ttfamily I\+Queryable$<$T\+Entity$>$ \mbox{\hyperlink{class_gtd_app_1_1_repository_1_1_repository}{Gtd\+App.\+Repository.\+Repository}}$<$ T\+Entity $>$.Get\+All (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get\+All 
+
+\begin{DoxyReturn}{Returns}
+I\+Queryable
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{interface_gtd_app_1_1_repository_1_1_interfaces_1_1_i_repository_a1c97e47c04c2d00061a30fad1aabb977}{Gtd\+App.\+Repository.\+Interfaces.\+I\+Repository$<$ T\+Entity $>$}}.
+
+\mbox{\Hypertarget{class_gtd_app_1_1_repository_1_1_repository_a8a1208608bc26394b65892edc3a79fa4}\label{class_gtd_app_1_1_repository_1_1_repository_a8a1208608bc26394b65892edc3a79fa4}} 
+\index{Gtd\+App\+::\+Repository\+::\+Repository@{Gtd\+App\+::\+Repository\+::\+Repository}!Remove@{Remove}}
+\index{Remove@{Remove}!Gtd\+App\+::\+Repository\+::\+Repository@{Gtd\+App\+::\+Repository\+::\+Repository}}
+\subsubsection{\texorpdfstring{Remove()}{Remove()}}
+{\footnotesize\ttfamily void \mbox{\hyperlink{class_gtd_app_1_1_repository_1_1_repository}{Gtd\+App.\+Repository.\+Repository}}$<$ T\+Entity $>$.Remove (\begin{DoxyParamCaption}\item[{T\+Entity}]{entity }\end{DoxyParamCaption})}
+
+
+
+Remove 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entity} & Some Entity\\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{interface_gtd_app_1_1_repository_1_1_interfaces_1_1_i_repository_ae140e5af29d395235ea159f58ecf5b47}{Gtd\+App.\+Repository.\+Interfaces.\+I\+Repository$<$ T\+Entity $>$}}.
+
+\mbox{\Hypertarget{class_gtd_app_1_1_repository_1_1_repository_a5e3d1bdfdf567227d337af334954cf45}\label{class_gtd_app_1_1_repository_1_1_repository_a5e3d1bdfdf567227d337af334954cf45}} 
+\index{Gtd\+App\+::\+Repository\+::\+Repository@{Gtd\+App\+::\+Repository\+::\+Repository}!Single\+Or\+Default@{Single\+Or\+Default}}
+\index{Single\+Or\+Default@{Single\+Or\+Default}!Gtd\+App\+::\+Repository\+::\+Repository@{Gtd\+App\+::\+Repository\+::\+Repository}}
+\subsubsection{\texorpdfstring{Single\+Or\+Default()}{SingleOrDefault()}}
+{\footnotesize\ttfamily T\+Entity \mbox{\hyperlink{class_gtd_app_1_1_repository_1_1_repository}{Gtd\+App.\+Repository.\+Repository}}$<$ T\+Entity $>$.Single\+Or\+Default (\begin{DoxyParamCaption}\item[{Expression$<$ Func$<$ T\+Entity, bool $>$$>$}]{predicate }\end{DoxyParamCaption})}
+
+
+
+Single\+Or\+Default 
+
+
+\begin{DoxyParams}{Parameters}
+{\em predicate} & Predicate callback\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Some Entity
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{interface_gtd_app_1_1_repository_1_1_interfaces_1_1_i_repository_a82a2f97d2651121365bb7975974dc4a4}{Gtd\+App.\+Repository.\+Interfaces.\+I\+Repository$<$ T\+Entity $>$}}.
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_gtd_app_1_1_repository_1_1_repository_a693057a1b8acd4c3778c183440feed41}\label{class_gtd_app_1_1_repository_1_1_repository_a693057a1b8acd4c3778c183440feed41}} 
+\index{Gtd\+App\+::\+Repository\+::\+Repository@{Gtd\+App\+::\+Repository\+::\+Repository}!context@{context}}
+\index{context@{context}!Gtd\+App\+::\+Repository\+::\+Repository@{Gtd\+App\+::\+Repository\+::\+Repository}}
+\subsubsection{\texorpdfstring{context}{context}}
+{\footnotesize\ttfamily readonly Db\+Context \mbox{\hyperlink{class_gtd_app_1_1_repository_1_1_repository}{Gtd\+App.\+Repository.\+Repository}}$<$ T\+Entity $>$.context\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Gets or sets Context 
+
+
+
+\subsection{Property Documentation}
+\mbox{\Hypertarget{class_gtd_app_1_1_repository_1_1_repository_a26a12cb4c9e45c29c377f4ea76a78b68}\label{class_gtd_app_1_1_repository_1_1_repository_a26a12cb4c9e45c29c377f4ea76a78b68}} 
+\index{Gtd\+App\+::\+Repository\+::\+Repository@{Gtd\+App\+::\+Repository\+::\+Repository}!Gtd\+Entity\+Data\+Model@{Gtd\+Entity\+Data\+Model}}
+\index{Gtd\+Entity\+Data\+Model@{Gtd\+Entity\+Data\+Model}!Gtd\+App\+::\+Repository\+::\+Repository@{Gtd\+App\+::\+Repository\+::\+Repository}}
+\subsubsection{\texorpdfstring{Gtd\+Entity\+Data\+Model}{GtdEntityDataModel}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_gtd_app_1_1_data_1_1_gtd_entity_data_model}{Gtd\+Entity\+Data\+Model}} \mbox{\hyperlink{class_gtd_app_1_1_repository_1_1_repository}{Gtd\+App.\+Repository.\+Repository}}$<$ T\+Entity $>$.\mbox{\hyperlink{class_gtd_app_1_1_data_1_1_gtd_entity_data_model}{Gtd\+Entity\+Data\+Model}}\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Gets Gtd\+Entity\+Data\+Model 
+
+Gtd\+Entity\+Data\+Model instance
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Projects/\+O\+E/oenik\+\_\+prog3\+\_\+2018\+\_\+2\+\_\+ep7d0o/\+O\+E\+N\+I\+K\+\_\+\+P\+R\+O\+G3\+\_\+2018\+\_\+2\+\_\+\+E\+P7\+D0\+O/\+Gtd\+App.\+Repository/Repository.\+cs\end{DoxyCompactItemize}
