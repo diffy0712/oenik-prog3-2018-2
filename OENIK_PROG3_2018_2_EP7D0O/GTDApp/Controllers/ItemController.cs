@@ -121,7 +121,7 @@ namespace GtdApp.Console.Controllers
             Action deleteAction = null;
 
             Container container = item.Container;
-            if (BusinessLogic.IsItemRemovable(item))
+            if (ConsoleCore.BusinessLogic.IsItemRemovable(item))
             {
                 deleteAction = new Action(() =>
                 {

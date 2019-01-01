@@ -73,11 +73,11 @@ namespace GtdApp.Logic
         }
 
         /// <summary>
-        ///      A container is empty if it has no item.
+        ///      Only empty containers can be removed. A container is empty if it has no item.
         /// </summary>
         /// <param name="container">Container instance</param>
         /// <returns>Boolean</returns>
-        public static bool IsContainerRemovable(Container container)
+        public bool IsContainerRemovable(Container container)
         {
             return container.Item.Count == 0;
         }
@@ -87,7 +87,7 @@ namespace GtdApp.Logic
         /// </summary>
         /// <param name="item">Container instance</param>
         /// <returns>Boolean</returns>
-        public static bool IsItemRemovable(Item item)
+        public bool IsItemRemovable(Item item)
         {
             return item.Item_notification.Count == 0;
         }
@@ -97,7 +97,7 @@ namespace GtdApp.Logic
         /// </summary>
         /// <param name="notification">Notification instance</param>
         /// <returns>Boolean</returns>
-        public static bool IsNotificationRemovable(Notification notification)
+        public bool IsNotificationRemovable(Notification notification)
         {
             return notification.Item_notification.Count == 0;
         }

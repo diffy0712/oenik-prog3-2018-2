@@ -37,5 +37,26 @@ namespace GtdApp.Logic.Tests
             this.BusinessLogic.SaveContainer(testNewContainer);
             this.MockContainer.Verify(x => x.Add(testNewContainer), Times.Once);
         }
+
+        /// <summary>
+        ///     Test the delete method's calling for deletion
+        /// </summary>
+        [Test]
+        public void DoesRemoveContainerRemovesNewContainer()
+        {
+            Container testNewContainer = this.MockContainer.Object.GetAll().First();
+            this.BusinessLogic.RemoveContainer(testNewContainer);
+            this.MockContainer.Verify(x => x.Remove(testNewContainer), Times.Once);
+        }
+
+        /// <summary>
+        ///     Test the save method's calling for insertion (container_id is not declared)
+        /// </summary>
+        [Test]
+        public void IsContainerRemovableIfHasNoItems()
+        {
+            Container testNewContainer = this.MockContainer.Object.GetAll().First();
+            Assert.That(this.BusinessLogic.IsContainerRemovable(testNewContainer), Is.EqualTo(true));
+        }
     }
 }

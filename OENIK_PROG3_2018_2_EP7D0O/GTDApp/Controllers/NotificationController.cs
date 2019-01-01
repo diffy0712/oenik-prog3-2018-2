@@ -111,7 +111,7 @@ namespace GtdApp.Console.Controllers
         {
             Action deleteAction = null;
 
-            if (BusinessLogic.IsNotificationRemovable(notification))
+            if (ConsoleCore.BusinessLogic.IsNotificationRemovable(notification))
             {
                 deleteAction = new Action(() =>
                 {

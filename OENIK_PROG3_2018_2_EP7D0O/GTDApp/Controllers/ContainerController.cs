@@ -110,7 +110,7 @@ namespace GtdApp.Console.Controllers
         {
             Action deleteAction = null;
 
-            if (BusinessLogic.IsContainerRemovable(container))
+            if (ConsoleCore.BusinessLogic.IsContainerRemovable(container))
             {
                 deleteAction = new Action(() =>
                 {
