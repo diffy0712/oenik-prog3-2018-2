@@ -42,7 +42,7 @@ namespace GtdApp.Logic.Tests
         ///     Test the delete method's calling for deletion
         /// </summary>
         [Test]
-        public void DoesRemoveContainerRemovesNewContainer()
+        public void DoesRemoveContainerRemovesContainer()
         {
             Container testNewContainer = this.MockContainer.Object.GetAll().First();
             this.BusinessLogic.RemoveContainer(testNewContainer);

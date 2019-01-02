@@ -144,16 +144,38 @@ namespace GtdApp.Logic.Tests
         /// <returns>IEnumerable Items</returns>
         private IEnumerable<Item> GenerateItems()
         {
+            DateTime fromDate = default(DateTime);
+            fromDate.AddDays(1);
+            DateTime toDate = default(DateTime);
+            toDate.AddDays(2);
+
             for (int i = 1; i <= BusinessLogicTests.NUMBEROFITEMS; i++)
             {
-                Item item = new Item()
+                Item item;
+                if (i > 1)
                 {
-                    item_id = 0000 + i,
-                    title = $"Test Item#{i}",
-                    description = $"Test Description#{i}",
-                    updated_at = default(DateTime),
-                    created_at = default(DateTime)
-                };
+                    item = new Item()
+                    {
+                        item_id = 0000 + i,
+                        title = $"Test Item#{i}",
+                        description = $"Test Description#{i}",
+                        from_date = fromDate,
+                        to_date = toDate,
+                        updated_at = default(DateTime),
+                        created_at = default(DateTime)
+                    };
+                }
+                else
+                {
+                    item = new Item()
+                    {
+                        item_id = 0000 + i,
+                        title = $"Test Item#{i}",
+                        description = $"Test Description#{i}",
+                        updated_at = default(DateTime),
+                        created_at = default(DateTime)
+                    };
+                }
 
                 yield return item;
             }
@@ -202,14 +224,22 @@ namespace GtdApp.Logic.Tests
             IQueryable<Item> items = this.MockItem.Object.GetAll();
             IQueryable<Notification> notifications = this.MockNotification.Object.GetAll();
 
-            return new Item_notification()
+            Item item = items.ElementAt(itemId);
+            Notification notification = notifications.ElementAt(notificatitonId);
+
+            Item_notification itemNotification = new Item_notification()
             {
                 id = 0000 + id++,
-                Item = items.ElementAt(itemId),
-                Notification = notifications.ElementAt(notificatitonId),
+                Item = item,
+                Notification = notification,
                 updated_at = default(DateTime),
                 created_at = default(DateTime)
             };
+
+            item.Item_notification.Add(itemNotification);
+            notification.Item_notification.Add(itemNotification);
+
+            return itemNotification;
         }
 
         /// <summary>
@@ -234,24 +264,31 @@ namespace GtdApp.Logic.Tests
             IQueryable<Item> items = this.MockItem.Object.GetAll();
             for (int i = 1; i <= BusinessLogicTests.NUMBEROFCONTAINERS; i++)
             {
-                List<Item> item = new List<Item>();
+                List<Item> containerItems = new List<Item>();
 
                 if (i > 1)
                 {
-                    item.Add(items.ElementAt(i));
+                    containerItems.Add(items.ElementAt(i));
                 }
 
-                yield return new Container()
+                Container container = new Container()
                 {
                     container_id = 0000 + i,
                     name = $"Test Controller#{i}",
                     principles = $"Test Principle#{i}",
                     type = $"TestType#{i}",
-                    Item = item,
+                    Item = containerItems,
                     purpose = $"Test Purpose#{i}",
                     updated_at = default(DateTime),
                     created_at = default(DateTime)
                 };
+
+                foreach (Item item in containerItems)
+                {
+                    item.Container = container;
+                }
+
+                yield return container;
             }
         }
     }
