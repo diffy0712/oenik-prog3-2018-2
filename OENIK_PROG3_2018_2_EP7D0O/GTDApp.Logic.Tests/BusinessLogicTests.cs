@@ -24,7 +24,7 @@ namespace GtdApp.Logic.Tests
         ///      Contant for Number of containers to be generated
         /// </summary>
         /// <value>int 10</value>
-        private const int NUMBEROFCONTAINERS = 10;
+        private const int NUMBEROFCONTAINERS = 6;
 
         /// <summary>
         ///      Contant for Number of notifications to be generated
@@ -36,7 +36,7 @@ namespace GtdApp.Logic.Tests
         ///      Contant for Number of items to be generated
         /// </summary>
         /// <value>int 10</value>
-        private const int NUMBEROFITEMS = 25;
+        private const int NUMBEROFITEMS = 15;
 
         /// <summary>
         ///      Gets or sets MockContainer
@@ -75,8 +75,8 @@ namespace GtdApp.Logic.Tests
         public void Setup()
         {
             this.SetUpNotification();
-            this.SetUpMockContainer();
             this.SetUpMockItem();
+            this.SetUpMockContainer();
             this.SetUpItemNotification();
 
             // We don't use the BusinessLogic.Init() static method to use mocks
@@ -109,7 +109,7 @@ namespace GtdApp.Logic.Tests
         /// <returns>IEnumerable Notificaions</returns>
         private IEnumerable<Notification> GenerateNotifications()
         {
-            for (int i = 0; i < BusinessLogicTests.NUMBEROFNOTIFICATIONS; i++)
+            for (int i = 1; i <= BusinessLogicTests.NUMBEROFNOTIFICATIONS; i++)
             {
                 yield return new Notification()
                 {
@@ -132,34 +132,30 @@ namespace GtdApp.Logic.Tests
             this.MockItem = new Mock<IItemRepository>();
 
             List<Item> itemList = new List<Item>();
+            itemList.AddRange(this.GenerateItems());
 
-            // itemList.AddRange(this.GenerateItems());
             this.MockItem.Setup(x => x.GetAll()).Returns(itemList.AsQueryable());
         }
 
         /// <summary>
         ///     Generate And return an IEnumerable list of items
+        ///     The first one is empty
         /// </summary>
-        /// <returns>IEnumerable Containers</returns>
+        /// <returns>IEnumerable Items</returns>
         private IEnumerable<Item> GenerateItems()
         {
-            for (int i = 0; i < BusinessLogicTests.NUMBEROFITEMS; i++)
+            for (int i = 1; i <= BusinessLogicTests.NUMBEROFITEMS; i++)
             {
-                IQueryable<Container> containers = this.MockContainer.Object.GetAll();
-
-                // TODO: Change elementAt to some "random" number
-                // for some more distributed results.
-                Container container = containers.ElementAt(i);
-
-                yield return new Item()
+                Item item = new Item()
                 {
                     item_id = 0000 + i,
                     title = $"Test Item#{i}",
                     description = $"Test Description#{i}",
-                    Container = container,
                     updated_at = default(DateTime),
                     created_at = default(DateTime)
                 };
+
+                yield return item;
             }
         }
 
@@ -181,11 +177,36 @@ namespace GtdApp.Logic.Tests
         /// <returns>IEnumerable Item notification connections</returns>
         private IEnumerable<Item_notification> GenerateItemNotifications()
         {
-            yield return new Item_notification()
+            int i = 1;
+            yield return this.GenerateItemNotification(ref i, 2, 1);
+            yield return this.GenerateItemNotification(ref i, 1, 2);
+            yield return this.GenerateItemNotification(ref i, 1, 3);
+
+            yield return this.GenerateItemNotification(ref i, 2, 1);
+
+            yield return this.GenerateItemNotification(ref i, 3, 2);
+
+            yield return this.GenerateItemNotification(ref i, 4, 1);
+            yield return this.GenerateItemNotification(ref i, 4, 3);
+        }
+
+        /// <summary>
+        ///     Returns an item notification
+        /// </summary>
+        /// <param name="id">Id</param>
+        /// <param name="itemId">Item id</param>
+        /// <param name="notificatitonId">Notification id</param>
+        /// <returns>Item notification connection</returns>
+        private Item_notification GenerateItemNotification(ref int id, int itemId, int notificatitonId)
+        {
+            IQueryable<Item> items = this.MockItem.Object.GetAll();
+            IQueryable<Notification> notifications = this.MockNotification.Object.GetAll();
+
+            return new Item_notification()
             {
-                id = 00001,
-                Item = new Item(),
-                Notification = new Notification(),
+                id = 0000 + id++,
+                Item = items.ElementAt(itemId),
+                Notification = notifications.ElementAt(notificatitonId),
                 updated_at = default(DateTime),
                 created_at = default(DateTime)
             };
@@ -210,14 +231,23 @@ namespace GtdApp.Logic.Tests
         /// <returns>IEnumerable Containers</returns>
         private IEnumerable<Container> GenerateContainers()
         {
-            for (int i = 0; i < BusinessLogicTests.NUMBEROFCONTAINERS; i++)
+            IQueryable<Item> items = this.MockItem.Object.GetAll();
+            for (int i = 1; i <= BusinessLogicTests.NUMBEROFCONTAINERS; i++)
             {
+                List<Item> item = new List<Item>();
+
+                if (i > 1)
+                {
+                    item.Add(items.ElementAt(i));
+                }
+
                 yield return new Container()
                 {
                     container_id = 0000 + i,
                     name = $"Test Controller#{i}",
                     principles = $"Test Principle#{i}",
                     type = $"TestType#{i}",
+                    Item = item,
                     purpose = $"Test Purpose#{i}",
                     updated_at = default(DateTime),
                     created_at = default(DateTime)

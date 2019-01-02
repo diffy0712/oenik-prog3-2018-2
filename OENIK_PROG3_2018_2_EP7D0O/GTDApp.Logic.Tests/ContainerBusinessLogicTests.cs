@@ -50,13 +50,23 @@ namespace GtdApp.Logic.Tests
         }
 
         /// <summary>
-        ///     Test the save method's calling for insertion (container_id is not declared)
+        ///     Test if the container is removable if it has no item.
         /// </summary>
         [Test]
         public void IsContainerRemovableIfHasNoItems()
         {
             Container testNewContainer = this.MockContainer.Object.GetAll().First();
             Assert.That(this.BusinessLogic.IsContainerRemovable(testNewContainer), Is.EqualTo(true));
+        }
+
+        /// <summary>
+        ///     Test the save method's calling for insertion (container_id is not declared)
+        /// </summary>
+        [Test]
+        public void IsContainerNotRemovableIfHasItems()
+        {
+            Container testNewContainer = this.MockContainer.Object.GetAll().ElementAt(3);
+            Assert.That(this.BusinessLogic.IsContainerRemovable(testNewContainer), Is.EqualTo(false));
         }
     }
 }
