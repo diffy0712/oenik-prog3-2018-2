@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessLogicTests.cs" />
+    <Compile Include="NotificationBusinessLogicTests.cs" />
     <Compile Include="ItemBusinessLogicTests.cs" />
     <Compile Include="ContainerBusinessLogicTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
