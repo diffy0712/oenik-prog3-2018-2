@@ -8,6 +8,7 @@
 namespace GtdApp.Logic.Routing
 {
     using System.Reflection;
+    using System.Runtime.InteropServices;
     using GtdApp.Logic.Interfaces;
 
     /// <summary>
@@ -30,8 +31,8 @@ namespace GtdApp.Logic.Routing
         /// <summary>
         ///     Gets or sets Method
         /// </summary>
-        /// <value>MethodInfo</value>
-        public MethodInfo Method { get; set; }
+        /// <value>_MethodInfo</value>
+        public _MethodInfo Method { get; set; }
 
         /// <summary>
         ///     Gets or sets Parameters

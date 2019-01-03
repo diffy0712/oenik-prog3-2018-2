@@ -64,6 +64,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessLogicTests.cs" />
+    <Compile Include="Controller\EmptyController.cs" />
+    <Compile Include="Controller\TestController.cs" />
+    <Compile Include="Exceptions\TestRouteWithParametersPassedException.cs" />
+    <Compile Include="RouterHelperTests.cs" />
+    <Compile Include="RouterTests.cs" />
     <Compile Include="NotificationBusinessLogicTests.cs" />
     <Compile Include="ItemBusinessLogicTests.cs" />
     <Compile Include="ContainerBusinessLogicTests.cs" />

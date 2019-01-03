@@ -25,31 +25,6 @@ namespace GtdApp.Logic.Routing
     public static class RouterHelper
     {
         /// <summary>
-        ///     We push null to every parameter the method expects.
-        ///     Fixme: This should not be here I assume I made some mistake
-        ///            , because it throws exceptions for not having parameters.
-        ///            so debug it and if needed fix.
-        /// </summary>
-        /// <param name="route">Route instance to use</param>
-        /// <param name="parameters">Parameters to pass to the method</param>
-        public static void PrepareRouteParametersForInvoke(ref Route route, object[] parameters = null)
-        {
-            if (parameters != null)
-            {
-                route.Parameters = parameters;
-                return;
-            }
-
-            parameters = new object[route.Method.GetParameters().Length];
-            for (int i = 0; i < parameters.Length; i++)
-            {
-                parameters[i] = null;
-            }
-
-            route.Parameters = parameters;
-        }
-
-        /// <summary>
         ///     LoadControllersFromNamespaceDLL
         ///     HelpMe/Fixme: Loading all instances into a list and than calling from it as needed
         ///                   might be too much if we have big or much controllers.
@@ -62,7 +37,15 @@ namespace GtdApp.Logic.Routing
         {
             List<IController> controllers = new List<IController>();
 
-            var q = from t in Assembly.GetEntryAssembly().GetTypes()
+            Assembly assembly = Assembly.GetEntryAssembly();
+            if (assembly is null)
+            {
+                // In nUnit tests the Assembly.GetEntryAssembly is null,
+                // so we can use getCallingAssembly instead
+                assembly = Assembly.GetCallingAssembly();
+            }
+
+            IEnumerable<Type> q = from t in assembly.GetTypes()
                     where t.IsClass && t.Namespace == nameSpace
                     select t;
 

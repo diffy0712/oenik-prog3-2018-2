@@ -21,7 +21,7 @@ namespace GtdApp.Logic.Routing
         ///     Gets or sets Controllers
         /// </summary>
         /// <value>List of IController</value>
-        private List<IController> controllers;
+        public List<IController> Controllers { get; set; }
 
         /// <summary>
         ///     Fetch the controllers from the specified namespace
@@ -31,7 +31,7 @@ namespace GtdApp.Logic.Routing
         public static Router Init(string nameSpace)
         {
             Router router = new Router();
-            router.controllers = RouterHelper.LoadControllersFromDLLNamespace(nameSpace, null);
+            router.Controllers = RouterHelper.LoadControllersFromDLLNamespace(nameSpace, null);
             return router;
         }
 
@@ -42,8 +42,18 @@ namespace GtdApp.Logic.Routing
         /// <param name="parameters">Parameters to send</param>
         public void Call(string controllerName = null, object[] parameters = null)
         {
-            Route routeToInvoke = RouterHelper.GetRouteToInvoke(this.controllers, controllerName);
-            RouterHelper.PrepareRouteParametersForInvoke(ref routeToInvoke, parameters);
+            Route routeToInvoke = RouterHelper.GetRouteToInvoke(this.Controllers, controllerName);
+            this.CallRoute(routeToInvoke, parameters);
+        }
+
+        /// <summary>
+        ///     Call a Route
+        /// </summary>
+        /// <param name="routeToInvoke">Route to invoke</param>
+        /// <param name="parameters">Parameters to send</param>
+        public void CallRoute(Route routeToInvoke, object[] parameters = null)
+        {
+            this.PrepareRouteParametersForInvoke(ref routeToInvoke, parameters);
 
             // IMPORTANT: In order to VS handle the exceptions
             //            from the method MethodInfo.Invoke as NOT
@@ -58,10 +68,35 @@ namespace GtdApp.Logic.Routing
             {
                 throw ex.InnerException;
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
+        }
+
+        /// <summary>
+        ///     We push null to every parameter the method expects.
+        ///     Fixme: This should not be here I assume I made some mistake
+        ///            , because it throws exceptions for not having parameters.
+        ///            so debug it and if needed fix.
+        /// </summary>
+        /// <param name="route">Route instance to use</param>
+        /// <param name="parameters">Parameters to pass to the method</param>
+        private void PrepareRouteParametersForInvoke(ref Route route, object[] parameters = null)
+        {
+            if (parameters != null)
+            {
+                route.Parameters = parameters;
+                return;
+            }
+
+            parameters = new object[route.Method.GetParameters().Length];
+            for (int i = 0; i < parameters.Length; i++)
+            {
+                parameters[i] = null;
+            }
+
+            route.Parameters = parameters;
         }
     }
 }
