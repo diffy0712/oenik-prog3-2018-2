@@ -48,5 +48,25 @@ namespace GtdApp.Logic.Tests.BusinessLogic
             this.BusinessLogic.RemoveNotification(testNotification);
             this.MockNotification.Verify(x => x.Remove(testNotification), Times.Once);
         }
+
+        /// <summary>
+        ///     IsNotificationRemovableIfHasNoItem
+        /// </summary>
+        [Test]
+        public void IsNotificationRemovableIfHasNoItem()
+        {
+            Notification testNotification = this.MockNotification.Object.GetAll().ElementAt(4);
+            Assert.That(this.BusinessLogic.IsNotificationRemovable(testNotification), Is.EqualTo(true));
+        }
+
+        /// <summary>
+        ///     IsNotificationNotRemovableIfHasItems
+        /// </summary>
+        [Test]
+        public void IsNotificationNotRemovableIfHasItems()
+        {
+            Notification testNotification = this.MockNotification.Object.GetAll().ElementAt(3);
+            Assert.That(this.BusinessLogic.IsNotificationRemovable(testNotification), Is.EqualTo(false));
+        }
     }
 }
