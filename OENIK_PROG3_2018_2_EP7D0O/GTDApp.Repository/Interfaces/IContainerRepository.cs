@@ -17,13 +17,6 @@ namespace GtdApp.Repository.Interfaces
     public interface IContainerRepository : IRepository<Container>
     {
         /// <summary>
-        ///     GetMostRecentContainers
-        /// </summary>
-        /// <param name="count">Number of items</param>
-        /// <returns>IQueryable</returns>
-        IQueryable<Container> GetMostRecentContainers(int count);
-
-        /// <summary>
         ///     SearchAll
         /// </summary>
         /// <param name="search">String</param>

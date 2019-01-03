@@ -29,24 +29,6 @@ namespace GtdApp.Repository
         /// <summary>
         ///     SearchAll
         /// </summary>
-        /// <param name="search">String</param>
-        /// <param name="paginator">Paginator instance</param>
-        /// <returns>IQueryable</returns>
-        public IQueryable<Item> SearchAll(string search, Paginator paginator)
-        {
-            var g = this.GtdEntityDataModel.Item
-                .Include("Item_notifications")
-                .OrderByDescending(x => x.Item_notification.Count)
-                .Where(p => p.title.Contains(search));
-
-            paginator.Maximum = g.Count();
-
-            return g.Skip(paginator.Skip).Take(paginator.PerPage);
-        }
-
-        /// <summary>
-        ///     SearchAll
-        /// </summary>
         /// <param name="container">int</param>
         /// <param name="search">String</param>
         /// <param name="paginator">Paginator instance</param>
@@ -58,20 +40,6 @@ namespace GtdApp.Repository
                     where item.title.Contains(search)
                     orderby item.item_id
                     select item;
-
-            paginator.Maximum = g.Count();
-
-            return g.Skip(paginator.Skip).Take(paginator.PerPage);
-        }
-
-        /// <summary>
-        ///      GetAll
-        /// </summary>
-        /// <returns>IQueryable</returns>
-        /// <param name="paginator">Paginator instance</param>
-        public IQueryable<Item> GetAll(Paginator paginator)
-        {
-            var g = this.GtdEntityDataModel.Item.OrderBy(x => x.item_id);
 
             paginator.Maximum = g.Count();
 

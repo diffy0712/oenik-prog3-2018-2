@@ -23,14 +23,6 @@ namespace GtdApp.Repository.Interfaces
         IQueryable<Item> GetMostRecentItems(int count);
 
         /// <summary>
-        ///     SearchAll
-        /// </summary>
-        /// <param name="search">String</param>
-        /// <param name="paginator">Paginator instance</param>
-        /// <returns>IQueryable</returns>
-        IQueryable<Item> SearchAll(string search, Paginator paginator);
-
-        /// <summary>
         ///     SearchAllByContainer
         /// </summary>
         /// <param name="container">Container</param>

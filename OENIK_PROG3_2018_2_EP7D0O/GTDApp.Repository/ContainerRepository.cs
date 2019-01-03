@@ -66,29 +66,5 @@ namespace GtdApp.Repository
 
             return g.Skip(paginator.Skip).Take(paginator.PerPage);
         }
-
-        /// <summary>
-        ///      GetAll
-        /// </summary>
-        /// <returns>IQueryable</returns>
-        /// <param name="paginator">Paginator instance</param>
-        public IQueryable<Container> GetAll(Paginator paginator)
-        {
-            var g = this.GtdEntityDataModel.Container.OrderBy(x => x.container_id);
-
-            paginator.Maximum = g.Count();
-
-            return g.Skip(paginator.Skip).Take(paginator.PerPage);
-        }
-
-        /// <summary>
-        ///      GetMostRecentContainers
-        /// </summary>
-        /// <returns>IQueryable</returns>
-        /// <param name="count">int</param>
-        public IQueryable<Container> GetMostRecentContainers(int count)
-        {
-            return this.GtdEntityDataModel.Container.OrderByDescending(c => c.container_id).Take(count);
-        }
     }
 }

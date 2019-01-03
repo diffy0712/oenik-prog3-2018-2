@@ -57,19 +57,5 @@ namespace GtdApp.Repository
 
             return g;
         }
-
-        /// <summary>
-        ///      GetAll
-        /// </summary>
-        /// <returns>IQueryable</returns>
-        /// <param name="paginator">Paginator instance</param>
-        public IQueryable<Notification> GetAll(Paginator paginator)
-        {
-            var g = this.GtdEntityDataModel.Notification.OrderBy(x => x.notification_id);
-
-            paginator.Maximum = g.Count();
-
-            return g.Skip(paginator.Skip).Take(paginator.PerPage);
-        }
     }
 }

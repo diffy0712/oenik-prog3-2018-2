@@ -18,14 +18,6 @@ namespace GtdApp.Logic.Exceptions
         /// Initializes a new instance of the <see cref="JSONApiCallFailedException"/> class.
         ///     JSONApiCallFailedException
         /// </summary>
-        public JSONApiCallFailedException()
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="JSONApiCallFailedException"/> class.
-        ///     JSONApiCallFailedException
-        /// </summary>
         /// <param name="message">Message string</param>
         public JSONApiCallFailedException(string message)
             : base(message)
