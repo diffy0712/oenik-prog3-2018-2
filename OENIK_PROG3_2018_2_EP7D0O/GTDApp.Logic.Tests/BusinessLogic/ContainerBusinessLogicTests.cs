@@ -35,7 +35,7 @@ namespace GtdApp.Logic.Tests.BusinessLogic
             };
 
             this.BusinessLogic.SaveContainer(testNewContainer);
-            this.MockContainer.Verify(x => x.Add(testNewContainer), Times.Once);
+            this.MockContainerRepository.Verify(x => x.Add(testNewContainer), Times.Once);
         }
 
         /// <summary>
@@ -44,9 +44,9 @@ namespace GtdApp.Logic.Tests.BusinessLogic
         [Test]
         public void DoesRemoveContainerRemovesContainer()
         {
-            Container testNewContainer = this.MockContainer.Object.GetAll().First();
+            Container testNewContainer = this.Containers.First();
             this.BusinessLogic.RemoveContainer(testNewContainer);
-            this.MockContainer.Verify(x => x.Remove(testNewContainer), Times.Once);
+            this.MockContainerRepository.Verify(x => x.Remove(testNewContainer), Times.Once);
         }
 
         /// <summary>
@@ -55,7 +55,7 @@ namespace GtdApp.Logic.Tests.BusinessLogic
         [Test]
         public void IsContainerRemovableIfHasNoItems()
         {
-            Container testNewContainer = this.MockContainer.Object.GetAll().First();
+            Container testNewContainer = this.Containers.First();
             Assert.That(this.BusinessLogic.IsContainerRemovable(testNewContainer), Is.EqualTo(true));
         }
 
@@ -65,7 +65,7 @@ namespace GtdApp.Logic.Tests.BusinessLogic
         [Test]
         public void IsContainerNotRemovableIfHasItems()
         {
-            Container testNewContainer = this.MockContainer.Object.GetAll().ElementAt(3);
+            Container testNewContainer = this.Containers.ElementAt(3);
             Assert.That(this.BusinessLogic.IsContainerRemovable(testNewContainer), Is.EqualTo(false));
         }
     }
