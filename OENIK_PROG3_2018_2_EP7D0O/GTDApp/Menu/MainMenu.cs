@@ -29,7 +29,6 @@ namespace GtdApp.Console.Menu
             this.menu = new Menu();
             MenuItem fileMenuItem = new MenuItem() { Name = "_File" };
             fileMenuItem.Items.Add(new MenuItem() { RouteName = RoutesEnum.DASHBOARD.ToString(), Name = "_Dashboard" });
-            fileMenuItem.Items.Add(new MenuItem() { RouteName = RoutesEnum.JAVA_WEB.ToString(), Name = "_Java Web" });
 
             this.menu.Items.Add(fileMenuItem);
 

@@ -93,11 +93,6 @@ namespace GtdApp.Console
         DELETE_NOTIFICATION,
 
         /// <summary>
-        ///     Java web route
-        /// </summary>
-        JAVA_WEB,
-
-        /// <summary>
         ///     Fatal error route
         /// </summary>
         FATAL_ERROR,

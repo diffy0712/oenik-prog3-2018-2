@@ -118,7 +118,6 @@
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\ContainerController.cs" />
     <Compile Include="Controllers\ItemController.cs" />
-    <Compile Include="Controllers\JavaWebController.cs" />
     <Compile Include="Exceptions\Handlers\DetailedExceptionHandler.cs" />
     <Compile Include="Exceptions\Handlers\GenericExceptionHandler.cs" />
     <Compile Include="Exceptions\Handlers\NullExceptionHandler.cs" />
@@ -139,7 +138,6 @@
     <Compile Include="Views\Items\DeleteItemView.cs" />
     <Compile Include="Views\Items\ListItemsView.cs" />
     <Compile Include="Views\Items\ManageItemView.cs" />
-    <Compile Include="Views\JavaWebView.cs" />
     <Compile Include="Views\Modals\ValidationErrorMessageModalView.cs" />
     <Compile Include="Views\Notifications\DeleteNotificationView.cs" />
     <Compile Include="Views\Notifications\ListNotificationsView.cs" />
