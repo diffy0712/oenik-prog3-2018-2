@@ -1,70 +1,73 @@
-\hypertarget{class_gtd_app_1_1_logic_1_1_business_logic}{}\section{Gtd\+App.\+Logic.\+Business\+Logic Class Reference}
+\section{Gtd\+App.\+Logic.\+Business\+Logic Class Reference}
 \label{class_gtd_app_1_1_logic_1_1_business_logic}\index{Gtd\+App.\+Logic.\+Business\+Logic@{Gtd\+App.\+Logic.\+Business\+Logic}}
 
 
-\mbox{\hyperlink{class_gtd_app_1_1_logic_1_1_business_logic}{Business\+Logic}}  
+\doxyref{Business\+Logic}{p.}{class_gtd_app_1_1_logic_1_1_business_logic}  
 
 
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{class_gtd_app_1_1_logic_1_1_business_logic_a3f4cfe75f394a2ddc67edb42ef46cfdf}{Remove\+Container}} (\mbox{\hyperlink{class_gtd_app_1_1_data_1_1_container}{Container}} container)
+bool \textbf{ Is\+Container\+Removable} (\textbf{ Container} container)
+\begin{DoxyCompactList}\small\item\em Only empty containers can be removed. A container is empty if it has no item. \end{DoxyCompactList}\item 
+bool \textbf{ Is\+Item\+Removable} (\textbf{ Item} item)
+\begin{DoxyCompactList}\small\item\em An item is empty if it has no notification \end{DoxyCompactList}\item 
+bool \textbf{ Is\+Notification\+Removable} (\textbf{ Notification} notification)
+\begin{DoxyCompactList}\small\item\em A notification is empty if it has no item. \end{DoxyCompactList}\item 
+void \textbf{ Remove\+Container} (\textbf{ Container} container)
 \begin{DoxyCompactList}\small\item\em Remove\+Container \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_gtd_app_1_1_logic_1_1_business_logic_a8883b064d4c46a3a23b59650a86375a7}{Remove\+Item}} (\mbox{\hyperlink{class_gtd_app_1_1_data_1_1_item}{Item}} item)
+void \textbf{ Remove\+Item} (\textbf{ Item} item)
 \begin{DoxyCompactList}\small\item\em Remove\+Item \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_gtd_app_1_1_logic_1_1_business_logic_a5e37ed52aa905917ea518507f0830ecc}{Remove\+Notification}} (\mbox{\hyperlink{class_gtd_app_1_1_data_1_1_notification}{Notification}} notification)
+void \textbf{ Remove\+Notification} (\textbf{ Notification} notification)
 \begin{DoxyCompactList}\small\item\em Remove Notification \end{DoxyCompactList}\item 
-List$<$ string $>$ \mbox{\hyperlink{class_gtd_app_1_1_logic_1_1_business_logic_af56ec90b26a3fa39f67a6c54e3be2f9d}{Save\+Container}} (\mbox{\hyperlink{class_gtd_app_1_1_data_1_1_container}{Container}} container)
+List$<$ string $>$ \textbf{ Save\+Container} (\textbf{ Container} container)
 \begin{DoxyCompactList}\small\item\em Remove\+Container \end{DoxyCompactList}\item 
-List$<$ string $>$ \mbox{\hyperlink{class_gtd_app_1_1_logic_1_1_business_logic_aa2d4df27597225785568ee11da249971}{Save\+Item}} (\mbox{\hyperlink{class_gtd_app_1_1_data_1_1_item}{Item}} item)
+List$<$ string $>$ \textbf{ Save\+Item} (\textbf{ Item} item)
 \begin{DoxyCompactList}\small\item\em Remove\+Container \end{DoxyCompactList}\item 
-List$<$ string $>$ \mbox{\hyperlink{class_gtd_app_1_1_logic_1_1_business_logic_afa15e2ec378237a34cc2d8fd14c281d6}{Save\+Notification}} (\mbox{\hyperlink{class_gtd_app_1_1_data_1_1_notification}{Notification}} notification)
+List$<$ string $>$ \textbf{ Save\+Notification} (\textbf{ Notification} notification)
 \begin{DoxyCompactList}\small\item\em Remove Notification \end{DoxyCompactList}\item 
-List$<$ \mbox{\hyperlink{class_gtd_app_1_1_data_1_1_item}{Item}} $>$ \mbox{\hyperlink{class_gtd_app_1_1_logic_1_1_business_logic_afec34569688cddd4d4b5232372a99612}{Generate\+Items\+From\+J\+S\+ON}} (string json)
+List$<$ \textbf{ Item} $>$ \textbf{ Generate\+Items\+From\+J\+S\+ON} (string json)
 \begin{DoxyCompactList}\small\item\em Remove Notification \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{class_gtd_app_1_1_logic_1_1_business_logic_a57c1ed0fce56cce1be786e183b5bddd4}{Item\+Has\+Notification}} (\mbox{\hyperlink{class_gtd_app_1_1_data_1_1_item}{Item}} item, \mbox{\hyperlink{class_gtd_app_1_1_data_1_1_notification}{Notification}} notification)
+bool \textbf{ Item\+Has\+Notification} (\textbf{ Item} item, \textbf{ Notification} notification)
 \begin{DoxyCompactList}\small\item\em Item Has Notification \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_gtd_app_1_1_logic_1_1_business_logic_abacb4aa7a93675d3f564d2eaeb1c1a0d}{Remove\+Item\+Notification}} (\mbox{\hyperlink{class_gtd_app_1_1_data_1_1_item}{Item}} item, \mbox{\hyperlink{class_gtd_app_1_1_data_1_1_notification}{Notification}} notification)
-\begin{DoxyCompactList}\small\item\em Remove Item Notification \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_gtd_app_1_1_data_1_1_item__notification}{Item\+\_\+notification}} \mbox{\hyperlink{class_gtd_app_1_1_logic_1_1_business_logic_a0983441bb341546b8fd9f6ebfb55b0df}{Get\+Item\+Notification\+Connection}} (\mbox{\hyperlink{class_gtd_app_1_1_data_1_1_item}{Item}} item, \mbox{\hyperlink{class_gtd_app_1_1_data_1_1_notification}{Notification}} notification)
-\begin{DoxyCompactList}\small\item\em Get\+Item\+Notification\+Connection \end{DoxyCompactList}\end{DoxyCompactItemize}
+void \textbf{ Remove\+Item\+Notification} (\textbf{ Item} item, \textbf{ Notification} notification)
+\begin{DoxyCompactList}\small\item\em Remove Item Notification \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-static \mbox{\hyperlink{class_gtd_app_1_1_logic_1_1_business_logic}{Business\+Logic}} \mbox{\hyperlink{class_gtd_app_1_1_logic_1_1_business_logic_abadac4866339d761399e001b333ea829}{Init}} ()
-\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_gtd_app_1_1_logic_1_1_business_logic}{Business\+Logic}} \end{DoxyCompactList}\item 
-static bool \mbox{\hyperlink{class_gtd_app_1_1_logic_1_1_business_logic_a62422f0f7fedb58ed9681bc65e5927ed}{Is\+Container\+Removable}} (\mbox{\hyperlink{class_gtd_app_1_1_data_1_1_container}{Container}} container)
-\begin{DoxyCompactList}\small\item\em A container is empty if it has no item. \end{DoxyCompactList}\item 
-static bool \mbox{\hyperlink{class_gtd_app_1_1_logic_1_1_business_logic_a701d1378c420398991de26e17d60b810}{Is\+Item\+Removable}} (\mbox{\hyperlink{class_gtd_app_1_1_data_1_1_item}{Item}} item)
-\begin{DoxyCompactList}\small\item\em An item is empty if it has no notification \end{DoxyCompactList}\item 
-static bool \mbox{\hyperlink{class_gtd_app_1_1_logic_1_1_business_logic_a850d5c9c7bdc3377bc6333f5ea350560}{Is\+Notification\+Removable}} (\mbox{\hyperlink{class_gtd_app_1_1_data_1_1_notification}{Notification}} notification)
-\begin{DoxyCompactList}\small\item\em A notification is empty if it has no item. \end{DoxyCompactList}\end{DoxyCompactItemize}
+static \textbf{ Business\+Logic} \textbf{ Init} ()
+\begin{DoxyCompactList}\small\item\em \doxyref{Business\+Logic}{p.}{class_gtd_app_1_1_logic_1_1_business_logic} \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Properties}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_gtd_app_1_1_data_1_1_gtd_entity_data_model}{Gtd\+Entity\+Data\+Model}} \mbox{\hyperlink{class_gtd_app_1_1_logic_1_1_business_logic_a874b4e829adf02e8bbf80cdef657c81d}{Context}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
-\begin{DoxyCompactList}\small\item\em Gets or sets \mbox{\hyperlink{class_gtd_app_1_1_logic_1_1_business_logic}{Business\+Logic}} \end{DoxyCompactList}\item 
-\mbox{\hyperlink{interface_gtd_app_1_1_repository_1_1_interfaces_1_1_i_container_repository}{I\+Container\+Repository}} \mbox{\hyperlink{class_gtd_app_1_1_logic_1_1_business_logic_ace91111fd0843da6dc450eb0557437e2}{Container\+Repository}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\textbf{ Gtd\+Entity\+Data\+Model} \textbf{ Context}\hspace{0.3cm}{\ttfamily  [get, set]}
+\begin{DoxyCompactList}\small\item\em Gets or sets \doxyref{Business\+Logic}{p.}{class_gtd_app_1_1_logic_1_1_business_logic} \end{DoxyCompactList}\item 
+\textbf{ I\+Container\+Repository} \textbf{ Container\+Repository}\hspace{0.3cm}{\ttfamily  [get, set]}
 \begin{DoxyCompactList}\small\item\em Gets or sets Container\+Repository \end{DoxyCompactList}\item 
-\mbox{\hyperlink{interface_gtd_app_1_1_repository_1_1_interfaces_1_1_i_item_repository}{I\+Item\+Repository}} \mbox{\hyperlink{class_gtd_app_1_1_logic_1_1_business_logic_a51c7cd556dc40e5e0618b4820f325bf7}{Item\+Repository}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\textbf{ I\+Item\+Repository} \textbf{ Item\+Repository}\hspace{0.3cm}{\ttfamily  [get, set]}
 \begin{DoxyCompactList}\small\item\em Gets or sets Item\+Repository \end{DoxyCompactList}\item 
-\mbox{\hyperlink{interface_gtd_app_1_1_repository_1_1_interfaces_1_1_i_notification_repository}{I\+Notification\+Repository}} \mbox{\hyperlink{class_gtd_app_1_1_logic_1_1_business_logic_ae714d48c3f6c70bffd5557237a441ca0}{Notification\+Repository}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\textbf{ I\+Notification\+Repository} \textbf{ Notification\+Repository}\hspace{0.3cm}{\ttfamily  [get, set]}
 \begin{DoxyCompactList}\small\item\em Gets or sets Notification\+Repository \end{DoxyCompactList}\item 
-\mbox{\hyperlink{interface_gtd_app_1_1_repository_1_1_interfaces_1_1_i_item___notification_repository}{I\+Item\+\_\+\+Notification\+Repository}} \mbox{\hyperlink{class_gtd_app_1_1_logic_1_1_business_logic_a1f6fdb6a8c3e4d590eb6c539abe4d24a}{Item\+\_\+\+Notification\+Repository}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\textbf{ I\+Item\+\_\+\+Notification\+Repository} \textbf{ Item\+\_\+\+Notification\+Repository}\hspace{0.3cm}{\ttfamily  [get, set]}
 \begin{DoxyCompactList}\small\item\em Gets or sets Item\+\_\+\+Notification\+Repository \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Item\+\_\+notification} \textbf{ Get\+Item\+Notification\+Connection} (\textbf{ Item} item, \textbf{ Notification} notification)
+\begin{DoxyCompactList}\small\item\em Get\+Item\+Notification\+Connection \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-\mbox{\hyperlink{class_gtd_app_1_1_logic_1_1_business_logic}{Business\+Logic}} 
+\doxyref{Business\+Logic}{p.}{class_gtd_app_1_1_logic_1_1_business_logic} 
 
 
 
 \subsection{Member Function Documentation}
-\mbox{\Hypertarget{class_gtd_app_1_1_logic_1_1_business_logic_afec34569688cddd4d4b5232372a99612}\label{class_gtd_app_1_1_logic_1_1_business_logic_afec34569688cddd4d4b5232372a99612}} 
+\mbox{\label{class_gtd_app_1_1_logic_1_1_business_logic_afec34569688cddd4d4b5232372a99612}} 
 \index{Gtd\+App\+::\+Logic\+::\+Business\+Logic@{Gtd\+App\+::\+Logic\+::\+Business\+Logic}!Generate\+Items\+From\+J\+S\+ON@{Generate\+Items\+From\+J\+S\+ON}}
 \index{Generate\+Items\+From\+J\+S\+ON@{Generate\+Items\+From\+J\+S\+ON}!Gtd\+App\+::\+Logic\+::\+Business\+Logic@{Gtd\+App\+::\+Logic\+::\+Business\+Logic}}
-\subsubsection{\texorpdfstring{Generate\+Items\+From\+J\+S\+O\+N()}{GenerateItemsFromJSON()}}
-{\footnotesize\ttfamily List$<$\mbox{\hyperlink{class_gtd_app_1_1_data_1_1_item}{Item}}$>$ Gtd\+App.\+Logic.\+Business\+Logic.\+Generate\+Items\+From\+J\+S\+ON (\begin{DoxyParamCaption}\item[{string}]{json }\end{DoxyParamCaption})}
+\subsubsection{Generate\+Items\+From\+J\+S\+O\+N()}
+{\footnotesize\ttfamily List$<$\textbf{ Item}$>$ Gtd\+App.\+Logic.\+Business\+Logic.\+Generate\+Items\+From\+J\+S\+ON (\begin{DoxyParamCaption}\item[{string}]{json }\end{DoxyParamCaption})}
 
 
 
@@ -78,11 +81,11 @@ Remove Notification
 \begin{DoxyReturn}{Returns}
 List of strings
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_gtd_app_1_1_logic_1_1_business_logic_a0983441bb341546b8fd9f6ebfb55b0df}\label{class_gtd_app_1_1_logic_1_1_business_logic_a0983441bb341546b8fd9f6ebfb55b0df}} 
+\mbox{\label{class_gtd_app_1_1_logic_1_1_business_logic_a0983441bb341546b8fd9f6ebfb55b0df}} 
 \index{Gtd\+App\+::\+Logic\+::\+Business\+Logic@{Gtd\+App\+::\+Logic\+::\+Business\+Logic}!Get\+Item\+Notification\+Connection@{Get\+Item\+Notification\+Connection}}
 \index{Get\+Item\+Notification\+Connection@{Get\+Item\+Notification\+Connection}!Gtd\+App\+::\+Logic\+::\+Business\+Logic@{Gtd\+App\+::\+Logic\+::\+Business\+Logic}}
-\subsubsection{\texorpdfstring{Get\+Item\+Notification\+Connection()}{GetItemNotificationConnection()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_gtd_app_1_1_data_1_1_item__notification}{Item\+\_\+notification}} Gtd\+App.\+Logic.\+Business\+Logic.\+Get\+Item\+Notification\+Connection (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_gtd_app_1_1_data_1_1_item}{Item}}}]{item,  }\item[{\mbox{\hyperlink{class_gtd_app_1_1_data_1_1_notification}{Notification}}}]{notification }\end{DoxyParamCaption})}
+\subsubsection{Get\+Item\+Notification\+Connection()}
+{\footnotesize\ttfamily \textbf{ Item\+\_\+notification} Gtd\+App.\+Logic.\+Business\+Logic.\+Get\+Item\+Notification\+Connection (\begin{DoxyParamCaption}\item[{\textbf{ Item}}]{item,  }\item[{\textbf{ Notification}}]{notification }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
 
 
@@ -98,28 +101,28 @@ Get\+Item\+Notification\+Connection
 \begin{DoxyReturn}{Returns}
 Item\+\_\+notification
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_gtd_app_1_1_logic_1_1_business_logic_abadac4866339d761399e001b333ea829}\label{class_gtd_app_1_1_logic_1_1_business_logic_abadac4866339d761399e001b333ea829}} 
+\mbox{\label{class_gtd_app_1_1_logic_1_1_business_logic_abadac4866339d761399e001b333ea829}} 
 \index{Gtd\+App\+::\+Logic\+::\+Business\+Logic@{Gtd\+App\+::\+Logic\+::\+Business\+Logic}!Init@{Init}}
 \index{Init@{Init}!Gtd\+App\+::\+Logic\+::\+Business\+Logic@{Gtd\+App\+::\+Logic\+::\+Business\+Logic}}
-\subsubsection{\texorpdfstring{Init()}{Init()}}
-{\footnotesize\ttfamily static \mbox{\hyperlink{class_gtd_app_1_1_logic_1_1_business_logic}{Business\+Logic}} Gtd\+App.\+Logic.\+Business\+Logic.\+Init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+\subsubsection{Init()}
+{\footnotesize\ttfamily static \textbf{ Business\+Logic} Gtd\+App.\+Logic.\+Business\+Logic.\+Init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
-\mbox{\hyperlink{class_gtd_app_1_1_logic_1_1_business_logic}{Business\+Logic}} 
+\doxyref{Business\+Logic}{p.}{class_gtd_app_1_1_logic_1_1_business_logic} 
 
 \begin{DoxyReturn}{Returns}
-new \mbox{\hyperlink{class_gtd_app_1_1_logic_1_1_business_logic}{Business\+Logic}} instance
+new \doxyref{Business\+Logic}{p.}{class_gtd_app_1_1_logic_1_1_business_logic} instance
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_gtd_app_1_1_logic_1_1_business_logic_a62422f0f7fedb58ed9681bc65e5927ed}\label{class_gtd_app_1_1_logic_1_1_business_logic_a62422f0f7fedb58ed9681bc65e5927ed}} 
+\mbox{\label{class_gtd_app_1_1_logic_1_1_business_logic_aadc05d25befd22ed7c3c4e6373633cfc}} 
 \index{Gtd\+App\+::\+Logic\+::\+Business\+Logic@{Gtd\+App\+::\+Logic\+::\+Business\+Logic}!Is\+Container\+Removable@{Is\+Container\+Removable}}
 \index{Is\+Container\+Removable@{Is\+Container\+Removable}!Gtd\+App\+::\+Logic\+::\+Business\+Logic@{Gtd\+App\+::\+Logic\+::\+Business\+Logic}}
-\subsubsection{\texorpdfstring{Is\+Container\+Removable()}{IsContainerRemovable()}}
-{\footnotesize\ttfamily static bool Gtd\+App.\+Logic.\+Business\+Logic.\+Is\+Container\+Removable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_gtd_app_1_1_data_1_1_container}{Container}}}]{container }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+\subsubsection{Is\+Container\+Removable()}
+{\footnotesize\ttfamily bool Gtd\+App.\+Logic.\+Business\+Logic.\+Is\+Container\+Removable (\begin{DoxyParamCaption}\item[{\textbf{ Container}}]{container }\end{DoxyParamCaption})}
 
 
 
-A container is empty if it has no item. 
+Only empty containers can be removed. A container is empty if it has no item. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -129,11 +132,11 @@ A container is empty if it has no item.
 \begin{DoxyReturn}{Returns}
 Boolean
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_gtd_app_1_1_logic_1_1_business_logic_a701d1378c420398991de26e17d60b810}\label{class_gtd_app_1_1_logic_1_1_business_logic_a701d1378c420398991de26e17d60b810}} 
+\mbox{\label{class_gtd_app_1_1_logic_1_1_business_logic_a97c80cedd58471ce55c7cbeb10a274fe}} 
 \index{Gtd\+App\+::\+Logic\+::\+Business\+Logic@{Gtd\+App\+::\+Logic\+::\+Business\+Logic}!Is\+Item\+Removable@{Is\+Item\+Removable}}
 \index{Is\+Item\+Removable@{Is\+Item\+Removable}!Gtd\+App\+::\+Logic\+::\+Business\+Logic@{Gtd\+App\+::\+Logic\+::\+Business\+Logic}}
-\subsubsection{\texorpdfstring{Is\+Item\+Removable()}{IsItemRemovable()}}
-{\footnotesize\ttfamily static bool Gtd\+App.\+Logic.\+Business\+Logic.\+Is\+Item\+Removable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_gtd_app_1_1_data_1_1_item}{Item}}}]{item }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+\subsubsection{Is\+Item\+Removable()}
+{\footnotesize\ttfamily bool Gtd\+App.\+Logic.\+Business\+Logic.\+Is\+Item\+Removable (\begin{DoxyParamCaption}\item[{\textbf{ Item}}]{item }\end{DoxyParamCaption})}
 
 
 
@@ -147,11 +150,11 @@ An item is empty if it has no notification
 \begin{DoxyReturn}{Returns}
 Boolean
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_gtd_app_1_1_logic_1_1_business_logic_a850d5c9c7bdc3377bc6333f5ea350560}\label{class_gtd_app_1_1_logic_1_1_business_logic_a850d5c9c7bdc3377bc6333f5ea350560}} 
+\mbox{\label{class_gtd_app_1_1_logic_1_1_business_logic_a0831747dfa01107c12eedaf05c2fb251}} 
 \index{Gtd\+App\+::\+Logic\+::\+Business\+Logic@{Gtd\+App\+::\+Logic\+::\+Business\+Logic}!Is\+Notification\+Removable@{Is\+Notification\+Removable}}
 \index{Is\+Notification\+Removable@{Is\+Notification\+Removable}!Gtd\+App\+::\+Logic\+::\+Business\+Logic@{Gtd\+App\+::\+Logic\+::\+Business\+Logic}}
-\subsubsection{\texorpdfstring{Is\+Notification\+Removable()}{IsNotificationRemovable()}}
-{\footnotesize\ttfamily static bool Gtd\+App.\+Logic.\+Business\+Logic.\+Is\+Notification\+Removable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_gtd_app_1_1_data_1_1_notification}{Notification}}}]{notification }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+\subsubsection{Is\+Notification\+Removable()}
+{\footnotesize\ttfamily bool Gtd\+App.\+Logic.\+Business\+Logic.\+Is\+Notification\+Removable (\begin{DoxyParamCaption}\item[{\textbf{ Notification}}]{notification }\end{DoxyParamCaption})}
 
 
 
@@ -165,11 +168,11 @@ A notification is empty if it has no item.
 \begin{DoxyReturn}{Returns}
 Boolean
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_gtd_app_1_1_logic_1_1_business_logic_a57c1ed0fce56cce1be786e183b5bddd4}\label{class_gtd_app_1_1_logic_1_1_business_logic_a57c1ed0fce56cce1be786e183b5bddd4}} 
+\mbox{\label{class_gtd_app_1_1_logic_1_1_business_logic_a57c1ed0fce56cce1be786e183b5bddd4}} 
 \index{Gtd\+App\+::\+Logic\+::\+Business\+Logic@{Gtd\+App\+::\+Logic\+::\+Business\+Logic}!Item\+Has\+Notification@{Item\+Has\+Notification}}
 \index{Item\+Has\+Notification@{Item\+Has\+Notification}!Gtd\+App\+::\+Logic\+::\+Business\+Logic@{Gtd\+App\+::\+Logic\+::\+Business\+Logic}}
-\subsubsection{\texorpdfstring{Item\+Has\+Notification()}{ItemHasNotification()}}
-{\footnotesize\ttfamily bool Gtd\+App.\+Logic.\+Business\+Logic.\+Item\+Has\+Notification (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_gtd_app_1_1_data_1_1_item}{Item}}}]{item,  }\item[{\mbox{\hyperlink{class_gtd_app_1_1_data_1_1_notification}{Notification}}}]{notification }\end{DoxyParamCaption})}
+\subsubsection{Item\+Has\+Notification()}
+{\footnotesize\ttfamily bool Gtd\+App.\+Logic.\+Business\+Logic.\+Item\+Has\+Notification (\begin{DoxyParamCaption}\item[{\textbf{ Item}}]{item,  }\item[{\textbf{ Notification}}]{notification }\end{DoxyParamCaption})}
 
 
 
@@ -185,11 +188,11 @@ Item Has Notification
 \begin{DoxyReturn}{Returns}
 List of strings
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_gtd_app_1_1_logic_1_1_business_logic_a3f4cfe75f394a2ddc67edb42ef46cfdf}\label{class_gtd_app_1_1_logic_1_1_business_logic_a3f4cfe75f394a2ddc67edb42ef46cfdf}} 
+\mbox{\label{class_gtd_app_1_1_logic_1_1_business_logic_a3f4cfe75f394a2ddc67edb42ef46cfdf}} 
 \index{Gtd\+App\+::\+Logic\+::\+Business\+Logic@{Gtd\+App\+::\+Logic\+::\+Business\+Logic}!Remove\+Container@{Remove\+Container}}
 \index{Remove\+Container@{Remove\+Container}!Gtd\+App\+::\+Logic\+::\+Business\+Logic@{Gtd\+App\+::\+Logic\+::\+Business\+Logic}}
-\subsubsection{\texorpdfstring{Remove\+Container()}{RemoveContainer()}}
-{\footnotesize\ttfamily void Gtd\+App.\+Logic.\+Business\+Logic.\+Remove\+Container (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_gtd_app_1_1_data_1_1_container}{Container}}}]{container }\end{DoxyParamCaption})}
+\subsubsection{Remove\+Container()}
+{\footnotesize\ttfamily void Gtd\+App.\+Logic.\+Business\+Logic.\+Remove\+Container (\begin{DoxyParamCaption}\item[{\textbf{ Container}}]{container }\end{DoxyParamCaption})}
 
 
 
@@ -200,11 +203,11 @@ Remove\+Container
 {\em container} & Container instance\\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{class_gtd_app_1_1_logic_1_1_business_logic_a8883b064d4c46a3a23b59650a86375a7}\label{class_gtd_app_1_1_logic_1_1_business_logic_a8883b064d4c46a3a23b59650a86375a7}} 
+\mbox{\label{class_gtd_app_1_1_logic_1_1_business_logic_a8883b064d4c46a3a23b59650a86375a7}} 
 \index{Gtd\+App\+::\+Logic\+::\+Business\+Logic@{Gtd\+App\+::\+Logic\+::\+Business\+Logic}!Remove\+Item@{Remove\+Item}}
 \index{Remove\+Item@{Remove\+Item}!Gtd\+App\+::\+Logic\+::\+Business\+Logic@{Gtd\+App\+::\+Logic\+::\+Business\+Logic}}
-\subsubsection{\texorpdfstring{Remove\+Item()}{RemoveItem()}}
-{\footnotesize\ttfamily void Gtd\+App.\+Logic.\+Business\+Logic.\+Remove\+Item (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_gtd_app_1_1_data_1_1_item}{Item}}}]{item }\end{DoxyParamCaption})}
+\subsubsection{Remove\+Item()}
+{\footnotesize\ttfamily void Gtd\+App.\+Logic.\+Business\+Logic.\+Remove\+Item (\begin{DoxyParamCaption}\item[{\textbf{ Item}}]{item }\end{DoxyParamCaption})}
 
 
 
@@ -215,11 +218,11 @@ Remove\+Item
 {\em item} & Item instance\\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{class_gtd_app_1_1_logic_1_1_business_logic_abacb4aa7a93675d3f564d2eaeb1c1a0d}\label{class_gtd_app_1_1_logic_1_1_business_logic_abacb4aa7a93675d3f564d2eaeb1c1a0d}} 
+\mbox{\label{class_gtd_app_1_1_logic_1_1_business_logic_abacb4aa7a93675d3f564d2eaeb1c1a0d}} 
 \index{Gtd\+App\+::\+Logic\+::\+Business\+Logic@{Gtd\+App\+::\+Logic\+::\+Business\+Logic}!Remove\+Item\+Notification@{Remove\+Item\+Notification}}
 \index{Remove\+Item\+Notification@{Remove\+Item\+Notification}!Gtd\+App\+::\+Logic\+::\+Business\+Logic@{Gtd\+App\+::\+Logic\+::\+Business\+Logic}}
-\subsubsection{\texorpdfstring{Remove\+Item\+Notification()}{RemoveItemNotification()}}
-{\footnotesize\ttfamily void Gtd\+App.\+Logic.\+Business\+Logic.\+Remove\+Item\+Notification (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_gtd_app_1_1_data_1_1_item}{Item}}}]{item,  }\item[{\mbox{\hyperlink{class_gtd_app_1_1_data_1_1_notification}{Notification}}}]{notification }\end{DoxyParamCaption})}
+\subsubsection{Remove\+Item\+Notification()}
+{\footnotesize\ttfamily void Gtd\+App.\+Logic.\+Business\+Logic.\+Remove\+Item\+Notification (\begin{DoxyParamCaption}\item[{\textbf{ Item}}]{item,  }\item[{\textbf{ Notification}}]{notification }\end{DoxyParamCaption})}
 
 
 
@@ -232,11 +235,11 @@ Remove Item Notification
 {\em notification} & Notification instance\\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{class_gtd_app_1_1_logic_1_1_business_logic_a5e37ed52aa905917ea518507f0830ecc}\label{class_gtd_app_1_1_logic_1_1_business_logic_a5e37ed52aa905917ea518507f0830ecc}} 
+\mbox{\label{class_gtd_app_1_1_logic_1_1_business_logic_a5e37ed52aa905917ea518507f0830ecc}} 
 \index{Gtd\+App\+::\+Logic\+::\+Business\+Logic@{Gtd\+App\+::\+Logic\+::\+Business\+Logic}!Remove\+Notification@{Remove\+Notification}}
 \index{Remove\+Notification@{Remove\+Notification}!Gtd\+App\+::\+Logic\+::\+Business\+Logic@{Gtd\+App\+::\+Logic\+::\+Business\+Logic}}
-\subsubsection{\texorpdfstring{Remove\+Notification()}{RemoveNotification()}}
-{\footnotesize\ttfamily void Gtd\+App.\+Logic.\+Business\+Logic.\+Remove\+Notification (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_gtd_app_1_1_data_1_1_notification}{Notification}}}]{notification }\end{DoxyParamCaption})}
+\subsubsection{Remove\+Notification()}
+{\footnotesize\ttfamily void Gtd\+App.\+Logic.\+Business\+Logic.\+Remove\+Notification (\begin{DoxyParamCaption}\item[{\textbf{ Notification}}]{notification }\end{DoxyParamCaption})}
 
 
 
@@ -247,11 +250,11 @@ Remove Notification
 {\em notification} & Notification instance\\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{class_gtd_app_1_1_logic_1_1_business_logic_af56ec90b26a3fa39f67a6c54e3be2f9d}\label{class_gtd_app_1_1_logic_1_1_business_logic_af56ec90b26a3fa39f67a6c54e3be2f9d}} 
+\mbox{\label{class_gtd_app_1_1_logic_1_1_business_logic_af56ec90b26a3fa39f67a6c54e3be2f9d}} 
 \index{Gtd\+App\+::\+Logic\+::\+Business\+Logic@{Gtd\+App\+::\+Logic\+::\+Business\+Logic}!Save\+Container@{Save\+Container}}
 \index{Save\+Container@{Save\+Container}!Gtd\+App\+::\+Logic\+::\+Business\+Logic@{Gtd\+App\+::\+Logic\+::\+Business\+Logic}}
-\subsubsection{\texorpdfstring{Save\+Container()}{SaveContainer()}}
-{\footnotesize\ttfamily List$<$string$>$ Gtd\+App.\+Logic.\+Business\+Logic.\+Save\+Container (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_gtd_app_1_1_data_1_1_container}{Container}}}]{container }\end{DoxyParamCaption})}
+\subsubsection{Save\+Container()}
+{\footnotesize\ttfamily List$<$string$>$ Gtd\+App.\+Logic.\+Business\+Logic.\+Save\+Container (\begin{DoxyParamCaption}\item[{\textbf{ Container}}]{container }\end{DoxyParamCaption})}
 
 
 
@@ -265,11 +268,11 @@ Remove\+Container
 \begin{DoxyReturn}{Returns}
 List of strings
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_gtd_app_1_1_logic_1_1_business_logic_aa2d4df27597225785568ee11da249971}\label{class_gtd_app_1_1_logic_1_1_business_logic_aa2d4df27597225785568ee11da249971}} 
+\mbox{\label{class_gtd_app_1_1_logic_1_1_business_logic_aa2d4df27597225785568ee11da249971}} 
 \index{Gtd\+App\+::\+Logic\+::\+Business\+Logic@{Gtd\+App\+::\+Logic\+::\+Business\+Logic}!Save\+Item@{Save\+Item}}
 \index{Save\+Item@{Save\+Item}!Gtd\+App\+::\+Logic\+::\+Business\+Logic@{Gtd\+App\+::\+Logic\+::\+Business\+Logic}}
-\subsubsection{\texorpdfstring{Save\+Item()}{SaveItem()}}
-{\footnotesize\ttfamily List$<$string$>$ Gtd\+App.\+Logic.\+Business\+Logic.\+Save\+Item (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_gtd_app_1_1_data_1_1_item}{Item}}}]{item }\end{DoxyParamCaption})}
+\subsubsection{Save\+Item()}
+{\footnotesize\ttfamily List$<$string$>$ Gtd\+App.\+Logic.\+Business\+Logic.\+Save\+Item (\begin{DoxyParamCaption}\item[{\textbf{ Item}}]{item }\end{DoxyParamCaption})}
 
 
 
@@ -283,11 +286,11 @@ Remove\+Container
 \begin{DoxyReturn}{Returns}
 List of strings
 \end{DoxyReturn}
-\mbox{\Hypertarget{class_gtd_app_1_1_logic_1_1_business_logic_afa15e2ec378237a34cc2d8fd14c281d6}\label{class_gtd_app_1_1_logic_1_1_business_logic_afa15e2ec378237a34cc2d8fd14c281d6}} 
+\mbox{\label{class_gtd_app_1_1_logic_1_1_business_logic_afa15e2ec378237a34cc2d8fd14c281d6}} 
 \index{Gtd\+App\+::\+Logic\+::\+Business\+Logic@{Gtd\+App\+::\+Logic\+::\+Business\+Logic}!Save\+Notification@{Save\+Notification}}
 \index{Save\+Notification@{Save\+Notification}!Gtd\+App\+::\+Logic\+::\+Business\+Logic@{Gtd\+App\+::\+Logic\+::\+Business\+Logic}}
-\subsubsection{\texorpdfstring{Save\+Notification()}{SaveNotification()}}
-{\footnotesize\ttfamily List$<$string$>$ Gtd\+App.\+Logic.\+Business\+Logic.\+Save\+Notification (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_gtd_app_1_1_data_1_1_notification}{Notification}}}]{notification }\end{DoxyParamCaption})}
+\subsubsection{Save\+Notification()}
+{\footnotesize\ttfamily List$<$string$>$ Gtd\+App.\+Logic.\+Business\+Logic.\+Save\+Notification (\begin{DoxyParamCaption}\item[{\textbf{ Notification}}]{notification }\end{DoxyParamCaption})}
 
 
 
@@ -304,51 +307,51 @@ List of strings
 
 
 \subsection{Property Documentation}
-\mbox{\Hypertarget{class_gtd_app_1_1_logic_1_1_business_logic_ace91111fd0843da6dc450eb0557437e2}\label{class_gtd_app_1_1_logic_1_1_business_logic_ace91111fd0843da6dc450eb0557437e2}} 
+\mbox{\label{class_gtd_app_1_1_logic_1_1_business_logic_ace91111fd0843da6dc450eb0557437e2}} 
 \index{Gtd\+App\+::\+Logic\+::\+Business\+Logic@{Gtd\+App\+::\+Logic\+::\+Business\+Logic}!Container\+Repository@{Container\+Repository}}
 \index{Container\+Repository@{Container\+Repository}!Gtd\+App\+::\+Logic\+::\+Business\+Logic@{Gtd\+App\+::\+Logic\+::\+Business\+Logic}}
-\subsubsection{\texorpdfstring{Container\+Repository}{ContainerRepository}}
-{\footnotesize\ttfamily \mbox{\hyperlink{interface_gtd_app_1_1_repository_1_1_interfaces_1_1_i_container_repository}{I\+Container\+Repository}} Gtd\+App.\+Logic.\+Business\+Logic.\+Container\+Repository\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+\subsubsection{Container\+Repository}
+{\footnotesize\ttfamily \textbf{ I\+Container\+Repository} Gtd\+App.\+Logic.\+Business\+Logic.\+Container\+Repository\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
 
 
 
 Gets or sets Container\+Repository 
 
-I\+Container\+Repository\mbox{\Hypertarget{class_gtd_app_1_1_logic_1_1_business_logic_a874b4e829adf02e8bbf80cdef657c81d}\label{class_gtd_app_1_1_logic_1_1_business_logic_a874b4e829adf02e8bbf80cdef657c81d}} 
+I\+Container\+Repository\mbox{\label{class_gtd_app_1_1_logic_1_1_business_logic_a874b4e829adf02e8bbf80cdef657c81d}} 
 \index{Gtd\+App\+::\+Logic\+::\+Business\+Logic@{Gtd\+App\+::\+Logic\+::\+Business\+Logic}!Context@{Context}}
 \index{Context@{Context}!Gtd\+App\+::\+Logic\+::\+Business\+Logic@{Gtd\+App\+::\+Logic\+::\+Business\+Logic}}
-\subsubsection{\texorpdfstring{Context}{Context}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_gtd_app_1_1_data_1_1_gtd_entity_data_model}{Gtd\+Entity\+Data\+Model}} Gtd\+App.\+Logic.\+Business\+Logic.\+Context\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+\subsubsection{Context}
+{\footnotesize\ttfamily \textbf{ Gtd\+Entity\+Data\+Model} Gtd\+App.\+Logic.\+Business\+Logic.\+Context\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
 
 
 
-Gets or sets \mbox{\hyperlink{class_gtd_app_1_1_logic_1_1_business_logic}{Business\+Logic}} 
+Gets or sets \doxyref{Business\+Logic}{p.}{class_gtd_app_1_1_logic_1_1_business_logic} 
 
-Gtd\+Entity\+Data\+Model\mbox{\Hypertarget{class_gtd_app_1_1_logic_1_1_business_logic_a1f6fdb6a8c3e4d590eb6c539abe4d24a}\label{class_gtd_app_1_1_logic_1_1_business_logic_a1f6fdb6a8c3e4d590eb6c539abe4d24a}} 
+Gtd\+Entity\+Data\+Model\mbox{\label{class_gtd_app_1_1_logic_1_1_business_logic_a1f6fdb6a8c3e4d590eb6c539abe4d24a}} 
 \index{Gtd\+App\+::\+Logic\+::\+Business\+Logic@{Gtd\+App\+::\+Logic\+::\+Business\+Logic}!Item\+\_\+\+Notification\+Repository@{Item\+\_\+\+Notification\+Repository}}
 \index{Item\+\_\+\+Notification\+Repository@{Item\+\_\+\+Notification\+Repository}!Gtd\+App\+::\+Logic\+::\+Business\+Logic@{Gtd\+App\+::\+Logic\+::\+Business\+Logic}}
-\subsubsection{\texorpdfstring{Item\+\_\+\+Notification\+Repository}{Item\_NotificationRepository}}
-{\footnotesize\ttfamily \mbox{\hyperlink{interface_gtd_app_1_1_repository_1_1_interfaces_1_1_i_item___notification_repository}{I\+Item\+\_\+\+Notification\+Repository}} Gtd\+App.\+Logic.\+Business\+Logic.\+Item\+\_\+\+Notification\+Repository\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+\subsubsection{Item\+\_\+\+Notification\+Repository}
+{\footnotesize\ttfamily \textbf{ I\+Item\+\_\+\+Notification\+Repository} Gtd\+App.\+Logic.\+Business\+Logic.\+Item\+\_\+\+Notification\+Repository\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
 
 
 
 Gets or sets Item\+\_\+\+Notification\+Repository 
 
-I\+Item\+\_\+\+Notification\+Repository\mbox{\Hypertarget{class_gtd_app_1_1_logic_1_1_business_logic_a51c7cd556dc40e5e0618b4820f325bf7}\label{class_gtd_app_1_1_logic_1_1_business_logic_a51c7cd556dc40e5e0618b4820f325bf7}} 
+I\+Item\+\_\+\+Notification\+Repository\mbox{\label{class_gtd_app_1_1_logic_1_1_business_logic_a51c7cd556dc40e5e0618b4820f325bf7}} 
 \index{Gtd\+App\+::\+Logic\+::\+Business\+Logic@{Gtd\+App\+::\+Logic\+::\+Business\+Logic}!Item\+Repository@{Item\+Repository}}
 \index{Item\+Repository@{Item\+Repository}!Gtd\+App\+::\+Logic\+::\+Business\+Logic@{Gtd\+App\+::\+Logic\+::\+Business\+Logic}}
-\subsubsection{\texorpdfstring{Item\+Repository}{ItemRepository}}
-{\footnotesize\ttfamily \mbox{\hyperlink{interface_gtd_app_1_1_repository_1_1_interfaces_1_1_i_item_repository}{I\+Item\+Repository}} Gtd\+App.\+Logic.\+Business\+Logic.\+Item\+Repository\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+\subsubsection{Item\+Repository}
+{\footnotesize\ttfamily \textbf{ I\+Item\+Repository} Gtd\+App.\+Logic.\+Business\+Logic.\+Item\+Repository\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
 
 
 
 Gets or sets Item\+Repository 
 
-I\+Item\+Repository\mbox{\Hypertarget{class_gtd_app_1_1_logic_1_1_business_logic_ae714d48c3f6c70bffd5557237a441ca0}\label{class_gtd_app_1_1_logic_1_1_business_logic_ae714d48c3f6c70bffd5557237a441ca0}} 
+I\+Item\+Repository\mbox{\label{class_gtd_app_1_1_logic_1_1_business_logic_ae714d48c3f6c70bffd5557237a441ca0}} 
 \index{Gtd\+App\+::\+Logic\+::\+Business\+Logic@{Gtd\+App\+::\+Logic\+::\+Business\+Logic}!Notification\+Repository@{Notification\+Repository}}
 \index{Notification\+Repository@{Notification\+Repository}!Gtd\+App\+::\+Logic\+::\+Business\+Logic@{Gtd\+App\+::\+Logic\+::\+Business\+Logic}}
-\subsubsection{\texorpdfstring{Notification\+Repository}{NotificationRepository}}
-{\footnotesize\ttfamily \mbox{\hyperlink{interface_gtd_app_1_1_repository_1_1_interfaces_1_1_i_notification_repository}{I\+Notification\+Repository}} Gtd\+App.\+Logic.\+Business\+Logic.\+Notification\+Repository\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+\subsubsection{Notification\+Repository}
+{\footnotesize\ttfamily \textbf{ I\+Notification\+Repository} Gtd\+App.\+Logic.\+Business\+Logic.\+Notification\+Repository\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
 
 
 

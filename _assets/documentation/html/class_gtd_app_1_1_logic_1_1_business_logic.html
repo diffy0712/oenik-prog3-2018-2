@@ -69,6 +69,7 @@ $(function() {
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#properties">Properties</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="class_gtd_app_1_1_logic_1_1_business_logic-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">GtdApp.Logic.BusinessLogic Class Reference</div>  </div>
@@ -80,6 +81,15 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:aadc05d25befd22ed7c3c4e6373633cfc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_gtd_app_1_1_logic_1_1_business_logic.html#aadc05d25befd22ed7c3c4e6373633cfc">IsContainerRemovable</a> (<a class="el" href="class_gtd_app_1_1_data_1_1_container.html">Container</a> container)</td></tr>
+<tr class="memdesc:aadc05d25befd22ed7c3c4e6373633cfc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Only empty containers can be removed. A container is empty if it has no item.  <a href="#aadc05d25befd22ed7c3c4e6373633cfc">More...</a><br /></td></tr>
+<tr class="separator:aadc05d25befd22ed7c3c4e6373633cfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97c80cedd58471ce55c7cbeb10a274fe"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_gtd_app_1_1_logic_1_1_business_logic.html#a97c80cedd58471ce55c7cbeb10a274fe">IsItemRemovable</a> (<a class="el" href="class_gtd_app_1_1_data_1_1_item.html">Item</a> item)</td></tr>
+<tr class="memdesc:a97c80cedd58471ce55c7cbeb10a274fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">An item is empty if it has no notification  <a href="#a97c80cedd58471ce55c7cbeb10a274fe">More...</a><br /></td></tr>
+<tr class="separator:a97c80cedd58471ce55c7cbeb10a274fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0831747dfa01107c12eedaf05c2fb251"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_gtd_app_1_1_logic_1_1_business_logic.html#a0831747dfa01107c12eedaf05c2fb251">IsNotificationRemovable</a> (<a class="el" href="class_gtd_app_1_1_data_1_1_notification.html">Notification</a> notification)</td></tr>
+<tr class="memdesc:a0831747dfa01107c12eedaf05c2fb251"><td class="mdescLeft">&#160;</td><td class="mdescRight">A notification is empty if it has no item.  <a href="#a0831747dfa01107c12eedaf05c2fb251">More...</a><br /></td></tr>
+<tr class="separator:a0831747dfa01107c12eedaf05c2fb251"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3f4cfe75f394a2ddc67edb42ef46cfdf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_gtd_app_1_1_logic_1_1_business_logic.html#a3f4cfe75f394a2ddc67edb42ef46cfdf">RemoveContainer</a> (<a class="el" href="class_gtd_app_1_1_data_1_1_container.html">Container</a> container)</td></tr>
 <tr class="memdesc:a3f4cfe75f394a2ddc67edb42ef46cfdf"><td class="mdescLeft">&#160;</td><td class="mdescRight">RemoveContainer  <a href="#a3f4cfe75f394a2ddc67edb42ef46cfdf">More...</a><br /></td></tr>
 <tr class="separator:a3f4cfe75f394a2ddc67edb42ef46cfdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -107,24 +117,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:abacb4aa7a93675d3f564d2eaeb1c1a0d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_gtd_app_1_1_logic_1_1_business_logic.html#abacb4aa7a93675d3f564d2eaeb1c1a0d">RemoveItemNotification</a> (<a class="el" href="class_gtd_app_1_1_data_1_1_item.html">Item</a> item, <a class="el" href="class_gtd_app_1_1_data_1_1_notification.html">Notification</a> notification)</td></tr>
 <tr class="memdesc:abacb4aa7a93675d3f564d2eaeb1c1a0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove Item Notification  <a href="#abacb4aa7a93675d3f564d2eaeb1c1a0d">More...</a><br /></td></tr>
 <tr class="separator:abacb4aa7a93675d3f564d2eaeb1c1a0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0983441bb341546b8fd9f6ebfb55b0df"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_gtd_app_1_1_data_1_1_item__notification.html">Item_notification</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_gtd_app_1_1_logic_1_1_business_logic.html#a0983441bb341546b8fd9f6ebfb55b0df">GetItemNotificationConnection</a> (<a class="el" href="class_gtd_app_1_1_data_1_1_item.html">Item</a> item, <a class="el" href="class_gtd_app_1_1_data_1_1_notification.html">Notification</a> notification)</td></tr>
-<tr class="memdesc:a0983441bb341546b8fd9f6ebfb55b0df"><td class="mdescLeft">&#160;</td><td class="mdescRight">GetItemNotificationConnection  <a href="#a0983441bb341546b8fd9f6ebfb55b0df">More...</a><br /></td></tr>
-<tr class="separator:a0983441bb341546b8fd9f6ebfb55b0df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:abadac4866339d761399e001b333ea829"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_gtd_app_1_1_logic_1_1_business_logic.html">BusinessLogic</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_gtd_app_1_1_logic_1_1_business_logic.html#abadac4866339d761399e001b333ea829">Init</a> ()</td></tr>
 <tr class="memdesc:abadac4866339d761399e001b333ea829"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_gtd_app_1_1_logic_1_1_business_logic.html" title="BusinessLogic ">BusinessLogic</a>  <a href="#abadac4866339d761399e001b333ea829">More...</a><br /></td></tr>
 <tr class="separator:abadac4866339d761399e001b333ea829"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a62422f0f7fedb58ed9681bc65e5927ed"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_gtd_app_1_1_logic_1_1_business_logic.html#a62422f0f7fedb58ed9681bc65e5927ed">IsContainerRemovable</a> (<a class="el" href="class_gtd_app_1_1_data_1_1_container.html">Container</a> container)</td></tr>
-<tr class="memdesc:a62422f0f7fedb58ed9681bc65e5927ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">A container is empty if it has no item.  <a href="#a62422f0f7fedb58ed9681bc65e5927ed">More...</a><br /></td></tr>
-<tr class="separator:a62422f0f7fedb58ed9681bc65e5927ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a701d1378c420398991de26e17d60b810"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_gtd_app_1_1_logic_1_1_business_logic.html#a701d1378c420398991de26e17d60b810">IsItemRemovable</a> (<a class="el" href="class_gtd_app_1_1_data_1_1_item.html">Item</a> item)</td></tr>
-<tr class="memdesc:a701d1378c420398991de26e17d60b810"><td class="mdescLeft">&#160;</td><td class="mdescRight">An item is empty if it has no notification  <a href="#a701d1378c420398991de26e17d60b810">More...</a><br /></td></tr>
-<tr class="separator:a701d1378c420398991de26e17d60b810"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a850d5c9c7bdc3377bc6333f5ea350560"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_gtd_app_1_1_logic_1_1_business_logic.html#a850d5c9c7bdc3377bc6333f5ea350560">IsNotificationRemovable</a> (<a class="el" href="class_gtd_app_1_1_data_1_1_notification.html">Notification</a> notification)</td></tr>
-<tr class="memdesc:a850d5c9c7bdc3377bc6333f5ea350560"><td class="mdescLeft">&#160;</td><td class="mdescRight">A notification is empty if it has no item.  <a href="#a850d5c9c7bdc3377bc6333f5ea350560">More...</a><br /></td></tr>
-<tr class="separator:a850d5c9c7bdc3377bc6333f5ea350560"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="properties"></a>
 Properties</h2></td></tr>
@@ -143,6 +141,12 @@ Properties</h2></td></tr>
 <tr class="memitem:a1f6fdb6a8c3e4d590eb6c539abe4d24a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="interface_gtd_app_1_1_repository_1_1_interfaces_1_1_i_item___notification_repository.html">IItem_NotificationRepository</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_gtd_app_1_1_logic_1_1_business_logic.html#a1f6fdb6a8c3e4d590eb6c539abe4d24a">Item_NotificationRepository</a><code> [get, set]</code></td></tr>
 <tr class="memdesc:a1f6fdb6a8c3e4d590eb6c539abe4d24a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets Item_NotificationRepository  <a href="#a1f6fdb6a8c3e4d590eb6c539abe4d24a">More...</a><br /></td></tr>
 <tr class="separator:a1f6fdb6a8c3e4d590eb6c539abe4d24a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a0983441bb341546b8fd9f6ebfb55b0df"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_gtd_app_1_1_data_1_1_item__notification.html">Item_notification</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_gtd_app_1_1_logic_1_1_business_logic.html#a0983441bb341546b8fd9f6ebfb55b0df">GetItemNotificationConnection</a> (<a class="el" href="class_gtd_app_1_1_data_1_1_item.html">Item</a> item, <a class="el" href="class_gtd_app_1_1_data_1_1_notification.html">Notification</a> notification)</td></tr>
+<tr class="memdesc:a0983441bb341546b8fd9f6ebfb55b0df"><td class="mdescLeft">&#160;</td><td class="mdescRight">GetItemNotificationConnection  <a href="#a0983441bb341546b8fd9f6ebfb55b0df">More...</a><br /></td></tr>
+<tr class="separator:a0983441bb341546b8fd9f6ebfb55b0df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="class_gtd_app_1_1_logic_1_1_business_logic.html" title="BusinessLogic ">BusinessLogic</a> </p>
@@ -179,6 +183,9 @@ Properties</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="class_gtd_app_1_1_data_1_1_item__notification.html">Item_notification</a> GtdApp.Logic.BusinessLogic.GetItemNotificationConnection </td>
@@ -198,6 +205,11 @@ Properties</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>GetItemNotificationConnection </p>
@@ -240,31 +252,23 @@ Properties</h2></td></tr>
 
 </div>
 </div>
-<a id="a62422f0f7fedb58ed9681bc65e5927ed"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a62422f0f7fedb58ed9681bc65e5927ed">&#9670;&nbsp;</a></span>IsContainerRemovable()</h2>
+<a id="aadc05d25befd22ed7c3c4e6373633cfc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aadc05d25befd22ed7c3c4e6373633cfc">&#9670;&nbsp;</a></span>IsContainerRemovable()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static bool GtdApp.Logic.BusinessLogic.IsContainerRemovable </td>
+          <td class="memname">bool GtdApp.Logic.BusinessLogic.IsContainerRemovable </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_gtd_app_1_1_data_1_1_container.html">Container</a>&#160;</td>
           <td class="paramname"><em>container</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>A container is empty if it has no item. </p>
+<p>Only empty containers can be removed. A container is empty if it has no item. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">container</td><td>Container instance</td></tr>
@@ -275,28 +279,20 @@ Properties</h2></td></tr>
 
 </div>
 </div>
-<a id="a701d1378c420398991de26e17d60b810"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a701d1378c420398991de26e17d60b810">&#9670;&nbsp;</a></span>IsItemRemovable()</h2>
+<a id="a97c80cedd58471ce55c7cbeb10a274fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97c80cedd58471ce55c7cbeb10a274fe">&#9670;&nbsp;</a></span>IsItemRemovable()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static bool GtdApp.Logic.BusinessLogic.IsItemRemovable </td>
+          <td class="memname">bool GtdApp.Logic.BusinessLogic.IsItemRemovable </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_gtd_app_1_1_data_1_1_item.html">Item</a>&#160;</td>
           <td class="paramname"><em>item</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>An item is empty if it has no notification </p>
@@ -310,28 +306,20 @@ Properties</h2></td></tr>
 
 </div>
 </div>
-<a id="a850d5c9c7bdc3377bc6333f5ea350560"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a850d5c9c7bdc3377bc6333f5ea350560">&#9670;&nbsp;</a></span>IsNotificationRemovable()</h2>
+<a id="a0831747dfa01107c12eedaf05c2fb251"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0831747dfa01107c12eedaf05c2fb251">&#9670;&nbsp;</a></span>IsNotificationRemovable()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static bool GtdApp.Logic.BusinessLogic.IsNotificationRemovable </td>
+          <td class="memname">bool GtdApp.Logic.BusinessLogic.IsNotificationRemovable </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_gtd_app_1_1_data_1_1_notification.html">Notification</a>&#160;</td>
           <td class="paramname"><em>notification</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>A notification is empty if it has no item. </p>

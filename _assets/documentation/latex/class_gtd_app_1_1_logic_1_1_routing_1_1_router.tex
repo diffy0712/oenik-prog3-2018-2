@@ -1,38 +1,45 @@
-\hypertarget{class_gtd_app_1_1_logic_1_1_routing_1_1_router}{}\section{Gtd\+App.\+Logic.\+Routing.\+Router Class Reference}
+\section{Gtd\+App.\+Logic.\+Routing.\+Router Class Reference}
 \label{class_gtd_app_1_1_logic_1_1_routing_1_1_router}\index{Gtd\+App.\+Logic.\+Routing.\+Router@{Gtd\+App.\+Logic.\+Routing.\+Router}}
 
 
-\mbox{\hyperlink{class_gtd_app_1_1_logic_1_1_routing_1_1_router}{Router}}  
+\doxyref{Router}{p.}{class_gtd_app_1_1_logic_1_1_routing_1_1_router}  
 
 
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{class_gtd_app_1_1_logic_1_1_routing_1_1_router_a01503f32282823f3e363f0255ba50c86}{Call}} (string controller\+Name=null, object\mbox{[}$\,$\mbox{]} parameters=null)
-\begin{DoxyCompactList}\small\item\em Call a Controller by name \end{DoxyCompactList}\end{DoxyCompactItemize}
+void \textbf{ Call} (string controller\+Name=null, object[$\,$] parameters=null)
+\begin{DoxyCompactList}\small\item\em Call a Controller by name \end{DoxyCompactList}\item 
+void \textbf{ Call\+Route} (\textbf{ Route} route\+To\+Invoke, object[$\,$] parameters=null)
+\begin{DoxyCompactList}\small\item\em Call a \doxyref{Route}{p.}{class_gtd_app_1_1_logic_1_1_routing_1_1_route} \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-static \mbox{\hyperlink{class_gtd_app_1_1_logic_1_1_routing_1_1_router}{Router}} \mbox{\hyperlink{class_gtd_app_1_1_logic_1_1_routing_1_1_router_a46a2fedb41623573e86f0a7d3139aefd}{Init}} (string name\+Space)
+static \textbf{ Router} \textbf{ Init} (string name\+Space)
 \begin{DoxyCompactList}\small\item\em Fetch the controllers from the specified namespace \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsection*{Private Attributes}
+\subsection*{Properties}
 \begin{DoxyCompactItemize}
 \item 
-List$<$ \mbox{\hyperlink{interface_gtd_app_1_1_logic_1_1_interfaces_1_1_i_controller}{I\+Controller}} $>$ \mbox{\hyperlink{class_gtd_app_1_1_logic_1_1_routing_1_1_router_ae44dda68d6febb0af417a68bae08956e}{controllers}}
+List$<$ \textbf{ I\+Controller} $>$ \textbf{ Controllers}\hspace{0.3cm}{\ttfamily  [get, set]}
 \begin{DoxyCompactList}\small\item\em Gets or sets Controllers \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ Prepare\+Route\+Parameters\+For\+Invoke} (ref \textbf{ Route} route, object[$\,$] parameters=null)
+\begin{DoxyCompactList}\small\item\em We push null to every parameter the method expects. Fixme\+: This should not be here I assume I made some mistake , because it throws exceptions for not having parameters. so debug it and if needed fix. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-\mbox{\hyperlink{class_gtd_app_1_1_logic_1_1_routing_1_1_router}{Router}} 
+\doxyref{Router}{p.}{class_gtd_app_1_1_logic_1_1_routing_1_1_router} 
 
 
 
 \subsection{Member Function Documentation}
-\mbox{\Hypertarget{class_gtd_app_1_1_logic_1_1_routing_1_1_router_a01503f32282823f3e363f0255ba50c86}\label{class_gtd_app_1_1_logic_1_1_routing_1_1_router_a01503f32282823f3e363f0255ba50c86}} 
+\mbox{\label{class_gtd_app_1_1_logic_1_1_routing_1_1_router_a01503f32282823f3e363f0255ba50c86}} 
 \index{Gtd\+App\+::\+Logic\+::\+Routing\+::\+Router@{Gtd\+App\+::\+Logic\+::\+Routing\+::\+Router}!Call@{Call}}
 \index{Call@{Call}!Gtd\+App\+::\+Logic\+::\+Routing\+::\+Router@{Gtd\+App\+::\+Logic\+::\+Routing\+::\+Router}}
-\subsubsection{\texorpdfstring{Call()}{Call()}}
-{\footnotesize\ttfamily void Gtd\+App.\+Logic.\+Routing.\+Router.\+Call (\begin{DoxyParamCaption}\item[{string}]{controller\+Name = {\ttfamily null},  }\item[{object \mbox{[}$\,$\mbox{]}}]{parameters = {\ttfamily null} }\end{DoxyParamCaption})}
+\subsubsection{Call()}
+{\footnotesize\ttfamily void Gtd\+App.\+Logic.\+Routing.\+Router.\+Call (\begin{DoxyParamCaption}\item[{string}]{controller\+Name = {\ttfamily null},  }\item[{object [$\,$]}]{parameters = {\ttfamily null} }\end{DoxyParamCaption})}
 
 
 
@@ -45,11 +52,28 @@ Call a Controller by name
 {\em parameters} & Parameters to send\\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{class_gtd_app_1_1_logic_1_1_routing_1_1_router_a46a2fedb41623573e86f0a7d3139aefd}\label{class_gtd_app_1_1_logic_1_1_routing_1_1_router_a46a2fedb41623573e86f0a7d3139aefd}} 
+\mbox{\label{class_gtd_app_1_1_logic_1_1_routing_1_1_router_aa57e66eddb4f9b8011cb97ed3347de67}} 
+\index{Gtd\+App\+::\+Logic\+::\+Routing\+::\+Router@{Gtd\+App\+::\+Logic\+::\+Routing\+::\+Router}!Call\+Route@{Call\+Route}}
+\index{Call\+Route@{Call\+Route}!Gtd\+App\+::\+Logic\+::\+Routing\+::\+Router@{Gtd\+App\+::\+Logic\+::\+Routing\+::\+Router}}
+\subsubsection{Call\+Route()}
+{\footnotesize\ttfamily void Gtd\+App.\+Logic.\+Routing.\+Router.\+Call\+Route (\begin{DoxyParamCaption}\item[{\textbf{ Route}}]{route\+To\+Invoke,  }\item[{object [$\,$]}]{parameters = {\ttfamily null} }\end{DoxyParamCaption})}
+
+
+
+Call a \doxyref{Route}{p.}{class_gtd_app_1_1_logic_1_1_routing_1_1_route} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em route\+To\+Invoke} & \doxyref{Route}{p.}{class_gtd_app_1_1_logic_1_1_routing_1_1_route} to invoke\\
+\hline
+{\em parameters} & Parameters to send\\
+\hline
+\end{DoxyParams}
+\mbox{\label{class_gtd_app_1_1_logic_1_1_routing_1_1_router_a46a2fedb41623573e86f0a7d3139aefd}} 
 \index{Gtd\+App\+::\+Logic\+::\+Routing\+::\+Router@{Gtd\+App\+::\+Logic\+::\+Routing\+::\+Router}!Init@{Init}}
 \index{Init@{Init}!Gtd\+App\+::\+Logic\+::\+Routing\+::\+Router@{Gtd\+App\+::\+Logic\+::\+Routing\+::\+Router}}
-\subsubsection{\texorpdfstring{Init()}{Init()}}
-{\footnotesize\ttfamily static \mbox{\hyperlink{class_gtd_app_1_1_logic_1_1_routing_1_1_router}{Router}} Gtd\+App.\+Logic.\+Routing.\+Router.\+Init (\begin{DoxyParamCaption}\item[{string}]{name\+Space }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+\subsubsection{Init()}
+{\footnotesize\ttfamily static \textbf{ Router} Gtd\+App.\+Logic.\+Routing.\+Router.\+Init (\begin{DoxyParamCaption}\item[{string}]{name\+Space }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
@@ -61,16 +85,33 @@ Fetch the controllers from the specified namespace
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-\mbox{\hyperlink{class_gtd_app_1_1_logic_1_1_routing_1_1_router}{Router}}
+\doxyref{Router}{p.}{class_gtd_app_1_1_logic_1_1_routing_1_1_router}
 \end{DoxyReturn}
+\mbox{\label{class_gtd_app_1_1_logic_1_1_routing_1_1_router_ab75e0c4722182eb1323af977ca4f03fe}} 
+\index{Gtd\+App\+::\+Logic\+::\+Routing\+::\+Router@{Gtd\+App\+::\+Logic\+::\+Routing\+::\+Router}!Prepare\+Route\+Parameters\+For\+Invoke@{Prepare\+Route\+Parameters\+For\+Invoke}}
+\index{Prepare\+Route\+Parameters\+For\+Invoke@{Prepare\+Route\+Parameters\+For\+Invoke}!Gtd\+App\+::\+Logic\+::\+Routing\+::\+Router@{Gtd\+App\+::\+Logic\+::\+Routing\+::\+Router}}
+\subsubsection{Prepare\+Route\+Parameters\+For\+Invoke()}
+{\footnotesize\ttfamily void Gtd\+App.\+Logic.\+Routing.\+Router.\+Prepare\+Route\+Parameters\+For\+Invoke (\begin{DoxyParamCaption}\item[{ref \textbf{ Route}}]{route,  }\item[{object [$\,$]}]{parameters = {\ttfamily null} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
 
-\subsection{Member Data Documentation}
-\mbox{\Hypertarget{class_gtd_app_1_1_logic_1_1_routing_1_1_router_ae44dda68d6febb0af417a68bae08956e}\label{class_gtd_app_1_1_logic_1_1_routing_1_1_router_ae44dda68d6febb0af417a68bae08956e}} 
-\index{Gtd\+App\+::\+Logic\+::\+Routing\+::\+Router@{Gtd\+App\+::\+Logic\+::\+Routing\+::\+Router}!controllers@{controllers}}
-\index{controllers@{controllers}!Gtd\+App\+::\+Logic\+::\+Routing\+::\+Router@{Gtd\+App\+::\+Logic\+::\+Routing\+::\+Router}}
-\subsubsection{\texorpdfstring{controllers}{controllers}}
-{\footnotesize\ttfamily List$<$\mbox{\hyperlink{interface_gtd_app_1_1_logic_1_1_interfaces_1_1_i_controller}{I\+Controller}}$>$ Gtd\+App.\+Logic.\+Routing.\+Router.\+controllers\hspace{0.3cm}{\ttfamily [private]}}
+
+We push null to every parameter the method expects. Fixme\+: This should not be here I assume I made some mistake , because it throws exceptions for not having parameters. so debug it and if needed fix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em route} & \doxyref{Route}{p.}{class_gtd_app_1_1_logic_1_1_routing_1_1_route} instance to use\\
+\hline
+{\em parameters} & Parameters to pass to the method\\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Property Documentation}
+\mbox{\label{class_gtd_app_1_1_logic_1_1_routing_1_1_router_a3a906a5c08a9aee70bac715f81f4ca0b}} 
+\index{Gtd\+App\+::\+Logic\+::\+Routing\+::\+Router@{Gtd\+App\+::\+Logic\+::\+Routing\+::\+Router}!Controllers@{Controllers}}
+\index{Controllers@{Controllers}!Gtd\+App\+::\+Logic\+::\+Routing\+::\+Router@{Gtd\+App\+::\+Logic\+::\+Routing\+::\+Router}}
+\subsubsection{Controllers}
+{\footnotesize\ttfamily List$<$\textbf{ I\+Controller}$>$ Gtd\+App.\+Logic.\+Routing.\+Router.\+Controllers\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
 
 
 

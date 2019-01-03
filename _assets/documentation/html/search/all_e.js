@@ -12,11 +12,12 @@ var searchData=
   ['repository_3c_20item_5fnotification_20_3e',['Repository&lt; Item_notification &gt;',['../class_gtd_app_1_1_repository_1_1_repository.html',1,'GtdApp::Repository']]],
   ['repository_3c_20notification_20_3e',['Repository&lt; Notification &gt;',['../class_gtd_app_1_1_repository_1_1_repository.html',1,'GtdApp::Repository']]],
   ['resetx',['ResetX',['../class_gtd_app_1_1_console_core_1_1_views_1_1_helpers_1_1_table_helper.html#a21bf95286d8d05c73e86e338e2fd6c22',1,'GtdApp::ConsoleCore::Views::Helpers::TableHelper']]],
-  ['response',['Response',['../class_gtd_app_1_1_console_1_1_views_1_1_java_web_view.html#a5c8f9afd066cd29d616c51712eb2c6c1',1,'GtdApp::Console::Views::JavaWebView']]],
   ['route',['Route',['../class_gtd_app_1_1_logic_1_1_routing_1_1_route.html',1,'GtdApp::Logic::Routing']]],
   ['routeattribute',['RouteAttribute',['../class_gtd_app_1_1_logic_1_1_attributes_1_1_route_attribute.html',1,'GtdApp.Logic.Attributes.RouteAttribute'],['../class_gtd_app_1_1_logic_1_1_attributes_1_1_route_attribute.html#a89b404c2fc6f273056d51fd8621ed0d3',1,'GtdApp.Logic.Attributes.RouteAttribute.RouteAttribute()']]],
   ['routename',['RouteName',['../class_gtd_app_1_1_console_core_1_1_menu_1_1_menu_item.html#ae681c87533e5c00712f2b7668268f32d',1,'GtdApp::ConsoleCore::Menu::MenuItem']]],
-  ['router',['Router',['../class_gtd_app_1_1_logic_1_1_routing_1_1_router.html',1,'GtdApp.Logic.Routing.Router'],['../class_gtd_app_1_1_console_core_1_1_console_core.html#a2b8ade54798622cbd911fa709e120e61',1,'GtdApp.ConsoleCore.ConsoleCore.Router()']]],
+  ['router',['Router',['../class_gtd_app_1_1_logic_1_1_routing_1_1_router.html',1,'GtdApp.Logic.Routing.Router'],['../class_gtd_app_1_1_console_core_1_1_console_core.html#a2b8ade54798622cbd911fa709e120e61',1,'GtdApp.ConsoleCore.ConsoleCore.Router()'],['../class_gtd_app_1_1_logic_1_1_tests_1_1_router_1_1_router_tests.html#a2e1b9f576984b37d11d5491195ea19eb',1,'GtdApp.Logic.Tests.Router.RouterTests.Router()']]],
   ['routerhelper',['RouterHelper',['../class_gtd_app_1_1_logic_1_1_routing_1_1_router_helper.html',1,'GtdApp::Logic::Routing']]],
+  ['routerhelpertests',['RouterHelperTests',['../class_gtd_app_1_1_logic_1_1_tests_1_1_router_1_1_router_helper_tests.html',1,'GtdApp::Logic::Tests::Router']]],
+  ['routertests',['RouterTests',['../class_gtd_app_1_1_logic_1_1_tests_1_1_router_1_1_router_tests.html',1,'GtdApp::Logic::Tests::Router']]],
   ['rows',['Rows',['../class_gtd_app_1_1_console_core_1_1_views_1_1_helpers_1_1_table_helper.html#a6a7301b4b3a1d408127b35c19f026d7a',1,'GtdApp::ConsoleCore::Views::Helpers::TableHelper']]]
 ];
