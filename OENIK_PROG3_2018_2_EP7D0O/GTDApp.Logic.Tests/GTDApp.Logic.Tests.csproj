@@ -63,15 +63,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BusinessLogicTests.cs" />
-    <Compile Include="Controller\EmptyController.cs" />
-    <Compile Include="Controller\TestController.cs" />
-    <Compile Include="Exceptions\TestRouteWithParametersPassedException.cs" />
-    <Compile Include="RouterHelperTests.cs" />
-    <Compile Include="RouterTests.cs" />
-    <Compile Include="NotificationBusinessLogicTests.cs" />
-    <Compile Include="ItemBusinessLogicTests.cs" />
-    <Compile Include="ContainerBusinessLogicTests.cs" />
+    <Compile Include="BusinessLogic\BusinessLogicTests.cs" />
+    <Compile Include="CommonTests.cs" />
+    <Compile Include="Router\Controller\EmptyController.cs" />
+    <Compile Include="Router\Controller\TestController.cs" />
+    <Compile Include="Router\Exceptions\TestRouteWithParametersPassedException.cs" />
+    <Compile Include="Router\RouterHelperTests.cs" />
+    <Compile Include="Router\RouterTests.cs" />
+    <Compile Include="BusinessLogic\NotificationBusinessLogicTests.cs" />
+    <Compile Include="BusinessLogic\ItemBusinessLogicTests.cs" />
+    <Compile Include="BusinessLogic\ContainerBusinessLogicTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -5,7 +5,7 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-namespace GtdApp.Logic.Tests
+namespace GtdApp.Logic.Tests.Router
 {
     using System;
     using System.Collections.Generic;
@@ -15,8 +15,8 @@ namespace GtdApp.Logic.Tests
     using GtdApp.Data;
     using GtdApp.Logic.Interfaces;
     using GtdApp.Logic.Routing;
-    using GtdApp.Logic.Tests.Controllers;
-    using GtdApp.Logic.Tests.Exceptions;
+    using GtdApp.Logic.Tests.Router.Controllers;
+    using GtdApp.Logic.Tests.Router.Exceptions;
     using Moq;
     using NUnit.Framework;
 
@@ -106,8 +106,6 @@ namespace GtdApp.Logic.Tests
 
             Assert.That(() => this.Router.CallRoute(route, route.Parameters), Throws.TypeOf<Exception>());
         }
-
-
 
         /// <summary>
         ///     CallRoute invokes the appropriate method or throws exception.

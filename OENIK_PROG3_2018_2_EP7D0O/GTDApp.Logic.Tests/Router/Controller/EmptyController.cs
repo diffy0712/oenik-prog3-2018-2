@@ -5,11 +5,9 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-namespace GtdApp.Logic.Tests.Controllers
+namespace GtdApp.Logic.Tests.Router.Controllers
 {
-    using GtdApp.Logic.Attributes;
     using GtdApp.Logic.Interfaces;
-    using GtdApp.Logic.Routing;
 
     /// <summary>
     ///     EmptyController

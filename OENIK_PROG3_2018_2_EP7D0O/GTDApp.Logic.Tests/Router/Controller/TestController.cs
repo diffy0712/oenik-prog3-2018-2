@@ -5,13 +5,13 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-namespace GtdApp.Logic.Tests.Controllers
+namespace GtdApp.Logic.Tests.Router.Controllers
 {
+    using System;
     using GtdApp.Logic.Attributes;
     using GtdApp.Logic.Interfaces;
     using GtdApp.Logic.Routing;
-    using GtdApp.Logic.Tests.Exceptions;
-    using System;
+    using GtdApp.Logic.Tests.Router.Exceptions;
 
     /// <summary>
     ///     ContainerController
@@ -26,6 +26,7 @@ namespace GtdApp.Logic.Tests.Controllers
         [Route("DefaultRoute")]
         public void DefaultRoute()
         {
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -34,6 +35,7 @@ namespace GtdApp.Logic.Tests.Controllers
         [Route("TestRoute")]
         public void TestRoute()
         {
+            throw new NotImplementedException();
         }
 
         /// <summary>

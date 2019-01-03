@@ -264,7 +264,10 @@ namespace GtdApp.Logic
         public void RemoveItemNotification(Item item, Notification notification)
         {
             Item_notification item_Notification = this.GetItemNotificationConnection(item, notification);
-            this.Item_NotificationRepository.Remove(item_Notification);
+            if (item_Notification != null)
+            {
+                this.Item_NotificationRepository.Remove(item_Notification);
+            }
         }
 
         /// <summary>
@@ -273,7 +276,7 @@ namespace GtdApp.Logic
         /// <param name="item">Item instance</param>
         /// <param name="notification">Notification instance</param>
         /// <returns>Item_notification</returns>
-        public Item_notification GetItemNotificationConnection(Item item, Notification notification)
+        private Item_notification GetItemNotificationConnection(Item item, Notification notification)
         {
             foreach (Item_notification item_Notification in item.Item_notification)
             {

@@ -5,7 +5,7 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-namespace GtdApp.Logic.Tests
+namespace GtdApp.Logic.Tests.BusinessLogic
 {
     using System;
     using System.Linq;

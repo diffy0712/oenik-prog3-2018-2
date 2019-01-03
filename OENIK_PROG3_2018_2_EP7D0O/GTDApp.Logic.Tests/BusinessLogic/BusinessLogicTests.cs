@@ -5,12 +5,13 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-namespace GtdApp.Logic.Tests
+namespace GtdApp.Logic.Tests.BusinessLogic
 {
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using GtdApp.Data;
+    using GtdApp.Logic;
     using GtdApp.Repository.Interfaces;
     using Moq;
     using NUnit.Framework;

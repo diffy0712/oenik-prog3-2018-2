@@ -5,7 +5,7 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-namespace GtdApp.Logic.Tests.Exceptions
+namespace GtdApp.Logic.Tests.Router.Exceptions
 {
     using System;
 
@@ -14,14 +14,6 @@ namespace GtdApp.Logic.Tests.Exceptions
     /// </summary>
     public class TestRouteWithParametersPassedException : Exception
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="TestRouteWithParametersPassedException"/> class.
-        ///     NoRouteFoundException
-        /// </summary>
-        public TestRouteWithParametersPassedException()
-        {
-        }
-
         /// <summary>
         /// Initializes a new instance of the <see cref="TestRouteWithParametersPassedException"/> class.
         ///     TestRouteWithParametersPassedException

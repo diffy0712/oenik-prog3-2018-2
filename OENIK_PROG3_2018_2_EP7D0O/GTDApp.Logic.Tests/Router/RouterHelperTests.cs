@@ -5,20 +5,14 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-namespace GtdApp.Logic.Tests
+namespace GtdApp.Logic.Tests.Router
 {
-    using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Reflection;
-    using GtdApp.Data;
     using GtdApp.Logic.Exceptions;
     using GtdApp.Logic.Interfaces;
     using GtdApp.Logic.Routing;
-    using GtdApp.Logic.Tests.Controllers;
-    using Moq;
+    using GtdApp.Logic.Tests.Router.Controllers;
     using NUnit.Framework;
-    using NUnit.Framework.Constraints;
 
     /// <summary>
     ///      RouterHelperTests
@@ -32,7 +26,7 @@ namespace GtdApp.Logic.Tests
         [Test]
         public void DoesLoadControllersFromDLLNamespaceReturnControllerInstances()
         {
-            Assert.That(RouterHelper.LoadControllersFromDLLNamespace("GtdApp.Logic.Tests.Controllers", null), !Is.Empty);
+            Assert.That(RouterHelper.LoadControllersFromDLLNamespace("GtdApp.Logic.Tests.Router.Controllers", null), !Is.Empty);
         }
 
         /// <summary>
