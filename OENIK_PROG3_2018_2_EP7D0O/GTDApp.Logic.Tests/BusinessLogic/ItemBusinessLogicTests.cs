@@ -34,7 +34,7 @@ namespace GtdApp.Logic.Tests.BusinessLogic
             };
 
             this.BusinessLogic.SaveItem(testNewItem);
-            this.MockItem.Verify(x => x.Add(testNewItem), Times.Once);
+            this.MockItemRepository.Verify(x => x.Add(testNewItem), Times.Once);
         }
 
         /// <summary>
@@ -43,9 +43,9 @@ namespace GtdApp.Logic.Tests.BusinessLogic
         [Test]
         public void DoesRemoveItemRemovesItem()
         {
-            Item testNewItem = this.MockItem.Object.GetAll().First();
+            Item testNewItem = this.Items.First();
             this.BusinessLogic.RemoveItem(testNewItem);
-            this.MockItem.Verify(x => x.Remove(testNewItem), Times.Once);
+            this.MockItemRepository.Verify(x => x.Remove(testNewItem), Times.Once);
         }
 
         /// <summary>
@@ -54,12 +54,12 @@ namespace GtdApp.Logic.Tests.BusinessLogic
         [Test]
         public void DoesRemoveItemNotificationRemovesConnection()
         {
-            Item testItem = this.MockItem.Object.GetAll().ElementAt(2);
-            Notification testNotification = this.MockNotification.Object.GetAll().ElementAt(1);
-            Item_notification testItemNotification = this.MockItemNotificaion.Object.GetAll().ElementAt(0);
+            Item testItem = this.Items.ElementAt(2);
+            Notification testNotification = this.Notifications.ElementAt(1);
+            Item_notification testItemNotification = this.ItemNotifications.ElementAt(0);
 
             this.BusinessLogic.RemoveItemNotification(testItem, testNotification);
-            this.MockItemNotificaion.Verify(x => x.Remove(testItemNotification), Times.Once);
+            this.MockItemNotificaionRepository.Verify(x => x.Remove(testItemNotification), Times.Once);
         }
 
         /// <summary>
@@ -68,12 +68,12 @@ namespace GtdApp.Logic.Tests.BusinessLogic
         [Test]
         public void DoesRemoveItemNotificationNeverRemovesConnectionIfNoConnectionExists()
         {
-            Item testItem = this.MockItem.Object.GetAll().ElementAt(2);
-            Notification testNotification = this.MockNotification.Object.GetAll().ElementAt(2);
-            Item_notification testItemNotification = this.MockItemNotificaion.Object.GetAll().ElementAt(0);
+            Item testItem = this.Items.ElementAt(2);
+            Notification testNotification = this.Notifications.ElementAt(2);
+            Item_notification testItemNotification = this.ItemNotifications.ElementAt(0);
 
             this.BusinessLogic.RemoveItemNotification(testItem, testNotification);
-            this.MockItemNotificaion.Verify(x => x.Remove(testItemNotification), Times.Never);
+            this.MockItemNotificaionRepository.Verify(x => x.Remove(testItemNotification), Times.Never);
         }
 
         /// <summary>
@@ -82,7 +82,7 @@ namespace GtdApp.Logic.Tests.BusinessLogic
         [Test]
         public void IsItemRemovableIfHasNoNotificaion()
         {
-            Item testNewItem = this.MockItem.Object.GetAll().First();
+            Item testNewItem = this.Items.First();
             Assert.That(this.BusinessLogic.IsItemRemovable(testNewItem), Is.EqualTo(true));
         }
 
@@ -92,7 +92,7 @@ namespace GtdApp.Logic.Tests.BusinessLogic
         [Test]
         public void IsItemNotRemovableIfHasNotifications()
         {
-            Item testNewItem = this.MockItem.Object.GetAll().ElementAt(3);
+            Item testNewItem = this.Items.ElementAt(3);
             Assert.That(this.BusinessLogic.IsItemRemovable(testNewItem), Is.EqualTo(false));
         }
 
@@ -125,9 +125,9 @@ namespace GtdApp.Logic.Tests.BusinessLogic
         [Test]
         public void DoesItemHasNotificationReturnsTrueIffItemHasConnection()
         {
-            Item testItem = this.MockItem.Object.GetAll().ElementAt(2);
-            Notification testNotification = this.MockNotification.Object.GetAll().ElementAt(1);
-            Notification notUsedNotification = this.MockNotification.Object.GetAll().ElementAt(4);
+            Item testItem = this.Items.ElementAt(2);
+            Notification testNotification = this.Notifications.ElementAt(1);
+            Notification notUsedNotification = this.Notifications.ElementAt(4);
 
             Assert.That(this.BusinessLogic.ItemHasNotification(testItem, testNotification), Is.EqualTo(true));
             Assert.That(this.BusinessLogic.ItemHasNotification(testItem, notUsedNotification), Is.EqualTo(false));

@@ -35,7 +35,7 @@ namespace GtdApp.Logic.Tests.BusinessLogic
             };
 
             this.BusinessLogic.SaveNotification(testNewNotification);
-            this.MockNotification.Verify(x => x.Add(testNewNotification), Times.Once);
+            this.MockNotificationRepository.Verify(x => x.Add(testNewNotification), Times.Once);
         }
 
         /// <summary>
@@ -44,9 +44,9 @@ namespace GtdApp.Logic.Tests.BusinessLogic
         [Test]
         public void DoesRemoveNotificationRemovesNotification()
         {
-            Notification testNotification = this.MockNotification.Object.GetAll().First();
+            Notification testNotification = this.Notifications.First();
             this.BusinessLogic.RemoveNotification(testNotification);
-            this.MockNotification.Verify(x => x.Remove(testNotification), Times.Once);
+            this.MockNotificationRepository.Verify(x => x.Remove(testNotification), Times.Once);
         }
 
         /// <summary>
@@ -55,7 +55,7 @@ namespace GtdApp.Logic.Tests.BusinessLogic
         [Test]
         public void IsNotificationRemovableIfHasNoItem()
         {
-            Notification testNotification = this.MockNotification.Object.GetAll().ElementAt(4);
+            Notification testNotification = this.Notifications.ElementAt(4);
             Assert.That(this.BusinessLogic.IsNotificationRemovable(testNotification), Is.EqualTo(true));
         }
 
@@ -65,7 +65,7 @@ namespace GtdApp.Logic.Tests.BusinessLogic
         [Test]
         public void IsNotificationNotRemovableIfHasItems()
         {
-            Notification testNotification = this.MockNotification.Object.GetAll().ElementAt(3);
+            Notification testNotification = this.Notifications.ElementAt(3);
             Assert.That(this.BusinessLogic.IsNotificationRemovable(testNotification), Is.EqualTo(false));
         }
     }

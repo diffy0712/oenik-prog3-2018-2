@@ -43,25 +43,49 @@ namespace GtdApp.Logic.Tests.BusinessLogic
         ///      Gets or sets MockContainer
         /// </summary>
         /// <value>Mock of IContainerRepository</value>
-        protected Mock<IContainerRepository> MockContainer { get; set; }
+        protected Mock<IContainerRepository> MockContainerRepository { get; set; }
 
         /// <summary>
         ///      Gets or sets MockItem
         /// </summary>
         /// <value>Mock of IItemRepository</value>
-        protected Mock<IItemRepository> MockItem { get; set; }
+        protected Mock<IItemRepository> MockItemRepository { get; set; }
 
         /// <summary>
         ///      Gets or sets MockNotification
         /// </summary>
         /// <value>Mock of INotificationRepository</value>
-        protected Mock<INotificationRepository> MockNotification { get; set; }
+        protected Mock<INotificationRepository> MockNotificationRepository { get; set; }
 
         /// <summary>
         ///      Gets or sets MockItemNotificaion
         /// </summary>
         /// <value>Mock of IItem_NotificationRepository</value>
-        protected Mock<IItem_NotificationRepository> MockItemNotificaion { get; set; }
+        protected Mock<IItem_NotificationRepository> MockItemNotificaionRepository { get; set; }
+
+        /// <summary>
+        ///      Gets or sets Containers
+        /// </summary>
+        /// <value>List of Container</value>
+        protected List<Container> Containers { get; set; }
+
+        /// <summary>
+        ///      Gets or sets Items
+        /// </summary>
+        /// <value>List of Item</value>
+        protected List<Item> Items { get; set; }
+
+        /// <summary>
+        ///      Gets or sets Notifications
+        /// </summary>
+        /// <value>List of Notificaitons</value>
+        protected List<Notification> Notifications { get; set; }
+
+        /// <summary>
+        ///      Gets or sets ItemNotifications
+        /// </summary>
+        /// <value>List of Item_notification</value>
+        protected List<Item_notification> ItemNotifications { get; set; }
 
         /// <summary>
         ///      Gets or sets BusinessLogic
@@ -80,13 +104,18 @@ namespace GtdApp.Logic.Tests.BusinessLogic
             this.SetUpMockContainer();
             this.SetUpItemNotification();
 
-            // We don't use the BusinessLogic.Init() static method to use mocks
+            this.MockContainerRepository = new Mock<IContainerRepository>();
+            this.MockItemRepository = new Mock<IItemRepository>();
+            this.MockNotificationRepository = new Mock<INotificationRepository>();
+            this.MockItemNotificaionRepository = new Mock<IItem_NotificationRepository>();
+
+            // Don't use the BusinessLogic.Init() static method to use mocks
             this.BusinessLogic = new BusinessLogic()
             {
-                ContainerRepository = this.MockContainer.Object,
-                ItemRepository = this.MockItem.Object,
-                NotificationRepository = this.MockNotification.Object,
-                Item_NotificationRepository = this.MockItemNotificaion.Object,
+                ContainerRepository = this.MockContainerRepository.Object,
+                ItemRepository = this.MockItemRepository.Object,
+                NotificationRepository = this.MockNotificationRepository.Object,
+                Item_NotificationRepository = this.MockItemNotificaionRepository.Object,
                 Context = new GtdEntityDataModel()
             };
         }
@@ -96,12 +125,8 @@ namespace GtdApp.Logic.Tests.BusinessLogic
         /// </summary>
         private void SetUpNotification()
         {
-            this.MockNotification = new Mock<INotificationRepository>();
-
-            List<Notification> notificationList = new List<Notification>();
-            notificationList.AddRange(this.GenerateNotifications());
-
-            this.MockNotification.Setup(x => x.GetAll()).Returns(notificationList.AsQueryable());
+            this.Notifications = new List<Notification>();
+            this.Notifications.AddRange(this.GenerateNotifications());
         }
 
         /// <summary>
@@ -130,12 +155,8 @@ namespace GtdApp.Logic.Tests.BusinessLogic
         /// </summary>
         private void SetUpMockItem()
         {
-            this.MockItem = new Mock<IItemRepository>();
-
-            List<Item> itemList = new List<Item>();
-            itemList.AddRange(this.GenerateItems());
-
-            this.MockItem.Setup(x => x.GetAll()).Returns(itemList.AsQueryable());
+            this.Items = new List<Item>();
+            this.Items.AddRange(this.GenerateItems());
         }
 
         /// <summary>
@@ -187,11 +208,8 @@ namespace GtdApp.Logic.Tests.BusinessLogic
         /// </summary>
         private void SetUpItemNotification()
         {
-            this.MockItemNotificaion = new Mock<IItem_NotificationRepository>();
-            List<Item_notification> itemNotificationList = new List<Item_notification>();
-            itemNotificationList.AddRange(this.GenerateItemNotifications());
-
-            this.MockItemNotificaion.Setup(x => x.GetAll()).Returns(itemNotificationList.AsQueryable());
+            this.ItemNotifications = new List<Item_notification>();
+            this.ItemNotifications.AddRange(this.GenerateItemNotifications());
         }
 
         /// <summary>
@@ -222,8 +240,8 @@ namespace GtdApp.Logic.Tests.BusinessLogic
         /// <returns>Item notification connection</returns>
         private Item_notification GenerateItemNotification(ref int id, int itemId, int notificatitonId)
         {
-            IQueryable<Item> items = this.MockItem.Object.GetAll();
-            IQueryable<Notification> notifications = this.MockNotification.Object.GetAll();
+            IQueryable<Item> items = this.Items.AsQueryable();
+            IQueryable<Notification> notifications = this.Notifications.AsQueryable();
 
             Item item = items.ElementAt(itemId);
             Notification notification = notifications.ElementAt(notificatitonId);
@@ -248,12 +266,8 @@ namespace GtdApp.Logic.Tests.BusinessLogic
         /// </summary>
         private void SetUpMockContainer()
         {
-            this.MockContainer = new Mock<IContainerRepository>();
-
-            List<Container> containerList = new List<Container>();
-            containerList.AddRange(this.GenerateContainers());
-
-            this.MockContainer.Setup(x => x.GetAll()).Returns(containerList.AsQueryable());
+            this.Containers = new List<Container>();
+            this.Containers.AddRange(this.GenerateContainers());
         }
 
         /// <summary>
@@ -262,7 +276,7 @@ namespace GtdApp.Logic.Tests.BusinessLogic
         /// <returns>IEnumerable Containers</returns>
         private IEnumerable<Container> GenerateContainers()
         {
-            IQueryable<Item> items = this.MockItem.Object.GetAll();
+            IQueryable<Item> items = this.Items.AsQueryable();
             for (int i = 1; i <= BusinessLogicTests.NUMBEROFCONTAINERS; i++)
             {
                 List<Item> containerItems = new List<Item>();
