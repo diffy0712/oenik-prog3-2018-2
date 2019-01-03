@@ -229,7 +229,7 @@ Bugfixes\+:
 
 \begin{DoxyItemize}
 \item fixed \#32 -\/ Improve configuration of Smtp\+Client in sync sending -\/ contributed by Artur Dorochowicz ()
-\item fixed \#31 -\/ \mbox{[}Dynamic\+Proxy\mbox{]} Preserve Default\+Values of proxied method\textquotesingle{}s parameters (in .N\+ET 4.\+5)
+\item fixed \#31 -\/ [Dynamic\+Proxy] Preserve Default\+Values of proxied method\textquotesingle{}s parameters (in .N\+ET 4.\+5)
 \item fixed \#30 -\/ tailoring Internals\+Visible\+To message based on assembly of inaccessible type -\/ contributed by Blair Conrad ()
 \item fixed \#27 -\/ Allow dynamic proxy of generic interfaces which have generic methods, under Mono 2.\+10.\+8 and Mono 3.\+0.\+6 -\/ contributed by Iain Ballard (-\/e-\/b)
 \item fixed \#26 -\/ Proxy of C\+OM class issue, reference count incremented -\/ contributed by Jean-\/\+Claude Viau ()
@@ -250,7 +250,7 @@ Bugfixes\+:
 
 
 \begin{DoxyItemize}
-\item fixed D\+Y\+N\+P\+R\+O\+X\+Y-\/174 -\/ Unable to cast object of type \textquotesingle{}System.\+Collections.\+Object\+Model.\+Read\+Only\+Collection\`{}1\mbox{[}System.\+Reflection.\+Custom\+Attribute\+Typed\+Argument\mbox{]}\textquotesingle{} to type \textquotesingle{}System.\+Array\textquotesingle{}
+\item fixed D\+Y\+N\+P\+R\+O\+X\+Y-\/174 -\/ Unable to cast object of type \textquotesingle{}System.\+Collections.\+Object\+Model.\+Read\+Only\+Collection\`{}1[System.\+Reflection.\+Custom\+Attribute\+Typed\+Argument]\textquotesingle{} to type \textquotesingle{}System.\+Array\textquotesingle{}
 \end{DoxyItemize}
 
 \subsection*{3.\+1.\+0 RC (2012-\/07-\/08)}
@@ -295,8 +295,8 @@ Breaking Changes\+:
 \begin{DoxyItemize}
 \item For example\+:
 \begin{DoxyItemize}
-\item void Error(string format, params object\mbox{[}$\,$\mbox{]} args); // was removed
-\item void Error\+Format(string format, params object\mbox{[}$\,$\mbox{]} args); //use this one instead
+\item void Error(string format, params object[$\,$] args); // was removed
+\item void Error\+Format(string format, params object[$\,$] args); //use this one instead
 \end{DoxyItemize}
 \item impact -\/ low
 \item fixability -\/ medium
@@ -426,7 +426,7 @@ Bugfixes\+:
 \item Applied Eric Hauser\textquotesingle{}s patch fixing C\+O\+R\+E-\/\+I\+S\+S\+U\+E-\/22 \char`\"{}\+Support for environment variables in resource U\+R\+I\char`\"{}
 \item Applied Gauthier Segay\textquotesingle{}s patch fixing C\+O\+R\+E-\/\+I\+S\+S\+U\+E-\/20 \char`\"{}\+Castle.\+Core.\+Tests won\textquotesingle{}t build via nant because it use Trace\+Context without referencing System.\+Web.\+dll\char`\"{}
 \item Added simple interface to Component\+Model to make optional properties required.
-\item Applied Mark\textquotesingle{}s -- \href{mailto:mwatts42@gmail.com}{\tt mwatts42@gmail.\+com} -- patch that changes the Core to support being compiled for Silverlight 2
+\item Applied Mark\textquotesingle{}s -- {\tt mwatts42@gmail.\+com} -- patch that changes the Core to support being compiled for Silverlight 2
 \item Applied Louis De\+Jardin\textquotesingle{}s patch adding Trace\+Logger as a new logger implementation
 \item Applied Chris Bilson\textquotesingle{}s patch fixing C\+O\+R\+E-\/15 \char`\"{}\+Web\+Logger Throws When Logging Outside of an Http\+Context\char`\"{}
 \end{DoxyItemize}
@@ -444,12 +444,12 @@ Bugfixes\+:
 \begin{DoxyItemize}
 \item Debug(string)
 \item Debug(string, Exception)
-\item Debug(string, params object\mbox{[}$\,$\mbox{]})
-\item Debug\+Format(string, params object\mbox{[}$\,$\mbox{]})
-\item Debug\+Format(\+Exception, string, params object\mbox{[}$\,$\mbox{]})
-\item Debug\+Format(\+I\+Format\+Provider, string, params object\mbox{[}$\,$\mbox{]})
-\item Debug\+Format(\+I\+Format\+Provider, Exception, string, params object\mbox{[}$\,$\mbox{]})
-\item The \char`\"{}\+Fatal\+Error\char`\"{} overloads where marked as \mbox{[}Obsolete\mbox{]}, replaced by \char`\"{}\+Fatal\char`\"{} and \char`\"{}\+Fatal\+Format\char`\"{}.
+\item Debug(string, params object[$\,$])
+\item Debug\+Format(string, params object[$\,$])
+\item Debug\+Format(\+Exception, string, params object[$\,$])
+\item Debug\+Format(\+I\+Format\+Provider, string, params object[$\,$])
+\item Debug\+Format(\+I\+Format\+Provider, Exception, string, params object[$\,$])
+\item The \char`\"{}\+Fatal\+Error\char`\"{} overloads where marked as [Obsolete], replaced by \char`\"{}\+Fatal\char`\"{} and \char`\"{}\+Fatal\+Format\char`\"{}.
 \end{DoxyItemize}
 \end{DoxyItemize}
 

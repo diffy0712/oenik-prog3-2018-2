@@ -1,8 +1,8 @@
-\hypertarget{interface_gtd_app_1_1_repository_1_1_interfaces_1_1_i_notification_repository}{}\section{Gtd\+App.\+Repository.\+Interfaces.\+I\+Notification\+Repository Interface Reference}
+\section{Gtd\+App.\+Repository.\+Interfaces.\+I\+Notification\+Repository Interface Reference}
 \label{interface_gtd_app_1_1_repository_1_1_interfaces_1_1_i_notification_repository}\index{Gtd\+App.\+Repository.\+Interfaces.\+I\+Notification\+Repository@{Gtd\+App.\+Repository.\+Interfaces.\+I\+Notification\+Repository}}
 
 
-\mbox{\hyperlink{interface_gtd_app_1_1_repository_1_1_interfaces_1_1_i_container_repository}{I\+Container\+Repository}}  
+\doxyref{I\+Container\+Repository}{p.}{interface_gtd_app_1_1_repository_1_1_interfaces_1_1_i_container_repository}  
 
 
 Inheritance diagram for Gtd\+App.\+Repository.\+Interfaces.\+I\+Notification\+Repository\+:\begin{figure}[H]
@@ -14,21 +14,47 @@ Inheritance diagram for Gtd\+App.\+Repository.\+Interfaces.\+I\+Notification\+Re
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-I\+Queryable$<$ \mbox{\hyperlink{class_gtd_app_1_1_data_1_1_notification}{Notification}} $>$ \mbox{\hyperlink{interface_gtd_app_1_1_repository_1_1_interfaces_1_1_i_notification_repository_ace09da4279367d4edb68b6094c13d8e2}{Search\+All}} (string search, \mbox{\hyperlink{class_gtd_app_1_1_repository_1_1_paginator}{Paginator}} paginator)
-\begin{DoxyCompactList}\small\item\em Search\+All \end{DoxyCompactList}\end{DoxyCompactItemize}
+I\+Queryable$<$ \textbf{ Notification} $>$ \textbf{ Search\+All} (string search, \textbf{ Paginator} paginator)
+\begin{DoxyCompactList}\small\item\em Search\+All \end{DoxyCompactList}\item 
+I\+Queryable$<$ \textbf{ Aggregates\+By\+Notification\+Type\+Dto} $>$ \textbf{ Get\+Aggregates\+By\+Notification\+Type} (string search, \textbf{ Paginator} paginator)
+\begin{DoxyCompactList}\small\item\em Get\+Aggregates\+By\+Notification\+Type \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-\mbox{\hyperlink{interface_gtd_app_1_1_repository_1_1_interfaces_1_1_i_container_repository}{I\+Container\+Repository}} 
+\doxyref{I\+Container\+Repository}{p.}{interface_gtd_app_1_1_repository_1_1_interfaces_1_1_i_container_repository} 
 
 
 
 \subsection{Member Function Documentation}
-\mbox{\Hypertarget{interface_gtd_app_1_1_repository_1_1_interfaces_1_1_i_notification_repository_ace09da4279367d4edb68b6094c13d8e2}\label{interface_gtd_app_1_1_repository_1_1_interfaces_1_1_i_notification_repository_ace09da4279367d4edb68b6094c13d8e2}} 
+\mbox{\label{interface_gtd_app_1_1_repository_1_1_interfaces_1_1_i_notification_repository_aa97ab139ba5316a9ba7faaa3423c8c04}} 
+\index{Gtd\+App\+::\+Repository\+::\+Interfaces\+::\+I\+Notification\+Repository@{Gtd\+App\+::\+Repository\+::\+Interfaces\+::\+I\+Notification\+Repository}!Get\+Aggregates\+By\+Notification\+Type@{Get\+Aggregates\+By\+Notification\+Type}}
+\index{Get\+Aggregates\+By\+Notification\+Type@{Get\+Aggregates\+By\+Notification\+Type}!Gtd\+App\+::\+Repository\+::\+Interfaces\+::\+I\+Notification\+Repository@{Gtd\+App\+::\+Repository\+::\+Interfaces\+::\+I\+Notification\+Repository}}
+\subsubsection{Get\+Aggregates\+By\+Notification\+Type()}
+{\footnotesize\ttfamily I\+Queryable$<$\textbf{ Aggregates\+By\+Notification\+Type\+Dto}$>$ Gtd\+App.\+Repository.\+Interfaces.\+I\+Notification\+Repository.\+Get\+Aggregates\+By\+Notification\+Type (\begin{DoxyParamCaption}\item[{string}]{search,  }\item[{\textbf{ Paginator}}]{paginator }\end{DoxyParamCaption})}
+
+
+
+Get\+Aggregates\+By\+Notification\+Type 
+
+
+\begin{DoxyParams}{Parameters}
+{\em search} & String\\
+\hline
+{\em paginator} & \doxyref{Paginator}{p.}{class_gtd_app_1_1_repository_1_1_paginator} instance\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+I\+Queryable
+\end{DoxyReturn}
+
+
+Implemented in \textbf{ Gtd\+App.\+Repository.\+Notification\+Repository} \doxyref{}{p.}{class_gtd_app_1_1_repository_1_1_notification_repository_a4d38a282d9605871ba58b84388faa062}.
+
+\mbox{\label{interface_gtd_app_1_1_repository_1_1_interfaces_1_1_i_notification_repository_ace09da4279367d4edb68b6094c13d8e2}} 
 \index{Gtd\+App\+::\+Repository\+::\+Interfaces\+::\+I\+Notification\+Repository@{Gtd\+App\+::\+Repository\+::\+Interfaces\+::\+I\+Notification\+Repository}!Search\+All@{Search\+All}}
 \index{Search\+All@{Search\+All}!Gtd\+App\+::\+Repository\+::\+Interfaces\+::\+I\+Notification\+Repository@{Gtd\+App\+::\+Repository\+::\+Interfaces\+::\+I\+Notification\+Repository}}
-\subsubsection{\texorpdfstring{Search\+All()}{SearchAll()}}
-{\footnotesize\ttfamily I\+Queryable$<$\mbox{\hyperlink{class_gtd_app_1_1_data_1_1_notification}{Notification}}$>$ Gtd\+App.\+Repository.\+Interfaces.\+I\+Notification\+Repository.\+Search\+All (\begin{DoxyParamCaption}\item[{string}]{search,  }\item[{\mbox{\hyperlink{class_gtd_app_1_1_repository_1_1_paginator}{Paginator}}}]{paginator }\end{DoxyParamCaption})}
+\subsubsection{Search\+All()}
+{\footnotesize\ttfamily I\+Queryable$<$\textbf{ Notification}$>$ Gtd\+App.\+Repository.\+Interfaces.\+I\+Notification\+Repository.\+Search\+All (\begin{DoxyParamCaption}\item[{string}]{search,  }\item[{\textbf{ Paginator}}]{paginator }\end{DoxyParamCaption})}
 
 
 
@@ -38,7 +64,7 @@ Search\+All
 \begin{DoxyParams}{Parameters}
 {\em search} & String\\
 \hline
-{\em paginator} & \mbox{\hyperlink{class_gtd_app_1_1_repository_1_1_paginator}{Paginator}} instance\\
+{\em paginator} & \doxyref{Paginator}{p.}{class_gtd_app_1_1_repository_1_1_paginator} instance\\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -46,7 +72,7 @@ I\+Queryable
 \end{DoxyReturn}
 
 
-Implemented in \mbox{\hyperlink{class_gtd_app_1_1_repository_1_1_notification_repository_ae7d00a78be601d51ade9419123960ec7}{Gtd\+App.\+Repository.\+Notification\+Repository}}.
+Implemented in \textbf{ Gtd\+App.\+Repository.\+Notification\+Repository} \doxyref{}{p.}{class_gtd_app_1_1_repository_1_1_notification_repository_ae7d00a78be601d51ade9419123960ec7}.
 
 
 

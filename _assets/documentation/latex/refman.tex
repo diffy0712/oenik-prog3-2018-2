@@ -90,20 +90,6 @@
 \setcounter{secnumdepth}{5}
 \makeindex
 
-% Hyperlinks (required, but should be loaded last)
-\usepackage{ifpdf}
-\ifpdf
-  \usepackage[pdftex,pagebackref=true]{hyperref}
-\else
-  \usepackage[ps2pdf,pagebackref=true]{hyperref}
-\fi
-\hypersetup{%
-  colorlinks=true,%
-  linkcolor=blue,%
-  citecolor=blue,%
-  unicode%
-}
-
 % Custom commands
 \newcommand{\clearemptydoublepage}{%
   \newpage{\pagestyle{empty}\cleardoublepage}%
@@ -117,10 +103,6 @@
 \begin{document}
 
 % Titlepage & ToC
-\hypersetup{pageanchor=false,
-             bookmarksnumbered=true,
-             pdfencoding=unicode
-            }
 \pagenumbering{alph}
 \begin{titlepage}
 \vspace*{7cm}
@@ -135,20 +117,16 @@
 \tableofcontents
 \clearemptydoublepage
 \pagenumbering{arabic}
-\hypersetup{pageanchor=true}
 
 %--- Begin generated contents ---
 \chapter{Castle Core Changelog}
 \label{md__c_1__projects__o_e_oenik_prog3_2018_2_ep7d0o__o_e_n_i_k__p_r_o_g3_2018_2__e_p7_d0_o_packages8ad2e7294e2f42bb95e3b81991b3569d}
-\Hypertarget{md__c_1__projects__o_e_oenik_prog3_2018_2_ep7d0o__o_e_n_i_k__p_r_o_g3_2018_2__e_p7_d0_o_packages8ad2e7294e2f42bb95e3b81991b3569d}
 \input{md__c_1__projects__o_e_oenik_prog3_2018_2_ep7d0o__o_e_n_i_k__p_r_o_g3_2018_2__e_p7_d0_o_packages8ad2e7294e2f42bb95e3b81991b3569d}
 \chapter{L\+I\+C\+E\+N\+SE}
 \label{md__c_1__projects__o_e_oenik_prog3_2018_2_ep7d0o__o_e_n_i_k__p_r_o_g3_2018_2__e_p7_d0_o_packages49dfbfe7c7601bfdae53879e3e2cc9e3}
-\Hypertarget{md__c_1__projects__o_e_oenik_prog3_2018_2_ep7d0o__o_e_n_i_k__p_r_o_g3_2018_2__e_p7_d0_o_packages49dfbfe7c7601bfdae53879e3e2cc9e3}
 \input{md__c_1__projects__o_e_oenik_prog3_2018_2_ep7d0o__o_e_n_i_k__p_r_o_g3_2018_2__e_p7_d0_o_packages49dfbfe7c7601bfdae53879e3e2cc9e3}
 \chapter{N\+Unit 3.11 -\/ October 11, 2018}
 \label{md__c_1__projects__o_e_oenik_prog3_2018_2_ep7d0o__o_e_n_i_k__p_r_o_g3_2018_2__e_p7_d0_o_packages5cdfbe88207ce380d4cdccfb82c0c269}
-\Hypertarget{md__c_1__projects__o_e_oenik_prog3_2018_2_ep7d0o__o_e_n_i_k__p_r_o_g3_2018_2__e_p7_d0_o_packages5cdfbe88207ce380d4cdccfb82c0c269}
 \input{md__c_1__projects__o_e_oenik_prog3_2018_2_ep7d0o__o_e_n_i_k__p_r_o_g3_2018_2__e_p7_d0_o_packages5cdfbe88207ce380d4cdccfb82c0c269}
 \chapter{Namespace Index}
 \input{namespaces}
@@ -184,6 +162,10 @@
 \input{namespace_gtd_app_1_1_logic_1_1_properties}
 \input{namespace_gtd_app_1_1_logic_1_1_routing}
 \input{namespace_gtd_app_1_1_logic_1_1_tests}
+\input{namespace_gtd_app_1_1_logic_1_1_tests_1_1_business_logic}
+\input{namespace_gtd_app_1_1_logic_1_1_tests_1_1_router}
+\input{namespace_gtd_app_1_1_logic_1_1_tests_1_1_router_1_1_controllers}
+\input{namespace_gtd_app_1_1_logic_1_1_tests_1_1_router_1_1_exceptions}
 \input{namespace_g_t_d_app_1_1_properties}
 \input{namespace_gtd_app_1_1_repository}
 \input{namespace_gtd_app_1_1_repository_1_1_interfaces}
@@ -191,12 +173,14 @@
 \input{class_gtd_app_1_1_logic_1_1_attributes_1_1_abstract_route_attribute}
 \input{class_gtd_app_1_1_console_core_1_1_view_1_1_abstract_view}
 \input{class_gtd_app_1_1_data_1_1_dto_1_1_aggregates_by_container_type_dto}
+\input{class_gtd_app_1_1_data_1_1_dto_1_1_aggregates_by_notification_type_dto}
 \input{class_gtd_app_1_1_logic_1_1_business_logic}
-\input{class_gtd_app_1_1_logic_1_1_tests_1_1_business_logic_tests}
+\input{class_gtd_app_1_1_logic_1_1_tests_1_1_business_logic_1_1_business_logic_tests}
 \input{class_gtd_app_1_1_logic_1_1_common}
+\input{class_gtd_app_1_1_logic_1_1_tests_1_1_common_tests}
 \input{class_gtd_app_1_1_console_core_1_1_console_core}
 \input{class_gtd_app_1_1_data_1_1_container}
-\input{class_gtd_app_1_1_logic_1_1_tests_1_1_container_business_logic_tests}
+\input{class_gtd_app_1_1_logic_1_1_tests_1_1_business_logic_1_1_container_business_logic_tests}
 \input{class_gtd_app_1_1_console_1_1_controllers_1_1_container_controller}
 \input{class_gtd_app_1_1_repository_1_1_container_repository}
 \input{class_gtd_app_1_1_console_1_1_controllers_1_1_dashboard_controller}
@@ -207,6 +191,7 @@
 \input{class_gtd_app_1_1_console_1_1_views_1_1_items_1_1_delete_item_view}
 \input{class_gtd_app_1_1_console_1_1_views_1_1_notifications_1_1_delete_notification_view}
 \input{class_gtd_app_1_1_console_1_1_exceptions_1_1_detailed_exception_handler}
+\input{class_gtd_app_1_1_logic_1_1_tests_1_1_router_1_1_controllers_1_1_empty_controller}
 \input{class_gtd_app_1_1_console_1_1_controllers_1_1_error_controller}
 \input{class_gtd_app_1_1_console_1_1_views_1_1_error_view}
 \input{class_gtd_app_1_1_console_core_1_1_views_1_1_helpers_1_1_exception_helper}
@@ -223,11 +208,10 @@
 \input{class_gtd_app_1_1_data_1_1_item}
 \input{class_gtd_app_1_1_data_1_1_item__notification}
 \input{class_gtd_app_1_1_repository_1_1_item__notification_repository}
+\input{class_gtd_app_1_1_logic_1_1_tests_1_1_business_logic_1_1_item_business_logic_tests}
 \input{class_gtd_app_1_1_console_1_1_controllers_1_1_item_controller}
 \input{class_gtd_app_1_1_repository_1_1_item_repository}
 \input{interface_gtd_app_1_1_logic_1_1_interfaces_1_1_i_view}
-\input{class_gtd_app_1_1_console_1_1_controllers_1_1_java_web_controller}
-\input{class_gtd_app_1_1_console_1_1_views_1_1_java_web_view}
 \input{class_gtd_app_1_1_logic_1_1_exceptions_1_1_j_s_o_n_api_call_failed_exception}
 \input{class_gtd_app_1_1_console_1_1_views_1_1_containers_1_1_list_containers_view}
 \input{class_gtd_app_1_1_console_1_1_views_1_1_items_1_1_list_items_view}
@@ -241,6 +225,7 @@
 \input{class_gtd_app_1_1_console_core_1_1_menu_1_1_menu_item}
 \input{class_gtd_app_1_1_logic_1_1_exceptions_1_1_no_route_found_exception}
 \input{class_gtd_app_1_1_data_1_1_notification}
+\input{class_gtd_app_1_1_logic_1_1_tests_1_1_business_logic_1_1_notification_business_logic_tests}
 \input{class_gtd_app_1_1_console_1_1_controllers_1_1_notification_controller}
 \input{class_gtd_app_1_1_repository_1_1_notification_repository}
 \input{class_gtd_app_1_1_console_1_1_exceptions_1_1_null_exception_handler}
@@ -252,7 +237,11 @@
 \input{class_gtd_app_1_1_logic_1_1_attributes_1_1_route_attribute}
 \input{class_gtd_app_1_1_logic_1_1_routing_1_1_router}
 \input{class_gtd_app_1_1_logic_1_1_routing_1_1_router_helper}
+\input{class_gtd_app_1_1_logic_1_1_tests_1_1_router_1_1_router_helper_tests}
+\input{class_gtd_app_1_1_logic_1_1_tests_1_1_router_1_1_router_tests}
 \input{class_gtd_app_1_1_console_core_1_1_views_1_1_helpers_1_1_table_helper}
+\input{class_gtd_app_1_1_logic_1_1_tests_1_1_router_1_1_controllers_1_1_test_controller}
+\input{class_gtd_app_1_1_logic_1_1_tests_1_1_router_1_1_exceptions_1_1_test_route_with_parameters_passed_exception}
 \input{class_gtd_app_1_1_data_1_1_dto_1_1_upcoming_notifications_dto}
 \input{class_gtd_app_1_1_console_1_1_views_1_1_modals_1_1_validation_error_message_modal_view}
 %--- End generated contents ---

@@ -1,0 +1,332 @@
+\section{Gtd\+App.\+Logic.\+Tests.\+Business\+Logic.\+Business\+Logic\+Tests Class Reference}
+\label{class_gtd_app_1_1_logic_1_1_tests_1_1_business_logic_1_1_business_logic_tests}\index{Gtd\+App.\+Logic.\+Tests.\+Business\+Logic.\+Business\+Logic\+Tests@{Gtd\+App.\+Logic.\+Tests.\+Business\+Logic.\+Business\+Logic\+Tests}}
+
+
+\doxyref{Business\+Logic\+Tests}{p.}{class_gtd_app_1_1_logic_1_1_tests_1_1_business_logic_1_1_business_logic_tests}  
+
+
+Inheritance diagram for Gtd\+App.\+Logic.\+Tests.\+Business\+Logic.\+Business\+Logic\+Tests\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=0.952381cm]{class_gtd_app_1_1_logic_1_1_tests_1_1_business_logic_1_1_business_logic_tests}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ Setup} ()
+\begin{DoxyCompactList}\small\item\em The Setup of the \doxyref{Business\+Logic\+Tests}{p.}{class_gtd_app_1_1_logic_1_1_tests_1_1_business_logic_1_1_business_logic_tests} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+Mock$<$ \textbf{ I\+Container\+Repository} $>$ \textbf{ Mock\+Container\+Repository}\hspace{0.3cm}{\ttfamily  [get, set]}
+\begin{DoxyCompactList}\small\item\em Gets or sets Mock\+Container \end{DoxyCompactList}\item 
+Mock$<$ \textbf{ I\+Item\+Repository} $>$ \textbf{ Mock\+Item\+Repository}\hspace{0.3cm}{\ttfamily  [get, set]}
+\begin{DoxyCompactList}\small\item\em Gets or sets Mock\+Item \end{DoxyCompactList}\item 
+Mock$<$ \textbf{ I\+Notification\+Repository} $>$ \textbf{ Mock\+Notification\+Repository}\hspace{0.3cm}{\ttfamily  [get, set]}
+\begin{DoxyCompactList}\small\item\em Gets or sets Mock\+Notification \end{DoxyCompactList}\item 
+Mock$<$ \textbf{ I\+Item\+\_\+\+Notification\+Repository} $>$ \textbf{ Mock\+Item\+Notificaion\+Repository}\hspace{0.3cm}{\ttfamily  [get, set]}
+\begin{DoxyCompactList}\small\item\em Gets or sets Mock\+Item\+Notificaion \end{DoxyCompactList}\item 
+List$<$ \textbf{ Container} $>$ \textbf{ Containers}\hspace{0.3cm}{\ttfamily  [get, set]}
+\begin{DoxyCompactList}\small\item\em Gets or sets Containers \end{DoxyCompactList}\item 
+List$<$ \textbf{ Item} $>$ \textbf{ Items}\hspace{0.3cm}{\ttfamily  [get, set]}
+\begin{DoxyCompactList}\small\item\em Gets or sets Items \end{DoxyCompactList}\item 
+List$<$ \textbf{ Notification} $>$ \textbf{ Notifications}\hspace{0.3cm}{\ttfamily  [get, set]}
+\begin{DoxyCompactList}\small\item\em Gets or sets Notifications \end{DoxyCompactList}\item 
+List$<$ \textbf{ Item\+\_\+notification} $>$ \textbf{ Item\+Notifications}\hspace{0.3cm}{\ttfamily  [get, set]}
+\begin{DoxyCompactList}\small\item\em Gets or sets Item\+Notifications \end{DoxyCompactList}\item 
+\textbf{ Business\+Logic} \textbf{ Business\+Logic}\hspace{0.3cm}{\ttfamily  [get, set]}
+\begin{DoxyCompactList}\small\item\em Gets or sets \doxyref{Business\+Logic}{p.}{namespace_gtd_app_1_1_logic_1_1_tests_1_1_business_logic} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ Set\+Up\+Notification} ()
+\begin{DoxyCompactList}\small\item\em Set Up the notificaions \end{DoxyCompactList}\item 
+I\+Enumerable$<$ \textbf{ Notification} $>$ \textbf{ Generate\+Notifications} ()
+\begin{DoxyCompactList}\small\item\em Generate And return an I\+Enumerable list of notificaions \end{DoxyCompactList}\item 
+void \textbf{ Set\+Up\+Mock\+Item} ()
+\begin{DoxyCompactList}\small\item\em Set Up the items \end{DoxyCompactList}\item 
+I\+Enumerable$<$ \textbf{ Item} $>$ \textbf{ Generate\+Items} ()
+\begin{DoxyCompactList}\small\item\em Generate And return an I\+Enumerable list of items The first one is empty \end{DoxyCompactList}\item 
+void \textbf{ Set\+Up\+Item\+Notification} ()
+\begin{DoxyCompactList}\small\item\em Set Up the item notification connections \end{DoxyCompactList}\item 
+I\+Enumerable$<$ \textbf{ Item\+\_\+notification} $>$ \textbf{ Generate\+Item\+Notifications} ()
+\begin{DoxyCompactList}\small\item\em Generate And return an I\+Enumerable list of item notificaion connections \end{DoxyCompactList}\item 
+\textbf{ Item\+\_\+notification} \textbf{ Generate\+Item\+Notification} (ref int id, int item\+Id, int notificatiton\+Id)
+\begin{DoxyCompactList}\small\item\em Returns an item notification \end{DoxyCompactList}\item 
+void \textbf{ Set\+Up\+Mock\+Container} ()
+\begin{DoxyCompactList}\small\item\em Set Up the containers \end{DoxyCompactList}\item 
+I\+Enumerable$<$ \textbf{ Container} $>$ \textbf{ Generate\+Containers} ()
+\begin{DoxyCompactList}\small\item\em Generate And return an I\+Enumerable list of containers \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const int \textbf{ N\+U\+M\+B\+E\+R\+O\+F\+C\+O\+N\+T\+A\+I\+N\+E\+RS} = 6
+\begin{DoxyCompactList}\small\item\em Contant for Number of containers to be generated \end{DoxyCompactList}\item 
+const int \textbf{ N\+U\+M\+B\+E\+R\+O\+F\+N\+O\+T\+I\+F\+I\+C\+A\+T\+I\+O\+NS} = 5
+\begin{DoxyCompactList}\small\item\em Contant for Number of notifications to be generated \end{DoxyCompactList}\item 
+const int \textbf{ N\+U\+M\+B\+E\+R\+O\+F\+I\+T\+E\+MS} = 15
+\begin{DoxyCompactList}\small\item\em Contant for Number of items to be generated \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\doxyref{Business\+Logic\+Tests}{p.}{class_gtd_app_1_1_logic_1_1_tests_1_1_business_logic_1_1_business_logic_tests} 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\label{class_gtd_app_1_1_logic_1_1_tests_1_1_business_logic_1_1_business_logic_tests_a0af4b389382b1a1d597c910780cb40f3}} 
+\index{Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests@{Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests}!Generate\+Containers@{Generate\+Containers}}
+\index{Generate\+Containers@{Generate\+Containers}!Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests@{Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests}}
+\subsubsection{Generate\+Containers()}
+{\footnotesize\ttfamily I\+Enumerable$<$\textbf{ Container}$>$ Gtd\+App.\+Logic.\+Tests.\+Business\+Logic.\+Business\+Logic\+Tests.\+Generate\+Containers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Generate And return an I\+Enumerable list of containers 
+
+\begin{DoxyReturn}{Returns}
+I\+Enumerable Containers
+\end{DoxyReturn}
+\mbox{\label{class_gtd_app_1_1_logic_1_1_tests_1_1_business_logic_1_1_business_logic_tests_a6a7368406bf62739b73f48e2b72c92d6}} 
+\index{Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests@{Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests}!Generate\+Item\+Notification@{Generate\+Item\+Notification}}
+\index{Generate\+Item\+Notification@{Generate\+Item\+Notification}!Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests@{Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests}}
+\subsubsection{Generate\+Item\+Notification()}
+{\footnotesize\ttfamily \textbf{ Item\+\_\+notification} Gtd\+App.\+Logic.\+Tests.\+Business\+Logic.\+Business\+Logic\+Tests.\+Generate\+Item\+Notification (\begin{DoxyParamCaption}\item[{ref int}]{id,  }\item[{int}]{item\+Id,  }\item[{int}]{notificatiton\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Returns an item notification 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & Id\\
+\hline
+{\em item\+Id} & Item id\\
+\hline
+{\em notificatiton\+Id} & Notification id\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Item notification connection
+\end{DoxyReturn}
+\mbox{\label{class_gtd_app_1_1_logic_1_1_tests_1_1_business_logic_1_1_business_logic_tests_ad6abce9f3e6a3bf644b680f82a5d2715}} 
+\index{Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests@{Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests}!Generate\+Item\+Notifications@{Generate\+Item\+Notifications}}
+\index{Generate\+Item\+Notifications@{Generate\+Item\+Notifications}!Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests@{Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests}}
+\subsubsection{Generate\+Item\+Notifications()}
+{\footnotesize\ttfamily I\+Enumerable$<$\textbf{ Item\+\_\+notification}$>$ Gtd\+App.\+Logic.\+Tests.\+Business\+Logic.\+Business\+Logic\+Tests.\+Generate\+Item\+Notifications (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Generate And return an I\+Enumerable list of item notificaion connections 
+
+\begin{DoxyReturn}{Returns}
+I\+Enumerable Item notification connections
+\end{DoxyReturn}
+\mbox{\label{class_gtd_app_1_1_logic_1_1_tests_1_1_business_logic_1_1_business_logic_tests_a97da1196cf901b13ce5460b9995f8fa0}} 
+\index{Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests@{Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests}!Generate\+Items@{Generate\+Items}}
+\index{Generate\+Items@{Generate\+Items}!Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests@{Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests}}
+\subsubsection{Generate\+Items()}
+{\footnotesize\ttfamily I\+Enumerable$<$\textbf{ Item}$>$ Gtd\+App.\+Logic.\+Tests.\+Business\+Logic.\+Business\+Logic\+Tests.\+Generate\+Items (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Generate And return an I\+Enumerable list of items The first one is empty 
+
+\begin{DoxyReturn}{Returns}
+I\+Enumerable Items
+\end{DoxyReturn}
+\mbox{\label{class_gtd_app_1_1_logic_1_1_tests_1_1_business_logic_1_1_business_logic_tests_a47b7ecfe8437292cb20825446045cc4d}} 
+\index{Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests@{Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests}!Generate\+Notifications@{Generate\+Notifications}}
+\index{Generate\+Notifications@{Generate\+Notifications}!Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests@{Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests}}
+\subsubsection{Generate\+Notifications()}
+{\footnotesize\ttfamily I\+Enumerable$<$\textbf{ Notification}$>$ Gtd\+App.\+Logic.\+Tests.\+Business\+Logic.\+Business\+Logic\+Tests.\+Generate\+Notifications (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Generate And return an I\+Enumerable list of notificaions 
+
+\begin{DoxyReturn}{Returns}
+I\+Enumerable Notificaions
+\end{DoxyReturn}
+\mbox{\label{class_gtd_app_1_1_logic_1_1_tests_1_1_business_logic_1_1_business_logic_tests_a4437d59eab25131d57f98e200715008b}} 
+\index{Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests@{Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests}!Setup@{Setup}}
+\index{Setup@{Setup}!Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests@{Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests}}
+\subsubsection{Setup()}
+{\footnotesize\ttfamily void Gtd\+App.\+Logic.\+Tests.\+Business\+Logic.\+Business\+Logic\+Tests.\+Setup (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+The Setup of the \doxyref{Business\+Logic\+Tests}{p.}{class_gtd_app_1_1_logic_1_1_tests_1_1_business_logic_1_1_business_logic_tests} 
+
+\mbox{\label{class_gtd_app_1_1_logic_1_1_tests_1_1_business_logic_1_1_business_logic_tests_a57b6a59b9ae8210afc1c227777370aba}} 
+\index{Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests@{Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests}!Set\+Up\+Item\+Notification@{Set\+Up\+Item\+Notification}}
+\index{Set\+Up\+Item\+Notification@{Set\+Up\+Item\+Notification}!Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests@{Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests}}
+\subsubsection{Set\+Up\+Item\+Notification()}
+{\footnotesize\ttfamily void Gtd\+App.\+Logic.\+Tests.\+Business\+Logic.\+Business\+Logic\+Tests.\+Set\+Up\+Item\+Notification (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Set Up the item notification connections 
+
+\mbox{\label{class_gtd_app_1_1_logic_1_1_tests_1_1_business_logic_1_1_business_logic_tests_a3664fe937abb5088b480bf3766712760}} 
+\index{Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests@{Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests}!Set\+Up\+Mock\+Container@{Set\+Up\+Mock\+Container}}
+\index{Set\+Up\+Mock\+Container@{Set\+Up\+Mock\+Container}!Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests@{Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests}}
+\subsubsection{Set\+Up\+Mock\+Container()}
+{\footnotesize\ttfamily void Gtd\+App.\+Logic.\+Tests.\+Business\+Logic.\+Business\+Logic\+Tests.\+Set\+Up\+Mock\+Container (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Set Up the containers 
+
+\mbox{\label{class_gtd_app_1_1_logic_1_1_tests_1_1_business_logic_1_1_business_logic_tests_a66c3baa3317edc5aebcc0a3028928347}} 
+\index{Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests@{Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests}!Set\+Up\+Mock\+Item@{Set\+Up\+Mock\+Item}}
+\index{Set\+Up\+Mock\+Item@{Set\+Up\+Mock\+Item}!Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests@{Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests}}
+\subsubsection{Set\+Up\+Mock\+Item()}
+{\footnotesize\ttfamily void Gtd\+App.\+Logic.\+Tests.\+Business\+Logic.\+Business\+Logic\+Tests.\+Set\+Up\+Mock\+Item (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Set Up the items 
+
+\mbox{\label{class_gtd_app_1_1_logic_1_1_tests_1_1_business_logic_1_1_business_logic_tests_a7b57177721b9e17d277163c0a05884e9}} 
+\index{Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests@{Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests}!Set\+Up\+Notification@{Set\+Up\+Notification}}
+\index{Set\+Up\+Notification@{Set\+Up\+Notification}!Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests@{Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests}}
+\subsubsection{Set\+Up\+Notification()}
+{\footnotesize\ttfamily void Gtd\+App.\+Logic.\+Tests.\+Business\+Logic.\+Business\+Logic\+Tests.\+Set\+Up\+Notification (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Set Up the notificaions 
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\label{class_gtd_app_1_1_logic_1_1_tests_1_1_business_logic_1_1_business_logic_tests_a45a2d476b28badbbb50596d3af8c1088}} 
+\index{Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests@{Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests}!N\+U\+M\+B\+E\+R\+O\+F\+C\+O\+N\+T\+A\+I\+N\+E\+RS@{N\+U\+M\+B\+E\+R\+O\+F\+C\+O\+N\+T\+A\+I\+N\+E\+RS}}
+\index{N\+U\+M\+B\+E\+R\+O\+F\+C\+O\+N\+T\+A\+I\+N\+E\+RS@{N\+U\+M\+B\+E\+R\+O\+F\+C\+O\+N\+T\+A\+I\+N\+E\+RS}!Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests@{Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests}}
+\subsubsection{N\+U\+M\+B\+E\+R\+O\+F\+C\+O\+N\+T\+A\+I\+N\+E\+RS}
+{\footnotesize\ttfamily const int Gtd\+App.\+Logic.\+Tests.\+Business\+Logic.\+Business\+Logic\+Tests.\+N\+U\+M\+B\+E\+R\+O\+F\+C\+O\+N\+T\+A\+I\+N\+E\+RS = 6\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Contant for Number of containers to be generated 
+
+int 10\mbox{\label{class_gtd_app_1_1_logic_1_1_tests_1_1_business_logic_1_1_business_logic_tests_a3420703fa08846202b532414538d5808}} 
+\index{Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests@{Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests}!N\+U\+M\+B\+E\+R\+O\+F\+I\+T\+E\+MS@{N\+U\+M\+B\+E\+R\+O\+F\+I\+T\+E\+MS}}
+\index{N\+U\+M\+B\+E\+R\+O\+F\+I\+T\+E\+MS@{N\+U\+M\+B\+E\+R\+O\+F\+I\+T\+E\+MS}!Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests@{Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests}}
+\subsubsection{N\+U\+M\+B\+E\+R\+O\+F\+I\+T\+E\+MS}
+{\footnotesize\ttfamily const int Gtd\+App.\+Logic.\+Tests.\+Business\+Logic.\+Business\+Logic\+Tests.\+N\+U\+M\+B\+E\+R\+O\+F\+I\+T\+E\+MS = 15\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Contant for Number of items to be generated 
+
+int 10\mbox{\label{class_gtd_app_1_1_logic_1_1_tests_1_1_business_logic_1_1_business_logic_tests_a36a3eef1537a37b8a537cc060f25bb93}} 
+\index{Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests@{Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests}!N\+U\+M\+B\+E\+R\+O\+F\+N\+O\+T\+I\+F\+I\+C\+A\+T\+I\+O\+NS@{N\+U\+M\+B\+E\+R\+O\+F\+N\+O\+T\+I\+F\+I\+C\+A\+T\+I\+O\+NS}}
+\index{N\+U\+M\+B\+E\+R\+O\+F\+N\+O\+T\+I\+F\+I\+C\+A\+T\+I\+O\+NS@{N\+U\+M\+B\+E\+R\+O\+F\+N\+O\+T\+I\+F\+I\+C\+A\+T\+I\+O\+NS}!Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests@{Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests}}
+\subsubsection{N\+U\+M\+B\+E\+R\+O\+F\+N\+O\+T\+I\+F\+I\+C\+A\+T\+I\+O\+NS}
+{\footnotesize\ttfamily const int Gtd\+App.\+Logic.\+Tests.\+Business\+Logic.\+Business\+Logic\+Tests.\+N\+U\+M\+B\+E\+R\+O\+F\+N\+O\+T\+I\+F\+I\+C\+A\+T\+I\+O\+NS = 5\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Contant for Number of notifications to be generated 
+
+int 5
+
+\subsection{Property Documentation}
+\mbox{\label{class_gtd_app_1_1_logic_1_1_tests_1_1_business_logic_1_1_business_logic_tests_a818c3236861c289c8e2b1c107a5104e1}} 
+\index{Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests@{Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests}!Business\+Logic@{Business\+Logic}}
+\index{Business\+Logic@{Business\+Logic}!Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests@{Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests}}
+\subsubsection{Business\+Logic}
+{\footnotesize\ttfamily \textbf{ Business\+Logic} Gtd\+App.\+Logic.\+Tests.\+Business\+Logic.\+Business\+Logic\+Tests.\+Business\+Logic\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}, {\ttfamily [protected]}}
+
+
+
+Gets or sets \doxyref{Business\+Logic}{p.}{namespace_gtd_app_1_1_logic_1_1_tests_1_1_business_logic} 
+
+Mock of \doxyref{Business\+Logic}{p.}{namespace_gtd_app_1_1_logic_1_1_tests_1_1_business_logic}\mbox{\label{class_gtd_app_1_1_logic_1_1_tests_1_1_business_logic_1_1_business_logic_tests_a3b8877f5f789c5aba37e4616e58c494f}} 
+\index{Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests@{Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests}!Containers@{Containers}}
+\index{Containers@{Containers}!Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests@{Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests}}
+\subsubsection{Containers}
+{\footnotesize\ttfamily List$<$\textbf{ Container}$>$ Gtd\+App.\+Logic.\+Tests.\+Business\+Logic.\+Business\+Logic\+Tests.\+Containers\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}, {\ttfamily [protected]}}
+
+
+
+Gets or sets Containers 
+
+List of Container\mbox{\label{class_gtd_app_1_1_logic_1_1_tests_1_1_business_logic_1_1_business_logic_tests_a44f9d06a6c739529cc1457737da38ee5}} 
+\index{Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests@{Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests}!Item\+Notifications@{Item\+Notifications}}
+\index{Item\+Notifications@{Item\+Notifications}!Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests@{Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests}}
+\subsubsection{Item\+Notifications}
+{\footnotesize\ttfamily List$<$\textbf{ Item\+\_\+notification}$>$ Gtd\+App.\+Logic.\+Tests.\+Business\+Logic.\+Business\+Logic\+Tests.\+Item\+Notifications\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}, {\ttfamily [protected]}}
+
+
+
+Gets or sets Item\+Notifications 
+
+List of Item\+\_\+notification\mbox{\label{class_gtd_app_1_1_logic_1_1_tests_1_1_business_logic_1_1_business_logic_tests_a3e65cb4fc26152062ea25398f1a849ea}} 
+\index{Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests@{Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests}!Items@{Items}}
+\index{Items@{Items}!Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests@{Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests}}
+\subsubsection{Items}
+{\footnotesize\ttfamily List$<$\textbf{ Item}$>$ Gtd\+App.\+Logic.\+Tests.\+Business\+Logic.\+Business\+Logic\+Tests.\+Items\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}, {\ttfamily [protected]}}
+
+
+
+Gets or sets Items 
+
+List of Item\mbox{\label{class_gtd_app_1_1_logic_1_1_tests_1_1_business_logic_1_1_business_logic_tests_a2c02f2f3995d7a06f49a6fab699c33ae}} 
+\index{Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests@{Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests}!Mock\+Container\+Repository@{Mock\+Container\+Repository}}
+\index{Mock\+Container\+Repository@{Mock\+Container\+Repository}!Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests@{Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests}}
+\subsubsection{Mock\+Container\+Repository}
+{\footnotesize\ttfamily Mock$<$\textbf{ I\+Container\+Repository}$>$ Gtd\+App.\+Logic.\+Tests.\+Business\+Logic.\+Business\+Logic\+Tests.\+Mock\+Container\+Repository\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}, {\ttfamily [protected]}}
+
+
+
+Gets or sets Mock\+Container 
+
+Mock of I\+Container\+Repository\mbox{\label{class_gtd_app_1_1_logic_1_1_tests_1_1_business_logic_1_1_business_logic_tests_abf08bcdc14816d6c3dc7677800c4d1a7}} 
+\index{Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests@{Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests}!Mock\+Item\+Notificaion\+Repository@{Mock\+Item\+Notificaion\+Repository}}
+\index{Mock\+Item\+Notificaion\+Repository@{Mock\+Item\+Notificaion\+Repository}!Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests@{Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests}}
+\subsubsection{Mock\+Item\+Notificaion\+Repository}
+{\footnotesize\ttfamily Mock$<$\textbf{ I\+Item\+\_\+\+Notification\+Repository}$>$ Gtd\+App.\+Logic.\+Tests.\+Business\+Logic.\+Business\+Logic\+Tests.\+Mock\+Item\+Notificaion\+Repository\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}, {\ttfamily [protected]}}
+
+
+
+Gets or sets Mock\+Item\+Notificaion 
+
+Mock of I\+Item\+\_\+\+Notification\+Repository\mbox{\label{class_gtd_app_1_1_logic_1_1_tests_1_1_business_logic_1_1_business_logic_tests_af8480665c5d6375df486c5f824abd316}} 
+\index{Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests@{Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests}!Mock\+Item\+Repository@{Mock\+Item\+Repository}}
+\index{Mock\+Item\+Repository@{Mock\+Item\+Repository}!Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests@{Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests}}
+\subsubsection{Mock\+Item\+Repository}
+{\footnotesize\ttfamily Mock$<$\textbf{ I\+Item\+Repository}$>$ Gtd\+App.\+Logic.\+Tests.\+Business\+Logic.\+Business\+Logic\+Tests.\+Mock\+Item\+Repository\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}, {\ttfamily [protected]}}
+
+
+
+Gets or sets Mock\+Item 
+
+Mock of I\+Item\+Repository\mbox{\label{class_gtd_app_1_1_logic_1_1_tests_1_1_business_logic_1_1_business_logic_tests_a4f9d945c91afa9ca4ac646d9b68484ce}} 
+\index{Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests@{Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests}!Mock\+Notification\+Repository@{Mock\+Notification\+Repository}}
+\index{Mock\+Notification\+Repository@{Mock\+Notification\+Repository}!Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests@{Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests}}
+\subsubsection{Mock\+Notification\+Repository}
+{\footnotesize\ttfamily Mock$<$\textbf{ I\+Notification\+Repository}$>$ Gtd\+App.\+Logic.\+Tests.\+Business\+Logic.\+Business\+Logic\+Tests.\+Mock\+Notification\+Repository\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}, {\ttfamily [protected]}}
+
+
+
+Gets or sets Mock\+Notification 
+
+Mock of I\+Notification\+Repository\mbox{\label{class_gtd_app_1_1_logic_1_1_tests_1_1_business_logic_1_1_business_logic_tests_af41d43002862eb46690516327df3f53e}} 
+\index{Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests@{Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests}!Notifications@{Notifications}}
+\index{Notifications@{Notifications}!Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests@{Gtd\+App\+::\+Logic\+::\+Tests\+::\+Business\+Logic\+::\+Business\+Logic\+Tests}}
+\subsubsection{Notifications}
+{\footnotesize\ttfamily List$<$\textbf{ Notification}$>$ Gtd\+App.\+Logic.\+Tests.\+Business\+Logic.\+Business\+Logic\+Tests.\+Notifications\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}, {\ttfamily [protected]}}
+
+
+
+Gets or sets Notifications 
+
+List of Notificaitons
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Projects/\+O\+E/oenik\+\_\+prog3\+\_\+2018\+\_\+2\+\_\+ep7d0o/\+O\+E\+N\+I\+K\+\_\+\+P\+R\+O\+G3\+\_\+2018\+\_\+2\+\_\+\+E\+P7\+D0\+O/\+Gtd\+App.\+Logic.\+Tests/\+Business\+Logic/Business\+Logic\+Tests.\+cs\end{DoxyCompactItemize}

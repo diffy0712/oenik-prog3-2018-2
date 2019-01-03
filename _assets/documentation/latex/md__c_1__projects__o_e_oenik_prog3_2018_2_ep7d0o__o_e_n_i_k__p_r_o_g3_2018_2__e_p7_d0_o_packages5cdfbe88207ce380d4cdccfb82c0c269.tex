@@ -29,11 +29,11 @@
 \item 2781 Fixed precompiler typo
 \item 2786 Timeout value not resetting on Retry of failed test
 \item 2790 Removing I\+Type\+Info abstraction
-\item 2798 \mbox{[}Request\mbox{]} Show actual count value when test fail on Has.\+Exactly(x).Items
+\item 2798 [Request] Show actual count value when test fail on Has.\+Exactly(x).Items
 \item 2814 Remove public marker types
 \item 2819 Only run App\+Veyor PR build against open P\+Rs
 \item 2821 Save and restore the Synchronization\+Context before and after each test case
-\item 2823 Set\+Up failed for test fixture -\/ Array was not a one-\/dimensional array. Issue seems related to byte\mbox{[},\mbox{]} method parameters
+\item 2823 Set\+Up failed for test fixture -\/ Array was not a one-\/dimensional array. Issue seems related to byte[,] method parameters
 \item 2829 Obsoletion warning for Data\+Attribute
 \item 2831 Regular \char`\"{}\+Busy\+Exec\+Idle after 200 milliseconds delay\char`\"{} CI failures
 \item 2833 Use longer Busy\+Exec\+Idle to avoid CI failures
@@ -112,7 +112,7 @@ In order to support the .N\+ET Standard 2.\+0 version, the N\+Unit project switc
 \item 2626 Set\+Up/\+Tear\+Down methods are invoked multiple times before/after test in .N\+ET Standard targeted projects
 \item 2627 Breaking change in Collection\+Assert.\+All\+Items\+Are\+Unique with N\+Unit 3.\+9
 \item 2628 Error during installing tools when running build script
-\item 2630 Framework throws Null\+Reference\+Exception if test parameter is marked with \mbox{[}Values(null)\mbox{]}
+\item 2630 Framework throws Null\+Reference\+Exception if test parameter is marked with [Values(null)]
 \item 2632 Parallel tests are loading 100\% C\+PU when nested Set\+Up\+Fixture exists
 \item 2639 Values\+Attribute causes Expected\+Result to have no effect
 \item 2647 Add Current Attempt indicator in Test\+Context for use with Retry\+Attribute
@@ -149,7 +149,7 @@ This release addresses numerous parallelization issues that were introduced in 3
 \begin{DoxyItemize}
 \item 893 Inconsistent Tuple behavior.
 \item 1239 N\+Unit3 sometimes hangs if Set\+Up\+Fixtures are run in parallel
-\item 1346 Null\+Reference\+Exception when \mbox{[}Test\+Fixture\+Source\mbox{]} refers to data in a generic class.
+\item 1346 Null\+Reference\+Exception when [Test\+Fixture\+Source] refers to data in a generic class.
 \item 1473 Allow Is.\+Ordered to Compare Null Values
 \item 1899 Constraint Throws.\+Exception does not catch exception with async lambdas
 \item 1905 Setup\+Fixture without namespace will make assembly-\/level Parallelizable attribute useless
@@ -174,15 +174,15 @@ This release addresses numerous parallelization issues that were introduced in 3
 \item 2426 Regression in 3.\+8.\+1\+: Apartment\+Attribute no longer works when applied to an assembly
 \item 2428 Fix Null\+Reference\+Exceptions caused by Work\+Item\+Queue not being thread-\/safe
 \item 2429 Stack trace shown for Assert.\+Warn
-\item 2438 \mbox{[}Parallelizable\mbox{]} hangs after a few tests
+\item 2438 [Parallelizable] hangs after a few tests
 \item 2441 Allows to override load-\/time/execution-\/time interfaces in built-\/in tests attributes
 \item 2446 CI failure in mono Warning tests
 \item 2448 Inherited Test Set\+Up, Tear\+Down, etc. are not executed in .N\+ET Core if they are not public
 \item 2451 Compile Reg\+Ex to improve performance
 \item 2454 Set\+Up\+Fixture not respecting Non\+Parallelizable tag on Test\+Fixtures.
-\item 2459 \mbox{[}Parallelizable(Parallel\+Scope.\+Children)\mbox{]} Unable to finish tests
+\item 2459 [Parallelizable(Parallel\+Scope.\+Children)] Unable to finish tests
 \item 2465 Possible wrong properties are returned by reflection in Reflection\+Extensions.\+cs
-\item 2467 Test execution hangs when using \mbox{[}Set\+Up\+Fixture\mbox{]} with N\+Unit 3.\+8.\+x
+\item 2467 Test execution hangs when using [Set\+Up\+Fixture] with N\+Unit 3.\+8.\+x
 \item 2469 Allow Range\+Attribute to be specified multiple times for the same argument
 \item 2471 Parametrized testcases not running in parallel
 \item 2475 Framework incorrectly identifies Win 10 in xml results
@@ -286,7 +286,7 @@ This is a hotfix release that addresses occasional hangs when using test paralle
 
 \subsubsection*{N\+Unit 3.\+7 -\/ May 29, 2017}
 
-This release of N\+Unit expands on parallel test execution to allow test methods to be run in parallel. Please see the \href{https://github.com/nunit/docs/wiki/Parallelizable-Attribute}{\tt Parallelizable Attribute} for more information.
+This release of N\+Unit expands on parallel test execution to allow test methods to be run in parallel. Please see the {\tt Parallelizable Attribute} for more information.
 
 N\+Unit 3.\+7 also drops the Portable build of the framework and replaces it with a .N\+ET Standard 1.\+3 version to compliment the .N\+ET Standard 1.\+6 version. This change enables several constraints and other features in the .N\+ET Standard builds that weren\textquotesingle{}t available in portable like Path and Directory based asserts.
 
@@ -424,9 +424,9 @@ This release of the framework no longer includes builds for Compact Framework or
 \item 1828 Add Retry for failed tests only
 \item 1829 N\+Unit\+Lite accepts --params option but does not make any use of it.
 \item 1836 Support nullable enums in Theories
-\item 1837 \mbox{[}Request\mbox{]} After\+Contraint to support more readable usage
+\item 1837 [Request] After\+Contraint to support more readable usage
 \item 1840 Remove SL and CF \#\+Defined source
-\item 1866 \mbox{[}Request\mbox{]} More readable way to set polling interval in After constraint
+\item 1866 [Request] More readable way to set polling interval in After constraint
 \item 1870 Equal\+Constraint result failure message for Date\+Time doesn\textquotesingle{}t show sufficient resolution
 \item 1872 Parameterized method being called with no parameter
 \item 1876 What should we do about Env.\+cs
@@ -477,7 +477,7 @@ This is also the first release where the N\+Unit Framework will not be included 
 \item 995 Enable Warning as Error
 \item 1106 Move various Assembly Info files under Properties for CF
 \item 1334 Add Assert.\+Zero and Assert.\+Not\+Zero
-\item 1479 Don\textquotesingle{}t enforce \mbox{[}Timeout\mbox{]} when debugger is attached
+\item 1479 Don\textquotesingle{}t enforce [Timeout] when debugger is attached
 \item 1540 Remove old .N\+ET Core Projects
 \item 1553 Allow ordering tests to be done in multiple properties
 \item 1575 Escaping control chars in custom message
@@ -651,7 +651,7 @@ This is also the first release where the N\+Unit Framework will not be included 
 \item 1302 Create Event\+Listener Extension\+Point for the Engine
 \item 1317 Getting CF framework unit tests running on CI build
 \item 1318 N\+Unit console runner fails with error code -\/100
-\item 1327 Test\+Case\+Source in N\+Unit 3 converts an argument declared as String\mbox{[}\mbox{]} to String
+\item 1327 Test\+Case\+Source in N\+Unit 3 converts an argument declared as String[] to String
 \item 1329 Unable to build without Compact Framework
 \item 1333 Single Thread per Worker
 \item 1338 B\+U\+I\+L\+D\+I\+N\+G.\+txt is outdated
@@ -1102,7 +1102,7 @@ N\+O\+TE\+: The {\ttfamily nunit3-\/console} runner cannot run tests that refere
 
 
 \begin{DoxyItemize}
-\item Added a core engine which is a non-\/extensible, minimal engine for use by devices and similar situations where reduced functionality is compensated for by reduced size and simplicity of usage. See \href{https://github.com/nunit/dev/wiki/Core-Engine}{\tt https\+://github.\+com/nunit/dev/wiki/\+Core-\/\+Engine} for more information.
+\item Added a core engine which is a non-\/extensible, minimal engine for use by devices and similar situations where reduced functionality is compensated for by reduced size and simplicity of usage. See {\tt https\+://github.\+com/nunit/dev/wiki/\+Core-\/\+Engine} for more information.
 \end{DoxyItemize}
 
 \paragraph*{Issues Resolved}
@@ -1272,7 +1272,7 @@ N\+O\+TE\+: The {\ttfamily nunit3-\/console} runner cannot run tests that refere
 \item 370 Output\+Writer addins
 \item 403 Move Console\+Options.\+cs and Options.\+cs to Common and share...
 \item 419 Create Windows Installer for N\+Unit.
-\item 427 \mbox{[}Test\+Fixture(Ignore=true)\mbox{]} should not be allowed.
+\item 427 [Test\+Fixture(Ignore=true)] should not be allowed.
 \item 437 Errors in tests under Linux due to hard-\/coded paths.
 \item 441 N\+Unit-\/\+Console should support --testlist option
 \item 442 Add --stoponerror option back to nunit-\/console.
@@ -1339,7 +1339,7 @@ N\+O\+TE\+: The {\ttfamily nunit3-\/console} runner cannot run tests that refere
 \item 390 Specify exactly what happens when a test times out
 \item 396 Apartment\+Attribute
 \item 397 CF nunitlite runner assembly has the wrong name
-\item 407 Assert.\+Pass() with \mbox{]}\mbox{]}$>$ in message crashes console runner
+\item 407 Assert.\+Pass() with ]]$>$ in message crashes console runner
 \item 414 Simplify Assert overloads
 \item 416 N\+Unit 2.\+x Framework Driver
 \item 417 Complete work on N\+Unit projects
@@ -1585,7 +1585,7 @@ N\+O\+TE\+: The {\ttfamily nunit3-\/console} runner cannot run tests that refere
 
 
 \begin{DoxyItemize}
-\item 8 \mbox{[}Set\+Up\+Fixture\mbox{]} is not working as expected
+\item 8 [Set\+Up\+Fixture] is not working as expected
 \item 14 CI Server for N\+Unit Framework
 \item 21 Is.\+In\+Range Constraint Ambiguity
 \item 27 Values attribute support for enum types
@@ -1651,7 +1651,7 @@ N\+O\+TE\+: Bug Fixes below this point refer to the number of the bug in Launchp
 \item 676560 Assert.\+Are\+Equal does not support {\ttfamily I\+Equatable$<$T$>$}
 \item 691129 Add Category parameter to Test\+Fixture
 \item 697069 Feature request\+: dynamic location for Test\+Result.\+xml
-\item 708173 N\+Unit\textquotesingle{}s logic for comparing arrays -\/ use {\ttfamily Comparer$<$T\mbox{[}\mbox{]}$>$} if it is provided
+\item 708173 N\+Unit\textquotesingle{}s logic for comparing arrays -\/ use {\ttfamily Comparer$<$T[]$>$} if it is provided
 \item 709062 \char`\"{}\+System.\+Argument\+Exception \+: Cannot compare\char`\"{} when the element is a list
 \item 712156 Tests cannot use App\+Domain.\+Set\+Principal\+Policy
 \item 719184 Platformdependency in src/\+Client\+Utilities/util/\+Services/\+Domain\+Manager.\+cs\+:40

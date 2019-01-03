@@ -79,9 +79,6 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a30034fc82c4843ddba655438c2f6b031"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_gtd_app_1_1_logic_1_1_routing_1_1_router_helper.html#a30034fc82c4843ddba655438c2f6b031">PrepareRouteParametersForInvoke</a> (ref <a class="el" href="class_gtd_app_1_1_logic_1_1_routing_1_1_route.html">Route</a> route, object[] parameters=null)</td></tr>
-<tr class="memdesc:a30034fc82c4843ddba655438c2f6b031"><td class="mdescLeft">&#160;</td><td class="mdescRight">We push null to every parameter the method expects. Fixme: This should not be here I assume I made some mistake , because it throws exceptions for not having parameters. so debug it and if needed fix.  <a href="#a30034fc82c4843ddba655438c2f6b031">More...</a><br /></td></tr>
-<tr class="separator:a30034fc82c4843ddba655438c2f6b031"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa2d42769c4ecafc695851531d12e72d7"><td class="memItemLeft" align="right" valign="top">static List&lt; <a class="el" href="interface_gtd_app_1_1_logic_1_1_interfaces_1_1_i_controller.html">IController</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_gtd_app_1_1_logic_1_1_routing_1_1_router_helper.html#aa2d42769c4ecafc695851531d12e72d7">LoadControllersFromDLLNamespace</a> (string nameSpace, object[] instanceParameters=null)</td></tr>
 <tr class="memdesc:aa2d42769c4ecafc695851531d12e72d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">LoadControllersFromNamespaceDLL HelpMe/Fixme: Loading all instances into a list and than calling from it as needed might be too much if we have big or much controllers. Could I lazy load them or apply proxy maybe?  <a href="#aa2d42769c4ecafc695851531d12e72d7">More...</a><br /></td></tr>
 <tr class="separator:aa2d42769c4ecafc695851531d12e72d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -235,51 +232,6 @@ Static Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>List of controller class instances</dd></dl>
-
-</div>
-</div>
-<a id="a30034fc82c4843ddba655438c2f6b031"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a30034fc82c4843ddba655438c2f6b031">&#9670;&nbsp;</a></span>PrepareRouteParametersForInvoke()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void GtdApp.Logic.Routing.RouterHelper.PrepareRouteParametersForInvoke </td>
-          <td>(</td>
-          <td class="paramtype">ref <a class="el" href="class_gtd_app_1_1_logic_1_1_routing_1_1_route.html">Route</a>&#160;</td>
-          <td class="paramname"><em>route</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">object []&#160;</td>
-          <td class="paramname"><em>parameters</em> = <code>null</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>We push null to every parameter the method expects. Fixme: This should not be here I assume I made some mistake , because it throws exceptions for not having parameters. so debug it and if needed fix. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">route</td><td><a class="el" href="class_gtd_app_1_1_logic_1_1_routing_1_1_route.html" title="Route ">Route</a> instance to use</td></tr>
-    <tr><td class="paramname">parameters</td><td>Parameters to pass to the method</td></tr>
-  </table>
-  </dd>
-</dl>
 
 </div>
 </div>

@@ -98,9 +98,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a58da3bf4239487b5553b8de26c70ca3d"><td class="memItemLeft" align="right" valign="top">IQueryable&lt; <a class="el" href="class_gtd_app_1_1_data_1_1_notification.html">Notification</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_gtd_app_1_1_repository_1_1_notification_repository.html#a58da3bf4239487b5553b8de26c70ca3d">GetUpcomingNotifications</a> (string search, <a class="el" href="class_gtd_app_1_1_repository_1_1_paginator.html">Paginator</a> paginator)</td></tr>
 <tr class="memdesc:a58da3bf4239487b5553b8de26c70ca3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">GetUpcomingNotifications  <a href="#a58da3bf4239487b5553b8de26c70ca3d">More...</a><br /></td></tr>
 <tr class="separator:a58da3bf4239487b5553b8de26c70ca3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5bc417471e17a2b2730f92fdf207426c"><td class="memItemLeft" align="right" valign="top">IQueryable&lt; <a class="el" href="class_gtd_app_1_1_data_1_1_notification.html">Notification</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_gtd_app_1_1_repository_1_1_notification_repository.html#a5bc417471e17a2b2730f92fdf207426c">GetAll</a> (<a class="el" href="class_gtd_app_1_1_repository_1_1_paginator.html">Paginator</a> paginator)</td></tr>
-<tr class="memdesc:a5bc417471e17a2b2730f92fdf207426c"><td class="mdescLeft">&#160;</td><td class="mdescRight">GetAll  <a href="#a5bc417471e17a2b2730f92fdf207426c">More...</a><br /></td></tr>
-<tr class="separator:a5bc417471e17a2b2730f92fdf207426c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d38a282d9605871ba58b84388faa062"><td class="memItemLeft" align="right" valign="top">IQueryable&lt; <a class="el" href="class_gtd_app_1_1_data_1_1_dto_1_1_aggregates_by_notification_type_dto.html">AggregatesByNotificationTypeDto</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_gtd_app_1_1_repository_1_1_notification_repository.html#a4d38a282d9605871ba58b84388faa062">GetAggregatesByNotificationType</a> (string search, <a class="el" href="class_gtd_app_1_1_repository_1_1_paginator.html">Paginator</a> paginator)</td></tr>
+<tr class="memdesc:a4d38a282d9605871ba58b84388faa062"><td class="mdescLeft">&#160;</td><td class="mdescRight">GetAggregatesByContainerType  <a href="#a4d38a282d9605871ba58b84388faa062">More...</a><br /></td></tr>
+<tr class="separator:a4d38a282d9605871ba58b84388faa062"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_gtd_app_1_1_repository_1_1_repository"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_gtd_app_1_1_repository_1_1_repository')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_gtd_app_1_1_repository_1_1_repository.html">GtdApp.Repository.Repository&lt; Notification &gt;</a></td></tr>
 <tr class="memitem:a7f85fc7e6c3c85b561ac9d31859c9ed5 inherit pub_methods_class_gtd_app_1_1_repository_1_1_repository"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_gtd_app_1_1_repository_1_1_repository.html#a7f85fc7e6c3c85b561ac9d31859c9ed5">Repository</a> (<a class="el" href="class_gtd_app_1_1_data_1_1_gtd_entity_data_model.html">GtdEntityDataModel</a> <a class="el" href="class_gtd_app_1_1_repository_1_1_repository.html#a693057a1b8acd4c3778c183440feed41">context</a>)</td></tr>
 <tr class="memdesc:a7f85fc7e6c3c85b561ac9d31859c9ed5 inherit pub_methods_class_gtd_app_1_1_repository_1_1_repository"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a new instance of the <a class="el" href="class_gtd_app_1_1_repository_1_1_repository.html#a7f85fc7e6c3c85b561ac9d31859c9ed5" title="Initializes a new instance of the Repository&lt;TEntity&gt; class. Repository ">Repository&lt;TEntity&gt;</a> class. Repository  <a href="class_gtd_app_1_1_repository_1_1_repository.html#a7f85fc7e6c3c85b561ac9d31859c9ed5">More...</a><br /></td></tr>
@@ -180,30 +180,43 @@ Additional Inherited Members</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a5bc417471e17a2b2730f92fdf207426c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5bc417471e17a2b2730f92fdf207426c">&#9670;&nbsp;</a></span>GetAll()</h2>
+<a id="a4d38a282d9605871ba58b84388faa062"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d38a282d9605871ba58b84388faa062">&#9670;&nbsp;</a></span>GetAggregatesByNotificationType()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">IQueryable&lt;<a class="el" href="class_gtd_app_1_1_data_1_1_notification.html">Notification</a>&gt; GtdApp.Repository.NotificationRepository.GetAll </td>
+          <td class="memname">IQueryable&lt;<a class="el" href="class_gtd_app_1_1_data_1_1_dto_1_1_aggregates_by_notification_type_dto.html">AggregatesByNotificationTypeDto</a>&gt; GtdApp.Repository.NotificationRepository.GetAggregatesByNotificationType </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_gtd_app_1_1_repository_1_1_paginator.html">Paginator</a>&#160;</td>
-          <td class="paramname"><em>paginator</em></td><td>)</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>search</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="el" href="class_gtd_app_1_1_repository_1_1_paginator.html">Paginator</a>&#160;</td>
+          <td class="paramname"><em>paginator</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>GetAll </p>
-<dl class="section return"><dt>Returns</dt><dd>IQueryable</dd></dl>
+<p>GetAggregatesByContainerType </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
+    <tr><td class="paramname">search</td><td>String</td></tr>
     <tr><td class="paramname">paginator</td><td><a class="el" href="class_gtd_app_1_1_repository_1_1_paginator.html" title="ContainerController ">Paginator</a> instance</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>IQueryable</dd></dl>
+
+<p>Implements <a class="el" href="interface_gtd_app_1_1_repository_1_1_interfaces_1_1_i_notification_repository.html#aa97ab139ba5316a9ba7faaa3423c8c04">GtdApp.Repository.Interfaces.INotificationRepository</a>.</p>
 
 </div>
 </div>

@@ -8,5 +8,7 @@ var searchData=
   ['route',['Route',['../class_gtd_app_1_1_logic_1_1_routing_1_1_route.html',1,'GtdApp::Logic::Routing']]],
   ['routeattribute',['RouteAttribute',['../class_gtd_app_1_1_logic_1_1_attributes_1_1_route_attribute.html',1,'GtdApp::Logic::Attributes']]],
   ['router',['Router',['../class_gtd_app_1_1_logic_1_1_routing_1_1_router.html',1,'GtdApp::Logic::Routing']]],
-  ['routerhelper',['RouterHelper',['../class_gtd_app_1_1_logic_1_1_routing_1_1_router_helper.html',1,'GtdApp::Logic::Routing']]]
+  ['routerhelper',['RouterHelper',['../class_gtd_app_1_1_logic_1_1_routing_1_1_router_helper.html',1,'GtdApp::Logic::Routing']]],
+  ['routerhelpertests',['RouterHelperTests',['../class_gtd_app_1_1_logic_1_1_tests_1_1_router_1_1_router_helper_tests.html',1,'GtdApp::Logic::Tests::Router']]],
+  ['routertests',['RouterTests',['../class_gtd_app_1_1_logic_1_1_tests_1_1_router_1_1_router_tests.html',1,'GtdApp::Logic::Tests::Router']]]
 ];
