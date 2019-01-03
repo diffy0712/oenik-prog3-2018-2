@@ -9,6 +9,7 @@ namespace GtdApp.Repository
 {
     using System.Linq;
     using GtdApp.Data;
+    using GtdApp.Data.Dto;
     using GtdApp.Repository.Interfaces;
 
     /// <summary>
@@ -56,6 +57,27 @@ namespace GtdApp.Repository
                     select notification;
 
             return g;
+        }
+
+        /// <summary>
+        ///     GetAggregatesByContainerType
+        /// </summary>
+        /// <param name="search">String</param>
+        /// <param name="paginator">Paginator instance</param>
+        /// <returns>IQueryable</returns>
+        public IQueryable<AggregatesByNotificationTypeDto> GetAggregatesByNotificationType(string search, Paginator paginator)
+        {
+            var g = from notification in this.GtdEntityDataModel.Notification
+                    group notification by notification.type into c
+                    orderby c.Key
+                    select new AggregatesByNotificationTypeDto()
+                    {
+                        Notification_type = c.Key,
+                        Notification_count = c.Count(),
+                        Item_count = c.Sum(x => x.Item_notification.Count())
+                    };
+
+            return g.Skip(paginator.Skip).Take(paginator.PerPage);
         }
     }
 }

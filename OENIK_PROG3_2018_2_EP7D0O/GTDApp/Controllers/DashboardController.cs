@@ -33,6 +33,7 @@ namespace GtdApp.Console.Controllers
             view.NumberOfNotifications = ConsoleCore.BusinessLogic.NotificationRepository.GetAll().Count();
             view.AggregatesByContainerType = ConsoleCore.BusinessLogic.ContainerRepository.GetAggregatesByContainerType(string.Empty, new Paginator());
             view.UpcomingNotifications = ConsoleCore.BusinessLogic.Item_NotificationRepository.GetUpcomingNotifications(string.Empty, new Paginator());
+            view.AggregatesByNotificationType = ConsoleCore.BusinessLogic.NotificationRepository.GetAggregatesByNotificationType(string.Empty, new Paginator());
             view.Render();
         }
     }

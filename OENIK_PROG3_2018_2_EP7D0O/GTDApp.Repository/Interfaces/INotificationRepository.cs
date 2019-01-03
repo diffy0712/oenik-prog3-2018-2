@@ -9,6 +9,7 @@ namespace GtdApp.Repository.Interfaces
 {
     using System.Linq;
     using GtdApp.Data;
+    using GtdApp.Data.Dto;
 
     /// <summary>
     ///     IContainerRepository
@@ -22,5 +23,13 @@ namespace GtdApp.Repository.Interfaces
         /// <param name="paginator">Paginator instance</param>
         /// <returns>IQueryable</returns>
         IQueryable<Notification> SearchAll(string search, Paginator paginator);
+
+        /// <summary>
+        ///     GetAggregatesByNotificationType
+        /// </summary>
+        /// <param name="search">String</param>
+        /// <param name="paginator">Paginator instance</param>
+        /// <returns>IQueryable</returns>
+        IQueryable<AggregatesByNotificationTypeDto> GetAggregatesByNotificationType(string search, Paginator paginator);
     }
 }

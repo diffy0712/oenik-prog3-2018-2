@@ -48,6 +48,12 @@ namespace GtdApp.Console.Views
         public IQueryable<object> AggregatesByContainerType { get; set; }
 
         /// <summary>
+        ///     Gets or sets AggregatesByNotificationType
+        /// </summary>
+        /// <value>IQueryable</value>
+        public IQueryable<object> AggregatesByNotificationType { get; set; }
+
+        /// <summary>
         ///     Gets or sets UpcomingNotifications
         /// </summary>
         /// <value>IQueryable</value>
@@ -63,7 +69,38 @@ namespace GtdApp.Console.Views
             this.NotificationLine(win);
             this.ItemLine(win);
             this.AggregatesByContainerTypeBlock(win);
+            this.AggregatesByNotificationTypeBlock(win);
             this.UpcomingNotificationsBlock(win);
+        }
+
+        /// <summary>
+        ///     Aggregate by Notifications type Block render
+        /// </summary>
+        /// <param name="win">Window instance</param>
+        protected void AggregatesByNotificationTypeBlock(Window win)
+        {
+            FrameView typeView = new FrameView(new Rect(1, 17, 57, 9), "Aggregates by notification types!");
+            TableHelper tableHelper = new TableHelper(1, 0);
+
+            List<List<View>> rows = new List<List<View>>();
+
+            foreach (AggregatesByNotificationTypeDto item in this.AggregatesByNotificationType)
+            {
+                rows.Add(new List<View>()
+                {
+                    new Label($"{item.Notification_type}"),
+                    new Label($"{item.Notification_count}"),
+                    new Label($"{item.Item_count}"),
+                });
+            }
+
+            tableHelper.AddHeader("Type", 10);
+            tableHelper.AddHeader("Notifications", 10);
+            tableHelper.AddHeader("Items", 5);
+
+            tableHelper.AddRows(rows);
+            tableHelper.Render(typeView);
+            win.Add(typeView);
         }
 
         /// <summary>
@@ -101,7 +138,7 @@ namespace GtdApp.Console.Views
         /// <param name="win">Window instance</param>
         protected void AggregatesByContainerTypeBlock(Window win)
         {
-            FrameView typeView = new FrameView(new Rect(1, 7, 57, 19), "Aggregates by container types!");
+            FrameView typeView = new FrameView(new Rect(1, 7, 57, 9), "Aggregates by container types!");
             TableHelper tableHelper = new TableHelper(1, 0);
 
             List<List<View>> rows = new List<List<View>>();
