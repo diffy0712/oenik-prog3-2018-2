@@ -9,3 +9,7 @@ The Console App calls Logic operations, the logic forwards the CRUD operations t
 - The Logic and the Console App MUST NOT use dbContext methods, this is only allowed for the Repository
 - Every layer ONLY communicates with the layer directly below (Occassional upwards communication: with events - not needed now)
 - Usage of the entity types is allowed in all layers (this is not a good thing, but this semester it is accepted…)
+
+![](screenshots/1.jpg)
+![](screenshots/2.jpg)
+![](screenshots/3.jpg)
